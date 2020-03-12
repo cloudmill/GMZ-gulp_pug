@@ -1,0 +1,108 @@
+extends ../layouts/default.pug
+
+block variables
+ -var pageTitle='Партнерам'
+
+block content
+    .header
+      .header-box
+        a.header-box-logotype(href="#main")
+          +icon('logotype', 'svg')
+        .header-box-nav.lg
+          +header-box-nav-el(getData('header'))
+        a.header-box-nav-button#change-nav(href="#nav")
+          +icon('navigation', 'svg')
+    section.main#main
+      .content.main-box
+        .main-box-nav
+          +main-box-nav-el(getData('main'))
+        h2.main-box-description Продукция завода <span class="text-border-dashed">«Гиагинский»</span> представлена во всех федеральных сетях, а потребители знают и ищут именно наш бренд.
+    section.info#info
+      .content.info-box
+        .info-box-header
+          p За 2019 год мы произвели
+        +info-box-el(getData('info'))
+        .info-box-details
+          a(href="#details") Скачать презентацию
+    section.prevs
+      .content.prevs-box
+        .prevs-box-info
+          h2 Имеем эксклюзивное право на производство Адыгейского сыра и производим по технологии НМПТ
+          +icon('prevslogo', 'svg')
+        .prevs-box-row
+          +prevs-row-el(getData('prevs'))
+          .prevs-box-row-el
+            +icon('pack', 'svg')(class="pack")
+    section.contact
+      .content.contact-box
+        .contact-box-header
+          h2 Задайте вопрос или оставьте заявку на сотрудничество
+        form.contact-box-form
+          .contact-box-form-el
+            .main-field
+              input(type="text" id="name" placeholder="Ваше имя")
+              label(for="name" class="main-field-name") Ваше имя
+              label(for="name")
+            .main-field
+              input(type="text" id="phone" placeholder="Ваш телефон")
+              label(for="phone" class="main-field-name") Ваш телефон
+              label(for="phone" class="main-field-addon") необязательно
+            .main-field
+              input(type="email" id="email" placeholder="Ваша почта для ответа")
+              label(for="email" class="main-field-name") Ваша почта для ответа
+              label(for="email")
+          .contact-box-form-el
+            .main-field
+              textarea(name="question", cols="29", rows="10")
+              label(for="phone" class="main-field-name") Ваш вопрос
+              label(for="phone" class="main-field-addon") необязательно
+          .contact-box-form-el
+            .main-checkbox
+              input(type="checkbox" id="pricelist" name="pricelist")
+              label(for="pricelist" class="main-checkbox-name")
+                +icon('checkbox', 'svg')
+                p Хочу получить прайс-лист
+            .main-checkbox
+              input(type="checkbox" id="agree" name="agree")
+              label(for="agree" class="main-checkbox-name")
+                +icon('checkbox', 'svg')
+                p Согласие на обработку персональных данных в соответствии с политикой конфиденциальности
+          .contact-box-form-el
+              button(type="submit" name="send" value="1") Отправить +
+    section.about
+      .content.about-box
+        .about-box-rectangle
+          h2 О нас
+          a(href="#about")
+            +icon('arrow', 'svg')
+    section.subscription
+      .content.subscription-box
+        form.subscription-box-form
+          h2 Подпишитесь на нас
+          .main-field
+            input(type="email" id="email" placeholder="Введите почту")
+            label(for="name" class="main-field-name") Ваше имя
+            label(for="phone" class="main-field-addon")
+              button
+                +icon('arrow', 'svg')
+    footer.footer
+      .content.footer-box
+        .footer-box-row
+          .footer-box-row-el
+            .nav-start
+              .nav-start-left
+                .nav-start-left-el
+                  a.nav-start-left-el-link(href="#") Продукция
+                  .nav-start-left-el-description Сыры, масла, сыворотка
+                .nav-start-left-el
+                  a.nav-start-left-el-link(href="#") О нас
+                  .nav-start-left-el-description Кто мы и как работаем
+              .nav-start-right
+                a(href="#") Где купить
+                a(href="#") Новости и акции
+                a(href="#") Партнерам
+                a(href="#") Контакты
+          .footer-box-row-el
+            .nav-start    
+
+              

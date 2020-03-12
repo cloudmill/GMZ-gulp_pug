@@ -1,0 +1,27 @@
+mixin icon(iconName, type = 'png')
+    if(type == 'png')
+        i(class='icon '+'icon-'+iconName)
+    else
+        i(class='svg-icon '+'svg-'+iconName)
+
+mixin header-box-nav-el(json)
+  each data in json
+    .header-box-nav-el
+      a.header-box-nav-el-link(href=data.link) #{data.title}
+      .header-box-nav-el-desc #{data.description}
+
+mixin main-box-nav-el(json)
+  each data in json
+    a.main-box-nav-link(href=data.link) #{data.title}
+
+mixin info-box-el(json)
+  each data in json
+    .info-box-el
+      h3 #{data.number} <sup>#{data.units}</sup>
+      p #{data.text}
+
+mixin prevs-row-el(json)
+  each data in json
+    .prevs-box-row-el
+      +icon(data.icon, 'svg')(class=data.icon)
+      p #{data.text}

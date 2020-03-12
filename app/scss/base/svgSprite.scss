@@ -1,0 +1,119 @@
+.svg-icon {
+    font-size: 10px;
+}
+
+.svg-icon:before {
+    content:' ';
+    vertical-align:middle;
+    display: inline-block;
+    background-image: url("../images/sprite.svg");
+    background-repeat: no-repeat;
+    background-size: 40.3em 114.9em;
+}
+
+.no-svg .svg-icon:before {
+    background-image: url("../images/sprite.png");
+}
+
+
+
+  .svg-icon.svg-arrow:before {
+      background-position: 0em 0em;
+      width: 3.3em;
+      height: 1.8em;
+  }
+
+
+
+
+  .svg-icon.svg-car:before {
+      background-position: 0em -1.8em;
+      width: 13.6em;
+      height: 7.2em;
+  }
+
+
+
+
+  .svg-icon.svg-certificate:before {
+      background-position: 0em -9em;
+      width: 7.7em;
+      height: 9.1em;
+  }
+
+
+
+
+  .svg-icon.svg-checkbox:before {
+      background-position: 0em -18.1em;
+      width: 3.1em;
+      height: 3.1em;
+  }
+
+
+
+
+  .svg-icon.svg-logotype:before {
+      background-position: 0em -21.2em;
+      width: 15.1em;
+      height: 9.6em;
+  }
+
+
+
+
+  .svg-icon.svg-navigation:before {
+      background-position: 0em -30.8em;
+      width: 7.9em;
+      height: 7.8em;
+  }
+
+
+
+
+  .svg-icon.svg-pack:before {
+      background-position: 0em -38.6em;
+      width: 40.3em;
+      height: 24.2em;
+  }
+
+
+
+
+  .svg-icon.svg-presentation:before {
+      background-position: 0em -62.8em;
+      width: 7.8em;
+      height: 9.8em;
+  }
+
+
+
+
+  .svg-icon.svg-prevslogo:before {
+      background-position: 0em -72.6em;
+      width: 24.2em;
+      height: 24.3em;
+  }
+
+
+
+
+  .svg-icon.svg-statistics:before {
+      background-position: 0em -96.9em;
+      width: 10.3em;
+      height: 7em;
+  }
+
+
+
+
+  .svg-icon.svg-vote:before {
+      background-position: 0em -103.9em;
+      width: 12.1em;
+      height: 11em;
+  }
+
+
+
+
+

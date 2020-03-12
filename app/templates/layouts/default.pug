@@ -1,0 +1,17 @@
+block variables
+include ../mixins/mixins
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title=pageTitle
+        link(href='css/style.min.css' rel='stylesheet')
+    body
+        .container
+            include ../modules/header
+            block content
+            include ../modules/footer
+        script(src='js/scripts.min.js')
+        block scripts

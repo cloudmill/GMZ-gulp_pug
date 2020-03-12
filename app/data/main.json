@@ -1,0 +1,16 @@
+[
+    {
+       "title":"О нас",
+       "link":"#about"
+    },
+
+    {
+        "title":"Как мы это делаем",
+        "link":"#production"
+    },
+
+    {
+        "title":"Партнерам",
+        "link":"#buy-info"
+    }
+]

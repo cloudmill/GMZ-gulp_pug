@@ -1,0 +1,19 @@
+[
+    {
+       "title":"О нас",
+       "description":"Кто мы и как работаем",
+       "link":"#about"
+    },
+
+    {
+        "title":"Продукция",
+        "description":"Сыры, масла, сыворотка",
+        "link":"#production"
+    },
+
+    {
+        "title":"Где купить",
+        "description":"На полках магазинов",
+        "link":"#buy-info"
+    }
+]
