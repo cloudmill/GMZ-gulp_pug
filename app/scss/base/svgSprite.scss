@@ -8,7 +8,7 @@
     display: inline-block;
     background-image: url("../images/sprite.svg");
     background-repeat: no-repeat;
-    background-size: 40.3em 114.9em;
+    background-size: 40.3em 126.5em;
 }
 
 .no-svg .svg-icon:before {
@@ -53,8 +53,26 @@
 
 
 
-  .svg-icon.svg-logotype:before {
+  .svg-icon.svg-facebook:before {
       background-position: 0em -21.2em;
+      width: 1.1em;
+      height: 2.3em;
+  }
+
+
+
+
+  .svg-icon.svg-instagram:before {
+      background-position: 0em -23.5em;
+      width: 1.8em;
+      height: 1.8em;
+  }
+
+
+
+
+  .svg-icon.svg-logotype:before {
+      background-position: 0em -25.3em;
       width: 15.1em;
       height: 9.6em;
   }
@@ -63,7 +81,7 @@
 
 
   .svg-icon.svg-navigation:before {
-      background-position: 0em -30.8em;
+      background-position: 0em -34.9em;
       width: 7.9em;
       height: 7.8em;
   }
@@ -71,8 +89,17 @@
 
 
 
+  .svg-icon.svg-ok:before {
+      background-position: 0em -42.7em;
+      width: 1.4em;
+      height: 2.4em;
+  }
+
+
+
+
   .svg-icon.svg-pack:before {
-      background-position: 0em -38.6em;
+      background-position: 0em -45.1em;
       width: 40.3em;
       height: 24.2em;
   }
@@ -81,7 +108,7 @@
 
 
   .svg-icon.svg-presentation:before {
-      background-position: 0em -62.8em;
+      background-position: 0em -69.3em;
       width: 7.8em;
       height: 9.8em;
   }
@@ -90,7 +117,7 @@
 
 
   .svg-icon.svg-prevslogo:before {
-      background-position: 0em -72.6em;
+      background-position: 0em -79.1em;
       width: 24.2em;
       height: 24.3em;
   }
@@ -99,7 +126,7 @@
 
 
   .svg-icon.svg-statistics:before {
-      background-position: 0em -96.9em;
+      background-position: 0em -103.4em;
       width: 10.3em;
       height: 7em;
   }
@@ -107,10 +134,37 @@
 
 
 
+  .svg-icon.svg-twitter:before {
+      background-position: 0em -110.4em;
+      width: 2em;
+      height: 1.8em;
+  }
+
+
+
+
+  .svg-icon.svg-vk:before {
+      background-position: 0em -112.2em;
+      width: 2.6em;
+      height: 1.6em;
+  }
+
+
+
+
   .svg-icon.svg-vote:before {
-      background-position: 0em -103.9em;
+      background-position: 0em -113.8em;
       width: 12.1em;
       height: 11em;
+  }
+
+
+
+
+  .svg-icon.svg-wikipedia:before {
+      background-position: 0em -124.8em;
+      width: 2.8em;
+      height: 1.7em;
   }
 
 

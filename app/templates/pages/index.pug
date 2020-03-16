@@ -85,24 +85,46 @@ block content
             label(for="phone" class="main-field-addon")
               button
                 +icon('arrow', 'svg')
+        .subscription-box-marquee
     footer.footer
       .content.footer-box
         .footer-box-row
-          .footer-box-row-el
-            .nav-start
-              .nav-start-left
-                .nav-start-left-el
-                  a.nav-start-left-el-link(href="#") Продукция
-                  .nav-start-left-el-description Сыры, масла, сыворотка
-                .nav-start-left-el
-                  a.nav-start-left-el-link(href="#") О нас
-                  .nav-start-left-el-description Кто мы и как работаем
-              .nav-start-right
-                a(href="#") Где купить
-                a(href="#") Новости и акции
-                a(href="#") Партнерам
-                a(href="#") Контакты
-          .footer-box-row-el
-            .nav-start    
-
-              
+          .footer-box-nav-production
+            .footer-box-nav-production-left
+              .footer-box-nav-production-left-group
+                a(href="#") Продукция
+                .footer-box-nav-production-left-group-desc Сыры, масла, сыворотка
+              .footer-box-nav-production-left-group
+                a(href="#") О нас
+                .footer-box-nav-production-left-group-desc Кто мы и как работаем
+            .footer-box-nav-production-right
+              a(href="#") Где купить
+              a(href="#") Новости и акции
+              a(href="#") Партнерам
+              a(href="#") Контакты
+          .footer-box-nav-contact
+            .footer-box-nav-contact-group
+              .footer-box-nav-contact-group-name Адрес
+              .footer-box-nav-contact-group-desc 385600, Россия, Республика Адыгея, Гиагинский район, станица Гиагинская, ул. Ленина, 142
+            .footer-box-nav-contact-group
+              .footer-box-nav-contact-group-name Часы работы
+              .footer-box-nav-contact-group-desc Понедельник ­–­­ Пятница 8:00 ­–­­ 17:00
+            .footer-box-nav-contact-group
+              .footer-box-nav-contact-group-name Выходные дни
+              .footer-box-nav-contact-group-desc Суббота, Воскресенье
+          .footer-box-nav-tel
+            .footer-box-nav-tel-group
+              .footer-box-nav-tel-group-desc Служба поддержки потребителей
+              .footer-box-nav-tel-group-number 8 800 250-93-93
+            a(href="") Задать вопрос
+          .footer-box-nav-adderlinks
+            a(href="#") Политика конфиденциальности
+            a(href="#") Положение о персональных данных
+            a(href="#") СОУТ
+          .footer-box-nav-social
+            .footer-box-nav-social-title Мы в социальных сетях
+            .footer-box-nav-social-group
+              +footer-box-nav-social-group-link(getData('footer'))
+          .footer-box-nav-copyright © ОАО Молочный завод «Гиагинский» 2020 г.
+          .footer-box-nav-worked Сделано в 
+            a(href="#") CloudMill

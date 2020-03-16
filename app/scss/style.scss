@@ -36,6 +36,7 @@
 footer {
   padding-right: $min-main-padding;
   padding-left: $min-main-padding;
+  padding-bottom: 40px;
 
   &.footer {
     background-color: $background-additional;
@@ -689,6 +690,19 @@ section {
 }
 
 .subscription-box {
+  position: relative;
+
+  &-marquee {
+    position: absolute;
+    margin-top: 50px;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 17px;
+    background-image: url('../images/marquee-background.svg');
+    background-repeat: repeat-x;
+  }
+
   &-form {
     display: flex;
     flex-direction: row;
@@ -713,45 +727,121 @@ section {
 
 .footer-box {
   font-family: 'CeraPro';
+
   &-row {
-    display: flex;
-    flex-direction: row;
-    width: (100% / 3);
+    display: grid;
     justify-content: space-between;
+    grid-row-gap: 50px;
+    grid-column-gap: 50px;
   }
-}
 
-.nav-start {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  &-nav {
+    &-production {
+      grid-column: 1 / 2;
+      display: flex;
 
-  &-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
+      &-left {
+        display: flex;
+        flex-direction: column;
+        margin-right: 90px;
 
-    &-el {
-      &-link {
-        font-size: 34px;
-        color: #312930;
+        &-group {
+          margin-bottom: 30px;
+          a {
+            font-size: 34px;
+            color: #312930;
+          }
+
+          &-desc {
+            color: #919191;
+            font-size: 14px;
+            margin-top: 5px;
+          }
+        }
       }
 
-      &-description {
-        font-size: 14px;
-        color: #919191;
+      &-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        a {
+          color: #312930;
+          font-size: 18px;
+        }
       }
     }
-  }
 
-  &-right {
-    display: flex;
-    flex-direction: column;
+    &-contact {
+      grid-column: 2 / 3;
+      grid-row: 1 / 3;
 
-    a {
-      font-size: 18px;
+      display: flex;
+      flex-direction: column;
+      max-width: 312px;
+
+      &-group {
+        margin-bottom: 44px;
+        &-name {
+          color: #919191;
+          margin-bottom: 8px;
+        }
+
+        &-desc {
+          line-height: 26px;
+          color: #312930;
+        }
+      }
+    }
+
+    &-tel {
+      grid-column: 3 / 4;
+
+      &-group {
+        color: #312930;
+        margin-bottom: 25px;
+
+        &-desc {
+          font-size: 16px;
+          margin-bottom: 8px;
+        }
+
+        &-number {
+          font-weight: bold;
+          font-size: 24px;
+        }
+      }
+    }
+
+    &-adderlinks {
+      display: flex;
+      flex-direction: column;
+      font-size: 14px;
       color: #312930;
+      
+      a {
+        margin-bottom: 10px;
+      }
+    }
+
+    &-social {
+      &-title {
+        margin-bottom: 30px;
+      }
+
+      &-group {
+        &-link {
+          margin-right: 37px;
+
+          &:last-child {
+            margin-right: 0px;
+          }
+        }
+      }
+    }
+
+    &-worked {
+      grid-column: 3 / 4;
     }
   }
 }

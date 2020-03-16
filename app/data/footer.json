@@ -1,0 +1,31 @@
+[
+    {
+       "ico":"instagram",
+       "link":"#instagram"
+    },
+
+    {
+        "ico":"vk",
+        "link":"#vk"
+    },
+
+    {
+        "ico":"twitter",
+        "link":"#twitter"
+    },
+
+    {
+        "ico":"facebook",
+        "link":"#facebook"
+    },
+
+    {
+        "ico":"ok",
+        "link":"#ok"
+    },
+
+    {
+        "ico":"wikipedia",
+        "link":"#wikipedia"
+    }
+]
