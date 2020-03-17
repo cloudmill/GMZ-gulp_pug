@@ -1,4 +1,5 @@
 let gulp = require("gulp"),
+  ghpages = require("gulp-gh-pages"),
   sass = require("gulp-sass"),
   postcss = require("gulp-postcss"),
   cssnano = require("gulp-cssnano"),
@@ -203,6 +204,11 @@ gulp.task("watch", function() {
     _.sprite.svg.dir + _.sprite.svg.select,
     gulp.parallel("svgSprite")
   );
+
+  //ghpages
+  gulp.task("deploy", function() {
+    gulp.src(dirDist + '/**/*').pipe(ghpages());
+  });
 
   //конвертация
   gulp.watch(_.fonts.dir + _.fonts.select, gulp.parallel("font2css"));
