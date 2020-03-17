@@ -1,0 +1,54 @@
+.contact-box {
+    &-header {
+      width: 839px;
+  
+      @include screen('custom-660', 'max') {
+        width: auto;
+      }
+  
+      margin-bottom: 80px;
+      h2 {
+        font-family: 'PFRegalTextPro';
+        font-size: 52px;
+        color: $color-text-main;
+        line-height: 52px;
+  
+        @include screen('custom-660', 'max') {
+          font-size: 34px;
+          line-height: 33px;
+        }
+        
+        @include screen('xs', 'max') {
+          font-size: 30px;
+        }
+      }
+    }
+  
+    &-form {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+      flex-flow: wrap;
+  
+      @include screen('custom-660', 'max') {
+        flex-direction: column;
+      }
+  
+      &-el {
+        width: 45%;
+        @include screen('custom-660', 'max') {
+          width: 100%;
+        }
+        display: flex;
+        flex-direction: column;
+        font-family: 'CeraPro';
+        align-items: start;
+        justify-content: flex-end;
+  
+        & > .main-field {
+          width: 100%;
+        }
+      }
+    }
+  }

@@ -1,0 +1,130 @@
+.info-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  @include screen('custom-860', 'max') {
+    grid-template-rows: auto 1fr 1fr auto;
+  }
+
+  &-header {
+    grid-column: 2 / 4;
+    width: 384px;
+
+    @include screen('custom-860', 'max') {
+      grid-column: 1 / 4;
+      font-size: 34px;
+      width: 100%;
+    }
+
+    & > p {
+      font-family: 'PFRegalTextPro';
+      font-size: 52px;
+
+      @include screen('sm', 'max') {
+        font-size: 34px;
+      }
+      
+      @include screen('xs', 'max') {
+        width: 100%;
+        font-size: 18px;
+      }   
+    }
+  }
+
+  &-el {
+    grid-row: 2 / 3;
+
+    @include screen('sm', 'max') {
+      grid-row: unset;
+      grid-column: 1 / 4;
+    }
+
+    & > h3 {
+      font-family: 'Lineatura';
+      color: $color-text-complementary-two;
+      font-size: 110px;
+      margin-bottom: 59px;
+  
+      @include screen('md', 'max') {
+        font-size: 100px;
+        margin-bottom: 39px;
+      }
+  
+      & > sup {
+        font-size: 20px;
+        vertical-align: super;
+        position: relative;
+        left: -38px;
+        top: -28px;
+  
+        @include screen('md', 'max') {
+          font-size: 16px;
+        }
+      }
+    }
+
+    & > p {
+      font-family: 'CeraPro';
+      color: $color-text-main;
+      font-size: 20px;
+      line-height: 30px;
+      display: flex;
+      align-items: center;
+  
+      @include screen('md', 'max') {
+        font-size: 17px;
+      }
+  
+      &::before {
+        display: block;
+        content: '';
+        width: 25px;
+        height: 4px;
+        margin-right: 15px;
+        background: $color-text-complementary-two;
+      }
+    }
+  }
+
+  &-details {
+    display: grid;
+    align-items: end;
+    grid-column: 2 / 3;
+    align-items: center;
+    position: relative;
+
+    @include screen('sm', 'max') {
+      grid-column: 1 / 4;
+      text-align: center;
+      margin-top: 60px;
+      margin-bottom: 90px
+    }
+
+    & > a {
+      display: block;
+      font-size: 20px;
+      font-family: 'CeraPro';
+      position: relative;
+      z-index: 1;
+
+      &::before {
+        position: absolute;
+        content: '';
+        background: url('../images/download-presentation-border.svg');
+        width: 209px;
+        height: 10px;
+        display: block;
+        right: 50%;
+        bottom: -50%;
+        transform: translateX(50%);
+        margin-top: 10px;
+        background-repeat: no-repeat;
+         
+        @include screen('sm', 'min') {
+          transform: translateX(0%);
+        }
+      }
+    }
+  }
+}

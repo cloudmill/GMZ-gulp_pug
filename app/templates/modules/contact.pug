@@ -1,0 +1,17 @@
+mixin contact
+  section.contact&attributes(attributes)
+    .content.contact-box
+      .contact-box-header
+        h2 Задайте вопрос или оставьте заявку на сотрудничество
+      form.contact-box-form
+        .contact-box-form-el
+          +field('text', 'name', 'Ваше имя', 'Ваше имя', '')
+          +field('text', 'phone', 'Ваш телефон', 'Ваш телефон', 'необязательно')
+          +field('email', 'email', 'Ваша почта для ответа', 'Ваша почта для ответа', '')
+        .contact-box-form-el
+          +textarea('question', '29', '10', 'Ваш вопрос', 'необязательно')
+        .contact-box-form-el
+          +checkbox('pricelist', 'pricelist', 'Хочу получить прайс-листи')
+          +checkbox('agree', 'agree', 'Согласие на обработку персональных данных в соответствии с политикой конфиденциальности')
+        .contact-box-form-el
+            button(type="submit" name="send" value="1") Отправить +

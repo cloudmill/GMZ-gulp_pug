@@ -3,56 +3,24 @@ extends ../layouts/default.pug
 include ../modules/subscription.pug
 include ../modules/about.pug
 include ../modules/footer.pug
+include ../modules/contact.pug
+include ../modules/prevs.pug
+include ../modules/info_partners.pug
+include ../modules/header.pug
 
 block variables
  -var pageTitle='Партнерам'
 
 block content
-    .header
-      .header-box
-        a.header-box-logotype(href="#main")
-          +icon('logotype', 'svg')
-        .header-box-nav.lg
-          +header-box-nav-el(getData('header'))
-        a.header-box-nav-button#change-nav(href="#nav")
-          +icon('navigation', 'svg')
+    +header()
     section.main#main
       .content.main-box
         .main-box-nav
           +main-box-nav-el(getData('main'))
         h2.main-box-description Продукция завода <span class="text-border-dashed">«Гиагинский»</span> представлена во всех федеральных сетях, а потребители знают и ищут именно наш бренд.
-    section.info#info
-      .content.info-box
-        .info-box-header
-          p За 2019 год мы произвели
-        +info-box-el(getData('info'))
-        .info-box-details
-          a(href="#details") Скачать презентацию
-    section.prevs
-      .content.prevs-box
-        .prevs-box-info
-          h2 Имеем эксклюзивное право на производство Адыгейского сыра и производим по технологии НМПТ
-          +icon('prevslogo', 'svg')
-        .prevs-box-row
-          +prevs-row-el(getData('prevs'))
-          .prevs-box-row-el
-            +icon('pack', 'svg')(class="pack")
-    section.contact
-      .content.contact-box
-        .contact-box-header
-          h2 Задайте вопрос или оставьте заявку на сотрудничество
-        form.contact-box-form
-          .contact-box-form-el
-            +field('text', 'name', 'Ваше имя', 'Ваше имя', '')
-            +field('text', 'phone', 'Ваш телефон', 'Ваш телефон', 'необязательно')
-            +field('email', 'email', 'Ваша почта для ответа', 'Ваша почта для ответа', '')
-          .contact-box-form-el
-            +textarea('question', '29', '10', 'Ваш вопрос', 'необязательно')
-          .contact-box-form-el
-            +checkbox('pricelist', 'pricelist', 'Хочу получить прайс-листи')
-            +checkbox('agree', 'agree', 'Согласие на обработку персональных данных в соответствии с политикой конфиденциальности')
-          .contact-box-form-el
-              button(type="submit" name="send" value="1") Отправить +
+    +info_partners()
+    +prevs()
+    +contact().bg-additional
     +about().bg-additional
     +subscription().bg-additional
     +footer().bg-additional
