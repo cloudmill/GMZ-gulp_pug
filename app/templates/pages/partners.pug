@@ -1,0 +1,23 @@
+extends ../layouts/default.pug
+
+include ../modules/subscription.pug
+include ../modules/about.pug
+include ../modules/footer.pug
+include ../modules/contact.pug
+include ../modules/prevs.pug
+include ../modules/info-partners.pug
+include ../modules/main-partners.pug
+include ../modules/header.pug
+
+block variables
+ -var pageTitle='Партнерам'
+
+block content
+    +header()
+    +main-partners().bg-additional
+    +info-partners()
+    +prevs()
+    +contact().bg-additional
+    +about().bg-additional
+    +subscription().bg-additional
+    +footer().bg-additional

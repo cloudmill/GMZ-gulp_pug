@@ -1,26 +1,13 @@
 extends ../layouts/default.pug
 
-include ../modules/subscription.pug
-include ../modules/about.pug
 include ../modules/footer.pug
-include ../modules/contact.pug
-include ../modules/prevs.pug
-include ../modules/info_partners.pug
 include ../modules/header.pug
+include ../modules/subscription.pug
 
 block variables
- -var pageTitle='Партнерам'
+ -var pageTitle='Главная'
 
 block content
     +header()
-    section.main#main
-      .content.main-box
-        .main-box-nav
-          +main-box-nav-el(getData('main'))
-        h2.main-box-description Продукция завода <span class="text-border-dashed">«Гиагинский»</span> представлена во всех федеральных сетях, а потребители знают и ищут именно наш бренд.
-    +info_partners()
-    +prevs()
-    +contact().bg-additional
-    +about().bg-additional
-    +subscription().bg-additional
-    +footer().bg-additional
+    +subscription().bg-white
+    +footer().bg-white

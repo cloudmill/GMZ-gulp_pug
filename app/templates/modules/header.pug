@@ -4,10 +4,6 @@ mixin header-box-nav-el(json)
       a.header-box-nav-el-link(href=data.link) #{data.title}
       .header-box-nav-el-desc #{data.description}
 
-mixin main-box-nav-el(json)
-  each data in json
-    a.main-box-nav-link(href=data.link) #{data.title}
-
 mixin header
   .header
     .header-box

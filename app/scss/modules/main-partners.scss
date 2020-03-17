@@ -1,0 +1,122 @@
+.main-partners-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 216px;
+
+  @include screen('custom-800', 'max') {
+    padding-top: 166px;
+  }
+
+  @include screen('xs', 'max') {
+    padding-top: 116px;
+  }
+
+  &-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $color-text-main;
+    font-family: 'CeraPro';
+
+    &-link {
+      font-size: 25px;
+      line-height: 31px;
+      transition: 0.2s;
+      margin-right: 50px;
+
+      @include screen('sm', 'max') {
+        font-size: 20px;
+        margin-right: 20px;
+      }
+
+      @include screen('xs', 'max') {
+        font-size: 15px;
+        line-height: 20px;
+        margin-right: 10px;
+      }
+
+      &::after {
+        margin-top: 5px;
+        display: block;
+        content: '';
+        height: 1px;
+        color: $color-text-complementary-two;
+        background: $color-text-complementary-two;
+        visibility: hidden;
+      }
+
+      &:hover {
+        color: $color-text-complementary-two;
+      }
+
+      &:hover::after {
+        visibility: visible;
+      }
+    }
+  }
+
+  &-description {
+    font-family: 'PFRegalTextPro';
+    font-size: 52px;
+    line-height: 52px;
+    margin-top: 99px;
+    margin-bottom: 150px;
+    position: relative;
+    width: 90%;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      width: 1289px;
+      height: 352px;
+      position: absolute;
+      background: url('../images/main-right-dash.svg');
+      background-repeat: no-repeat;
+      z-index: -1;
+      top: -112%;
+      left: -38%;
+      transform: translate(50%, 50%);
+      z-index: -1;
+
+      @include screen('lg', 'max') {
+       display: none;
+      }
+    }
+
+    & > span {
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 407px;
+        height: 74px;
+        position: absolute;
+        bottom: -70%;
+        left: 50%;
+        background: url(../images/text-border-dashed.svg);
+        transform: translate(-50%, -50%);
+        background-repeat: no-repeat;
+        z-index: -1;
+
+        @include screen('lg', 'max') {
+          display: none;
+        }
+      }
+    }
+
+    @include screen('sm', 'max') {
+      font-size: 34px;
+      margin-top: 50px;
+      line-height: 110%;
+    }
+
+    @include screen('xs', 'max') {
+      margin-top: 40px;
+      font-size: 24px;
+      margin-bottom: 90px;
+      line-height: 110%;
+      width: 100%;
+    }
+  }
+}
