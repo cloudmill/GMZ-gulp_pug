@@ -23,10 +23,6 @@ mixin info-box-el(json)
 mixin prevs-row-el(json)
   each data in json
     .prevs-box-row-el
-      +icon(data.icon, 'svg')(class=data.icon)
+      .prevs-box-row-el-icon
+        +icon(data.icon, 'svg')(class=data.icon)
       p #{data.text}
-
-mixin footer-box-nav-social-group-link(json)
-  each data in json
-    a.footer-box-nav-social-group-link(href=data.link)
-      +icon(data.ico, 'svg')

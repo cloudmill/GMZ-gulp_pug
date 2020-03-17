@@ -1,5 +1,8 @@
 block variables
 include ../mixins/mixins
+include ../mixins/checkbox
+include ../mixins/field
+include ../mixins/textarea
 
 doctype html
 html(lang="ru")
@@ -10,7 +13,6 @@ html(lang="ru")
         link(href='css/style.min.css' rel='stylesheet')
     body
         .container
-            include ../modules/header
             block content
             include ../modules/footer
         script(src='js/scripts.min.js')

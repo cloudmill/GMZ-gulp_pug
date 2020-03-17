@@ -1,0 +1,6 @@
+mixin checkbox(id_param, name_param, text)
+  .main-checkbox
+    input(type="checkbox" id=id_param name=name_param)
+    label(for=id_param class="main-checkbox-name")
+      +icon('checkbox', 'svg')
+      p= text

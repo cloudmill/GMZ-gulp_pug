@@ -19,13 +19,17 @@ $breakpoints: (
 );
 
 // ##########
-// Цвета
+// Основные переменные
 // ##########
-$color-basic:black; // Основной цвет текста (применяется к body)
+$color-text-main: #312930;
+$color-text-complementary: #919191;
+$color-text-complementary-two: #EE7754;
+
+$background-white: #ffffff;
 $background-additional: #f6f5f3;
 $color-placeholder: #777; // Основной цвет для placeholder
-$color-input: black; // Основной цвет input, select и textarea
-$color-main: #2252d8; // Основной фирменный цвет
+$color-input: $color-text-main;// Основной цвет input, select и textarea
+$color-main: $color-text-complementary-two; // Основной фирменный цвет
 $color-border: #ccc; // Основной цвет границ таблиц, секций
 
 // ##########

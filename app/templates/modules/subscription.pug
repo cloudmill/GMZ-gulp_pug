@@ -1,0 +1,12 @@
+mixin subscription
+  section.subscription&attributes(attributes)
+    .content.subscription-box
+      form.subscription-box-form
+        h2 Подпишитесь на нас
+        .main-field
+          input(type="email" id="email" placeholder="Введите почту")
+          label(for="name" class="main-field-name") Ваше имя
+          label(for="phone" class="main-field-addon")
+            button
+              +icon('arrow', 'svg')
+      .subscription-box-marquee

@@ -1,0 +1,59 @@
+.content {
+  &.subscription-box {
+    max-width: $max-width-main;
+    margin: 0 auto;
+  } 
+}
+
+.subscription-box {
+  position: relative;
+
+  &-marquee {
+    position: absolute;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 17px;
+    background-image: url('../images/marquee-background.svg');
+    background-repeat: repeat-x;
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: $color-text-main;
+
+    @include screen('custom-660', 'max') {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    & > h2 {
+      font-family: 'PFRegalTextPro';
+      font-size: 52px;
+      width: 30%;
+      line-height: 40px;
+      @include screen('custom-660', 'max') {
+        width: 100%;
+        font-size: 34px;
+      }
+
+      @include screen('xs', 'max') {
+        font-size: 30px;
+      }
+      margin-bottom: 40px;
+    }
+
+    & > .main-field {
+      width: 40%;
+      margin-bottom: 0px;
+
+      @include screen('custom-660', 'max') {
+        width: 100%;
+      }
+    }
+  }
+}

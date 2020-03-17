@@ -8,6 +8,18 @@
 @import "base/svgSprite";
 @import "base/default";
 
+@import "modules/footer";
+@import "modules/subscription";
+@import "modules/about";
+
+.bg-white {
+  background-color: $background-white;
+}
+
+.bg-additional {
+  background-color: $background-additional;
+}
+
 .container {
   padding-top: $container-padding;
   padding-right: $container-padding;
@@ -27,28 +39,17 @@
 }
 
 .content {
-  &.main-box, &.info-box, &.prevs-box, &.contact-box, &.about-box, &.subscription-box, &.footer-box {
+  &.main-box, &.info-box, &.prevs-box, &.contact-box {
     max-width: $max-width-main;
     margin: 0 auto;
   } 
-}
-
-footer {
-  padding-right: $min-main-padding;
-  padding-left: $min-main-padding;
-  padding-bottom: 40px;
-
-  &.footer {
-    background-color: $background-additional;
-    padding-top: 200px;
-  }
 }
 
 section {
   padding-right: $min-main-padding;
   padding-left: $min-main-padding;
   
-  &.main, &.contact, &.about, &.subscription {
+  &.main, &.contact {
     background-color: $background-additional;
   }
 
@@ -75,6 +76,20 @@ section {
 
   &.prevs {
     padding-top: 130px;
+    position: relative;
+
+    &::before {
+      display: block;
+      content: "";
+      width: 100%;
+      height: 50px;
+      position: absolute;
+      left: 0;
+      bottom: -27px;
+      background-size: cover;
+      background: #ffffff;
+      border-radius: 50%/50%;
+    }
 
     @include screen('xs', 'max') {
       padding-top: 50px;
@@ -83,6 +98,10 @@ section {
 
   &.contact {
     padding-top: 120px;
+
+    @include screen('xs', 'max') {
+      padding-top: 60px;
+    }
   }
 
   &.about {
@@ -114,17 +133,16 @@ section {
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
+    position: relative;
+
+    @include screen('xs', 'max') {
+      margin: -25px;
+    }
 
     &-logotype {
-      i.svg-icon.svg-logotype {
-        height: 96px;
-        width: 151px;
-        
         @include screen('xs', 'max') {
-          height: 59px;
-          width: 94px;
+          transform: scale(0.7);
         }
-      }
     }
   
     &-nav {
@@ -143,7 +161,7 @@ section {
         text-align: center;
         font-style: normal;
         font-weight: normal;
-        color: #312930;
+        color: $color-text-main;
         font-family: 'CeraPro';
   
         &-link {
@@ -156,7 +174,7 @@ section {
           }
   
           &:hover {
-            color: #EE7754;
+            color: $color-text-complementary-two;
           }
         }
   
@@ -176,19 +194,8 @@ section {
       }
   
       &-button {
-        svg {
-          height: 68px;
-          width: 66px;
-  
-          @include screen('md', 'max') {
-            height: 66px;
-            width: 91px;
-          }
-  
-          @include screen('xs', 'max') {
-            height: 48px;
-            width: 51px;
-          }
+        @include screen('xs', 'max') {
+          transform: scale(.7);
         }
       }
     }
@@ -213,7 +220,7 @@ section {
     display: flex;
     flex-direction: row;
     align-items: center;
-    color: #312930;
+    color: $color-text-main;
     font-family: 'CeraPro';
 
     &-link {
@@ -238,13 +245,13 @@ section {
         display: block;
         content: '';
         height: 1px;
-        color: #EE7754;
-        background: #EE7754;
+        color: $color-text-complementary-two;
+        background: $color-text-complementary-two;
         visibility: hidden;
       }
 
       &:hover {
-        color: #EE7754;
+        color: $color-text-complementary-two;
       }
 
       &:hover::after {
@@ -362,7 +369,7 @@ section {
 
     & > h3 {
       font-family: 'Lineatura';
-      color: #ee7754;
+      color: $color-text-complementary-two;
       font-size: 110px;
       margin-bottom: 59px;
   
@@ -386,7 +393,7 @@ section {
 
     & > p {
       font-family: 'CeraPro';
-      color: #312930;
+      color: $color-text-main;
       font-size: 20px;
       line-height: 30px;
       display: flex;
@@ -402,7 +409,7 @@ section {
         width: 25px;
         height: 4px;
         margin-right: 15px;
-        background: #EE7754;
+        background: $color-text-complementary-two;
       }
     }
   }
@@ -455,6 +462,7 @@ section {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding-bottom: 187px;
 
   @include screen('xs', 'max') {
     align-items: flex-start;
@@ -466,7 +474,18 @@ section {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 100px;
+
+    @include screen('xs', 'max') {
+      margin-bottom: 40px;
+    }
+
     width: 100%;
+
+    & > i {
+      @include screen('custom-660', 'max') {
+        display: none;
+      }
+    }
 
     @include screen('xs', 'max') {
       margin-bottom: 40px;
@@ -475,7 +494,7 @@ section {
     & > h2 {
       font-family: 'PFRegalTextPro';
       font-size: 52px;
-      color: #312930;
+      color: $color-text-main;
       width: 839px;
 
       @include screen('custom-660', 'max') {
@@ -484,14 +503,6 @@ section {
       
       @include screen('xs', 'max') {
         font-size: 24px;
-      }
-    }
-
-    & > svg {
-      width: calc(175px * 4.5);
-
-      @include screen('custom-1235', 'max') {
-        display: none;
       }
     }
   }
@@ -516,38 +527,66 @@ section {
       width: 985px;
       height: 380px;
       display: block;
-      bottom: 6%;
+      bottom: 0%;
       right: -10%;
       background-repeat: no-repeat;
       z-index: -1;
+
+      @include screen('md', 'max') {
+        display: none;
+      }
     }
 
     &-el {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      width: calc(100% / 3);
-      margin-bottom: 72px;
+      width: 26%;
+      margin-bottom: 46px;
+      position: relative;
+      box-sizing: border-box;
+
+      @include screen('md', 'max') {
+        margin-bottom: 40px;
+      }
 
       @include screen('custom-1235', 'max') {
         width: calc(100% / 2);
       }
       
       @include screen('custom-660', 'max') {
-        width: 100%;
+        width: calc(100% - 80px); //Какой-то мегакостыль временный, иначе все криво работает..
+      }
+
+      & > .svg-pack {
+        @include screen('md', 'max') {
+          left: 50%;
+          transform: scale(.7) translateX(-60%);
+          position: absolute;
+          padding-top: 10px;
+        }
       }
 
       &:nth-child(n+4) {
-        margin-bottom: 0px;
+        @include screen('md', 'min') {
+          margin-bottom: 0px;
+        }
+      }
+
+      &-icon {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 26px;
+        display: flex;
+        align-items: flex-end;
       }
 
       p {
         font-family: 'CeraPro';
         font-size: 18px;
-        color: #312930;
+        color: $color-text-main;
         line-height: 24px;
         font-weight: 500;
-        margin-top: 26px;
       }
     }
   }
@@ -556,12 +595,26 @@ section {
 .contact-box {
   &-header {
     width: 839px;
+
+    @include screen('custom-660', 'max') {
+      width: auto;
+    }
+
     margin-bottom: 80px;
     h2 {
       font-family: 'PFRegalTextPro';
       font-size: 52px;
-      color: #312930;
+      color: $color-text-main;
       line-height: 52px;
+
+      @include screen('custom-660', 'max') {
+        font-size: 34px;
+        line-height: 33px;
+      }
+      
+      @include screen('xs', 'max') {
+        font-size: 30px;
+      }
     }
   }
 
@@ -572,8 +625,15 @@ section {
     justify-content: space-between;
     flex-flow: wrap;
 
+    @include screen('custom-660', 'max') {
+      flex-direction: column;
+    }
+
     &-el {
       width: 45%;
+      @include screen('custom-660', 'max') {
+        width: 100%;
+      }
       display: flex;
       flex-direction: column;
       font-family: 'CeraPro';
@@ -590,8 +650,10 @@ section {
 .main-checkbox {
   margin-bottom: 36px;
 
-  &:last-child {
-    margin-bottom: 0px;
+  @include screen('custom-660', 'min') {
+    &:last-child {
+      margin-bottom: 0px;
+    }
   }
 
   input {
@@ -609,7 +671,7 @@ section {
 
     & > p {
       margin-left: 15px;
-      color: #312930;
+      color: $color-text-main;
       font-size: 14px;
     }
   }
@@ -618,7 +680,7 @@ section {
 .main-field {
   position: relative;
   font-size: 20px;
-  color: #312930;
+  color: $color-text-main;
   margin-bottom: 70px;
   display: flex;
   flex-direction: row;
@@ -640,7 +702,7 @@ section {
   }
 
   input, textarea {
-    border-bottom: 1px solid #312930;
+    border-bottom: 1px solid $color-text-main;
     position: relative;
     width: 100%;
     font-size: 20px;
@@ -652,196 +714,7 @@ section {
     &:focus + .main-field-name {
       transition: 0.2s;
       top: -30px;
-      color: #EE7754;
-    }
-  }
-}
-
-.about-box {
-  &-rectangle {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: url('../images/rectangle.svg');
-    max-width: 1200px;
-    padding-top: 120px;
-    padding-bottom: 120px;
-    padding-left: 200px;
-    padding-right: 200px;
-    position: relative;
-
-    &::after {
-      position: absolute;
-      content: '';
-      background: url('../images/about-rectangle-dashed.svg');
-      background-repeat: no-repeat;
-      width: 1043px;
-      height: 258px;
-      display: block;
-      left: 8%;
-      top: 10%;
-    }
-
-    & > h2 {
-      font-family: 'PFRegalTextPro';
-      font-size: 52px;
-    }
-  }
-}
-
-.subscription-box {
-  position: relative;
-
-  &-marquee {
-    position: absolute;
-    margin-top: 50px;
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 17px;
-    background-image: url('../images/marquee-background.svg');
-    background-repeat: repeat-x;
-  }
-
-  &-form {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    color: #312930;
-
-    & > h2 {
-      font-family: 'PFRegalTextPro';
-      font-size: 52px;
-      width: 30%;
-      line-height: 40px;
-    }
-
-    & > .main-field {
-      width: 40%;
-      margin-bottom: 0px;
-    }
-  }
-}
-
-.footer-box {
-  font-family: 'CeraPro';
-
-  &-row {
-    display: grid;
-    justify-content: space-between;
-    grid-row-gap: 50px;
-    grid-column-gap: 50px;
-  }
-
-  &-nav {
-    &-production {
-      grid-column: 1 / 2;
-      display: flex;
-
-      &-left {
-        display: flex;
-        flex-direction: column;
-        margin-right: 90px;
-
-        &-group {
-          margin-bottom: 30px;
-          a {
-            font-size: 34px;
-            color: #312930;
-          }
-
-          &-desc {
-            color: #919191;
-            font-size: 14px;
-            margin-top: 5px;
-          }
-        }
-      }
-
-      &-right {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-
-        a {
-          color: #312930;
-          font-size: 18px;
-        }
-      }
-    }
-
-    &-contact {
-      grid-column: 2 / 3;
-      grid-row: 1 / 3;
-
-      display: flex;
-      flex-direction: column;
-      max-width: 312px;
-
-      &-group {
-        margin-bottom: 44px;
-        &-name {
-          color: #919191;
-          margin-bottom: 8px;
-        }
-
-        &-desc {
-          line-height: 26px;
-          color: #312930;
-        }
-      }
-    }
-
-    &-tel {
-      grid-column: 3 / 4;
-
-      &-group {
-        color: #312930;
-        margin-bottom: 25px;
-
-        &-desc {
-          font-size: 16px;
-          margin-bottom: 8px;
-        }
-
-        &-number {
-          font-weight: bold;
-          font-size: 24px;
-        }
-      }
-    }
-
-    &-adderlinks {
-      display: flex;
-      flex-direction: column;
-      font-size: 14px;
-      color: #312930;
-      
-      a {
-        margin-bottom: 10px;
-      }
-    }
-
-    &-social {
-      &-title {
-        margin-bottom: 30px;
-      }
-
-      &-group {
-        &-link {
-          margin-right: 37px;
-
-          &:last-child {
-            margin-right: 0px;
-          }
-        }
-      }
-    }
-
-    &-worked {
-      grid-column: 3 / 4;
+      color: $color-text-complementary-two;
     }
   }
 }
