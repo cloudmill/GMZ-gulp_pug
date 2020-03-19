@@ -1,5 +1,5 @@
 mixin icon(iconName, type = 'png')
     if(type == 'png')
-        i(class='icon '+'icon-'+iconName)
+        i(class='icon '+'icon-'+iconName)&attributes(attributes)
     else
-        i(class='svg-icon '+'svg-'+iconName)
+        i(class='svg-icon '+'svg-'+iconName)&attributes(attributes)

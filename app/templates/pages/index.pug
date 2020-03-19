@@ -7,45 +7,102 @@ include ../modules/subscription.pug
 block variables
  -var pageTitle='Главная'
 
+mixin main-slider(json)
+  each data in json
+    .main-index-box-slider-el.swiper-slide
+      .main-index-box-slider-el-left
+        +icon(data.icon, data.type)
+      .main-index-box-slider-el-right
+        h2 #{data.title}
+        p #{data.text}
+        a(href=data.link) Подробнее +
+
 block content
     +header()
     section.main-index#main-index
-      .main-index-mask
       .content.main-index-box
         .main-index-box-slider
-          .main-index-box-slider-el
-            .main-index-box-slider-el-left
-              +icon('cheese-main-slider-1', 'png')
-            .main-index-box-slider-el-right
-              h2 Сыр «Адыгейский»
-              p Это настоящая находка для больших поклонников сыра, которая порадует и оригинальным вкусом, и необычным оформлением. 
-              a(href="#") Подробнее +
+          .swiper-wrapper
+            +main-slider(getData('mainSlider'))
       .main-index-box-control
         .main-index-box-control-arrows.rouded-buttons-group
-          button.left.bg-white
+          button.left.bg-white#slider-main-left
             +icon('arrow', 'svg')
-          button.right.bg-white
+          button.right.bg-white#slider-main-right
             +icon('arrow', 'svg')
         .main-index-box-control-items
-          .main-index-box-control-items-el.active
-          .main-index-box-control-items-el
-          .main-index-box-control-items-el
     section.recepts
       .content.recepts-box
         .recepts-box-left
           h2 Рецепты с адыгейским сыром
           .recepts-box-left-arrows.rouded-buttons-group
-            button.left.bg-additional
+            button.left.bg-additional#slider-recepts-left
               +icon('arrow', 'svg')
-            button.right.bg-additional
+            button.right.bg-additional#slider-recepts-right
               +icon('arrow', 'svg')
           a(href="#") Все рецепты +
         .recepts-box-right
           .recepts-box-slider
-            .recepts-box-slider-card
-              .recepts-box-slider-card-text
-                p.title Пирог с адыгейским сыром и брынзой
-                p.time 55 минут
+            .swiper-wrapper
+              a.recepts-box-slider-card.swiper-slide(href="#")
+                img(src="./images/recepts-slider-el-1.jpg", alt="Пирог с адыгейским сыром и брынзой")
+                .recepts-box-slider-card-text
+                  p.title Пирог с адыгейским сыром и брынзой
+                  p.time 55 минут
+                    +icon('timer', 'svg')
+              a.recepts-box-slider-card.swiper-slide(href="#")
+                img(src="./images/recepts-slider-el-2.jpg", alt="Пирог с адыгейским сыром и брынзой")
+                .recepts-box-slider-card-text
+                  p.title Сыр «Адыгейский» жаренный на сливочном масле («кояж»)
+                  p.time 25 минут
+                    +icon('timer', 'svg')
+    section.promo.bg-additional
+      .content.promo-box
+        .promo-box-top
+          .top-left
+            img(src="./images/promo-box-top.svg", alt="Персонажи")
+            +icon('promo-box-top-text', 'svg')
+          .top-right
+            h2 Эксклюзивное право на производство адыгейского сыра
+            p НМПТ гарантирует сохранение оригинальной рецептуры и точного следования технологии производства.
+            a(href="#") Что такое НМПТ
+        .promo-box-bottom
+          .bottom-img
+            +icon('prevslogo', 'svg')
+            .mountains
+              .mountains-cheese
+              +icon('rhombus', 'svg').rhombus-1
+              +icon('rhombus', 'svg').rhombus-2
+          .bottom-text
+            h2 Наша продукция изготавливается в экологически чистом регионе из отборного коровьего молока
+            .text-desc
+              p Мы остаемся верны традициям, соблюдая оригинальную рецептуру.
+              p Продукция изготавливается вручную лучшими 
+                span мастерами-сыроделами.
+              p Именно это отличает настоящий адыгейский сыр от аналогов из других регионов страны.
+    section.news
+      .content.news-box
+        .news-box-header
+          h2 Новости
+          a(href="") Все новости
+        .news-box-row
+          .news-box-lg
+            .news-box-lg-image
+              img(src="./images/news-background-1.jpg", alt="Новость 1")
+            .news-box-content
+              .news-box-time 25.05
+                span .2019
+              .news-box-text Молочный завод «Янино» стал участником благотворительного новогоднего мероприятия «завтрак в манеже»
+          .news-box-small
+            .news-box-content
+              .news-box-time 25.05
+                span .2019
+              .news-box-text Молочный завод «Янино» стал участником благотворительного новогоднего мероприятия «завтрак в манеже»
+          .news-box-small
+            .news-box-content
+              .news-box-time 25.05
+                span .2019
+              .news-box-text Молочный завод «Янино» стал участником благотворительного новогоднего мероприятия «завтрак в манеже»
 
     +subscription().bg-white
     +footer().bg-white

@@ -22,6 +22,7 @@
     @include screen('custom-660', 'max') {
       flex-direction: column;
       align-items: flex-start;
+      padding-bottom: 40px;
     }
 
     & > h2 {

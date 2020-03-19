@@ -1,5 +1,6 @@
 import $ from "jquery";
+import swiper from "swiper";
 
-export let App = function() {
-  return true;
+export let mainSlider = function() {
+  console.log("test");
 };

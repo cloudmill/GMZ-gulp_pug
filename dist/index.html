@@ -24,31 +24,44 @@
         </div>
       </div>
       <section class="main-index" id="main-index">
-        <div class="main-index-mask"></div>
         <div class="content main-index-box">
           <div class="main-index-box-slider">
-            <div class="main-index-box-slider-el">
-              <div class="main-index-box-slider-el-left"><i class="icon icon-cheese-main-slider-1"></i>
+            <div class="swiper-wrapper">
+              <div class="main-index-box-slider-el swiper-slide">
+                <div class="main-index-box-slider-el-left"><i class="icon icon-cheese-main-slider-1"></i>
+                </div>
+                <div class="main-index-box-slider-el-right">
+                  <h2>Сыр «Адыгейский»</h2>
+                  <p>Это настоящая находка для больших поклонников сыра, которая порадует и оригинальным вкусом, и необычным оформлением.</p><a href="#">Подробнее +</a>
+                </div>
               </div>
-              <div class="main-index-box-slider-el-right">
-                <h2>Сыр «Адыгейский»</h2>
-                <p>Это настоящая находка для больших поклонников сыра, которая порадует и оригинальным вкусом, и необычным оформлением. </p><a href="#">Подробнее +</a>
+              <div class="main-index-box-slider-el swiper-slide">
+                <div class="main-index-box-slider-el-left"><i class="icon icon-cheese-main-slider-1"></i>
+                </div>
+                <div class="main-index-box-slider-el-right">
+                  <h2>Сыр «Адыгейский»</h2>
+                  <p>Это настоящая находка для больших поклонников сыра, которая порадует и оригинальным вкусом, и необычным оформлением.</p><a href="#">Подробнее +</a>
+                </div>
+              </div>
+              <div class="main-index-box-slider-el swiper-slide">
+                <div class="main-index-box-slider-el-left"><i class="icon icon-cheese-main-slider-1"></i>
+                </div>
+                <div class="main-index-box-slider-el-right">
+                  <h2>Сыр «Адыгейский»</h2>
+                  <p>Это настоящая находка для больших поклонников сыра, которая порадует и оригинальным вкусом, и необычным оформлением.</p><a href="#">Подробнее +</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div class="main-index-box-control">
           <div class="main-index-box-control-arrows rouded-buttons-group">
-            <button class="left bg-white"><i class="svg-icon svg-arrow"></i>
+            <button class="left bg-white" id="slider-main-left"><i class="svg-icon svg-arrow"></i>
             </button>
-            <button class="right bg-white"><i class="svg-icon svg-arrow"></i>
+            <button class="right bg-white" id="slider-main-right"><i class="svg-icon svg-arrow"></i>
             </button>
           </div>
-          <div class="main-index-box-control-items">
-            <div class="main-index-box-control-items-el active"></div>
-            <div class="main-index-box-control-items-el"></div>
-            <div class="main-index-box-control-items-el"></div>
-          </div>
+          <div class="main-index-box-control-items"></div>
         </div>
       </section>
       <section class="recepts">
@@ -56,31 +69,33 @@
           <div class="recepts-box-left">
             <h2>Рецепты с адыгейским сыром</h2>
             <div class="recepts-box-left-arrows rouded-buttons-group">
-              <button class="left bg-additional"><i class="svg-icon svg-arrow"></i>
+              <button class="left bg-additional" id="slider-recepts-left"><i class="svg-icon svg-arrow"></i>
               </button>
-              <button class="right bg-additional"><i class="svg-icon svg-arrow"></i>
+              <button class="right bg-additional" id="slider-recepts-right"><i class="svg-icon svg-arrow"></i>
               </button>
             </div><a href="#">Все рецепты +</a>
           </div>
           <div class="recepts-box-right">
-            <div class="recepts-box-slider"><a class="recepts-box-slider-card" id="card-1" href="#"><img src="./images/recepts-slider-el-1.jpg" alt="Пирог с адыгейским сыром и брынзой">
-                <div class="recepts-box-slider-card-text">
-                  <p class="title">Пирог с адыгейским сыром и брынзой</p>
-                  <p class="time">55 минут<i class="svg-icon svg-timer"></i>
-                  </p>
-                </div></a><a class="recepts-box-slider-card" id="card-2" href="#"><img src="./images/recepts-slider-el-2.jpg" alt="Пирог с адыгейским сыром и брынзой">
-                <div class="recepts-box-slider-card-text">
-                  <p class="title">Сыр «Адыгейский» жаренный на сливочном масле («кояж»)</p>
-                  <p class="time">25 минут<i class="svg-icon svg-timer"></i>
-                  </p>
-                </div></a></div>
+            <div class="recepts-box-slider">
+              <div class="swiper-wrapper"><a class="recepts-box-slider-card swiper-slide" href="#"><img src="./images/recepts-slider-el-1.jpg" alt="Пирог с адыгейским сыром и брынзой">
+                  <div class="recepts-box-slider-card-text">
+                    <p class="title">Пирог с адыгейским сыром и брынзой</p>
+                    <p class="time">55 минут<i class="svg-icon svg-timer"></i>
+                    </p>
+                  </div></a><a class="recepts-box-slider-card swiper-slide" href="#"><img src="./images/recepts-slider-el-2.jpg" alt="Пирог с адыгейским сыром и брынзой">
+                  <div class="recepts-box-slider-card-text">
+                    <p class="title">Сыр «Адыгейский» жаренный на сливочном масле («кояж»)</p>
+                    <p class="time">25 минут<i class="svg-icon svg-timer"></i>
+                    </p>
+                  </div></a></div>
+            </div>
           </div>
         </div>
       </section>
       <section class="promo bg-additional">
         <div class="content promo-box">
           <div class="promo-box-top">
-            <div class="top-left"><i class="svg-icon svg-promo-box-top"></i><i class="svg-icon svg-promo-box-top-text"></i>
+            <div class="top-left"><img src="./images/promo-box-top.svg" alt="Персонажи"><i class="svg-icon svg-promo-box-top-text"></i>
             </div>
             <div class="top-right">
               <h2>Эксклюзивное право на производство адыгейского сыра</h2>
@@ -99,6 +114,34 @@
                 <p>Мы остаемся верны традициям, соблюдая оригинальную рецептуру.</p>
                 <p>Продукция изготавливается вручную лучшими <span>мастерами-сыроделами.</span></p>
                 <p>Именно это отличает настоящий адыгейский сыр от аналогов из других регионов страны.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="news">
+        <div class="content news-box">
+          <div class="news-box-header">
+            <h2>Новости</h2><a href="">Все новости</a>
+          </div>
+          <div class="news-box-row">
+            <div class="news-box-lg">
+              <div class="news-box-lg-image"><img src="./images/news-background-1.jpg" alt="Новость 1"></div>
+              <div class="news-box-content">
+                <div class="news-box-time">25.05<span>.2019</span></div>
+                <div class="news-box-text">Молочный завод «Янино» стал участником благотворительного новогоднего мероприятия «завтрак в манеже»</div>
+              </div>
+            </div>
+            <div class="news-box-small">
+              <div class="news-box-content">
+                <div class="news-box-time">25.05<span>.2019</span></div>
+                <div class="news-box-text">Молочный завод «Янино» стал участником благотворительного новогоднего мероприятия «завтрак в манеже»</div>
+              </div>
+            </div>
+            <div class="news-box-small">
+              <div class="news-box-content">
+                <div class="news-box-time">25.05<span>.2019</span></div>
+                <div class="news-box-text">Молочный завод «Янино» стал участником благотворительного новогоднего мероприятия «завтрак в манеже»</div>
               </div>
             </div>
           </div>
