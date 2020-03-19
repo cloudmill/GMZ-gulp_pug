@@ -21,6 +21,7 @@ let gulp = require("gulp"),
 
 //конфигурации
 let dirDist = "./dist/";
+let dirDeploy = "./docs/";
 let dirApp = "./app/";
 let _ = {
   dist: {
@@ -222,6 +223,15 @@ gulp.task("clear-build", function() {
     })
     .pipe(clean());
 });
+gulp.task("copy-deploy", function() {
+  return gulp.src(dirDist + '**/*').pipe(gulp.dest(dirDeploy));
+});
+gulp.task("copy-deploy", function(){
+  return gulp.src(dirDeploy, {
+      read: false,
+      allowEmpty: true
+    }).pipe(clean());
+});
 
 gulp.task("pre-scss", gulp.parallel("pngSprite", "svgSprite", "font2css"));
 gulp.task("styles", gulp.series("pre-scss", "scss"));
@@ -229,5 +239,8 @@ gulp.task("after-clean", gulp.parallel("styles", "js", "pug", "images"));
 gulp.task("after-build", gulp.parallel("browser-sync", "watch"));
 
 gulp.task("build", gulp.series("clear-build", "after-clean"));
-gulp.task("dev", gulp.series("build", "after-build"));
+gulp.task("dev", gulp.series("copy-deploy", "build", "after-build"));
 gulp.task("default", gulp.parallel("dev"));
+
+//Сборка проекта для публикации в папку docs
+gulp.task("deploy", gulp.series("copy-deploy", "build", "copy-deploy"));
