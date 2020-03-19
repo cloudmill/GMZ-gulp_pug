@@ -1,6 +1,25 @@
 import $ from "jquery";
 import Swiper from "swiper";
 
+let resizeImg = () => {
+  let imgs = $(".fullImg");
+  if (imgs.length > 0) {
+    for(let img of imgs) {
+      let $img = $(img);
+      let $parent = $(img).parent();
+      let nWidth = img.naturalWidth;
+      let nHeight = img.naturalHeight;
+      let k = nWidth / nHeight;
+      if ($img.height() * k < $parent.width()) {
+        $img.addClass("auto-height");
+      }
+      if ($img.width() / k < $parent.height()) {
+        $img.removeClass("auto-height");
+      }
+    }
+  }
+};
+
 function mainSlider() {
   let delayChangeSlide = 2500;
   return new Swiper('.main-index-box-slider', {
@@ -32,6 +51,16 @@ function mainSlider() {
 
 function receptSlider() {
   return new Swiper('.recepts-box-slider', {
+    spaceBetween: 30,
+    slidesPerView: 1,
+    updateOnWindowResize: true,
+
+    breakpoints: {
+      660: {
+        slidesPerView: 2,
+      }
+    },
+
     navigation: {
       nextEl: '#slider-recepts-right',
       prevEl: '#slider-recepts-left',
@@ -42,4 +71,9 @@ function receptSlider() {
 $(document).ready(function() {
   mainSlider();
   receptSlider();
+  resizeImg();
+
+  $(window).on('resize',function(){
+    resizeImg();
+  })
 });

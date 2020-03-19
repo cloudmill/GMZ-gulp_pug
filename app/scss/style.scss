@@ -16,9 +16,18 @@
 @import "modules/info-partners";
 @import "modules/main-partners";
 @import "modules/header";
+.fullImg {
+  width: auto;
+  height: 100%;
+  &.auto-height {
+    width: 100%;
+    height: auto;
+  }  
+}
+
 
 .bg-white {
-  background-color: $background-white;
+  background-color: transparent;
 }
 
 .bg-additional {
@@ -358,13 +367,13 @@ section {
     align-items: center;
     position: relative;
 
-    @include screen('sm', 'max') {
+    @include screen('md', 'max') {
       flex-direction: column;
       padding-top: 60px;
       padding-bottom: 60px;
     }
 
-    @include screen('xs', 'max') {
+    @include screen('md', 'max') {
       flex-direction: column;
       padding-top: 40px;
     }
@@ -380,7 +389,7 @@ section {
       left: -20%;
       z-index: -1;
 
-      @include screen('sm', 'max') {
+      @include screen('md', 'max') {
         display: none;
       }
     }
@@ -392,7 +401,7 @@ section {
       align-items: flex-start;
       width: 30%;
 
-      @include screen('sm', 'max') {
+      @include screen('md', 'max') {
         width: 100%;
         margin-bottom: 40px;
       }
@@ -403,9 +412,9 @@ section {
         line-height: 52px;
         margin-bottom: 80px;
 
-        @include screen('sm', 'max') {
+        @include screen('md', 'max') {
           font-size: 34px;
-          margin-bottom: 40px;
+          margin-bottom: 15px;
           line-height: 33px;
         }
 
@@ -423,7 +432,39 @@ section {
 
       &-arrows {
         margin-bottom: 80px;
+
+        @include screen('md', 'max') {
+          margin-bottom: 20px;
+        }
+
         @include screen('sm', 'max') {
+          display: none;
+        }
+      }
+    }
+
+    &-right {
+      width: 65%;
+
+      @include screen('md', 'max') {
+        width: 100%;
+      }
+
+      &::after {
+        position: absolute;
+        top: 12%;
+        right: 28%;
+        display: block;
+        content: "";
+        background: url(../images/recepts-slider.gif);
+        width: 253px;
+        height: 254px;
+        transform: translateX(50%);
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 1;
+
+        @include screen('md', 'max') {
           display: none;
         }
       }
@@ -433,24 +474,22 @@ section {
       display: flex;
       flex-direction: row;
       position: relative;
-      width: 50%;
+      width: 90%;
+      margin-left: 10%;
+      overflow: hidden;
+      padding-bottom: 40px;
+      padding-top: 13px;
 
-      &::after {
-        position: absolute;
-        top: -28%;
-        right: 47%;
-        display: block;
-        content: "";
-        background: url('../images/recepts-slider.gif');
-        width: 253px;
-        height: 254px;
-        transform: translateX(50%);
-        background-repeat: no-repeat;
-        background-size: contain;
+      @include screen('md', 'max') {
+        width: 100%;
+        margin-left: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: visible;
+      }
 
-        @include screen('sm', 'max') {
-          display: none;
-        }
+      @include screen('xs', 'max') {
+        width: calc(100% - 60px);
       }
 
       &-card {
@@ -459,10 +498,9 @@ section {
         border-bottom-right-radius: 20px;
         position: relative;
         overflow: hidden;
-        margin-left: 30px;
         display: block;
         text-decoration: none;
-        transition: 0.3s;
+        transition: transform 0.3s;
         cursor: pointer;
 
         @include screen('md', 'min') {
@@ -472,16 +510,11 @@ section {
         }
 
         &:last-child {
-          margin-left: 30px;
+          margin-left: 0px;
         }
 
         &:hover {
           transform: translateY(-10px);
-        }
-
-        img {
-          width: 100%;
-          height: 100%;
         }
 
         &-text {
@@ -496,6 +529,7 @@ section {
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
+          width: 100%;
 
           & > p.title {
             margin-bottom: 20px;
@@ -528,6 +562,31 @@ section {
 
 .promo {
   position: relative;
+
+  span.bottom-ellips {
+    height: 120px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 120px;
+      left: 0px;
+      box-sizing: content-box;
+      border-radius: 50%/50%;
+      padding: 0 70px;
+      margin-left: -50px;
+      background: $background-additional;
+    }
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -540,20 +599,6 @@ section {
     padding: 0 70px;
     margin-left: -50px;
     background: #ffffff;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 120px;
-    bottom: -60px;
-    left: 0px;
-    box-sizing: content-box;
-    border-radius: 50%/50%;
-    padding: 0 70px;
-    margin-left: -50px;
-    background: $background-additional;
   }
 
   &-box {
@@ -597,8 +642,12 @@ section {
         flex-direction: column;
         padding-bottom: 50px;
       }
+      
+      @include screen('xs', 'max') {
+        padding-bottom: 0;
+      }
 
-      & > .top {
+      .top {
         &-left {
           z-index: 2;
           position: relative;
@@ -708,11 +757,15 @@ section {
         flex-direction: column;
         align-items: flex-end;
 
-        @include screen('md', 'max') {
+        @include screen('lg', 'max') {
           position: relative;
           right: 50%;
           transform: translateX(50%);
           margin-bottom: 50px;
+        }
+
+        @include screen('xs', 'max' ) {
+          margin-top: -80px;
         }
 
         i.svg-icon.svg-prevslogo {
@@ -722,33 +775,45 @@ section {
           position: absolute;
           top: -75%;
           right: 6%;
+          transform-origin: bottom right;
 
-          @include screen('sm', 'max') {
+          @include screen('lg', 'max') {
             position: relative;
             top: 0%;
             width: unset;
             height: unset;
             transform: scale(.9);
           }
+
+          @include screen('sm', 'max') {
+            transform: scale(.7);
+          }
+
+          @include screen('xs', 'max') {
+            transform: scale(.6);
+          }
         }
 
         .mountains {
           position: relative;
-          background: url('../images/mountains.png');
           background-size: contain;
           background-repeat: no-repeat;
           width: 1001px;
           height: 357px;
           right: -10%;
 
-          @include screen('custom-1491', 'max') {
-            right: 0;
+          img {
+            @include screen('lg', 'max') {
+              height: auto;
+              width: 100%;
+              margin: 0 auto;
+            }  
           }
 
-          @include screen('sm', 'max') {
-            width: 90vw;
-            height: 233px;
-            margin: 0 auto;
+          @include screen('custom-1491', 'max') {
+            right: 0;
+            width: 100%;
+            height: auto;
           }
 
           & > .mountains-cheese {
@@ -761,16 +826,38 @@ section {
             bottom: -30%;
             right: 58%;
             
-            @include screen('sm', 'max') {
+            @include screen('md', 'max') {
               width: 194px;
               height: 194px;
             }
+            
+            @include screen('sm', 'max') {
+              width: 154px;
+              height: 154px;
+            }
+
+            @include screen('xs', 'max') {
+              width: 84px;
+              height: 84px;
+              bottom: -20%;
+            }    
           }
 
           & > i.svg-icon.svg-rhombus.rhombus-1 {
             position: absolute;
             right: 13%;
             bottom: -18%;
+
+            @include screen('sm', 'max') {
+              transform: scale(.7);
+              bottom: -31%;
+            }
+
+            @include screen('xs', 'max') {
+              transform: scale(.4);
+              bottom: -50%;
+              right: 0%;
+            }
           }
 
           & > i.svg-icon.svg-rhombus.rhombus-2 {
@@ -779,9 +866,10 @@ section {
             bottom: 5%;
             transform: scale(.7);
 
-            @include screen('sm', 'max') {
+            @include screen('lg', 'max') {
               display: none;
             }
+            
           }
         }
       }
@@ -790,11 +878,16 @@ section {
         z-index: 1;
         display: flex;
         flex-direction: column;
-        width: 75%;
+        width: 79%;
         color: #312930;
 
-        @include screen('md', 'max') {
+        @include screen('lg', 'max') {
           width: 100%;
+          padding-top: 50px;
+        }
+
+        @include screen('xs', 'max') {
+          padding-top: 0;
         }
 
         h2 {
@@ -816,7 +909,7 @@ section {
           flex-direction: column;
           width: 50%;
 
-          @include screen('md', 'max') {
+          @include screen('lg', 'max') {
             width: 100%;
           }
 
@@ -825,6 +918,11 @@ section {
             line-height: 32px;
             font-family: 'CeraPro';
             margin-bottom: 20px;
+
+            @include screen('xs', 'max') {
+              font-size: 16px;
+              line-height: 24px;
+            }
 
             &:last-child {
               margin-bottom: 0px;
@@ -848,11 +946,19 @@ section {
       align-items: center;
       padding-bottom: 60px;
 
+      @include screen('sm', 'max') {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       h2 {
         font-weight: bold;
         font-size: 52px;
         line-height: 40px;
         font-family: 'PFRegalTextPro';
+        @include screen('sm', 'max') {
+          padding-bottom: 20px;
+        }
       }
 
       a {
@@ -892,6 +998,25 @@ section {
       justify-content: space-between;
       align-items: center;
       margin-bottom: 25px;
+      position: relative;
+
+      &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        bottom: -10%;
+        left: -15%;
+        background: #e1f1fa;
+        width: 38%;
+        height: auto;
+        transform: skewX(-15deg);
+        z-index: -1;
+        padding-top: 34%;
+
+        @include screen('sm', 'max') {
+          bottom: 22%;
+        }
+      }
 
       @include screen('md', 'max') {
         grid-column: 1/3;
@@ -909,9 +1034,20 @@ section {
         background-size: contain;
         margin-right: 40px;
 
+        @include screen('sm', 'max') {
+          margin-right: 0px;
+          margin-bottom: 15px;
+        }
+
         img {
-          width: 320px;
-          height: 320px;
+          width: auto;
+          height: 100%;
+          position: relative;
+
+          @include screen('sm', 'max') {
+            width: 100%;
+            height: auto;
+          }
         }
       }
     }

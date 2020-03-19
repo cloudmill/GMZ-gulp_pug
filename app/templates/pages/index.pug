@@ -17,6 +17,15 @@ mixin main-slider(json)
         p #{data.text}
         a(href=data.link) Подробнее +
 
+mixin recept-slider(json)
+  each data in json
+    a.recepts-box-slider-card.swiper-slide(href=data.link)
+      img(src="./images/" + data.image, alt=data.title).fullImg
+      .recepts-box-slider-card-text
+        p.title #{data.title}
+        p.time #{data.time}
+          +icon('timer', 'svg')
+
 block content
     +header()
     section.main-index#main-index
@@ -44,18 +53,7 @@ block content
         .recepts-box-right
           .recepts-box-slider
             .swiper-wrapper
-              a.recepts-box-slider-card.swiper-slide(href="#")
-                img(src="./images/recepts-slider-el-1.jpg", alt="Пирог с адыгейским сыром и брынзой")
-                .recepts-box-slider-card-text
-                  p.title Пирог с адыгейским сыром и брынзой
-                  p.time 55 минут
-                    +icon('timer', 'svg')
-              a.recepts-box-slider-card.swiper-slide(href="#")
-                img(src="./images/recepts-slider-el-2.jpg", alt="Пирог с адыгейским сыром и брынзой")
-                .recepts-box-slider-card-text
-                  p.title Сыр «Адыгейский» жаренный на сливочном масле («кояж»)
-                  p.time 25 минут
-                    +icon('timer', 'svg')
+              +recept-slider(getData('receptSlider'))
     section.promo.bg-additional
       .content.promo-box
         .promo-box-top
@@ -70,6 +68,7 @@ block content
           .bottom-img
             +icon('prevslogo', 'svg')
             .mountains
+              img(src="./images/mountains.png", alt="ГоРы")
               .mountains-cheese
               +icon('rhombus', 'svg').rhombus-1
               +icon('rhombus', 'svg').rhombus-2
@@ -80,6 +79,7 @@ block content
               p Продукция изготавливается вручную лучшими 
                 span мастерами-сыроделами.
               p Именно это отличает настоящий адыгейский сыр от аналогов из других регионов страны.
+      span.bottom-ellips
     section.news
       .content.news-box
         .news-box-header
