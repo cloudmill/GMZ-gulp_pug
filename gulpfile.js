@@ -226,7 +226,7 @@ gulp.task("clear-build", function() {
 gulp.task("copy-deploy", function() {
   return gulp.src(dirDist + '**/*').pipe(gulp.dest(dirDeploy));
 });
-gulp.task("copy-deploy", function(){
+gulp.task("clear-deploy", function(){
   return gulp.src(dirDeploy, {
       read: false,
       allowEmpty: true
@@ -243,4 +243,4 @@ gulp.task("dev", gulp.series("copy-deploy", "build", "after-build"));
 gulp.task("default", gulp.parallel("dev"));
 
 //Сборка проекта для публикации в папку docs
-gulp.task("deploy", gulp.series("copy-deploy", "build", "copy-deploy"));
+gulp.task("deploy", gulp.series("clear-deploy", "build", "copy-deploy"));
