@@ -87,13 +87,18 @@ $(document).ready(function() {
     $('.header-static').toggleClass("active");
   });
 
+  var lastScrollPosition = 0;
   $(window).scroll(function() {
+    let thisScrollPosition = $(this).scrollTop();
+
     if(!$('.header-static').hasClass('active')) {
-      if ($(this).scrollTop() > 1) {
-        $('.header').addClass("sticky");
-      } else {
+      if (thisScrollPosition > lastScrollPosition || thisScrollPosition == 0) {
         $('.header').removeClass("sticky");
+      } else {
+        $('.header').addClass("sticky");
       }
     }
+
+    lastScrollPosition = thisScrollPosition; 
   });
 });
