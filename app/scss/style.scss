@@ -178,6 +178,7 @@ section {
     height: 61px;
     display: inline-block;
     margin-right: 19px;
+    background-color: #fff;
 
     @include screen('custom-860', 'max') {
       display: none;
@@ -310,7 +311,7 @@ section {
       &-items {
         position: absolute;
         right: 0px;
-        z-index: 9999;
+        z-index: 10;
 
         @include screen('custom-860', 'max') {
           right: unset;

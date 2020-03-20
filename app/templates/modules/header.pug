@@ -4,12 +4,43 @@ mixin header-box-nav-el(json)
       a.header-box-nav-el-link(href=data.link) #{data.title}
       .header-box-nav-el-desc #{data.description}
 
+mixin right-group-link(json)
+  each data in json
+    a.right-group-link(href=data.link)
+      +icon(data.ico, 'svg')
+
 mixin header
   .header
-    .header-box
-      a.header-box-logotype(href="#main")
-        +icon('logotype', 'svg')
+    .header-static
+      .header-box
+        a.header-box-logotype(href="#main")
+          +icon('logotype', 'svg')
+          +icon('logotype-short', 'svg')
+        button.header-box-nav-button#change-nav
+          .burger
+            span.wand
+            span.wand
+            span.wand
+          +icon('navigation', 'svg')
       .header-box-nav.lg
         +header-box-nav-el(getData('header'))
-      a.header-box-nav-button#change-nav(href="#nav")
-        +icon('navigation', 'svg')
+      .header-buttom
+        .header-buttom-nav
+          a(href="#") Как мы это делаем
+          a(href="#") Новости и акции
+          a(href="#") Партнерам
+          a(href="#") Рецепты
+          a(href="#") Контакты
+        .header-buttom-help
+          .left
+            .left-desc Служба поддержки потребителей
+            .left-number 8 800 250-93-93
+            a(href="") Задать вопрос
+          .right
+            .right-desc Мы в социальных сетях
+            .right-group
+              +right-group-link(getData('footer'))
+        .header-buttom-footer
+          .left © ОАО Молочный завод «Гиагинский» 2020 г.
+          .right Сделано в  
+            a(href="") CloudMill

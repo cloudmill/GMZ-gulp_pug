@@ -9,7 +9,12 @@
   <body>
     <div class="container">
       <div class="header">
-        <div class="header-box"><a class="header-box-logotype" href="#main"><i class="svg-icon svg-logotype"></i></a>
+        <div class="header-static">
+          <div class="header-box"><a class="header-box-logotype" href="#main"><i class="svg-icon svg-logotype"></i><i class="svg-icon svg-logotype-short"></i></a>
+            <button class="header-box-nav-button" id="change-nav">
+              <div class="burger"><span class="wand"></span><span class="wand"></span><span class="wand"></span></div><i class="svg-icon svg-navigation"></i>
+            </button>
+          </div>
           <div class="header-box-nav lg">
             <div class="header-box-nav-el"><a class="header-box-nav-el-link" href="#about">О нас</a>
               <div class="header-box-nav-el-desc">Кто мы и как работаем</div>
@@ -20,7 +25,25 @@
             <div class="header-box-nav-el"><a class="header-box-nav-el-link" href="#buy-info">Где купить</a>
               <div class="header-box-nav-el-desc">На полках магазинов</div>
             </div>
-          </div><a class="header-box-nav-button" id="change-nav" href="#nav"><i class="svg-icon svg-navigation"></i></a>
+          </div>
+          <div class="header-buttom">
+            <div class="header-buttom-nav"><a href="#">Как мы это делаем</a><a href="#">Новости и акции</a><a href="#">Партнерам</a><a href="#">Рецепты</a><a href="#">Контакты</a></div>
+            <div class="header-buttom-help">
+              <div class="left">
+                <div class="left-desc">Служба поддержки потребителей</div>
+                <div class="left-number">8 800 250-93-93</div><a href="">Задать вопрос</a>
+              </div>
+              <div class="right">
+                <div class="right-desc">Мы в социальных сетях</div>
+                <div class="right-group"><a class="right-group-link" href="#instagram"><i class="svg-icon svg-instagram"></i></a><a class="right-group-link" href="#vk"><i class="svg-icon svg-vk"></i></a><a class="right-group-link" href="#twitter"><i class="svg-icon svg-twitter"></i></a><a class="right-group-link" href="#facebook"><i class="svg-icon svg-facebook"></i></a><a class="right-group-link" href="#ok"><i class="svg-icon svg-ok"></i></a><a class="right-group-link" href="#wikipedia"><i class="svg-icon svg-wikipedia"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="header-buttom-footer">
+              <div class="left">© ОАО Молочный завод «Гиагинский» 2020 г.</div>
+              <div class="right">Сделано в  <a href="">CloudMill</a></div>
+            </div>
+          </div>
         </div>
       </div>
       <section class="main-index" id="main-index">
@@ -56,9 +79,9 @@
         </div>
         <div class="main-index-box-control">
           <div class="main-index-box-control-arrows rouded-buttons-group">
-            <button style="background-color: #ffffff;" class="left bg-white" id="slider-main-left"><i class="svg-icon svg-arrow"></i>
+            <button class="left bg-white" id="slider-main-left"><i class="svg-icon svg-arrow"></i>
             </button>
-            <button style="background-color: #ffffff;" class="right bg-white" id="slider-main-right"><i class="svg-icon svg-arrow"></i>
+            <button class="right bg-white" id="slider-main-right"><i class="svg-icon svg-arrow"></i>
             </button>
           </div>
           <div class="main-index-box-control-items"></div>
