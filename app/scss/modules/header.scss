@@ -1,30 +1,19 @@
-@keyframes slide-nav {
-  from {
-    top: 0px;
-  }
-
-  to {
-    top: 96px;
-  }  
-}
-
+/*
+@ Basic styles
+*/
 .header.sticky {
   background: #fff;
   position: fixed;
   margin-top: -20px;
 
-  @include screen('xs', 'max') {
-    margin-top: 0px;
-    padding: 20px;
-  }
-
   a.header-box-logotype {
     .svg-icon.svg-logotype {
-      display: none;
+      opacity: 0;
     }
 
     i.svg-icon.svg-logotype-short {
-      display: block;
+      top: -20px;
+      opacity: 1;
     }
   }
 
@@ -37,11 +26,6 @@
   width: calc(100% - 40px);
   z-index: 9999;
   transition: all 0.4s ease;
-
-  @include screen('xs', 'max') {
-    width: 100%;
-  }
-
   position: absolute;
   margin-top: 30px;
   padding-right: $min-main-padding;
@@ -88,37 +72,6 @@
     background-repeat: no-repeat;
     border-top: 30px solid #fff;
 
-    @include screen('xs', 'max') {
-      background-image: none;
-    }
-
-    @include screen('custom-660', 'max') {
-      overflow-y: auto;
-      overflow-x: hidden;
-    }
-
-    @include screen('xs', 'max') {
-      width: 100%;
-      height: calc(100vh + 30px);
-    }
-
-    .header-box-nav-button {
-      @include screen('xs', 'max') {
-        position: fixed;
-        right: -5px;
-      }
-
-      @include screen('custom-660', 'max') {
-        position: fixed;
-        right: 0;
-        margin-right: 40px;
-      }
-
-      @include screen('xs', 'max') {
-        margin-right: 0px;
-      }
-    }
-
     .burger {
       background: #312930;
       left: 26%;
@@ -151,35 +104,12 @@
     }
 
     .header-box-nav {
-      animation-name: slide-nav;
-      animation-duration: .3s;
       top: 96px;
-
-      @include screen('custom-660', 'max') {
-        &.lg {
-          flex-direction: column;
-          display: block;
-          position: unset;
-          left: 0%;
-          padding-top: 50px;
-        }
-      }
     }
 
-    .header-box-nav-el {
-      @include screen('custom-660', 'max') {
-        margin-bottom: 30px;
-      }
-      
+    .header-box-nav-el {      
       &:last-child {
         margin-bottom: 0px;
-      }
-    }
-
-    .header-box-nav-el > .header-box-nav-el-desc{
-      @include screen('custom-800', 'max') {
-        display: block;
-        font-size: 13px;
       }
     }
 
@@ -200,21 +130,9 @@
         font-size: 20px;
         flex-wrap: wrap;
         align-items: center;
-        
-        @include screen('custom-660', 'max') {
-          flex-direction: column;
-        }
-  
+
         a {
           font-size: 20px;
-  
-          @include screen('custom-660', 'max') {
-            padding-bottom: 20px;
-  
-            &:last-child {
-              padding: 0px;
-            }
-          }
         }
       }
   
@@ -222,20 +140,13 @@
         display: flex;
         justify-content: space-around;
   
-        @include screen('custom-660', 'max') {
-          flex-direction: column;
-        }
-  
         .left, .right {
           text-align: center;
         }
   
         .left {
-          @include screen('custom-660', 'max') {
-            margin-bottom: 50px;
-          }
-
           &-desc {
+            font-family: 'CeraPro';
             font-size: 16px;
             margin-bottom: 8px;
           }
@@ -267,22 +178,9 @@
         display: flex;
         justify-content: space-between;
         font-size: 14px;
-
-        @include screen('custom-660', 'min') {
-          margin-bottom: 50px;
-        }
-
-        @include screen('custom-660', 'max') {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-        }
   
         .left {
           color: #AEA08D;
-          @include screen('custom-660', 'max') {
-            margin-bottom: 10px;
-          }
         }
   
         .right {
@@ -306,21 +204,26 @@
     position: relative;
 
     @include screen('xs', 'max') {
-      margin: -25px;
+      margin: -25px -10px;
     }
 
     &-logotype {
-        @include screen('xs', 'max') {
-          transform: scale(0.7);
-        }
+      position: relative;
 
-        .svg-icon.svg-logotype {
-          display: block;
-        }
-    
-        i.svg-icon.svg-logotype-short {
-          display: none;
-        }
+      @include screen('xs', 'max') {
+        transform: scale(0.7);
+      }
+
+      .svg-icon.svg-logotype-short {
+        position: absolute;
+        opacity: 0;
+      }
+
+      .svg-icon {
+        position: absolute;
+        opacity: 1;
+        top: -45px;
+      }
     }
   
     &-nav {
@@ -382,6 +285,132 @@
       &-button {
         @include screen('xs', 'max') {
           transform: scale(.7);
+        }
+      }
+    }
+  }
+}
+
+/*
+@ Media queries
+*/
+.header.sticky {
+  @include screen('xs', 'max') {
+    margin-top: 0px;
+    padding: 20px;
+  }
+}
+
+.header {
+  @include screen('xs', 'max') {
+    width: 100%;
+  }
+
+  &-static.active {
+    @include screen('xs', 'max') {
+      background-image: none;
+    }
+
+    @include screen('custom-660', 'max') {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    @include screen('xs', 'max') {
+      width: 100%;
+      height: calc(100vh + 30px);
+    }
+
+    .header-box {
+      @include screen('custom-660', 'max') {
+        margin: 15px -10px;
+      }
+    }
+
+    .header-box-nav-button {
+      @include screen('xs', 'max') {
+        position: fixed;
+        right: -5px;
+      }
+
+      @include screen('custom-660', 'max') {
+        position: fixed;
+        right: 0;
+        margin-right: 40px;
+      }
+
+      @include screen('xs', 'max') {
+        margin-right: 0px;
+      }
+    }
+
+    .header-box-nav.lg {
+      @include screen('custom-660', 'max') {
+        flex-direction: column;
+        display: block;
+        position: unset;
+        left: 0%;
+        padding-top: 50px;
+      }
+    }
+
+    .header-box-nav-el {
+      @include screen('custom-660', 'max') {
+        margin-bottom: 30px;
+      }
+    }
+
+    .header-box-nav-el > .header-box-nav-el-desc {
+      @include screen('custom-800', 'max') {
+        display: block;
+        font-size: 13px;
+      }
+    }
+
+    .header-buttom {
+      &-nav {
+        @include screen('custom-660', 'max') {
+          flex-direction: column;
+        }
+
+        a {
+          @include screen('custom-660', 'max') {
+            padding-bottom: 20px;
+  
+            &:last-child {
+              padding: 0px;
+            }
+          }
+        }
+      }
+
+      &-help {
+        @include screen('custom-660', 'max') {
+          flex-direction: column;
+        }
+
+        .left {
+          @include screen('custom-660', 'max') {
+            margin-bottom: 50px;
+          }
+        }
+      }
+
+      &-footer {
+        @include screen('custom-660', 'min') {
+          margin-bottom: 50px;
+        }
+
+        @include screen('custom-660', 'max') {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .left {
+          @include screen('custom-660', 'max') {
+            margin-bottom: 10px;
+          }
         }
       }
     }

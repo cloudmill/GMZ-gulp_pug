@@ -1,3 +1,13 @@
+/*
+Быстрая работа с медиазапросами
+Пример использования:
+div {
+  @include screen('xl', 'max') {
+    ...
+  };
+}
+*/
+
 @mixin screen($width, $type: max) {
   @if map_has_key($breakpoints, $width) {
     $width: map_get($breakpoints, $width);
@@ -13,42 +23,11 @@
 }
 
 /*
-Миксин для быстрого выравнивания блока по центру
-Пример использования:
-div {
-  @include center-block;
-}
-*/
-@mixin center-block {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/*
-Миксин для адаптивных свойств
-Пример: @include rule(width, (xl: 100px, lg: 200px));
-*/
-@mixin rule($name, $pointsAndValues) {
-  @each $breakpoint, $value in $pointsAndValues {
-    @if $breakpoint == xl {
-      #{$name}: #{$value};
-    }
-
-    @if $breakpoint != xl {
-      @include screen("#{$breakpoint}") {
-        #{$name}: #{$value};
-      }
-    }
-  }
-}
-
-/*
 Быстренько подрубаем аппаратное ускорение для анимирующихся элементов.
 Пример использования:
 div {
   @include performance;
+  ...
 }
 */
 @mixin performance($backface: true, $perspective: 1000) {
@@ -57,4 +36,63 @@ div {
     }
   
     perspective: $perspective;
+}
+
+/*
+--- UI-KIT ELEMENT ---
+Шрифт PFRegalTextPro для заголовков в блоках. В шрифте уже прописаны медиазапросы для измненения размеров текста
+Пример использования:
+div {
+  @include UI-Font-PFRegalTextPro;
+  ...
+}
+*/
+@mixin UI-Font-PFRegalTextPro-bold {
+  color: $color-text-main;
+
+  font: {
+    family: 'PFRegalTextPro';
+    weight: bold;
+    size: 52px;
+  }
+  line-height: 52px;
+
+  @include screen('md', 'max') {
+    font: {
+      size: 34px;
+    }
+    line-height: 33px;
+  }
+
+  @include screen('xs', 'max') {
+    font: {
+      size: 30px;
+    }
+  }
+}
+
+/*
+--- UI-KIT ELEMENT ---
+Шрифт CeraPro для текста в блоках. В шрифте уже прописаны медиазапросы для измненения размеров текста
+Пример использования:
+div {
+  @include UI-Font-CeraPro;
+  ...
+}
+*/
+@mixin UI-Font-CeraPro-normal {
+  color: $color-text-main;
+
+  font: {
+    family: 'CeraPro';
+    weight: normal;
+    size: 20px;
+  }
+  line-height: 31px;
+
+  @include screen('xs', 'max') {
+    font: {
+      size: 16px;
+    }
+  }
 }

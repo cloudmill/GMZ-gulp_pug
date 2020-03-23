@@ -1,0 +1,72 @@
+extends ../layouts/default.pug
+
+include ../modules/subscription.pug
+include ../modules/footer.pug
+include ../modules/header.pug
+
+block variables
+ -var pageTitle='Вытяжные'
+
+block content
+    +header()
+    section.main-products
+      .content.main-products-box
+        .main-products-category
+          a.main-products-category-el(href="#")
+            .category-el-icon
+              +icon('img-catalog-product-1', 'svg').icon-background
+            .category-el-title Адыгейские сыры
+          a.main-products-category-el.active(href="#")
+            .category-el-icon
+              +icon('img-catalog-product-1', 'svg').icon-background
+            .category-el-title Вытяжные сыры
+          a.main-products-category-el(href="#")
+            .category-el-icon
+              +icon('img-catalog-product-1', 'svg').icon-background
+            .category-el-title Масло и спред
+          a.main-products-category-el(href="#")
+            .category-el-icon
+              +icon('img-catalog-product-1', 'svg').icon-background
+            .category-el-title Сыворотка
+            
+        .main-products-items
+          a.products-el(href="#")
+            .products-el-img
+              img(src="./images/img-products-1.png")
+              img(src="./images/img-products-1.png")
+            .products-el-title Сыр «Охотничий» копченый
+
+          a.products-el(href="#")
+            .products-el-img
+              img(src="./images/img-products-2.png")
+              img(src="./images/img-products-2.png")
+            .products-el-title Сыр Косичка «Гиагинский» копченый
+
+          a.products-el(href="#")
+            .products-el-img
+              img(src="./images/img-products-3.png")
+              img(src="./images/img-products-3.png")
+            .products-el-title Сыр «Чечил» копченый
+
+          a.products-el(href="#")
+            .products-el-img
+              img(src="./images/img-products-4.png")
+              img(src="./images/img-products-4.png")
+            .products-el-title Сыр «Чечил»
+
+          a.products-el(href="#")
+            .products-el-img
+              img(src="./images/img-products-5.png")
+              img(src="./images/img-products-5.png")
+            .products-el-title Сыр «Спагетти» «Гиагинский» копченый
+
+          a.products-el(href="#")
+            .products-el-img
+              img(src="./images/img-products-6.png")
+              img(src="./images/img-products-6.png")
+            .products-el-title Сыр «Косичка» «Гиагинский»
+
+
+
+    +subscription().bg-white
+    +footer().bg-white

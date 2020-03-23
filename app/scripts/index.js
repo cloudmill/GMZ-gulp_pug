@@ -69,14 +69,17 @@ function receptSlider() {
 }
 
 $(document).ready(function() {
+  /* Слайдеры */
   mainSlider();
   receptSlider();
+
+  /* Ресайз изображений */
   resizeImg();
-  
   $(window).on('resize',function(){
     resizeImg();
   })
 
+  /* Подключение навигации */
   $('#change-nav').click(function(){
     if($('.header').hasClass("sticky") && !$('.header-static').hasClass('active')) {
       $('.header').removeClass("sticky");
@@ -87,6 +90,7 @@ $(document).ready(function() {
     $('.header-static').toggleClass("active");
   });
 
+  /* Отображение навигации при скролле вверх */
   var lastScrollPosition = 0;
   $(window).scroll(function() {
     let thisScrollPosition = $(this).scrollTop();
@@ -101,4 +105,18 @@ $(document).ready(function() {
 
     lastScrollPosition = thisScrollPosition; 
   });
+
+  /* Страница категория, работа с картинками
+  $('.catalog-el').on("mouseover", function(){
+    $(document).mousemove(function(event){
+      var x = Math.round(event.offsetX);
+  
+      $('.catalog-el-img').css({ 
+        "position": "absolute",
+        "top": "-80%",
+        "left": x 
+      });
+    });
+  });
+  */
 });
