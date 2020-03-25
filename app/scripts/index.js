@@ -1,13 +1,11 @@
 import $ from "jquery";
-import Swiper from "swiper";
 
 //Modules
 import { sliders } from "./modules/sliders";
 import { helpers } from "./modules/helpers";
 
 //templs
-import { header } from "./modules/header";
-
+import { header } from "./templs/header";
 
 
 
