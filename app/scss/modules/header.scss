@@ -43,16 +43,83 @@
     display: block;
     border-radius: 50px;
     transform: translateY(50%);
-  
-    span.wand {
-      position: relative;
+    z-index: 10;
+
+    &::before {
+      background: #312930;
       display: block;
       content: "";
-      background: #312930;
-      height: 1.5px;
+      position: absolute;
+      height: 1px;
       width: 20px;
-      margin-bottom: 5px;
-      border-radius: 100px;
+      left: 0px;
+      top: 6px;
+      z-index: 2;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      left: -9px;
+      top: -13px;
+      position: absolute;
+      z-index: 1;
+      width: 38px;
+      height: 38px;
+      border-radius: 20px;
+    }
+
+    &:hover {
+      transition: 0.3s;
+      &::after {
+        transition: inherit;
+        background: #312930;
+      }
+
+      &::before {
+        background: #ffffff;
+      }
+
+      span {
+        &::before, &::after {
+          background: #ffffff;
+        }
+      }
+    }
+
+    span {
+      position: relative;
+      display: block;
+      height: 20px;
+      flex-basis: 100%;
+
+      &::before {
+        display: block;
+        width: 20px;
+        height: 1px;
+        background: #312930;
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(1px);
+        transition: transform 0.3s;
+        z-index: 2;
+      }
+
+      &::after {
+        display: block;
+        width: 20px;
+        height: 1px;
+        background: #312930;
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-9px);
+        transition: transform 0.3s;
+        z-index: 2;
+      }
     }
   } 
 
@@ -72,35 +139,40 @@
     border-top: 30px solid #fff;
 
     .burger {
+      position: absolute;
+      left: 38%;
+      top: 29%;
+      display: block;
+      border-radius: 50px;
+      transform: translateY(50%);
+  
+      &::before {
+        opacity: 0;
+      }
+
+      &::after {
+        background: #312930;
+      }
+  
+    span {
+      top: -3px;
+      left: 0px;
       background: #312930;
-      left: 28%;
-      top: 4%;
-      height: 36px;
-      width: 36px;
-
-      span.wand {
-        background: #fff;
-        width: 15px;
-        position: relative;
-        top: 17px;
-        left: 10px;
-        margin-bottom: 0;
+  
+        &::before {
+          transform: rotate(45deg) translate(0, -50%);
+          bottom: auto;
+          top: 50%;
+          transform-origin: top;
+          background: #fff;
+        }
+  
+        &::after {
+          transform: rotate(-45deg) translate(0, -50%);
+          background: #fff;
+        }
       }
-
-      span.wand:first-child {
-        transform: rotate(-45deg);
-      }
-
-      span.wand:nth-child(2) {
-        transform: rotate(45deg);
-        top: 16px;
-      }
-
-      span.wand:last-child {
-        display: none;
-      }
-
-    }
+    } 
 
     .header-box-nav {
       top: 96px;
@@ -255,6 +327,7 @@
         font-weight: normal;
         color: $color-text-main;
         font-family: 'CeraPro';
+        z-index: 3;
   
         &-link {
           font-size: 26px;
