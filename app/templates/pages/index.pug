@@ -1,7 +1,8 @@
 extends ../layouts/default.pug
 
-include ../modules/footer.pug
 include ../modules/header.pug
+include ../modules/footer.pug
+include ../modules/recepts.pug
 include ../modules/subscription.pug
 
 block variables
@@ -17,92 +18,70 @@ mixin main-slider(json)
         p #{data.text}
         a(href=data.link) Подробнее +
 
-mixin recept-slider(json)
-  each data in json
-    a.recepts-box-slider-card.swiper-slide(href=data.link)
-      img(src="./images/" + data.image, alt=data.title).fullImg
-      .recepts-box-slider-card-text
-        p.title #{data.title}
-        p.time #{data.time}
-          +icon('timer', 'svg')
-
 block content
-    +header()
-    section.main-index#main-index
-      .content.main-index-box
-        .main-index-box-slider
-          .swiper-wrapper
-            +main-slider(getData('mainSlider'))
-      .main-index-box-control
-        .main-index-box-control-arrows.rouded-buttons-group
-          button.left.bg-white#slider-main-left
-            +icon('arrow', 'svg')
-          button.right.bg-white#slider-main-right
-            +icon('arrow', 'svg')
-        .main-index-box-control-items
-    section.recepts
-      .content.recepts-box
-        .recepts-box-left
-          h2 Рецепты с адыгейским сыром
-          .recepts-box-left-arrows.rouded-buttons-group
-            button.left.bg-additional#slider-recepts-left
-              +icon('arrow', 'svg')
-            button.right.bg-additional#slider-recepts-right
-              +icon('arrow', 'svg')
-          a(href="#") Все рецепты +
-        .recepts-box-right
-          .recepts-box-slider
-            .swiper-wrapper
-              +recept-slider(getData('receptSlider'))
-    section.promo.bg-additional
-      .content.promo-box
-        .promo-box-top
-          .top-left
-            img(src="./images/promo-box-top.svg", alt="Персонажи")
-            +icon('promo-box-top-text', 'svg')
-          .top-right
-            h2 Эксклюзивное право на производство адыгейского сыра
-            p НМПТ гарантирует сохранение оригинальной рецептуры и точного следования технологии производства.
-            a(href="#") Что такое НМПТ
-        .promo-box-bottom
-          .bottom-img
-            +icon('prevslogo', 'svg')
-            .mountains
-              img(src="./images/mountains.png", alt="ГоРы")
-              .mountains-cheese
-              +icon('rhombus', 'svg').rhombus-1
-              +icon('rhombus', 'svg').rhombus-2
-          .bottom-text
-            h2 Наша продукция изготавливается в экологически чистом регионе из отборного коровьего молока
-            .text-desc
-              p Мы остаемся верны традициям, соблюдая оригинальную рецептуру.
-              p Продукция изготавливается вручную лучшими 
-                span мастерами-сыроделами.
-              p Именно это отличает настоящий адыгейский сыр от аналогов из других регионов страны.
-      span.bottom-ellips
-    section.news
-      .content.news-box
-        .news-box-header
-          h2 Новости
-          a(href="") Все новости
-        .news-box-row
-          .news-box-lg
-            .news-box-lg-image
-              img(src="./images/news-background-1.jpg", alt="Новость 1")
-            .news-box-content
-              .news-box-time 25.05
-                span .2019
-              .news-box-text Молочный завод «Янино» стал участником благотворительного новогоднего мероприятия «завтрак в манеже»
-          .news-box-small
-            .news-box-content
-              .news-box-time 25.05
-                span .2019
-              .news-box-text Молочный завод «Янино» стал участником благотворительного новогоднего мероприятия «завтрак в манеже»
-          .news-box-small
-            .news-box-content
-              .news-box-time 25.05
-                span .2019
-              .news-box-text Молочный завод «Янино» стал участником благотворительного новогоднего мероприятия «завтрак в манеже»
+  +header()
+  section.main-index#main-index
+    .content.main-index-box
+      .main-index-box-slider
+        .swiper-wrapper
+          +main-slider(getData('mainSlider'))
+    .main-index-box-control
+      .main-index-box-control-arrows.rouded-buttons-group
+        button.left.bg-white#slider-main-left
+          +icon('arrow', 'svg')
+        button.right.bg-white#slider-main-right
+          +icon('arrow', 'svg')
+      .main-index-box-control-items
+  +recepts()
+  section.promo.bg-additional
+    .content.promo-box
+      .promo-box-top
+        .top-left
+          img(src="./images/promo-box-top.svg", alt="Персонажи")
+          +icon('promo-box-top-text', 'svg')
+        .top-right
+          h2 Эксклюзивное право на производство адыгейского сыра
+          p НМПТ гарантирует сохранение оригинальной рецептуры и точного следования технологии производства.
+          a(href="#") Что такое НМПТ
+      .promo-box-bottom
+        .bottom-img
+          +icon('prevslogo', 'svg')
+          .mountains
+            img(src="./images/mountains.png", alt="ГоРы")
+            .mountains-cheese
+            +icon('rhombus', 'svg').rhombus-1
+            +icon('rhombus', 'svg').rhombus-2
+        .bottom-text
+          h2 Наша продукция изготавливается в экологически чистом регионе из отборного коровьего молока
+          .text-desc
+            p Мы остаемся верны традициям, соблюдая оригинальную рецептуру.
+            p Продукция изготавливается вручную лучшими 
+              span мастерами-сыроделами.
+            p Именно это отличает настоящий адыгейский сыр от аналогов из других регионов страны.
+    span.bottom-ellips
+  section.news
+    .content.news-box
+      .news-box-header
+        h2 Новости
+        a(href="") Все новости
+      .news-box-row
+        .news-box-lg
+          .news-box-lg-image
+            img(src="./images/news-background-1.jpg", alt="Новость 1")
+          .news-box-content
+            .news-box-time 25.05
+              span .2019
+            .news-box-text Молочный завод «Янино» стал участником благотворительного новогоднего мероприятия «завтрак в манеже»
+        .news-box-small
+          .news-box-content
+            .news-box-time 25.05
+              span .2019
+            .news-box-text Молочный завод «Янино» стал участником благотворительного новогоднего мероприятия «завтрак в манеже»
+        .news-box-small
+          .news-box-content
+            .news-box-time 25.05
+              span .2019
+            .news-box-text Молочный завод «Янино» стал участником благотворительного новогоднего мероприятия «завтрак в манеже»
 
-    +subscription().bg-white
-    +footer().bg-white
+  +subscription().bg-white
+  +footer().bg-white

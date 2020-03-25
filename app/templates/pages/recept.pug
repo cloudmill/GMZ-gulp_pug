@@ -1,0 +1,16 @@
+extends ../layouts/default.pug
+
+include ../modules/subscription.pug
+include ../modules/footer.pug
+include ../modules/header.pug
+
+block variables
+ -var pageTitle='Каталог'
+
+block content
+    +header()
+    section.main-recept
+      .content.main-recept-box
+      
+    +subscription().bg-white
+    +footer().bg-white

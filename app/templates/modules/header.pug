@@ -23,7 +23,8 @@ mixin header
             span.wand
           +icon('navigation', 'svg')
       .header-box-nav.lg
-        +header-box-nav-el(getData('header'))
+        .wrapper
+          +header-box-nav-el(getData('header'))
       .header-buttom
         .header-buttom-nav
           a(href="#") Как мы это делаем
@@ -43,4 +44,4 @@ mixin header
         .header-buttom-footer
           .left © ОАО Молочный завод «Гиагинский» 2020 г.
           .right Сделано в  
-            a(href="") CloudMill
+            a(href="https://cloudmill.ru" target="_blank") CloudMill

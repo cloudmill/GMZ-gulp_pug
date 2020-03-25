@@ -1,0 +1,23 @@
+mixin recept-slider(json)
+  each data in json
+    a.recepts-box-slider-card.swiper-slide(href=data.link)
+      img(src="./images/" + data.image, alt=data.title).fullImg
+      .recepts-box-slider-card-text
+        p.title #{data.title}
+        p.time #{data.time}
+          +icon('timer', 'svg')
+mixin recepts
+  section.recepts
+    .content.recepts-box
+      .recepts-box-left
+        h2 Рецепты с адыгейским сыром
+        .recepts-box-left-arrows.rouded-buttons-group
+          button.left.bg-additional#slider-recepts-left
+            +icon('arrow', 'svg')
+          button.right.bg-additional#slider-recepts-right
+            +icon('arrow', 'svg')
+        a(href="#") Все рецепты +
+      .recepts-box-right
+        .recepts-box-slider
+          .swiper-wrapper
+            +recept-slider(getData('sliders/recepts'))

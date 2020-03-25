@@ -39,11 +39,10 @@
   .burger {
     position: absolute;
     left: 38%;
-    top: 28%;
+    top: 29%;
     display: block;
-    border-radius: 10px;
+    border-radius: 50px;
     transform: translateY(50%);
-    border-radius: 100px;
   
     span.wand {
       position: relative;
@@ -74,18 +73,18 @@
 
     .burger {
       background: #312930;
-      left: 26%;
-      top: -2%;
-      height: 39px;
-      width: 39px;
+      left: 28%;
+      top: 4%;
+      height: 36px;
+      width: 36px;
 
       span.wand {
         background: #fff;
         width: 15px;
         position: relative;
-        top: 19px;
-        left: 12px;
-        margin-bottom: 0px;
+        top: 17px;
+        left: 10px;
+        margin-bottom: 0;
       }
 
       span.wand:first-child {
@@ -94,7 +93,7 @@
 
       span.wand:nth-child(2) {
         transform: rotate(45deg);
-        top: 18px;
+        top: 16px;
       }
 
       span.wand:last-child {
@@ -202,6 +201,7 @@
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
+    z-index: 1;
 
     @include screen('xs', 'max') {
       margin: -25px -10px;
@@ -227,19 +227,22 @@
     }
   
     &-nav {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-around;
-      width: 50%;
+      width: 100%;
       position: absolute;
-      margin: 0 auto;
       top: 15px;
-      left: 25%;
       @include screen('custom-660', 'max') {
         &.lg {
           display: none;
         }
+      }
+
+      .wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 550px;
+        margin: 0 auto;
       }
 
       &-button {
@@ -344,13 +347,26 @@
       }
     }
 
+    .header-box-nav.wrapper {
+      @include screen('custom-860', 'max') {
+        max-width: 50%;
+      }
+    }
+
     .header-box-nav.lg {
       @include screen('custom-660', 'max') {
-        flex-direction: column;
-        display: block;
+        display: flex;
         position: unset;
-        left: 0%;
-        padding-top: 50px;
+        justify-content: space-around;
+      }
+
+      .wrapper {
+        @include screen('custom-660', 'max') {
+          flex-direction: column;
+          position: unset;
+          left: 0%;
+          padding-top: 50px;
+        }
       }
     }
 
