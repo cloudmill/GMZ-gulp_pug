@@ -1,12 +1,14 @@
 import $ from "jquery";
 
 //Modules
-import { sliders } from "./modules/sliders";
-import { helpers } from "./modules/helpers";
+import sliders from "./modules/sliders.js";
+import helpers from "./modules/helpers.js";
 
 //templs
-import { header } from "./templs/header";
+import header from "./templs/header.js";
 
+//Animations
+import animations from './animations/main.js'
 
 
 $(document).ready(function() {
@@ -18,6 +20,9 @@ $(document).ready(function() {
 
   /* Функционал для Header */
   header.init();
+
+  /*Анимации*/
+  animations.init();
 
   /* Страница категория, работа с картинками
   $('.catalog-el').on("mouseover", function(){

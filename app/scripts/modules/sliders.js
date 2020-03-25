@@ -1,12 +1,12 @@
 import $ from "jquery";
 import Swiper from "swiper";
 
-export default sliders = {
-  init: () => {
+let sliders = {
+  init: function() {
     this.mainSlider();
     this.receptSlider();
   },
-  mainSlider: () => {
+  mainSlider: function() {
     let delayChangeSlide = 2500;
     return new Swiper(".main-index-box-slider", {
       speed: 400,
@@ -34,7 +34,7 @@ export default sliders = {
       }
     });
   },
-  receptSlider: () => {
+  receptSlider: function() {
     return new Swiper(".recepts-box-slider", {
       spaceBetween: 30,
       slidesPerView: 1,
@@ -53,3 +53,4 @@ export default sliders = {
     });
   }
 };
+export default sliders;

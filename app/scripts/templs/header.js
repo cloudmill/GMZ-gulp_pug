@@ -1,16 +1,16 @@
 import $ from "jquery";
 
-export default header = {
-  init: () => {
+let header = {
+  init: function() {
     this.burger.init();
     this.scrollDoing.init();
   },
   /* Функционал для бургер меню */
   burger: {
-    init: () => {
+    init: function() {
       this.events();
     },
-    events: () => {
+    events: function() {
       $("#change-nav").click(function() {
         if (
           $(".header").hasClass("sticky") &&
@@ -30,15 +30,15 @@ export default header = {
   /* Функционал для действий hedaer при скролле*/
   scrollDoing: {
     lastPos: $(document).scrollTop(),
-    init: () => {
+    init: function() {
       this.events();
     },
-    events: () => {
+    events: function() {
       $(window).scroll(() => {
         this.update();
       });
     },
-    update: () => {
+    update: function() {
       this.pos = $(document).scrollTop();
       if (!$(".header-static").hasClass("active")) {
         if (this.pos > this.lastPos || this.pos == 0) {
@@ -51,3 +51,5 @@ export default header = {
     }
   }
 };
+
+export default header;

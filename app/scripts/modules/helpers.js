@@ -1,17 +1,17 @@
 import $ from "jquery";
 
-export default helpers = {
-  init: () => {
+let helpers = {
+  init: function() {
     this.resizeImg();
     this.events();
   },
-  events: () => {
+  events: function() {
     $(window).on("resize", () => {
       this.resizeImg();
     });
   },
   /* Ресайз изображений */
-  resizeImg: () => {
+  resizeImg: function() {
     let imgs = $(".fullImg");
     if (imgs.length > 0) {
       for (let img of imgs) {
@@ -30,3 +30,4 @@ export default helpers = {
     }
   }
 };
+export default helpers;
