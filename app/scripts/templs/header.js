@@ -30,23 +30,57 @@ let header = {
   /* Функционал для действий hedaer при скролле*/
   scrollDoing: {
     lastPos: $(document).scrollTop(),
+    scrollFree: 20,
+    moveDelta: 0,
     init: function() {
       this.events();
     },
     events: function() {
+      this.update();
       $(window).scroll(() => {
         this.update();
       });
     },
     update: function() {
       this.pos = $(document).scrollTop();
-      if (!$(".header-static").hasClass("active")) {
-        if (this.pos > this.lastPos || this.pos == 0) {
-          $(".header").removeClass("sticky");
-        } else {
-          $(".header").addClass("sticky");
-        }
+      let offsetTop = 50 //+ 90;
+
+      if(this.lastPos > this.pos){
+        this.moveDelta += Math.abs(this.lastPos - this.pos)   
+      }else{
+        this.moveDelta = 0;
       }
+
+      if(!$(".header-static").hasClass("active")){
+        if(this.pos <= offsetTop){
+          $(".header").removeClass("sticky");
+          $(".header").removeClass("hide");
+          let top = -$(document).scrollTop() + 30;
+          $(".header").css('transform','translateY('+top+'px)')
+        }else{
+          $(".header").attr('style','');
+          if(this.moveDelta > this.scrollFree){
+            $(".header").addClass("sticky");
+            $(".header").removeClass("hide");
+          }else{
+            $(".header").removeClass("sticky");
+            $(".header").addClass("hide");
+          }
+        }
+        // if (this.pos > this.lastPos || this.pos == 0) {
+        //       $(".header").removeClass("sticky");
+        //     } else {
+        //       $(".header").addClass("sticky");
+        //     }
+      }
+      // if (!$(".header-static").hasClass("active")) {
+      //   if (this.pos > this.lastPos || this.pos == 0) {
+      //     $(".header").removeClass("sticky");
+      //   } else {
+      //     $(".header").addClass("sticky");
+      //   }
+      // }
+      
       this.lastPos = this.pos;
     }
   }

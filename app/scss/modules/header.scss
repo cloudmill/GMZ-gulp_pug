@@ -4,9 +4,28 @@
 .header.sticky {
   background: #fff;
   position: fixed;
-  margin-top: -20px;
+  //margin-top: -20px;
+  transform: translateY(-20px);
   height: 90px;
 
+  transition: transform 0.4s ease-in-out, background 0.4s ease-in-out;
+
+  a.header-box-logotype {
+    .svg-icon.svg-logotype {
+      opacity: 0;
+    }
+
+    i.svg-icon.svg-logotype-short {
+      top: -20px;
+      opacity: 1;
+    }
+  }
+}
+
+.header.hide{
+  transform: translateY(calc(-100% - 50px));
+  transition: transform 0.4s ease-in-out, background 0.4s ease-in-out;
+  background: #fff;
   a.header-box-logotype {
     .svg-icon.svg-logotype {
       opacity: 0;
@@ -22,9 +41,11 @@
 .header {
   width: calc(100% - 40px);
   z-index: 9999;
-  transition: all 0.4s ease;
-  position: absolute;
-  margin-top: 30px;
+  
+  //position: absolute;
+  position: fixed;
+  transform: translateY(30px);
+  //margin-top: 30px;
   padding-right: $min-main-padding;
   padding-left: $min-main-padding;
   box-sizing: border-box;
@@ -32,6 +53,16 @@
   &-buttom {
     display: none;
   }
+
+  .svg-icon.svg-logotype {
+    transition: opacity 0.3s;
+  }
+
+  i.svg-icon.svg-logotype-short {
+    transition: opacity 0.3s;
+  }
+
+  
 
   .burger {
     position: absolute;
@@ -381,7 +412,7 @@
 */
 .header.sticky {
   @include screen('xs', 'max') {
-    margin-top: 0px;
+    transform: translateY(0);
     padding: 20px;
   }
 }
