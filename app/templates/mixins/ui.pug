@@ -21,8 +21,12 @@ mixin checkbox(id_param, name_param, text)
       +icon('checkbox-checked', 'svg').state-checked
       p= text
 
-mixin link(name, link)
-  a.main-link(href=link) #{name}
+mixin link(name, link, addon)
+  if(addon == 'true')
+    a.main-link.addon(href=link) #{name}
+      span
+  else
+    a.main-link(href=link) #{name}
 
 mixin btn-slider(direction)
   if(direction == 'left')

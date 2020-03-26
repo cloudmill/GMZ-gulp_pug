@@ -7,6 +7,7 @@
 @import "base/pngSprite";
 @import "base/svgSprite";
 @import "base/default";
+@import "base/ui";
 
 @import "modules/footer";
 @import "modules/subscription";
@@ -16,16 +17,6 @@
 @import "modules/info-partners";
 @import "modules/main-partners";
 @import "modules/header";
-
-
-.fullImg {
-  width: auto;
-  height: 100%;
-  &.auto-height {
-    width: 100%;
-    height: auto;
-  }  
-}
 
 .bg-white {
   background-color: #fff;
@@ -98,78 +89,6 @@ section {
 
   &.subscription {
     padding-top: 200px;
-  }
-}
-
-.main-checkbox {
-  margin-bottom: 36px;
-
-  @include screen('custom-660', 'min') {
-    &:last-child {
-      margin-bottom: 0px;
-    }
-  }
-
-  input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-
-  &-name {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    & > p {
-      margin-left: 15px;
-      color: $color-text-main;
-      font-size: 14px;
-    }
-  }
-}
-
-.main-field {
-  position: relative;
-  font-size: 20px;
-  color: $color-text-main;
-  margin-bottom: 70px;
-  display: flex;
-  flex-direction: row;
-  font-family: 'CeraPro';
-
-  &-name {
-    position: absolute;
-    top: -20px;
-    display: block;
-    transition: 0.2s; 
-  }
-
-  &-addon {
-    position: absolute;
-    top: -20px;
-    display: block;
-    right: 0px;
-    font-size: 12px;
-  }
-
-  input, textarea {
-    border-bottom: 1px solid $color-text-main;
-    position: relative;
-    width: 100%;
-    font-size: 20px;
-
-    &::placeholder {
-      color: transparent;
-    }
-
-    &:focus + .main-field-name {
-      transition: 0.2s;
-      top: -30px;
-      color: $color-text-complementary-two;
-    }
   }
 }
 
@@ -599,11 +518,6 @@ section {
               margin-bottom: 20px;
             }
           }
-
-          & > a {
-            font-family: 'CeraPro';
-            font-size: 17px;
-          }
         }
       }
     }
@@ -639,6 +553,11 @@ section {
           display: inline-block;
           margin-right: 19px;
           position: relative;
+          transition: transform 0.2s;
+
+          &:hover {
+            transform: scale(1.2);
+          }
 
           &::before {
             content: '';
@@ -722,19 +641,14 @@ section {
       }
 
       & > h2 {
-        font-family: 'PFRegalTextPro';
-        font-size: 52px;
-        line-height: 52px;
+        @include UI-Font-PFRegalTextPro-bold;
         margin-bottom: 80px;
 
         @include screen('md', 'max') {
-          font-size: 34px;
           margin-bottom: 15px;
-          line-height: 33px;
         }
 
         @include screen('xs', 'max') {
-          font-size: 30px;
           margin-bottom: 15px;
         }
       }

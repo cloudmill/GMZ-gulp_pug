@@ -11,12 +11,10 @@ mixin recepts
     .content.recepts-box
       .recepts-box-left
         h2 Рецепты с адыгейским сыром
-        .recepts-box-left-arrows.rouded-buttons-group
-          button.left.bg-additional#slider-recepts-left
-            +icon('arrow', 'svg')
-          button.right.bg-additional#slider-recepts-right
-            +icon('arrow', 'svg')
-        a(href="#") Все рецепты +
+        .recepts-box-left-arrows.main-slider-buttons
+          +btn-slider('left').bg-additional#slider-recepts-left
+          +btn-slider('right').bg-additional#slider-recepts-right
+        +link('Все рецепты', '#', 'true')
       .recepts-box-right
         .recepts-box-slider
           .swiper-wrapper

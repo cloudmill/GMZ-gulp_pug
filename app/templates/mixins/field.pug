@@ -1,6 +1,0 @@
-mixin field(type_param, id_param, placeholder_param, label_text, label_addon)
-  .main-field
-    input(type=type_param name=id_param id=id_param placeholder=placeholder_param)
-    label(for=id_param class="main-field-name") #{label_text}
-    if(label_addon != '')
-      label(for=id_param class="main-field-addon") #{label_addon}

@@ -213,13 +213,74 @@
 
   &::before {
     background: url('../images/main-link-lines.svg');
-    content: '';
+    content: "";
     display: block;
     width: 100%;
     height: 20px;
     transition: width .3s;
     position: absolute;
-    top: 30px;
+    margin-top: 30px;
+    background-size: cover;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.addon {
+    &::after {
+      content: '';
+      width: 12px;
+      height: 1px;
+      background: #312930;
+      top: 62%;
+      right: -15px;
+      transform: translateY(-50%);
+      position: absolute;
+    }
+    
+    span {
+      position: relative;
+      right: -6.5px;
+      
+      &::after {
+        content: "";
+        width: 6px;
+        height: 1px;
+        background: #312930;
+        top: 70%;
+        transform: translateY(-50%);
+        position: absolute;
+        transform: rotate(90deg);
+        transition: transform 0.3;
+      }
+  
+      &::before {
+        content: "";
+        width: 6px;
+        height: 1px;
+        background: #312930;
+        top: 45%;
+        transform: translateY(-50%);
+        position: absolute;
+        transform: rotate(90deg);
+        transition: transform 0.3;
+      }
+    }
+  }
+
+  &:hover {
+    span {
+      right: -10px;
+
+      &::before {
+        transform: rotate(30deg) translateY(-7px);
+        top: 80%;
+        left: -4px;
+      }
+
+      &::after {
+        transform: rotate(-30deg) translateY(0px);
+      }
+    }
   }
 }
 
@@ -233,7 +294,6 @@
     height: 61px;
     display: inline-block;
     margin-right: 19px;
-    background-color: #fff;
     position: relative;
     transition: 0.3s;
 

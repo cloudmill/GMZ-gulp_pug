@@ -126,7 +126,7 @@
   &-static.active {
     position: fixed;
     height: calc(100vh + 10px);
-    background: #F9EFE1;
+    background-color: #F9EFE1;
     width: calc(100% - 40px);
     margin-left: -20px;
     margin-top: -60px;
@@ -137,6 +137,7 @@
     background-position: bottom;
     background-repeat: no-repeat;
     border-top: 30px solid #fff;
+    transition: background-color 0.3s ease;
 
     .burger {
       position: absolute;
@@ -175,7 +176,8 @@
     } 
 
     .header-box-nav {
-      top: 96px;
+      transition: transform 0.3s;
+      transform: translateY(127px);
     }
 
     .header-box-nav-el {      
@@ -193,7 +195,7 @@
       flex-direction: column;
       height: calc(100% - 10px);
       justify-content: space-around;
-      padding-top: 50px;
+      padding-top: 66px;
   
       &-nav {
         display: flex;
@@ -201,6 +203,7 @@
         font-size: 20px;
         flex-wrap: wrap;
         align-items: center;
+        max-width: 1000px;
 
         a {
           font-size: 20px;
@@ -302,6 +305,8 @@
       width: 100%;
       position: absolute;
       top: 15px;
+      transition: transform 0.3s;
+
       @include screen('custom-660', 'max') {
         &.lg {
           display: none;
@@ -319,6 +324,10 @@
 
       &-button {
         position: relative;
+
+        i.svg-icon.svg-navigation {
+          animation: rotating 4s linear infinite;
+        }
       }
   
       &-el {
@@ -431,6 +440,7 @@
         display: flex;
         position: unset;
         justify-content: space-around;
+        transform: translateY(0px);
       }
 
       .wrapper {

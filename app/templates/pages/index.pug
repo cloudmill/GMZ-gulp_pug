@@ -16,7 +16,7 @@ mixin main-slider(json)
       .main-index-box-slider-el-right
         h2 #{data.title}
         p #{data.text}
-        a(href=data.link) Подробнее +
+        +link('Подробнее', data.link, 'true')
 
 block content
   +header()
@@ -26,11 +26,9 @@ block content
         .swiper-wrapper
           +main-slider(getData('mainSlider'))
     .main-index-box-control
-      .main-index-box-control-arrows.rouded-buttons-group
-        button.left.bg-white#slider-main-left
-          +icon('arrow', 'svg')
-        button.right.bg-white#slider-main-right
-          +icon('arrow', 'svg')
+      .main-index-box-control-arrows.main-slider-buttons
+        +btn-slider('left').bg-white#slider-main-left
+        +btn-slider('right').bg-white#slider-main-right
       .main-index-box-control-items
   +recepts()
   section.promo.bg-additional
