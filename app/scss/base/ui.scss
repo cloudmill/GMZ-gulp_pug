@@ -1,0 +1,314 @@
+/*
+@rotate animation
+*/
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*
+@paginatio styles
+*/
+.pagination { 
+  color: #312930;
+  font-family: 'CeraPro';
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+
+  &-back {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    margin-right: 18px;
+    position: relative;
+
+    &::after {
+      background-image: url('../images/pagination-arrow.svg');
+      width: 10.5px;
+      height: 50%;
+      display: block;
+      position: absolute;
+      background-repeat: no-repeat;
+      content: "";
+      top: 15px;
+      left: 9px;
+      transition: 0.1s;
+    }
+
+    &::before {
+      width: 26px;
+      height: 26px;
+      background: #F5F2EB;
+      border-radius: 50px;
+      content: '';
+      display: inline-block;
+      position: relative;
+      margin-right: 18px;
+      top: 8px;
+      transition: 0.2s;
+    }
+
+    &:hover {
+      &::before {
+        background: #312930;
+        transform: scale(1.1);
+      }
+
+      &::after{
+        background-image: url('../images/pagination-arrow-hover.svg');
+        top: 13px;
+      }
+    }
+  }
+}
+
+/*
+@resize images styles
+*/
+.fullImg {
+  width: auto;
+  height: 100%;
+  &.auto-height {
+    width: 100%;
+    height: auto;
+  }  
+}
+
+/*
+@checkbox form styles
+*/
+.main-checkbox {
+  margin-bottom: 36px;
+
+  @include screen('custom-660', 'min') {
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+
+  .state {
+    &-default, &-hover, &-checked {
+      transition: opacity 0.2s ease-in-out;
+    }
+  }
+
+  input:checked + label {
+    .state-checked {
+      opacity: 1;
+    }
+
+    .state-default {
+      opacity: 0;
+    }
+  }
+
+  &:hover {
+    input:checked + label {
+      .state-hover {
+        opacity: 0;
+      }
+    }
+
+    .state-default {
+      opacity: 0;
+    }
+
+    .state-hover {
+      opacity: 1;
+    }
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .state {
+    &-hover, &-checked {
+      position: absolute;
+      opacity: 0;
+    }
+  }
+
+  &-name {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    & > p {
+      margin-left: 15px;
+      color: $color-text-main;
+      font-size: 14px;
+    }
+  }
+}
+
+/*
+@field form styles
+*/
+.main-field {
+  position: relative;
+  font-size: 20px;
+  color: $color-text-main;
+  margin-bottom: 70px;
+  display: flex;
+  flex-direction: row;
+  font-family: 'CeraPro';
+
+  &-name {
+    position: absolute;
+    top: -20px;
+    display: block;
+    transition: 0.2s; 
+  }
+
+  &-addon {
+    position: absolute;
+    top: -20px;
+    display: block;
+    right: 0px;
+    font-size: 12px;
+  }
+
+  input, textarea {
+    border-bottom: 1px solid $color-text-main;
+    position: relative;
+    width: 100%;
+    font-size: 20px;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:focus + .main-field-name {
+      transition: 0.2s;
+      top: -30px;
+      color: $color-text-complementary-two;
+    }
+  }
+}
+
+/*
+@links styles
+*/
+.main-link {
+  font-family: 'CeraPro';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 40px;
+  color: #312930;
+  position: relative;
+
+  &::before {
+    background: url('../images/main-link-lines.svg');
+    content: '';
+    display: block;
+    width: 100%;
+    height: 20px;
+    transition: width .3s;
+    position: absolute;
+    top: 30px;
+  }
+}
+
+/*
+@slider buttons styles
+*/
+.main-slider-buttons {
+  button {
+    border-radius: 100px;
+    width: 61px;
+    height: 61px;
+    display: inline-block;
+    margin-right: 19px;
+    background-color: #fff;
+    position: relative;
+    transition: 0.3s;
+
+    &::after {
+      position: absolute;
+      content: '';
+      display: block;
+      width: calc(100% - 30px);
+      height: 2px;
+      background: #312930;
+      top: 50%;
+      left: 11px;
+      transition: width 0.2s;
+    }
+
+    &.left {
+      transform: rotate(-180deg);
+    }
+
+    &:last-child {
+      margin-right: 0px;
+    }
+
+    span {
+      position: relative;
+      top: -4px;
+      left: -1px;
+      transition: transform 0.3s;
+
+      &::after {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 12px;
+        height: 2px;
+        background: #312930;
+        top: 1px;
+        left: 10px;
+        transform: rotate(50deg) translateY(-50%);
+      }
+
+      &::before {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 12px;
+        height: 2px;
+        background: #312930;
+        top: 9px;
+        left: 11px;
+        transform: rotate(-50deg) translateY(-50%);
+      }
+    }
+
+    &:hover {
+      background: #312930;
+      transform: scale(1.1);
+
+      &.left {
+        transform: rotate(-180deg) scale(1.1);
+      }
+
+      &::after {
+        width: 0;
+      }
+
+      span {
+        position: absolute;
+        top: 41%;
+        transform: translateX(15px);
+
+        &::after, &::before {
+          background: #ffffff;
+        }
+      }
+    }
+  }  
+}

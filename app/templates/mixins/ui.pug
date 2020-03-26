@@ -1,0 +1,33 @@
+mixin field(type_param, id_param, placeholder_param, label_text, label_addon)
+  .main-field
+    input(type=type_param name=id_param id=id_param placeholder=placeholder_param)
+    label(for=id_param class="main-field-name") #{label_text}
+    if(label_addon != '')
+      label(for=id_param class="main-field-addon") #{label_addon}
+
+mixin textarea(id_param, cols_param, rows_param, label_text, label_addon)
+  .main-field
+    textarea(name=id_param, id=id_param cols=cols_param, rows=rows_param)
+    label(for=id_param class="main-field-name") #{label_text}
+    if(label_addon != '')
+      label(for=id_param class="main-field-addon") #{label_addon}
+
+mixin checkbox(id_param, name_param, text)
+  .main-checkbox
+    input(type="checkbox" id=id_param name=name_param)
+    label(for=id_param class="main-checkbox-name")
+      +icon('checkbox', 'svg').state-default
+      +icon('checkbox-hover', 'svg').state-hover
+      +icon('checkbox-checked', 'svg').state-checked
+      p= text
+
+mixin link(name, link)
+  a.main-link(href=link) #{name}
+
+mixin btn-slider(direction)
+  if(direction == 'left')
+    button.left&attributes(attributes)
+      span
+  if(direction == 'right')
+    button.right&attributes(attributes)
+      span
