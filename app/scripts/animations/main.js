@@ -1,8 +1,12 @@
-import Wave from './wave.js';
+import $ from "jquery";
+import Wave from "./wave.js";
 
 let animations = {
   init: function() {
-    let wave1 = new Wave('.waveSection');
+    var waves = [];
+    $(".waveSection").each((key, item) => {
+      waves.push(new Wave(item));
+    });
   }
 };
 

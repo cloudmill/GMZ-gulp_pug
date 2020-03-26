@@ -4,8 +4,11 @@ export default class Wave {
   constructor(selector) {
     this.element = $(selector);
     this.offset = 20;
-    this.normalOffset =this.offset;
+    this.fazeOffset = Math.random() * 0.1;
+    this.fazeOffset = this.fazeOffset < 0.01 ? 0.01: this.fazeOffset;
+    this.normalOffset = this.offset;
     this.countPoints = 50;
+    
     this.id = "wave-" + parseInt(Math.random() * 10000);
     this.h = this.element.outerHeight();
     this.w = this.element.outerWidth();
@@ -33,7 +36,7 @@ export default class Wave {
     });
   }
   move() {
-    this.faze += 0.05;
+    this.faze += this.fazeOffset;
     this.normalizeOffset();
   }
   normalizeOffset(){
@@ -53,8 +56,6 @@ export default class Wave {
   draw() {
     this.ctx.beginPath();
     let getY = x => {
-      let normalizeK = (this.offset / this.countPoints) * 50;
-
       return Math.sin(x / 10 + this.faze) * this.offset
     };
 
