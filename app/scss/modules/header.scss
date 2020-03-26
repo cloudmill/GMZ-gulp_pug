@@ -5,6 +5,7 @@
   background: #fff;
   position: fixed;
   margin-top: -20px;
+  height: 90px;
 
   a.header-box-logotype {
     .svg-icon.svg-logotype {
@@ -15,10 +16,6 @@
       top: -20px;
       opacity: 1;
     }
-  }
-
-  .header-box-nav {
-    top: 6px;
   }
 }
 
@@ -178,6 +175,7 @@
     .header-box-nav {
       transition: transform 0.3s;
       transform: translateY(127px);
+      top: 0px;
     }
 
     .header-box-nav-el {      
@@ -277,6 +275,7 @@
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    padding-top: 5px;
 
     @include screen('xs', 'max') {
       margin: -25px -10px;
@@ -304,8 +303,9 @@
     &-nav {
       width: 100%;
       position: absolute;
-      top: 15px;
-      transition: transform 0.3s;
+      top: 50%;
+      transition: transform .3s;
+      transform: translateY(-50%);
 
       @include screen('custom-660', 'max') {
         &.lg {
