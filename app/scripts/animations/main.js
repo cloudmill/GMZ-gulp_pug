@@ -1,8 +1,8 @@
-import wave from './wave.js';
+import Wave from './wave.js';
 
 let animations = {
   init: function() {
-    wave.init();
+    let wave1 = new Wave('.waveSection');
   }
 };
 
