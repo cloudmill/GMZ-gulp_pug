@@ -21,6 +21,11 @@ mixin main-slider(json)
 block content
   +header()
   section.main-index#main-index
+    .main-index-animeel
+      +icon('cloud-1', 'svg').cloud-left-1
+      +icon('cloud-2', 'svg').cloud-left-2
+      +icon('cloud-2', 'svg').cloud-left-3
+      +icon('cloud-3', 'svg').cloud-right-1
     .content.main-index-box
       .main-index-box-slider
         .swiper-wrapper
@@ -40,10 +45,10 @@ block content
         .top-right
           h2 Эксклюзивное право на производство адыгейского сыра
           p НМПТ гарантирует сохранение оригинальной рецептуры и точного следования технологии производства.
-          a(href="#") Что такое НМПТ
+          +link('Что такое НМПТ', '#', 'true')
       .promo-box-bottom
         .bottom-img
-          +icon('prevslogo', 'svg')
+          +icon('print-main', 'svg')
           .mountains
             img(src="./images/mountains.png", alt="ГоРы")
             .mountains-cheese
@@ -56,12 +61,11 @@ block content
             p Продукция изготавливается вручную лучшими 
               span мастерами-сыроделами.
             p Именно это отличает настоящий адыгейский сыр от аналогов из других регионов страны.
-    span.bottom-ellips
   section.news
     .content.news-box
       .news-box-header
         h2 Новости
-        a(href="") Все новости
+        +link('Все новости', '/news.html', 'true')
       .news-box-row
         .news-box-lg
           .news-box-lg-image
