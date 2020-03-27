@@ -155,7 +155,7 @@
     position: fixed;
     height: calc(100vh + 10px);
     background-color: #F9EFE1;
-    width: calc(100% - 40px);
+    width: calc(100%);
     margin-left: -20px;
     margin-top: -60px;
     padding-top: 30px;
@@ -207,6 +207,11 @@
       transition: transform 0.3s;
       transform: translateY(127px);
       top: 0px;
+      margin-left: -20px;
+
+      @include screen('xs', 'max') {
+        margin-left: 0px;
+      }
     }
 
     .header-box-nav-el {      
@@ -306,17 +311,13 @@
     margin: 0 auto;
     position: relative;
     z-index: 1;
-    padding-top: 5px;
 
-    @include screen('xs', 'max') {
-      margin: -25px -10px;
-    }
 
     &-logotype {
       position: relative;
 
       @include screen('xs', 'max') {
-        transform: scale(0.7);
+        transform: scale(0.6);
       }
 
       .svg-icon.svg-logotype-short {
@@ -351,6 +352,11 @@
         justify-content: space-between;
         max-width: 550px;
         margin: 0 auto;
+
+        @include screen('md', 'max') {
+          max-width: 50%;
+        }
+
       }
 
       &-button {
@@ -400,7 +406,7 @@
   
       &-button {
         @include screen('xs', 'max') {
-          transform: scale(.7);
+          transform: scale(.9);
         }
       }
     }
@@ -413,7 +419,7 @@
 .header.sticky {
   @include screen('xs', 'max') {
     transform: translateY(0);
-    padding: 20px;
+    height: auto;
   }
 }
 
@@ -439,20 +445,19 @@
 
     .header-box {
       @include screen('custom-660', 'max') {
-        margin: 15px -10px;
+        margin: 15px 0px;
+        transform: translateY(25px);
       }
     }
 
     .header-box-nav-button {
       @include screen('xs', 'max') {
         position: fixed;
-        right: -5px;
       }
 
       @include screen('custom-660', 'max') {
         position: fixed;
         right: 0;
-        margin-right: 40px;
       }
 
       @include screen('xs', 'max') {
