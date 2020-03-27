@@ -441,6 +441,7 @@ section {
     height: 100%;
     background-image: url('../images/main-index.png');
     background-size: cover;
+    z-index: -1;
   }
 
   &-animeel {
