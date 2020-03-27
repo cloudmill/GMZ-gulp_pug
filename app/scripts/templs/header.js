@@ -3,7 +3,6 @@ import $ from "jquery";
 let header = {
   init: function() {
     this.burger.parent = this;
-    console.log(window.scrollbar);
     this.burger.init();
 
     this.scrollDoing.init();
@@ -43,12 +42,13 @@ let header = {
       $(".header").css("top", 50 + "px");
       $(".header").removeClass("sticky");
       $(".header").removeClass("hide");
+      $('body').addClass('scrollFalse')
     },
     setForDef: function() {
+      $('body').removeClass('scrollFalse')
       this.lastPos = this.pos+1;
       this.moveDelta = this.scrollFree+1;
       this.update()
-      
     },
     update: function() {
       this.pos = window.scrollbar.scrollTop;

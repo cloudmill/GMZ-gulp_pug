@@ -20,10 +20,14 @@ $(document).ready(function() {
   Scrollbar.initAll();
 
   //скролл на сайте
-  let scrollbar = window.scrollbar = Scrollbar.init(document.body, {
-    damping: 0.2
-  });
-  
+  window.scrollbarInit = ()=>{
+    window.scrollbar = Scrollbar.init(document.body, {
+      damping: 0.2,
+      alwaysShowTracks: true,
+     // delegateTo: document.getElementById('scroll-box-events'),
+    });
+  }
+  window.scrollbarInit();
 
   /* Слайдеры */
   sliders.init();

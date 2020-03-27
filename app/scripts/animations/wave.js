@@ -93,8 +93,8 @@ export default class Wave {
         this.ctx.lineTo(x, y);
       }
     } else {
-      this.ctx.lineTo(this.w, this.h);
-      this.ctx.lineTo(0, this.h);
+      this.ctx.lineTo(this.w, this.h+1);
+      this.ctx.lineTo(0, this.h+1);
     }
     this.ctx.lineTo(0, this.offset + getY(0));
 
@@ -103,7 +103,7 @@ export default class Wave {
     this.ctx.fillStyle = this.fill;
     this.ctx.fill();
 
-    // this.ctx.strokeStyle = "black";
-    // this.ctx.stroke();
+    this.ctx.strokeStyle = this.fill;
+    this.ctx.stroke();
   }
 }

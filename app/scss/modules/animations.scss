@@ -24,4 +24,17 @@
 /* scrollBar */
 body[data-scrollbar="true"]{
   height: 100vh;
+  &.scrollFalse{
+    pointer-events: none;
+    .header{
+      pointer-events: auto;
+    }
+  }
+}
+#scroll-box-events{
+  position: absolute;
+  pointer-events: none;
+  z-index: 10000;
+  left: 0;
+  top: 0;
 }
