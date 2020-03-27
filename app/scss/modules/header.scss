@@ -56,7 +56,6 @@
     transition: opacity 0.3s;
   }
 
-  
 
   .burger {
     position: absolute;
@@ -161,6 +160,10 @@
     border-top: 30px solid #fff;
     transition: background-color 0.3s ease;
 
+    @include screen('xs', 'max') {
+      border-top: unset;
+    }
+
     .burger {
       position: absolute;
       left: 38%;
@@ -203,7 +206,7 @@
       top: 0px;
       margin-left: -20px;
 
-      @include screen('xs', 'max') {
+      @include screen('custom-660', 'max') {
         margin-left: 0px;
       }
     }
@@ -463,6 +466,10 @@
       @include screen('custom-860', 'max') {
         max-width: 50%;
       }
+
+      @include screen('custom-660', 'max') {
+        max-width: 100%;
+      }
     }
 
     .header-box-nav.lg {
@@ -487,6 +494,7 @@
       @include screen('custom-660', 'max') {
         margin-bottom: 30px;
       }
+      
     }
 
     .header-box-nav-el > .header-box-nav-el-desc {
