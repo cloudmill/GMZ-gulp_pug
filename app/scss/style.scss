@@ -94,29 +94,6 @@ section {
   }
 }
 
-.rouded-buttons-group {
-  button {
-    border-radius: 100px;
-    width: 61px;
-    height: 61px;
-    display: inline-block;
-    margin-right: 19px;
-    background-color: #fff;
-
-    @include screen('custom-860', 'max') {
-      display: none;
-    }
-
-    &.left {
-      transform: rotate(-180deg);
-    }
-
-    &:last-child {
-      margin-right: 0px;
-    }
-  }  
-}
-
 .main-products {
   background: #fff;
 
@@ -477,7 +454,7 @@ section {
   &-box {
     display: flex;
     flex-direction: column;
-    padding-top: 70px;
+    padding-top: 80px;
     max-width: 1300px;
 
     @include screen('sm', 'max') {
@@ -503,7 +480,6 @@ section {
 
         &-left {
           position: relative;
-          top: 80px;
 
           @include screen('lg', 'max') {
             transform: scale(.8);
@@ -516,6 +492,38 @@ section {
           @include screen('xs', 'max') {
             transform: scale(.6);
             margin-bottom: -50px;
+          }
+
+          img {
+            position: relative;
+            top: 70px;
+          }
+
+          .addons {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+
+            .rhombus-1 {
+              position: absolute;
+              bottom: 0;
+              font-size: 8px;
+            }
+
+            .rhombus-2 {
+              position: absolute;
+              bottom: -41px;
+              left: 86px;
+              font-size: 5px;
+            }
+
+            .cheese {
+              position: absolute;
+              right: 0;
+              top: 15%;
+            }
           }
         }
 
@@ -569,10 +577,18 @@ section {
       margin: 0 auto;
       position: relative;
       padding-bottom: 70px;
+      padding-top: 70px;
 
       @include screen('custom-860', 'max') {
         flex-direction: column;
       }
+
+      &-arrows.main-slider-buttons {
+        @include screen('custom-860', 'max') {
+          display: none;
+        }
+      }
+
 
       &-items {
         position: absolute;
