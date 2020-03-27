@@ -27,6 +27,7 @@ footer {
         grid-column: 1 / 4;
         margin-top: 0px;
       }
+
       display: flex;
 
       &-left {
@@ -61,6 +62,11 @@ footer {
         a {
           color: $color-text-main;
           font-size: 18px;
+          transition: 0.2s;
+
+          &:hover {
+            color: #EE7754;
+          }
         }
       }
     }
@@ -124,6 +130,12 @@ footer {
         &-number {
           font-weight: bold;
           font-size: 24px;
+          transition: 0.2s;
+          cursor: pointer;
+
+          &:hover {
+            color: #EE7754;
+          }
         }
       }
     }
@@ -141,6 +153,10 @@ footer {
       
       a {
         margin-bottom: 10px;
+        transition: 0.3s;
+        &:hover {
+          color: #ee7754;
+        }
       }
     }
 

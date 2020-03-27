@@ -12,7 +12,12 @@ mixin main-slider(json)
   each data in json
     .main-index-box-slider-el.swiper-slide
       .main-index-box-slider-el-left
-        +icon(data.icon, data.type)
+        img(src=data.icon)
+        .shadow
+        .addons
+          +icon('rhombus', 'svg').rhombus-1
+          +icon('rhombus', 'svg').rhombus-2
+          +icon('cheese', 'svg').cheese
       .main-index-box-slider-el-right
         h2 #{data.title}
         p #{data.text}
@@ -44,7 +49,7 @@ block content
           img(src="./images/promo-box-top.svg", alt="Персонажи")
           +icon('promo-box-top-text', 'svg')
         .top-right
-          h2 Эксклюзивное право на производство адыгейского сыра
+          h2 Эксклюзивное право <br>на производство адыгейского сыра
           p НМПТ гарантирует сохранение оригинальной рецептуры и точного следования технологии производства.
           +link('Что такое НМПТ', '#', 'true')
       .promo-box-bottom
