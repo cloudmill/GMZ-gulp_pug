@@ -166,16 +166,23 @@
   flex-direction: row;
   font-family: 'CeraPro';
 
+  &-error {
+    opacity: 0;
+    display: none;
+    transition: opacity 0.2;
+  }
+
   &-name {
     position: absolute;
     top: -20px;
     display: block;
     transition: 0.2s; 
+    padding-bottom: 10px;
   }
 
   &-addon {
     position: absolute;
-    top: -20px;
+    top: 0px;
     display: block;
     right: 0px;
     font-size: 12px;
@@ -186,15 +193,35 @@
     position: relative;
     width: 100%;
     font-size: 20px;
+    padding-bottom: 20px;
+
+    &::placeholder {
+      color: #000;
+    }
+  }
+
+  input:focus, textarea:focus {
+    border-bottom: 1px solid #EE7754;
 
     &::placeholder {
       color: transparent;
     }
+  }
 
-    &:focus + .main-field-name {
-      transition: 0.2s;
-      top: -30px;
-      color: $color-text-complementary-two;
+  &.error {
+    .main-field-error {
+      display: block;
+      color: #BB9753;
+      opacity: 1;
+      position: absolute;
+      bottom: -30px;
+      right: 0;
+      font-size: 12px;
+      line-height: 30px;
+    }
+
+    input, textarea {
+      border-bottom: 1px solid #BB9753;
     }
   }
 }
