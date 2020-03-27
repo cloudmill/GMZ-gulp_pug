@@ -407,7 +407,7 @@ section {
 }
 
 .main-index {
-  min-height: 900px;
+  min-height: 850px;
   position: relative;
   overflow: hidden;
 
@@ -528,10 +528,13 @@ section {
         }
 
         &-right {
+          position: relative;
           width: 40%;
+          top: 40px;
           @include screen('sm', 'max') {
             width: 100%;
             padding-bottom: 140px;
+            top: 0px;
           }
           color: $color-text-main;
 
