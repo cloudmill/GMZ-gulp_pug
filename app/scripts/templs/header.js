@@ -2,6 +2,7 @@ import $ from "jquery";
 
 let header = {
   init: function() {
+    this.burger.parent = this;
     this.burger.init();
     this.scrollDoing.init();
   },
@@ -11,20 +12,10 @@ let header = {
       this.events();
     },
     events: function() {
-      $("#change-nav").click(function() {
-        if (
-          $(".header").hasClass("sticky") &&
-          !$(".header-static").hasClass("active")
-        ) {
-          $(".header").removeClass("sticky");
-        } else if (
-          $(".header-static").hasClass("active") &&
-          $(window).scrollTop() > 1
-        ) {
-          $(".header").addClass("sticky");
-        }
-        $(".header-static").toggleClass("active");
-      });
+      $("#change-nav").click( () =>{
+        this.parent.scrollDoing.update()
+        $('.header-static').toggleClass('active')
+      })
     }
   },
   /* Функционал для действий hedaer при скролле*/

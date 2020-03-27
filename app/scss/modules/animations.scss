@@ -1,10 +1,22 @@
-.waveSection{
+@mixin def_settings_animation_canvas {
   position: relative;
   background: none !important;
-  canvas{
+  canvas {
     position: absolute;
     z-index: -1;
     left: 0;
     top: 0;
+  }
+}
+.waveSection {
+  @include def_settings_animation_canvas;
+  &-top {
+    @include def_settings_animation_canvas;
+  }
+  &-bottom {
+    @include def_settings_animation_canvas;
+    &-clip {
+      @include def_settings_animation_canvas;
+    }
   }
 }
