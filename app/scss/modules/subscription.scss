@@ -19,33 +19,27 @@
     flex-wrap: wrap;
     color: $color-text-main;
 
-    @include screen('custom-660', 'max') {
+    @include screen('sm', 'max') {
       flex-direction: column;
       align-items: flex-start;
       padding-bottom: 40px;
     }
 
     & > h2 {
-      font-family: 'PFRegalTextPro';
-      font-size: 52px;
       width: 30%;
-      line-height: 40px;
-      @include screen('custom-660', 'max') {
-        width: 100%;
-        font-size: 34px;
-      }
-
-      @include screen('xs', 'max') {
-        font-size: 30px;
-      }
       margin-bottom: 40px;
+      @include UI-Font-PFRegalTextPro-bold;
+
+      @include screen('sm', 'max') { 
+        width: 100%;
+      }
     }
 
     & > .main-field {
       width: 40%;
       margin-bottom: 0px;
 
-      @include screen('custom-660', 'max') {
+      @include screen('sm', 'max') {
         width: 100%;
       }
     }

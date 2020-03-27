@@ -1195,6 +1195,7 @@ section {
     &-row {
       display: grid;
       justify-content: space-between;
+      grid-column-gap: 100px;
 
       @include screen('sm', 'max') {
         display: flex;
