@@ -22,6 +22,6 @@
 }
 
 /* scrollBar */
-[data-scrollbar="true"]{
+body[data-scrollbar="true"]{
   height: 100vh;
 }

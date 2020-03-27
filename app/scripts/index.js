@@ -13,8 +13,13 @@ import header from "./templs/header.js";
 
 $(document).ready(function() {
 
-
+  
   /* Кастомный скролл */
+
+  //скролл в блоках на странице
+  Scrollbar.initAll();
+
+  //скролл на сайте
   let scrollbar = window.scrollbar = Scrollbar.init(document.body, {
     damping: 0.2
   });
