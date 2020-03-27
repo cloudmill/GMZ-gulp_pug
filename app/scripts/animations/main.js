@@ -1,9 +1,13 @@
 import $ from "jquery";
 import Wave from "./wave.js";
 
+
 let animations = {
   init: function() {
-
+    this.waveAnimation();
+  },
+  
+  waveAnimation: function() {
     /* Анимация волны между секциями */
     var waves = [];
     $(".waveSection").each((key, item) => {
@@ -12,15 +16,15 @@ let animations = {
     });
     $(".waveSection-top").each((key, item) => {
       //Волна только вверху
-      waves.push(new Wave(item,'top'));
+      waves.push(new Wave(item, "top"));
     });
     $(".waveSection-bottom").each((key, item) => {
       //Волна только снизу
-      waves.push(new Wave(item,'bottom'));
+      waves.push(new Wave(item, "bottom"));
     });
     $(".waveSection-bottom-clip").each((key, item) => {
       //Волна снизу закрывающая фон
-      waves.push(new Wave(item,'bottom-clip'));
+      waves.push(new Wave(item, "bottom-clip"));
     });
   }
 };

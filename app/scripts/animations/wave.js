@@ -59,12 +59,11 @@ export default class Wave {
     }
   }
   events() {
-    this.lastScroll = $(document).scrollTop();
-    $(document).on("scroll", () => {
+    scrollbar.addListener((status) => {
       if (this.offset < this.normalOffset * 3) {
         this.offset *= Math.sqrt((this.normalOffset * 3) / this.offset);
       }
-    });
+     });
   }
   draw() {
     this.ctx.beginPath();

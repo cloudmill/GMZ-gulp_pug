@@ -9,7 +9,7 @@ let sliders = {
   mainSlider: function() {
     let delayChangeSlide = 2500;
     return new Swiper(".main-index-box-slider", {
-      speed: 400,
+      speed: 1500,
       spaceBetween: 1000,
       loop: true,
 
@@ -18,10 +18,10 @@ let sliders = {
         prevEl: "#slider-main-left"
       },
 
-      autoplay: {
-        delay: delayChangeSlide,
-        disableOnInteraction: false
-      },
+      // autoplay: {
+      //   delay: delayChangeSlide,
+      //   disableOnInteraction: false
+      // },
 
       pagination: {
         clickable: true,
