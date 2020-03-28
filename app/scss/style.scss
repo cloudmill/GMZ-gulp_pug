@@ -520,11 +520,11 @@ section {
             width: 100%;
             top: 0;
             left: 0;
-
             .rhombus-1 {
               position: absolute;
               bottom: 0;
               font-size: 8px;
+              transition: transform 2s ease-out;
             }
 
             .rhombus-2 {
@@ -532,12 +532,14 @@ section {
               bottom: -41px;
               left: 86px;
               font-size: 5px;
+              transition: transform 2s ease;
             }
 
             .cheese {
               position: absolute;
               right: 0;
               top: 15%;
+              transition: transform 2s ease-in-out;
             }
           }
         }
@@ -580,6 +582,49 @@ section {
               font-size: 16px;
               line-height: 24px;
               margin-bottom: 20px;
+            }
+          }
+        }
+        &.swiper-slide-prev,
+        &.swiper-slide:not(.swiper-slide-active){
+          .addons{
+            .rhombus-1 {
+              bottom: 0;
+              transform: translateX(-80vw);
+            }
+
+            .rhombus-2 {
+              bottom: -41px;
+              left: 86px;
+              transform: translateX(-70vw);
+            }
+
+            .cheese {
+              right: 0;
+              top: 15%;
+              transform: translateX(-90vw);
+            }
+          }
+        }
+        &.swiper-slide-next:not(.swiper-slide-active),
+        &.swiper-slide + .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-prev),
+        &.swiper-slide-next:not(.swiper-slide-active)+.swiper-slide{
+          .addons{
+            .rhombus-1 {
+              bottom: 0;
+              transform: translateX(80vw);
+            }
+
+            .rhombus-2 {
+              bottom: -41px;
+              left: 86px;
+              transform: translateX(70vw);
+            }
+
+            .cheese {
+              right: 0;
+              top: 15%;
+              transform: translateX(90vw);
             }
           }
         }

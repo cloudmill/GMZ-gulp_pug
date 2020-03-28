@@ -10,8 +10,8 @@ let sliders = {
     let delayChangeSlide = 2500;
     return new Swiper(".main-index-box-slider", {
       speed: 1500,
-      spaceBetween: 1000,
-      loop: true,
+      spaceBetween: 500,
+      //loop: true,
 
       navigation: {
         nextEl: "#slider-main-right",

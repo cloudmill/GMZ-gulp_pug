@@ -34,18 +34,19 @@ let header = {
     },
     events: function() {
       this.update();
-      scrollbar.addListener(status => {
+      window.scrollHandlerAdd(() => {
         this.update();
-      });
+      })
+      //window.scrollbar.addListener();
     },
     setForBurger: function() {
       $(".header").css("top", 50 + "px");
       $(".header").removeClass("sticky");
       $(".header").removeClass("hide");
-      $('body').addClass('scrollFalse')
+      window.scrollbarInit(true);
     },
     setForDef: function() {
-      $('body').removeClass('scrollFalse')
+      window.scrollbarInit();
       this.lastPos = this.pos+1;
       this.moveDelta = this.scrollFree+1;
       this.update()

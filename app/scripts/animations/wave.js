@@ -59,11 +59,11 @@ export default class Wave {
     }
   }
   events() {
-    scrollbar.addListener((status) => {
+    window.scrollHandlerAdd(status => {
       if (this.offset < this.normalOffset * 3) {
         this.offset *= Math.sqrt((this.normalOffset * 3) / this.offset);
       }
-     });
+    });
   }
   draw() {
     this.ctx.beginPath();
@@ -93,8 +93,8 @@ export default class Wave {
         this.ctx.lineTo(x, y);
       }
     } else {
-      this.ctx.lineTo(this.w, this.h+1);
-      this.ctx.lineTo(0, this.h+1);
+      this.ctx.lineTo(this.w, this.h + 1);
+      this.ctx.lineTo(0, this.h + 1);
     }
     this.ctx.lineTo(0, this.offset + getY(0));
 
