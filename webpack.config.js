@@ -1,5 +1,6 @@
 // webpack.config.js
 module.exports = {
+  mode: 'development',
   output: {
     filename: "scripts.min.js"
   },

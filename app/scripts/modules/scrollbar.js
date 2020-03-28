@@ -1,45 +1,64 @@
 import $ from "jquery";
 import Scrollbar from "smooth-scrollbar";
 
-let scrollbar = {
-  init: function() {
+export default class customScrollbar {
+  constructor() {
+    this.handlers = [];
+
     //скролл в блоках на странице
     Scrollbar.initAll();
 
-    //скролл на сайте
-    window.scrollHandlers = [];
-    window.scrollHandlerAdd = handler => {
-      window.scrollHandlers.push(handler);
-      window.scrollbar.addListener(handler);
-    };
-
-    window.scrollbarInit = disableScroll => {
-      // переинициализация скроллбара, для остановки скролла
-      if (window.scrollbar)
-        if (window.scrollbar.destroy) window.scrollbar.destroy();
-
-      if (disableScroll) {
-        window.scrollbar = Scrollbar.init(document.body, {
-          damping: 0.2,
-          alwaysShowTracks: true,
-          delegateTo: document.getElementById("scroll-box-events")
-        });
-      } else {
-        window.scrollbar = Scrollbar.init(document.body, {
-          damping: 0.2,
-          alwaysShowTracks: true
-        });
-
-        //повторное обновление событий
-        if (window.scrollHandlers.length > 0) {
-          for (let key in window.scrollHandlers) {
-            window.scrollHandlerAdd(window.scrollHandlers[key]);
-          }
-        }
-      }
-    };
-
-    window.scrollbarInit();
+    //Основной скрол на сайте
+    this.startScroll();
   }
-};
-export default scrollbar;
+
+  // добавление слушателя
+  on(handler) {
+    this.handlers.push(handler);
+    this.scrollbar.addListener(handler);
+  }
+
+  // удаление слушателя
+  off(handler) {
+    this.handlers.forEach((item, key) => {
+      if (item === handler) {
+        this.handlers.splice(key, 1);
+      }
+    });
+    this.scrollbar.removeListener(handler);
+  }
+
+  // обновление слушателей при переинициализации
+  updateHandlers() {
+    this.handlers.forEach((handler, key) => {
+      this.scrollbar.addListener(handler);
+    });
+  }
+
+  // остановка основного скролла
+  stopScroll() {
+    this.scrollbar.destroy();
+    this.scrollbar = Scrollbar.init(document.body, {
+      alwaysShowTracks: false,
+      delegateTo: document.getElementById("scroll-box-events")
+    });
+  }
+
+  // возобновление основного скролла
+  startScroll() {
+    this.scrollbar
+      ? this.scrollbar.destroy
+        ? this.scrollbar.destroy()
+        : 1
+      : 1;
+    this.scrollbar = Scrollbar.init(document.body, {
+      damping: 0.2,
+      alwaysShowTracks: true
+    });
+    this.updateHandlers();
+  }
+
+  get scrollTop() {
+    return this.scrollbar.scrollTop;
+  }
+}

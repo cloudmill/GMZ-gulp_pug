@@ -103,14 +103,20 @@ const logError = function(err) {
   //gutil.log(err);
   this.emit('end');
 };
+let jsInProccess = false;
 gulp.task("js", function(callback) {
-  gulp
+  if(!jsInProccess){
+    jsInProccess = true;
+    gulp
     .src(_.js.dir + _.js.start)
     .pipe(webpack(webpackConfig))
     .pipe(errorHandler(logError))
     .pipe(gulp.dest(_.dist.js));
 
+    jsInProccess = false;
     callback()
+  }
+  
 });
 
 

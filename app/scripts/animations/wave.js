@@ -59,11 +59,11 @@ export default class Wave {
     }
   }
   events() {
-    window.scrollHandlerAdd(status => {
+    window.scrollbar.on((status) => {
       if (this.offset < this.normalOffset * 3) {
         this.offset *= Math.sqrt((this.normalOffset * 3) / this.offset);
       }
-    });
+    })
   }
   draw() {
     this.ctx.beginPath();

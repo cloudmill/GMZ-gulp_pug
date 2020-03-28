@@ -2,98 +2,124 @@ import $ from "jquery";
 
 let header = {
   init: function() {
-    this.burger.parent = this;
-    this.burger.init();
+    this.element = $(".header");
+    this.elementBurger = $(".header-static");
+    this.butBurger = $("#change-nav");
 
-    this.scrollDoing.init();
-  },
-  /* Функционал для бургер меню */
-  burger: {
-    init: function() {
-      this.events();
-    },
-    events: function() {
-      $("#change-nav").click(() => {
-        if (!$(".header-static").hasClass("active"))
-          this.parent.scrollDoing.setForBurger();
-        $(".header-static").toggleClass("active");
+    /* Функционал для действий hedaer при скролле*/
+    this.scrollAnimation = new FixedScrollAnimate(this.element);
 
-        if (!$(".header-static").hasClass("active"))
-          this.parent.scrollDoing.setForDef();
-      });
-    }
-  },
-  /* Функционал для действий hedaer при скролле*/
-  scrollDoing: {
-    lastPos: null,
-    scrollFree: 20,
-    moveDelta: 0,
-    init: function() {
-      this.lastPos = window.scrollbar.scrollTop;
-      this.events();
-    },
-    events: function() {
-      this.update();
-      window.scrollHandlerAdd(() => {
-        this.update();
-      })
-      //window.scrollbar.addListener();
-    },
-    setForBurger: function() {
-      $(".header").css("top", 50 + "px");
-      $(".header").removeClass("sticky");
-      $(".header").removeClass("hide");
-      window.scrollbarInit(true);
-    },
-    setForDef: function() {
-      window.scrollbarInit();
-      this.lastPos = this.pos+1;
-      this.moveDelta = this.scrollFree+1;
-      this.update()
-    },
-    update: function() {
-      this.pos = window.scrollbar.scrollTop;
-      let offsetTop = 50; //+ 90;
-      if ($(window).width() <= 480) {
-        offsetTop = 20;
-      }
-
-      if (this.lastPos > this.pos) {
-        this.moveDelta += Math.abs(this.lastPos - this.pos);
-      } else {
-        this.moveDelta = 0;
-      }
-      $(".header").css("transform", "translateY(" + this.pos + "px)");
-      if (!$(".header-static").hasClass("active")) {
-        if (this.pos <= offsetTop) {
-          $(".header").removeClass("sticky");
-          $(".header").removeClass("hide");
-          let top = -window.scrollbar.scrollTop + offsetTop;
-          $(".header").css("top", top + "px");
-        } else {
-          if (this.moveDelta > this.scrollFree) {
-            $(".header").css("top", "0px");
-            $(".header").addClass("sticky");
-            $(".header").removeClass("hide");
-          } else {
-            $(".header").removeClass("sticky");
-            let top = -$(".header").height() - offsetTop;
-            $(".header").css("top", top + "px");
-            $(".header").addClass("hide");
-          }
-        }
-      }
-      // if (!$(".header-static").hasClass("active")) {
-      //   if (this.pos > this.lastPos || this.pos == 0) {
-      //     $(".header").removeClass("sticky");
-      //   } else {
-      //     $(".header").addClass("sticky");
-      //   }
-      // }
-
-      this.lastPos = this.pos;
-    }
+    /* Функционал для бургер меню */
+    this.burgerAnimation = new Burger(this.elementBurger, this.butBurger);
+    this.burgerAnimation.onClose = () => {
+      this.scrollAnimation.stable();
+    };
   }
 };
+class Burger {
+  constructor(element, button) {
+    this.element = element;
+    this.button = button;
+
+    this.init();
+  }
+  init() {
+    this.button.click(() => {
+      if (this.element.hasClass("active")) {
+        this.hide();
+      } else {
+        this.show();
+      }
+    });
+  }
+  show() {
+    this.element.addClass("active");
+    this.element.parent().css("top", 50 + "px");
+    this.element.parent().removeClass("sticky");
+    this.element.parent().removeClass("hide");
+    window.scrollbar.stopScroll();
+  }
+  hide() {
+    this.element.removeClass("active");
+    window.scrollbar.startScroll();
+    if (this.onClose) this.onClose();
+  }
+}
+class FixedScrollAnimate {
+  constructor(element) {
+    this.free = true;
+    this.state = null;
+
+    this.element = element;
+
+    //минимальный сдвиг для действий
+    this.scrollFree = 20;
+
+    //растояние до верхнего края страницы в начальном положении
+    this.offsetOnBeginPos = 50;
+    if ($(window).width() <= 480) {
+      this.offsetOnBeginPos = 20;
+    }
+
+    this.init();
+  }
+  init() {
+    this.lastPos = window.scrollbar.scrollTop;
+    this.update();
+    window.scrollbar.on(() => {
+      this.update();
+    });
+  }
+  update() {
+    this.pos = window.scrollbar.scrollTop;
+    if (this.lastPos > this.pos) {
+      this.moveDelta += Math.abs(this.lastPos - this.pos);
+    } else {
+      this.moveDelta = 0;
+    }
+
+    this.element.css("transform", "translateY(" + this.pos + "px)");
+
+    this.currentState();
+
+    this.lastPos = this.pos;
+  }
+  stable() {
+    this.lastPos = this.pos + 1;
+    this.moveDelta = this.scrollFree + 1;
+    this.currentState();
+  }
+  currentState() {
+    if (this.pos <= this.offsetOnBeginPos) {
+      this.startPos();
+    } else {
+      if (this.moveDelta > this.scrollFree) {
+        this.show();
+      } else {
+        this.hide();
+      }
+    }
+  }
+  hide() {
+    this.element.removeClass("sticky");
+    let top = -this.element.height() - this.offsetOnBeginPos;
+    this.element.css("top", top + "px");
+    this.element.addClass("hide");
+    this.state = "hide";
+  }
+  show() {
+    this.element.css("top", "0px");
+    this.element.addClass("sticky");
+    this.element.removeClass("hide");
+    this.state = "show";
+  }
+  startPos() {
+    this.element.removeClass("sticky");
+    this.element.removeClass("hide");
+    let top = -this.pos + this.offsetOnBeginPos;
+    this.element.css("top", top + "px");
+    this.state = "start";
+  }
+}
 
 export default header;

@@ -9,7 +9,7 @@ let animations = {
   
   waveAnimation: function() {
     /* Анимация волны между секциями */
-    var waves = [];
+    var waves = []
     $(".waveSection").each((key, item) => {
       //2 волны
       waves.push(new Wave(item));

@@ -7,7 +7,7 @@ import animations from "./animations/main.js";
 //Modules
 import sliders from "./modules/sliders.js";
 import helpers from "./modules/helpers.js";
-import scrollbar from "./modules/scrollbar.js";
+import customScrollbar from "./modules/scrollbar.js";
 
 //templs
 import header from "./templs/header.js";
@@ -15,7 +15,7 @@ import header from "./templs/header.js";
 $(document).ready(function() {
 
   /* ScrollBar */
-  scrollbar.init()
+  window.scrollbar = new customScrollbar();
 
   /* Слайдеры */
   sliders.init();
