@@ -1,0 +1,147 @@
+.news {
+  &-box {
+    padding-top: 167px;
+    font-family: "CeraPro";
+
+    &-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 60px;
+
+      @include screen("sm", "max") {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      h2 {
+        font-weight: bold;
+        font-size: 52px;
+        line-height: 40px;
+        font-family: "PFRegalTextPro";
+        @include screen("sm", "max") {
+          padding-bottom: 20px;
+        }
+      }
+
+      a {
+        font-size: 17px;
+      }
+    }
+
+    &-row {
+      display: grid;
+      justify-content: space-between;
+      grid-column-gap: 100px;
+
+      @include screen("sm", "max") {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &-small {
+      grid-column: 2/3;
+      width: 100%;
+      align-self: center;
+
+      @include screen("md", "max") {
+        grid-column: 1/3;
+        margin-bottom: 25px;
+      }
+    }
+
+    &-lg {
+      grid-column: 1/2;
+      grid-row: 1/3;
+      width: 94%;
+      border: 1px solid #312930;
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      position: relative;
+
+      &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        bottom: -10%;
+        left: -15%;
+        background: #e1f1fa;
+        width: 38%;
+        height: auto;
+        transform: skewX(-15deg);
+        z-index: -1;
+        padding-top: 34%;
+
+        @include screen("sm", "max") {
+          bottom: 22%;
+        }
+      }
+
+      @include screen("md", "max") {
+        grid-column: 1/3;
+        width: 100%;
+      }
+
+      @include screen("sm", "max") {
+        border: 1px solid transparent;
+        flex-direction: column;
+        padding: 0px;
+        margin-bottom: 25px;
+      }
+
+      &-image {
+        background-size: contain;
+        margin-right: 40px;
+
+        @include screen("sm", "max") {
+          margin-right: 0px;
+          margin-bottom: 15px;
+        }
+
+        img {
+          width: auto;
+          height: 100%;
+          position: relative;
+
+          @include screen("sm", "max") {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
+
+    &-category,
+    &-time {
+      margin-bottom: 20px;
+    }
+
+    &-time {
+      font-family: "PFRegalTextPro";
+      color: #ee7854;
+
+      span {
+        color: #312930;
+      }
+    }
+
+    &-text {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+    }
+  }
+}
