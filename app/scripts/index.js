@@ -19,7 +19,7 @@ $(document).ready(function() {
 
   /* Слайдеры */
   sliders.init();
-
+ 
   /* Доп функционал */
   helpers.init();
 
