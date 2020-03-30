@@ -1,0 +1,14 @@
+extends ../layouts/default.pug
+
+include ../modules/subscription.pug
+include ../modules/footer.pug
+include ../modules/header.pug
+
+block variables
+ -var pageTitle='Каталог'
+
+block content
+    +header()
+      
+    +subscription().bg-additional
+    +footer().bg-additional
