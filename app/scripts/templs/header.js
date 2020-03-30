@@ -33,15 +33,18 @@ class Burger {
     });
   }
   show() {
+    window.scrollbar.stopScroll();
+
     this.element.addClass("active");
     this.element.parent().css("top", 50 + "px");
     this.element.parent().removeClass("sticky");
     this.element.parent().removeClass("hide");
-    window.scrollbar.stopScroll();
+    
   }
   hide() {
-    this.element.removeClass("active");
     window.scrollbar.startScroll();
+
+    this.element.removeClass("active");
     if (this.onClose) this.onClose();
   }
 }
