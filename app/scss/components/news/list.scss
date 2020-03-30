@@ -1,101 +1,112 @@
+.main-news {
+  padding-top: 50px;
+  @include screen("sm", "max") {
+    padding-top: 20px;
+  }
+}
 .news {
   &-box {
     padding-top: 167px;
     font-family: "CeraPro";
+  }
+  &-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 60px;
 
-    &-header {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 60px;
+    @include screen("sm", "max") {
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
+    h2 {
+      font-weight: bold;
+      font-size: 52px;
+      line-height: 40px;
+      font-family: "PFRegalTextPro";
       @include screen("sm", "max") {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      h2 {
-        font-weight: bold;
-        font-size: 52px;
-        line-height: 40px;
-        font-family: "PFRegalTextPro";
-        @include screen("sm", "max") {
-          padding-bottom: 20px;
-        }
-      }
-
-      a {
-        font-size: 17px;
+        padding-bottom: 20px;
       }
     }
 
-    &-row {
-      display: grid;
-      justify-content: space-between;
-      grid-column-gap: 100px;
-
-      @include screen("sm", "max") {
-        display: flex;
-        flex-direction: column;
-      }
+    a {
+      font-size: 17px;
     }
+  }
 
-    &-small {
-      grid-column: 2/3;
-      width: 100%;
-      align-self: center;
+  &-row {
+    display: grid;
+    justify-content: space-between;
+    grid-column-gap: 100px;
+    grid-row-gap: 50px;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: relative;
+    z-index: 2;
 
-      @include screen("md", "max") {
-        grid-column: 1/3;
-        margin-bottom: 25px;
-      }
+    @include screen("md", "max") {
+      grid-template-columns: 1fr;
     }
+  }
 
-    &-lg {
-      grid-column: 1/2;
+  &-small {
+    grid-column: 2/3;
+    width: 100%;
+    align-self: center;
+
+    @include screen("md", "max") {
+      grid-column: 1/3;
+      margin-bottom: 25px;
+    }
+  }
+
+  &-item {
+    align-self: center;
+    display: block;
+    text-decoration: none;
+    ///big items
+    &:first-child,
+    &:nth-child(n + 9) {
+      grid-column: 1/3;
       grid-row: 1/3;
-      width: 94%;
       border: 1px solid #312930;
       padding: 20px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 25px;
+      //margin-bottom: 25px;
       position: relative;
-
       &::after {
         display: block;
         content: "";
         position: absolute;
         bottom: -10%;
         left: -15%;
-        background: #e1f1fa;
-        width: 38%;
+        background: var(--color_rect);
+        width: 50%;
         height: auto;
         transform: skewX(-15deg);
         z-index: -1;
         padding-top: 34%;
-
         @include screen("sm", "max") {
           bottom: 22%;
         }
       }
 
       @include screen("md", "max") {
-        grid-column: 1/3;
-        width: 100%;
+        grid-column: auto;
+        grid-row: auto;
       }
 
       @include screen("sm", "max") {
-        border: 1px solid transparent;
+        border-color: transparent;
         flex-direction: column;
         padding: 0px;
-        margin-bottom: 25px;
       }
 
-      &-image {
+      .news-item-image {
         background-size: contain;
         margin-right: 40px;
 
@@ -105,10 +116,8 @@
         }
 
         img {
-          width: auto;
-          height: 100%;
           position: relative;
-
+          max-width: 380px;
           @include screen("sm", "max") {
             width: 100%;
             height: auto;
@@ -116,32 +125,146 @@
         }
       }
     }
-
-    &-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 100%;
-    }
-
-    &-category,
-    &-time {
-      margin-bottom: 20px;
-    }
-
-    &-time {
-      font-family: "PFRegalTextPro";
-      color: #ee7854;
-
-      span {
-        color: #312930;
+    &:nth-child(n + 9) {
+      grid-column: 2/4;
+      grid-row: 4/6;
+      &:after {
+        left: auto;
+        right: -15%;
+      }
+      @include screen("md", "max") {
+        grid-column: auto;
+        grid-row: auto;
       }
     }
 
-    &-text {
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 24px;
+    //small items row
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(6) {
+      margin: 50px 0;
+      @include screen("md", "max") {
+        margin: 0;
+      }
+    }
+    &:hover{
+      text-decoration: none;
+      .news-text{
+        color: #EE7854;
+      }
+    }
+  }
+
+  &-lg {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    border: 1px solid #312930;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    position: relative;
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      bottom: -10%;
+      left: -15%;
+      background: var(--color_rect);
+      width: 50%;
+      height: auto;
+      transform: skewX(-15deg);
+      z-index: -1;
+      padding-top: 34%;
+
+      @include screen("sm", "max") {
+        bottom: 22%;
+      }
+    }
+
+    @include screen("md", "max") {
+      grid-column: 1/3;
+      width: 100%;
+    }
+
+    @include screen("sm", "max") {
+      border: 1px solid transparent;
+      flex-direction: column;
+      padding: 0px;
+      margin-bottom: 25px;
+    }
+
+    &-image {
+      background-size: contain;
+      margin-right: 40px;
+
+      @include screen("sm", "max") {
+        margin-right: 0px;
+        margin-bottom: 15px;
+      }
+
+      img {
+        width: auto;
+        height: 100%;
+        position: relative;
+
+        @include screen("sm", "max") {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  &-category,
+  &-time {
+    margin-bottom: 20px;
+  }
+
+  &-time {
+    font-family: "PFRegalTextPro";
+    color: #ee7854;
+
+    span {
+      color: #312930;
+    }
+  }
+
+  &-text {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    transition: 0.3s ease-out;
+  }
+
+  &-type {
+    font-family: PF Regal Text Pro;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #312930;
+    line-height: 26px;
+    display: inline-block;
+    margin-bottom: 22px;
+    position: relative;
+    padding: 0 12px;
+    z-index: 2;
+    &:after {
+      content: "";
+      display: block;
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #ffffff;
+      border-width: 13px 4px 13px 13px;
+      border-right-color: transparent;
     }
   }
 }
