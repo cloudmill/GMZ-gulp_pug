@@ -311,16 +311,37 @@ section {
 }
 
 .main-catalog {
-  min-height: 900px;
-  background: $background-additional;
-  background-repeat: no-repeat;
-  background-image: url('../images/catalog-bottom.png');
-  background-position: bottom;
-  background-size: contain;
+  position: relative;
   padding-bottom: 10px;
 
+  @include screen('lg', 'max') {
+    background: $background-additional;
+    background-repeat: no-repeat;
+    background-image: url('../images/catalog-bottom.png');
+    background-position: bottom;
+    background-size: contain;
+  }
+
+  &::before {
+    left: 0;
+    height: 895px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    content: '';
+    background: $background-additional;
+    background-repeat: no-repeat;
+    background-image: url('../images/catalog-bottom.png');
+    background-position: bottom;
+    background-size: contain;
+
+    @include screen('lg', 'max') {
+      display: none;
+    }
+  }
+
   &-box {
-    padding-top: 170px;
+    padding-top: 257px;
     position: relative;
 
     @include screen('xs', 'max') {
@@ -328,14 +349,32 @@ section {
     }
 
     .text-bottom {
+      position: absolute;
       display: block;
       color: #fff;
       font-family: 'Lineatura';
       position: absolute;
-      bottom: -17%;
+      bottom: -1%;
       font-size: 260px;
       left: -50%;
       transform: translateX(37%);
+
+      @include screen('lg', 'max') {
+        display: none;
+      }
+
+      &::after {
+        position: absolute;
+        display: block;
+        content: '';
+        background-repeat: no-repeat;
+        background-image: url('../images/product-dashed-bg.svg');
+        width: 100vw;
+        height: 163px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-49%);
+      }
     }
 
     .catalog-el {
