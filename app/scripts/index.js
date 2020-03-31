@@ -8,9 +8,11 @@ import animations from "./animations/main.js";
 import sliders from "./modules/sliders.js";
 import helpers from "./modules/helpers.js";
 import customScrollbar from "./modules/scrollbar.js";
+import header from "./modules/header.js";
 
-//templs
-import header from "./templs/header.js";
+//components
+import maps from "./modules/header.js";
+
 
 $(document).ready(function() {
 
@@ -23,11 +25,16 @@ $(document).ready(function() {
   /* Доп функционал */
   helpers.init();
 
+  
+
   /* Функционал для Header */
   header.init();
 
   /*Анимации*/
   animations.init();
+
+  /* Компоненты */
+  maps.init();
 });
 
 
