@@ -5,9 +5,10 @@ let sliders = {
   init: function() {
     this.mainSlider();
     this.receptSlider();
+    this.productSlider();
   },
   mainSlider: function() {
-    let delayChangeSlide = 2500;
+    //let delayChangeSlide = 2500;
     return new Swiper(".main-index-box-slider", {
       speed: 1500,
       spaceBetween: 500,
@@ -50,6 +51,26 @@ let sliders = {
         nextEl: "#slider-recepts-right",
         prevEl: "#slider-recepts-left"
       }
+    });
+  },
+  productSlider: function() {
+    return new Swiper(".product-slider", {
+      speed: 600,
+      slidesPerView: 1,
+      updateOnWindowResize: true,
+
+      navigation: {
+        nextEl: "#slider-main-right",
+        prevEl: "#slider-main-left"
+      },
+
+      thumbs: {
+        swiper: {
+          el: '.product-bullets',
+          slidesPerView: 5,
+          spaceBetween: 20,
+        }
+      },
     });
   }
 };

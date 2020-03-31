@@ -15,12 +15,15 @@ block content
         .product-item
           .product-item-img
             .image
-              img(src="./images/img-products-2.png")
-              img(src="./images/img-products-2.png")
+              img(src="./images/img-products-2-min.png")
+              img(src="./images/img-products-2-min.png")
             .addons
-              +icon('cloud-1', 'svg')
-              +icon('cloud-2', 'svg')
-              +icon('cloud-2', 'svg')
+              +icon('cloud-1', 'svg').cloud-1
+              +icon('cloud-2', 'svg').cloud-2
+              +icon('cloud-2', 'svg').cloud-3
+              +icon('rhombus', 'svg').rhombus-1
+              +icon('rhombus', 'svg').rhombus-2
+              +icon('print-product', 'svg').print
         .content-section
           .pagination
             a.pagination-back Продукция
@@ -46,32 +49,22 @@ block content
               +icon('paste', 'svg').icon
               .title Добавка к пасте
           .product-slider
-            .buttons.rouded-buttons-group
-              button.left.bg-white#slider-left
-                +icon('arrow', 'svg')
-              button.right.bg-white#slider-left
-                +icon('arrow', 'svg')
-            .product-img
-              img(src="./images/product-slider-1.jpg")
+            .buttons.main-slider-buttons
+              +btn-slider('left').bg-white#slider-main-left
+              +btn-slider('right').bg-white#slider-main-right
+            .swiper-wrapper
+              .product-img.swiper-slide
+                img(src="./images/product-slider-1.jpg")
+              .product-img.swiper-slide
+                img(src="./images/product-slider-1.jpg")
             .product-bullets
-              .product-bullets-thumb
-                .thumb-wrapper
-                  img(src="./images/product-slider-1.jpg")
-              .product-bullets-thumb
-                .thumb-wrapper
-                  img(src="./images/product-slider-1.jpg")
-              .product-bullets-thumb
-                .thumb-wrapper
-                  img(src="./images/product-slider-1.jpg")
-              .product-bullets-thumb
-                .thumb-wrapper
-                  img(src="./images/product-slider-1.jpg")
-              .product-bullets-thumb
-                .thumb-wrapper
-                  img(src="./images/product-slider-1.jpg")
-              .product-bullets-thumb
-                .thumb-wrapper
-                  img(src="./images/product-slider-1.jpg")
+              .swiper-wrapper
+                .product-bullets-thumb.swiper-slide
+                  .thumb-wrapper
+                    img(src="./images/product-slider-1.jpg")
+                .product-bullets-thumb.swiper-slide
+                  .thumb-wrapper
+                    img(src="./images/product-slider-1.jpg")
           .product-desc-row.left-product-mg
             .product-desc-row-el
               .title формовка:
@@ -91,17 +84,17 @@ block content
           .product-buy.left-product-mg
             .title Где купить?
             .desc Мы представлены в самые крупных и популярных торговых сетях в России.
-            a(href="#") Подробнее
+            +link('Продробнее', '#', 'true')
           .shopsbg-marquee
             .shops
-        a.next-product(href="#")
+        a.next-product(href="./product.html")
           .wrapper
             .text
                 .next следующий продукт
                 .title Сыр «Чечил» копченый
             .image
-                img(src="./images/img-products-1.png")
-                img(src="./images/img-products-1.png")
+                img(src="./images/img-products-3-min.png")
+                img(src="./images/img-products-3-min.png")
     +recepts()
     +subscription().bg-white
     +footer().bg-white

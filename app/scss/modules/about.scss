@@ -11,11 +11,25 @@
     position: relative;
     z-index: 2;
 
-    @include screen('custom-660', 'max') {
-      flex-direction: column;
+    @include screen('lg', 'max') {
+      margin-left: 20px;
+      margin-right: 20px;
       padding-left: 100px;
       padding-right: 100px;
+    }
+
+    @include screen('custom-660', 'max') {
+      flex-direction: column;
+      padding-top: 80px;
+      padding-bottom: 80px;
       align-items: flex-start;
+    }
+
+    @include screen('xs', 'max') {
+      padding-top: 60px;
+      padding-bottom: 60px;
+      padding-left: 40px;
+      padding-right: 40px;
     }
 
     &::before {
@@ -29,6 +43,7 @@
       z-index: 0;
       display: block;
       transform: skewX(-10deg);
+      transition: 0.3s;
     }
 
     &::after {
@@ -48,13 +63,19 @@
     }
 
     & > h2 {
-      font-family: 'PFRegalTextPro';
-      font-size: 52px;
+      @include UI-Font-PFRegalTextPro-bold;
       z-index: 2;
     }
 
     & > a {
       z-index: 2;
+      @include screen('custom-660', 'max') {
+        margin-top: 20px;
+      }
     }
   }
+}
+
+.about-box-rectangle:hover::before  {
+  background-color: #F9E9C0;
 }

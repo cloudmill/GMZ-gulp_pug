@@ -312,6 +312,7 @@
 
     &-logotype {
       position: relative;
+      z-index: 10;
 
       @include screen('xs', 'max') {
         transform: scale(0.6);
@@ -476,7 +477,7 @@
         display: flex;
         position: unset;
         justify-content: space-around;
-        transform: translateY(0px);
+        transform: translateY(9%);
       }
 
       .wrapper {

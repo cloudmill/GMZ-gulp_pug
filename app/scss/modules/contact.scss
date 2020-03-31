@@ -1,26 +1,14 @@
 .contact-box {
     &-header {
       width: 839px;
+      margin-bottom: 80px;
   
       @include screen('custom-660', 'max') {
         width: auto;
       }
   
-      margin-bottom: 80px;
       h2 {
-        font-family: 'PFRegalTextPro';
-        font-size: 52px;
-        color: $color-text-main;
-        line-height: 52px;
-  
-        @include screen('custom-660', 'max') {
-          font-size: 34px;
-          line-height: 33px;
-        }
-        
-        @include screen('xs', 'max') {
-          font-size: 30px;
-        }
+        @include UI-Font-PFRegalTextPro-bold;
       }
     }
   
@@ -37,14 +25,15 @@
   
       &-el {
         width: 45%;
-        @include screen('custom-660', 'max') {
-          width: 100%;
-        }
         display: flex;
         flex-direction: column;
         font-family: 'CeraPro';
         align-items: start;
         justify-content: flex-end;
+
+        @include screen('custom-660', 'max') {
+          width: 100%;
+        }
   
         & > .main-field {
           width: 100%;

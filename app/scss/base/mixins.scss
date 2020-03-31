@@ -43,7 +43,7 @@ div {
 Шрифт PFRegalTextPro для заголовков в блоках. В шрифте уже прописаны медиазапросы для измненения размеров текста
 Пример использования:
 div {
-  @include UI-Font-PFRegalTextPro;
+  @include UI-Font-PFRegalTextPro-bold;
   ...
 }
 */
