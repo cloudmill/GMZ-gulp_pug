@@ -1,4 +1,4 @@
-mixin contact
+mixin askQuestionForm
   section.contact&attributes(attributes)
     .content.contact-box
       .contact-box-header
@@ -15,3 +15,20 @@ mixin contact
           +checkbox('agree', 'agree', 'Согласие на обработку персональных данных в соответствии с политикой конфиденциальности')
         .contact-box-form-el
           +link('Отправить', '#', 'true')
+
+mixin contactUsForm
+  section.contact&attributes(attributes)
+    .content.contact-box
+      .contact-box-header
+        h2 Связаться с нами
+      form.contact-box-form
+        .contact-box-form-el
+          +field('text', 'name', 'Ваше имя', 'Ваше имя', '')
+          +field('text', 'phone', 'Ваш телефон', 'Ваш телефон', 'необязательно')
+          +field('email', 'email', 'Ваша почта для ответа', 'Ваша почта для ответа', '')
+        .contact-box-form-el
+          +textarea('question', '29', '10', 'Ваш вопрос', 'необязательно')
+        .contact-box-form-el
+          +checkbox('agree', 'agree', 'Согласие на обработку персональных данных в соответствии с политикой конфиденциальности')
+        .contact-box-form-el
+          +link('Задать вопрос', '#', 'true')

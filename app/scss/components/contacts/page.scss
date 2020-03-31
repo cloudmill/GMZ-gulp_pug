@@ -1,0 +1,124 @@
+.contacts {
+  &-head {
+  }
+  &-col {
+    flex-basis: 20%;
+    padding: 0 15px;
+    &.double {
+      flex-basis: 60%;
+    }
+  }
+  &-rect {
+    font-family: CeraPro;
+    display: flex;
+    margin: 0 -15px;
+    padding: 80px 0;
+    position: relative;
+    z-index: 2;
+    &:before {
+      content: "";
+      display: block;
+      width: calc(100% + 80px);
+      left: -40px;
+      top: 0;
+      height: 100%;
+      background: #ffffff;
+      z-index: -1;
+      position: absolute;
+      transform: skewX(-4deg);
+    }
+    &-img {
+      position: relative;
+      margin-bottom: 10px;
+      display: inline-block;
+      .line {
+        position: absolute;
+        z-index: -1;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    &-text {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 26px;
+      line-height: 170%;
+      color: #312930;
+      max-width: 490px;
+      span {
+        display: block;
+        line-height: 145%;
+      }
+      .sub {
+        font-size: 14px;
+        color: #919191;
+        margin: 8px 0;
+        margin-top: 30px;
+      }
+      .small {
+        font-size: 16px;
+        color: #312930;
+      }
+    }
+  }
+  &-phones {
+    display: grid;
+    grid-template-columns: 1fr 298px 1fr 1fr;
+    grid-column-gap: 80px;
+    grid-row-gap: 60px;
+    margin: 120px 0;
+    &-title {
+      font-family: PFRegalTextPro;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 30px;
+      color: #312930;
+      margin-bottom: 18px;
+    }
+    &-values {
+      a {
+        display: block;
+        white-space: nowrap;
+        text-decoration: none;
+        font-family: CeraPro;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 28px;
+        color: #312930;
+      }
+    }
+  }
+  &-social{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-column-gap: 10px;
+    justify-items: stretch;
+    &-item{
+      background-color: #ffffff;
+      padding: 50px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &-text{ 
+      font-family: CeraPro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 30px;
+      color: #312930;
+    }
+    &-img{
+      width: 50px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+  }
+}

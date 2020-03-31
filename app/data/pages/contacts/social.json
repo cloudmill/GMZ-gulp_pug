@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Instagram",
+    "icon": "gray-inst"
+  },
+  {
+    "name": "Вконтакте",
+    "icon": "gray-vk"
+  },
+  {
+    "name": "Twitter",
+    "icon": "gray-tw"
+  },
+  {
+    "name": "Facebook",
+    "icon": "gray-fb"
+  },
+  {
+    "name": "Одноклассники",
+    "icon": "gray-ok"
+  },
+  {
+    "name": "Википедия",
+    "icon": "gray-wp"
+  }
+]
