@@ -3,14 +3,25 @@
   position: relative;
 
   &-box {
-    padding-top: 254px;
-    padding-bottom: 50px;
+    padding-top: 250px;
+
+    @include screen("md", "max") {
+      padding-top: 180px;
+    }
+    
+    @include screen("sm", "max") {
+      padding-top: 160px;
+    }
 
     .recept {
       &-header {
         margin-bottom: 90px;
         width: 100%;
         display: block;
+
+        @include screen('custom-860', 'max') {
+          margin-bottom: 40px;  
+        }
 
         h2 {
           @include UI-Font-PFRegalTextPro-bold;
@@ -20,6 +31,11 @@
       &-wrapper {
         display: flex;
         justify-content: space-between;
+
+        @include screen('custom-860', 'max') {
+          flex-direction: column;
+          flex-wrap: wrap-reverse;
+        }
 
         .text-left {
           position: absolute;
@@ -36,26 +52,61 @@
         }
 
         &-content {
+          display: flex;
+          flex-wrap: wrap;
           flex-basis: 70%;
           max-width: 780px;
 
-          display: flex;
-          flex-wrap: wrap;
+          @include screen('md', 'max') {
+            flex-basis: 65%;
+          }
+
+          @include screen('sm', 'max') {
+            flex-basis: 100%;
+          }
+
+          @include screen('custom-860', 'max') {
+            order: 1;
+          }
 
           .page-card {
             margin-right: 30px;
             margin-bottom: 30px;
-            width: 340px;
+            width: 45%;
             height: 428px;
+
+            @include screen('md', 'max') {
+              width: 100%;
+              margin-right: 0px;
+              margin-bottom: 30px;
+            }
+
+            @include screen('md', 'max') {
+
+            }
             
             &:nth-child(2n) {
               margin-right: 0px;
               margin-bottom: 0px;
               top: 0;
+
+              @include screen('md', 'max') {
+                margin-bottom: 30px;
+              }
             }
 
             &:nth-child(odd) {
               top: 30px;
+              @include screen('md', 'max') {
+                top: 0;
+              }
+            }
+
+            @include screen('xs', 'max') {
+              .fullImg {
+                width: 100%;
+                height: 100%;
+              }
             }
           }
         }
@@ -78,6 +129,19 @@
           padding-top: 29px;
           padding-bottom: 39px;
 
+          @include screen('lg', 'max') {
+            padding-left: 42px;
+            padding-right: 42px;
+          }
+
+          @include screen('custom-860', 'max') {
+            max-width: 100%;
+            flex-basis: 100%;
+            order: 0;
+            align-self: stretch;
+            padding: 0px;
+          }
+
           &::after {
             left: 0;
             top: 0;
@@ -89,27 +153,80 @@
             background: #ffffff;
             transform: skewX(-3deg);
             z-index: 1;
+
+            @include screen('lg', 'max') {
+              transform: skewX(0);
+            }
+
+            @include screen('custom-860', 'max') {
+              display: none;
+            }
           }
 
           .clear {
             text-decoration-line: underline;
             color: #312930;
             z-index: 10;
+
+            @include screen('custom-860', 'max') {
+              display: none;
+            }
           }
 
           .list-group {
             z-index: 10;
-            position: relative;
             margin-bottom: 50px;
+
+            @include screen('custom-860', 'max') {
+              background: #ffffff;
+              padding: 40px 20px;
+              margin-bottom: 20px;
+            }
+
+            @include screen('xs', 'max') {
+              padding: 20px 20px;
+            }
 
             &-title {
               font-size: 11px;
               letter-spacing: 0.15em;
               text-transform: uppercase;
               margin-bottom: 20px;
+              position: relative;
+
+              @include screen('custom-860', 'max') {
+                font-weight: bold;
+                font-size: 24px;
+                margin-bottom: 0px;
+
+                &::after {
+                  position: absolute;
+                  display: block;
+                  top: 43%;
+                  right: 0px;
+                  content: "";
+                  background-image: url(../images/spoiler-checkbox-button.svg);
+                  background-repeat: no-repeat;
+                  width: 17.5px;
+                  height: 10px;
+                }
+              }
+
+              @include screen('xs', 'max') {
+                font-size: 11px;
+              }
             }
 
             &-selection {
+              &.display-mobile {
+                display: block;
+                margin-top: 30px;
+              }
+
+              @include screen('custom-860', 'max') {
+                display: none;
+              }
+
               .main-checkbox {
                 margin-bottom: 7px;
               }

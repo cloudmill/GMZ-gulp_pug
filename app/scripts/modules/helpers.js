@@ -4,6 +4,7 @@ let helpers = {
   init: function() {
     this.resizeImg();
     this.events();
+    this.spoilerCheckbox();
   },
   events: function() {
     $(window).on("resize", () => {
@@ -28,6 +29,20 @@ let helpers = {
         }
       }
     }
-  }
+  },
+
+  /* Работа спойлера чекбоксов на странице рецептов*/
+  spoilerCheckbox: function() {
+    if($(window).width() <= 859) {
+      $('.list-group').click(function() {
+        $(this).find('.list-group-selection').toggleClass('display-mobile');
+      });
+    }
+
+    $('.clear').click(function(event) {
+      event.preventDefault();
+      $("input[type=checkbox]").prop('checked', false);
+    });
+  },
 };
 export default helpers;
