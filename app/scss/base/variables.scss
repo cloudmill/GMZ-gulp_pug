@@ -1,10 +1,9 @@
-// ##########
-// Базовые настройки сетки сайта
-// ##########
-$container-padding: 20px; // Отступы в топе и по бокам у контейнера
+/* Базовые настройки сетки сайта */
+$container-padding: 20px;
 $min-main-padding: 20px;
 $max-width-main: 1200px;
 
+/* Брекпоинты для адаптива */
 $breakpoints: (
   'xl': 1920px,
   'lg': 1280px,
@@ -21,21 +20,16 @@ $breakpoints: (
   'custom-660': 660px,
 );
 
-// ##########
-// Основные переменные
-// ##########
+/* Основные переменные, которые используются в проекте */
+$background-white: #ffffff;
+$background-additional: #f6f5f3;
 $color-text-main: #312930;
 $color-text-complementary: #919191;
 $color-text-complementary-two: #EE7754;
-
-$background-white: #ffffff;
-$background-additional: #f6f5f3;
 $color-placeholder: #777; // Основной цвет для placeholder
 $color-input: $color-text-main;// Основной цвет input, select и textarea
 $color-main: $color-text-complementary-two; // Основной фирменный цвет
 $color-border: #ccc; // Основной цвет границ таблиц, секций
 
-// ##########
-// Transitions
-// ##########
+/* Для анимаций */
 $ease-main: .2s ease;

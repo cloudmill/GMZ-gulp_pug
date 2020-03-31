@@ -1,18 +1,4 @@
-/*
-@rotate animation
-*/
-@keyframes rotating {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/*
-@pagination styles
-*/
+/* pagination styles */
 .pagination { 
   color: #312930;
   font-family: 'CeraPro';
@@ -73,9 +59,7 @@
   }
 }
 
-/*
-@resize images styles
-*/
+/* resize images styles */
 .fullImg {
   width: auto;
   height: 100%;
@@ -85,9 +69,7 @@
   }  
 }
 
-/*
-@checkbox form styles
-*/
+/* checkbox form styles */
 .main-checkbox {
   margin-bottom: 36px;
 
@@ -158,9 +140,7 @@
   }
 }
 
-/*
-@field form styles
-*/
+/* field form styles */
 .main-field {
   position: relative;
   font-size: 20px;
@@ -230,9 +210,7 @@
   }
 }
 
-/*
-@links styles
-*/
+/* links styles */
 .main-link {
   font-family: 'CeraPro';
   font-style: normal;
@@ -290,9 +268,7 @@
   }
 }
 
-/*
-@slider buttons styles
-*/
+/* slider buttons styles */
 .main-slider-buttons {
   button {
     border-radius: 100px;

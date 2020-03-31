@@ -1,3 +1,11 @@
+@import "index/main";
+@import "index/promo";
+
+@import "products/catalog";
+@import "products/next-product";
+@import "products/product";
+@import "products/products";
+
 @import "news/list";
 @import "news/detail";
 
@@ -5,3 +13,7 @@
 
 @import "forms/subscribe";
 @import "forms/defaultForm";
+
+@import "partners/main";
+
+@import "recepts/list";

@@ -1,0 +1,134 @@
+.main-catalog {
+  position: relative;
+  padding-bottom: 10px;
+
+  @include screen('lg', 'max') {
+    background: $background-additional;
+    background-repeat: no-repeat;
+    background-image: url('../images/catalog-bottom.png');
+    background-position: bottom;
+    background-size: contain;
+  }
+
+  &::before {
+    left: 0;
+    height: 895px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    content: '';
+    background: $background-additional;
+    background-repeat: no-repeat;
+    background-image: url('../images/catalog-bottom.png');
+    background-position: bottom;
+    background-size: contain;
+
+    @include screen('lg', 'max') {
+      display: none;
+    }
+  }
+
+  &-box {
+    padding-top: 257px;
+    position: relative;
+
+    @include screen('xs', 'max') {
+      padding-top: 120px;
+    }
+
+    .text-bottom {
+      position: absolute;
+      display: block;
+      color: #fff;
+      font-family: 'Lineatura';
+      position: absolute;
+      bottom: -1%;
+      font-size: 260px;
+      left: -50%;
+      transform: translateX(37%);
+
+      @include screen('lg', 'max') {
+        display: none;
+      }
+
+      &::after {
+        position: absolute;
+        display: block;
+        content: '';
+        background-repeat: no-repeat;
+        background-image: url('../images/product-dashed-bg.svg');
+        width: 100vw;
+        height: 163px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-49%);
+      }
+    }
+
+    .catalog-el {
+      display: block;
+      font-family: 'Lineatura';
+      font-weight: normal;
+      font-size: 100px;
+      line-height: 68px;
+      color: #312930;
+      margin-bottom: 100px;
+      position: relative;
+      z-index: 1;
+
+      @include screen('lg', 'max') {
+        font-size: 80px;
+        text-align: center;
+      }
+      
+      @include screen('sm', 'max') {
+        line-height: 30px;
+        font-size: 50px;
+      }
+
+      @include screen('xs', 'max') {
+        font-size: 30px;
+      }
+
+      &:nth-child(2n) {
+        margin-left: 30%;
+
+        @include screen('lg', 'max') {
+          margin-left: 0;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+
+      &-img {
+        opacity: 0;
+        position: absolute;
+
+        @include screen('lg', 'max') {
+          opacity: 1;
+          position: relative;
+        }
+
+        img {
+          @include screen('lg', 'max') {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+
+      &:hover {
+        color: #EE7754;
+
+        @include screen('lg', 'min') {
+          .catalog-el-img {
+            opacity: 0;
+            z-index: 1;
+          }
+        }
+      }
+    }
+  }
+}

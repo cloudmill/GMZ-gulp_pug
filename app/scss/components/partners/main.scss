@@ -20,6 +20,27 @@ section {
       padding-top: 50px;
     }
   }
+
+  &.info {
+    padding-top: 120px;
+    position: relative;
+
+    @include screen('custom-860', 'max') {
+      padding-top: 0px;
+    }
+
+    &::after {
+      display: block;
+      content: '';
+      background-image: url('../images/section-main-header.svg');
+      width: 100%;
+      height: 50px;
+      position: absolute;
+      left: 0;
+      top: -50px;
+      background-size: cover;
+    }
+  }
 }
 
 .main-partners-box {

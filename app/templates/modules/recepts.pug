@@ -6,6 +6,7 @@ mixin recept-slider(json)
         p.title #{data.title}
         p.time #{data.time}
           +icon('timer', 'svg')
+          
 mixin recepts
   section.recepts
     .content.recepts-box
@@ -14,7 +15,7 @@ mixin recepts
         .recepts-box-left-arrows.main-slider-buttons
           +btn-slider('left').bg-additional#slider-recepts-left
           +btn-slider('right').bg-additional#slider-recepts-right
-        +link('Все рецепты', '#', 'true')
+        +link('Все рецепты', './recept_list.html', 'true')
       .recepts-box-right
         .recepts-box-slider
           .swiper-wrapper

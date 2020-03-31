@@ -1,0 +1,33 @@
+[
+  {
+    "title":"Вытяжные",
+    "icon":"img-catalog-product-1",
+    "typeicon":"svg",
+    "active": "",
+    "link": "./catalog-products.html"
+  },
+
+  {
+    "title":"Адыгейские сыры",
+    "icon":"img-catalog-product-2",
+    "typeicon":"svg",
+    "active": "active",
+    "link": "./catalog-products.html"
+  },
+
+  {
+    "title":"Масло и спред",
+    "icon":"catalog-product-3",
+    "typeicon":"png",
+    "active": "",
+    "link": "./catalog-products.html"
+  },
+
+  {
+    "title":"Сыворотка",
+    "icon":"img-catalog-product-4",
+    "typeicon":"svg",
+    "active": "",
+    "link": "./catalog-products.html"
+  }
+]

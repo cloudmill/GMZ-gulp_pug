@@ -21,6 +21,16 @@
   }
 }
 
+/* rotate animation */
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* scrollBar */
 body[data-scrollbar="true"]{
   height: 100vh;
@@ -31,6 +41,7 @@ body[data-scrollbar="true"]{
     }
   }
 }
+
 #scroll-box-events{
   position: absolute;
   pointer-events: none;
@@ -38,3 +49,5 @@ body[data-scrollbar="true"]{
   left: 0;
   top: 0;
 }
+
+
