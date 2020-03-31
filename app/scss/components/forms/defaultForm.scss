@@ -1,0 +1,43 @@
+.contact-box {
+  &-header {
+    width: 839px;
+    margin-bottom: 80px;
+
+    @include screen('custom-660', 'max') {
+      width: auto;
+    }
+
+    h2 {
+      @include UI-Font-PFRegalTextPro-bold;
+    }
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    flex-flow: wrap;
+
+    @include screen('custom-660', 'max') {
+      flex-direction: column;
+    }
+
+    &-el {
+      width: 45%;
+      display: flex;
+      flex-direction: column;
+      font-family: 'CeraPro';
+      align-items: start;
+      justify-content: flex-end;
+
+      @include screen('custom-660', 'max') {
+        width: 100%;
+      }
+
+      & > .main-field {
+        width: 100%;
+      }
+    }
+  }
+}
