@@ -1,0 +1,141 @@
+.newsDetail {
+  &-img {
+    padding-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 100px;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: calc(100% - 90px);
+      bottom: 0;
+      left: 0;
+      transform: skewX(-8deg) translateX(-50px);
+      background: #ffffff;
+      position: absolute;
+      z-index: -1;
+    }
+    img {
+      max-width: 700px;
+    }
+    @include screen("950", "max") {
+      margin-bottom: 40px;
+      padding-bottom: 15px;
+      &:before {
+        width: 130vw;
+        left: 50%;
+        height: calc(100% + 30px);
+        transform: translateX(-50%);
+      }
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+  &-box {
+    position: relative;
+    @include screen("950", "max") {
+      padding-bottom: 70px;
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      height: 63px;
+      background: url(../images/detail-line-dashed.svg);
+      background-size: 100% 100%;
+    }
+  }
+  &-date {
+    margin-top: 30px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #312930;
+    span {
+      color: #ee7854;
+    }
+    @include screen("950", "max") {
+      font-size: 12px;
+      line-height: 24px;
+      margin-top: 15px;
+    }
+  }
+  &-content {
+    max-width: 700px;
+    padding-bottom: 130px;
+
+    h4 {
+      font-family: PFRegalTextPro;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 25px;
+      line-height: 34px;
+      color: #312930;
+      margin-bottom: 30px;
+      margin-top: 60px;
+    }
+    p {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 30px;
+      margin: 15px 0;
+      color: #312930;
+    }
+    @include screen("950", "max") {
+      padding-bottom: 60px;
+      h4 {
+        font-size: 18px;
+        line-height: 130%;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 16px;
+        line-height: 150%;
+      }
+    }
+  }
+  &-social {
+    &-list {
+      position: absolute;
+      z-index: 10;
+      right: 0;
+      top: 0;
+      background: #d7f9df;
+      padding: 40px 30px;
+      @include screen("950", "max") {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 10px;
+        width: 100vw;
+        margin-left: -40px;
+      }
+      @include screen("xs", "max") {
+        transform: translateX(20px) !important;
+      }
+    }
+    &-item {
+      width: 62px;
+      height: 62px;
+      margin: 10px 0;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid #312930;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include screen("950", "max") {
+        margin: 0 10px;
+      }
+    }
+  }
+}

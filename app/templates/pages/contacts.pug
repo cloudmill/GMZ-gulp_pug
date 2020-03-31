@@ -1,0 +1,63 @@
+extends ../layouts/default.pug
+
+
+include ../modules/footer.pug
+include ../modules/header.pug
+
+include ../modules/subscription.pug
+include ../modules/forms.pug
+
+block variables
+  -var pageTitle='Список новостей'
+
+  mixin contacts-phones-list(json)
+    each data in json
+      .contacts-phones-item
+        .contacts-phones-title= data.title
+        .contacts-phones-values
+          each contact in data.contacts
+            a= contact
+
+  mixin contacts-social-list(json)
+    each data in json
+      .contacts-social-item
+        .contacts-social-img
+          +icon(data.icon, 'svg')
+        .contacts-social-text= data.name
+
+block content
+  +header()
+  section.page-section.bg-additional
+    .content
+      .contacts-head
+        h1.page-title Контакты
+      .contacts-rect
+        .contacts-col.double
+          .contacts-rect-img
+            +icon('location-color', 'svg')
+            +icon('curve-gray-1', 'svg').line
+          .contacts-rect-text 385600, Россия, Республика Адыгея, Гиагинский район, станица Гиагинская, ул. Ленина, 142
+        .contacts-col
+          .contacts-rect-img
+            +icon('clock-color', 'svg')
+            +icon('curve-gray-2', 'svg').line
+          .contacts-rect-text 
+            span.sub Часы работы
+            span.small Понедельник ­–­­ Пятница 8:00 ­–­­ 17:00
+        .contacts-col
+          .contacts-rect-img
+            +icon('circle-line-color', 'svg')
+            +icon('curve-gray-3', 'svg').line
+          .contacts-rect-text
+            span.sub Выходные дни
+            span.small Суббота, Воскресенье
+      .contacts-phones
+        +contacts-phones-list(getData('/pages/contacts/phones'))
+
+      h2.page-title Мы в социальных сетях
+      .contacts-social
+        +contacts-social-list(getData('/pages/contacts/social'))
+
+  +contactUsForm().bg-additional
+  +subscription().bg-additional
+  +footer().bg-additional

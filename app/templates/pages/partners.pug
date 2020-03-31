@@ -1,10 +1,13 @@
 extends ../layouts/default.pug
 
-include ../modules/subscription.pug
-include ../modules/about.pug
+
+
 include ../modules/footer.pug
-include ../modules/contact.pug
 include ../modules/header.pug
+include ../modules/about.pug
+
+include ../modules/subscription.pug
+include ../modules/forms.pug
 
 block variables
  -var pageTitle='Партнерам'
@@ -49,7 +52,7 @@ block content
             +prevs-row-el(getData('pages/partners/prevs'))
             .prevs-box-row-el
               +icon('pack', 'svg')(class="pack")
-    +contact().bg-additional
+    +askQuestionForm().bg-additional
     +about().bg-additional
     +subscription().bg-additional
     +footer().bg-additional

@@ -23,6 +23,35 @@
   background-color: #fff;
 }
 
+.page{
+  &-title{
+    font-weight: bold;
+    font-size: 52px;
+    line-height: 100%;
+    font-family: "PFRegalTextPro";
+    margin-top: 30px;
+    margin-bottom: 60px;
+    max-width: 972px;
+    @include screen("sm", "max") {
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+    @include screen("xs", "max") {
+      font-size: 24px;
+      line-height: 110%;
+    }
+  }
+  &-section{
+    padding-top: 250px;
+    @include screen("md", "max") {
+      padding-top: 180px;
+    }
+    @include screen("sm", "max") {
+      padding-top: 160px;
+    }
+  }
+}
+
 .bg-additional {
   background-color: $background-additional;
 }
@@ -49,6 +78,7 @@
     padding-right: 0;
     padding-left: 0;
   }
+  
 }
 
 section {
