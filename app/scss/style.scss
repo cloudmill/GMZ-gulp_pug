@@ -1802,6 +1802,66 @@ section {
   }
 }
 
+.pagination { 
+  color: #312930;
+  font-family: 'CeraPro';
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+
+  &-back {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    margin-right: 18px;
+    position: relative;
+    &.white{
+      &:before{
+        background: #ffffff;
+      }
+    }
+    &::after {
+      background-image: url('../images/pagination-arrow.svg');
+      width: 10.5px;
+      height: 50%;
+      display: block;
+      position: absolute;
+      background-repeat: no-repeat;
+      content: "";
+      top: 15px;
+      left: 9px;
+      transition: 0.1s;
+    }
+
+    &::before {
+      width: 26px;
+      height: 26px;
+      background: #F5F2EB;
+      border-radius: 50px;
+      content: '';
+      display: inline-block;
+      position: relative;
+      margin-right: 18px;
+      top: 8px;
+      transition: 0.2s;
+    }
+
+    &:hover {
+      &::before {
+        background: #312930;
+        transform: scale(1.1);
+      }
+
+      &::after{
+        background-image: url('../images/pagination-arrow-hover.svg');
+        top: 13px;
+      }
+    }
+  }
+}
+
 .next-product {
   height: 332px;
   position: absolute;
