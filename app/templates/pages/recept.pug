@@ -5,12 +5,45 @@ include ../modules/footer.pug
 include ../modules/header.pug
 
 block variables
- -var pageTitle='Каталог'
+ -var pageTitle='Рецепты'
+
+mixin recept-slider(json)
+  each data in json
+    a.recepts-box-slider-card.page-card(href=data.link)
+      img(src="./images/" + data.image, alt=data.title).fullImg
+      .recepts-box-slider-card-text
+        p.title #{data.title}
+        p.time #{data.time}
+          +icon('timer', 'svg')
 
 block content
     +header()
-    section.main-recept
+    section.main-recept 
       .content.main-recept-box
-      
-    +subscription().bg-white
-    +footer().bg-white
+        .recept-header
+          h2 Рецепты
+        .recept-wrapper
+          .text-left Рецепты
+          .recept-wrapper-content
+            +recept-slider(getData('sliders/recepts'))
+          form.recept-wrapper-list
+            .list-group
+              .list-group-title Категория:
+              .list-group-selection
+                +checkbox('all', 'all', 'Все')
+                +checkbox('snacks', 'snacks', 'Закуски')
+                +checkbox('salads', 'salads', 'Салаты')
+                +checkbox('backing', 'backing', 'Выпечка')
+                +checkbox('hot', 'hot', 'Горячие блюда')
+            .list-group
+              .list-group-title Продукт:
+              .list-group-selection
+                +checkbox('1', '1', 'Сыр «Косичка» «Гиагинский» копченый')
+                +checkbox('2', '2', 'Сыр «Косичка» «Гиагинский»')
+                +checkbox('3', '3', 'Сыр «Охотничий» «Гиагинский» копченый')
+                +checkbox('4', '4', 'Сыр «Спагетти» «Гиагинский» копченый')
+                +checkbox('5', '5', 'Сыр «Спагетти» «Гиагинский»')
+                button.display-full Показать все 
+            button.clear Сбросить фильтр
+    +subscription().bg-additional
+    +footer().bg-additional
