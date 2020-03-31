@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог</title>
+    <title>Рецепты</title>
     <link href="css/style.min.css" rel="stylesheet">
   </head>
   <body>
@@ -48,10 +48,123 @@
           </div>
         </div>
       </div>
-      <section class="main-recept">
-        <div class="content main-recept-box"></div>
+      <section class="main-recept"> 
+        <div class="content main-recept-box">
+          <div class="recept-header">
+            <h2>Рецепты</h2>
+          </div>
+          <div class="recept-wrapper">
+            <div class="text-left">Рецепты</div>
+            <div class="recept-wrapper-content"><a class="recepts-box-slider-card page-card" href="#"><img class="fullImg" src="./images/recepts-slider-el-1.jpg" alt="Пирог с адыгейским сыром и брынзой"/>
+                <div class="recepts-box-slider-card-text">
+                  <p class="title">Пирог с адыгейским сыром и брынзой</p>
+                  <p class="time">55 минут<i class="svg-icon svg-timer"></i>
+                  </p>
+                </div></a><a class="recepts-box-slider-card page-card" href="#"><img class="fullImg" src="./images/recepts-slider-el-2.jpg" alt="Сыр «Адыгейский» жаренный на сливочном масле («кояж»)"/>
+                <div class="recepts-box-slider-card-text">
+                  <p class="title">Сыр «Адыгейский» жаренный на сливочном масле («кояж»)</p>
+                  <p class="time">25 минут<i class="svg-icon svg-timer"></i>
+                  </p>
+                </div></a><a class="recepts-box-slider-card page-card" href="#"><img class="fullImg" src="./images/recepts-slider-el-1.jpg" alt="Пирог с адыгейским сыром и брынзой"/>
+                <div class="recepts-box-slider-card-text">
+                  <p class="title">Пирог с адыгейским сыром и брынзой</p>
+                  <p class="time">55 минут<i class="svg-icon svg-timer"></i>
+                  </p>
+                </div></a><a class="recepts-box-slider-card page-card" href="#"><img class="fullImg" src="./images/recepts-slider-el-2.jpg" alt="Сыр «Адыгейский» жаренный на сливочном масле («кояж»)"/>
+                <div class="recepts-box-slider-card-text">
+                  <p class="title">Сыр «Адыгейский» жаренный на сливочном масле («кояж»)</p>
+                  <p class="time">25 минут<i class="svg-icon svg-timer"></i>
+                  </p>
+                </div></a><a class="recepts-box-slider-card page-card" href="#"><img class="fullImg" src="./images/recepts-slider-el-1.jpg" alt="Пирог с адыгейским сыром и брынзой"/>
+                <div class="recepts-box-slider-card-text">
+                  <p class="title">Пирог с адыгейским сыром и брынзой</p>
+                  <p class="time">55 минут<i class="svg-icon svg-timer"></i>
+                  </p>
+                </div></a><a class="recepts-box-slider-card page-card" href="#"><img class="fullImg" src="./images/recepts-slider-el-2.jpg" alt="Сыр «Адыгейский» жаренный на сливочном масле («кояж»)"/>
+                <div class="recepts-box-slider-card-text">
+                  <p class="title">Сыр «Адыгейский» жаренный на сливочном масле («кояж»)</p>
+                  <p class="time">25 минут<i class="svg-icon svg-timer"></i>
+                  </p>
+                </div></a>
+            </div>
+            <form class="recept-wrapper-list">
+              <div class="list-group">
+                <div class="list-group-title">Категория:</div>
+                <div class="list-group-selection">
+                  <div class="main-checkbox">
+                    <input type="checkbox" id="all" name="all"/>
+                    <label class="main-checkbox-name" for="all"><i class="svg-icon svg-checkbox state-default"></i><i class="svg-icon svg-checkbox-hover state-hover"></i><i class="svg-icon svg-checkbox-checked state-checked"></i>
+                      <p>Все</p>
+                    </label>
+                  </div>
+                  <div class="main-checkbox">
+                    <input type="checkbox" id="snacks" name="snacks"/>
+                    <label class="main-checkbox-name" for="snacks"><i class="svg-icon svg-checkbox state-default"></i><i class="svg-icon svg-checkbox-hover state-hover"></i><i class="svg-icon svg-checkbox-checked state-checked"></i>
+                      <p>Закуски</p>
+                    </label>
+                  </div>
+                  <div class="main-checkbox">
+                    <input type="checkbox" id="salads" name="salads"/>
+                    <label class="main-checkbox-name" for="salads"><i class="svg-icon svg-checkbox state-default"></i><i class="svg-icon svg-checkbox-hover state-hover"></i><i class="svg-icon svg-checkbox-checked state-checked"></i>
+                      <p>Салаты</p>
+                    </label>
+                  </div>
+                  <div class="main-checkbox">
+                    <input type="checkbox" id="backing" name="backing"/>
+                    <label class="main-checkbox-name" for="backing"><i class="svg-icon svg-checkbox state-default"></i><i class="svg-icon svg-checkbox-hover state-hover"></i><i class="svg-icon svg-checkbox-checked state-checked"></i>
+                      <p>Выпечка</p>
+                    </label>
+                  </div>
+                  <div class="main-checkbox">
+                    <input type="checkbox" id="hot" name="hot"/>
+                    <label class="main-checkbox-name" for="hot"><i class="svg-icon svg-checkbox state-default"></i><i class="svg-icon svg-checkbox-hover state-hover"></i><i class="svg-icon svg-checkbox-checked state-checked"></i>
+                      <p>Горячие блюда</p>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="list-group">
+                <div class="list-group-title">Продукт:</div>
+                <div class="list-group-selection">
+                  <div class="main-checkbox">
+                    <input type="checkbox" id="1" name="1"/>
+                    <label class="main-checkbox-name" for="1"><i class="svg-icon svg-checkbox state-default"></i><i class="svg-icon svg-checkbox-hover state-hover"></i><i class="svg-icon svg-checkbox-checked state-checked"></i>
+                      <p>Сыр «Косичка» «Гиагинский» копченый</p>
+                    </label>
+                  </div>
+                  <div class="main-checkbox">
+                    <input type="checkbox" id="2" name="2"/>
+                    <label class="main-checkbox-name" for="2"><i class="svg-icon svg-checkbox state-default"></i><i class="svg-icon svg-checkbox-hover state-hover"></i><i class="svg-icon svg-checkbox-checked state-checked"></i>
+                      <p>Сыр «Косичка» «Гиагинский»</p>
+                    </label>
+                  </div>
+                  <div class="main-checkbox">
+                    <input type="checkbox" id="3" name="3"/>
+                    <label class="main-checkbox-name" for="3"><i class="svg-icon svg-checkbox state-default"></i><i class="svg-icon svg-checkbox-hover state-hover"></i><i class="svg-icon svg-checkbox-checked state-checked"></i>
+                      <p>Сыр «Охотничий» «Гиагинский» копченый</p>
+                    </label>
+                  </div>
+                  <div class="main-checkbox">
+                    <input type="checkbox" id="4" name="4"/>
+                    <label class="main-checkbox-name" for="4"><i class="svg-icon svg-checkbox state-default"></i><i class="svg-icon svg-checkbox-hover state-hover"></i><i class="svg-icon svg-checkbox-checked state-checked"></i>
+                      <p>Сыр «Спагетти» «Гиагинский» копченый</p>
+                    </label>
+                  </div>
+                  <div class="main-checkbox">
+                    <input type="checkbox" id="5" name="5"/>
+                    <label class="main-checkbox-name" for="5"><i class="svg-icon svg-checkbox state-default"></i><i class="svg-icon svg-checkbox-hover state-hover"></i><i class="svg-icon svg-checkbox-checked state-checked"></i>
+                      <p>Сыр «Спагетти» «Гиагинский»</p>
+                    </label>
+                  </div>
+                  <button class="display-full">Показать все </button>
+                </div>
+              </div>
+              <button class="clear">Сбросить фильтр</button>
+            </form>
+          </div>
+        </div>
       </section>
-      <section class="subscription bg-white">
+      <section class="subscription bg-additional">
         <div class="content subscription-box">
           <form class="subscription-box-form">
             <h2>Подпишитесь на нас</h2>
@@ -66,7 +179,7 @@
           <div class="subscription-box-marquee"></div>
         </div>
       </section>
-      <footer class="footer bg-white">
+      <footer class="footer bg-additional">
         <div class="content footer-box">
           <div class="footer-box-row">
             <div class="footer-box-nav-production">
