@@ -29,7 +29,7 @@
             </div>
           </div>
           <div class="header-buttom">
-            <div class="header-buttom-nav"><a href="#">Как мы это делаем</a><a href="#">Новости и акции</a><a href="#">Партнерам</a><a href="#">Рецепты</a><a href="#">Контакты</a></div>
+            <div class="header-buttom-nav"><a href="#">Как мы это делаем</a><a href="./news_list.html">Новости и акции</a><a href="./partners.html">Партнерам</a><a href="#">Рецепты</a><a href="#">Контакты</a></div>
             <div class="header-buttom-help">
               <div class="left">
                 <div class="left-desc">Служба поддержки потребителей</div>
@@ -52,8 +52,8 @@
         <div class="main-product-box">
           <div class="product-item">
             <div class="product-item-img">
-              <div class="image"><img src="./images/img-products-2.png"><img src="./images/img-products-2.png"></div>
-              <div class="addons"><i class="svg-icon svg-cloud-1"></i><i class="svg-icon svg-cloud-2"></i><i class="svg-icon svg-cloud-2"></i>
+              <div class="image"><img src="./images/img-products-2-min.png"><img src="./images/img-products-2-min.png"></div>
+              <div class="addons"><i class="svg-icon svg-cloud-1 cloud-1"></i><i class="svg-icon svg-cloud-2 cloud-2"></i><i class="svg-icon svg-cloud-2 cloud-3"></i><i class="svg-icon svg-rhombus rhombus-1"></i><i class="svg-icon svg-rhombus rhombus-2"></i><i class="svg-icon svg-print-product print"></i>
               </div>
             </div>
           </div>
@@ -83,31 +83,22 @@
               </div>
             </div>
             <div class="product-slider">
-              <div class="buttons rouded-buttons-group">
-                <button class="left bg-white" id="slider-left"><i class="svg-icon svg-arrow"></i>
-                </button>
-                <button class="right bg-white" id="slider-left"><i class="svg-icon svg-arrow"></i>
-                </button>
+              <div class="buttons main-slider-buttons">
+                <button class="left bg-white" id="slider-main-left"><span></span></button>
+                <button class="right bg-white" id="slider-main-right"><span></span></button>
               </div>
-              <div class="product-img"><img src="./images/product-slider-1.jpg"></div>
+              <div class="swiper-wrapper">
+                <div class="product-img swiper-slide"><img src="./images/product-slider-1.jpg"></div>
+                <div class="product-img swiper-slide"><img src="./images/product-slider-1.jpg"></div>
+              </div>
               <div class="product-bullets">
-                <div class="product-bullets-thumb">
-                  <div class="thumb-wrapper"><img src="./images/product-slider-1.jpg"></div>
-                </div>
-                <div class="product-bullets-thumb">
-                  <div class="thumb-wrapper"><img src="./images/product-slider-1.jpg"></div>
-                </div>
-                <div class="product-bullets-thumb">
-                  <div class="thumb-wrapper"><img src="./images/product-slider-1.jpg"></div>
-                </div>
-                <div class="product-bullets-thumb">
-                  <div class="thumb-wrapper"><img src="./images/product-slider-1.jpg"></div>
-                </div>
-                <div class="product-bullets-thumb">
-                  <div class="thumb-wrapper"><img src="./images/product-slider-1.jpg"></div>
-                </div>
-                <div class="product-bullets-thumb">
-                  <div class="thumb-wrapper"><img src="./images/product-slider-1.jpg"></div>
+                <div class="swiper-wrapper">
+                  <div class="product-bullets-thumb swiper-slide">
+                    <div class="thumb-wrapper"><img src="./images/product-slider-1.jpg"></div>
+                  </div>
+                  <div class="product-bullets-thumb swiper-slide">
+                    <div class="thumb-wrapper"><img src="./images/product-slider-1.jpg"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -135,18 +126,18 @@
             </div>
             <div class="product-buy left-product-mg">
               <div class="title">Где купить?</div>
-              <div class="desc">Мы представлены в самые крупных и популярных торговых сетях в России.</div><a href="#">Подробнее</a>
+              <div class="desc">Мы представлены в самые крупных и популярных торговых сетях в России.</div><a class="main-link addon" href="#">Продробнее<span><i class="svg-icon svg-main-link-plus"></i><i class="svg-icon svg-main-link-arrow"></i></span></a>
             </div>
             <div class="shopsbg-marquee">
               <div class="shops"></div>
             </div>
-          </div><a class="next-product" href="#">
+          </div><a class="next-product" href="./product.html">
             <div class="wrapper">
               <div class="text">
                 <div class="next">следующий продукт</div>
                 <div class="title">Сыр «Чечил» копченый</div>
               </div>
-              <div class="image"><img src="./images/img-products-1.png"><img src="./images/img-products-1.png"></div>
+              <div class="image"><img src="./images/img-products-3-min.png"><img src="./images/img-products-3-min.png"></div>
             </div></a>
         </div>
       </section>
@@ -207,14 +198,14 @@
           <div class="footer-box-row">
             <div class="footer-box-nav-production">
               <div class="footer-box-nav-production-left">
-                <div class="footer-box-nav-production-left-group"><a href="#">Продукция</a>
+                <div class="footer-box-nav-production-left-group"><a href="./catalog.html">Продукция</a>
                   <div class="footer-box-nav-production-left-group-desc">Сыры, масла, сыворотка</div>
                 </div>
                 <div class="footer-box-nav-production-left-group"><a href="#">О нас</a>
                   <div class="footer-box-nav-production-left-group-desc">Кто мы и как работаем</div>
                 </div>
               </div>
-              <div class="footer-box-nav-production-right"><a href="#">Где купить</a><a href="#">Новости и акции</a><a href="#">Партнерам</a><a href="#">Контакты</a></div>
+              <div class="footer-box-nav-production-right"><a href="#">Где купить</a><a href="./news_list.html">Новости и акции</a><a href="./partners.html">Партнерам</a><a href="#">Контакты</a></div>
             </div>
             <div class="footer-box-nav-contact">
               <div class="footer-box-nav-contact-group">

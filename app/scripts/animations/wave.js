@@ -19,10 +19,21 @@ export default class Wave {
     }
 
     this.offset = 20;
+    if($(window).width()<= 500){
+      this.offset = 10;
+    }
+    this.normalOffset = this.offset;
+
     this.fazeOffset = Math.random() * 0.1;
     this.fazeOffset = this.fazeOffset < 0.01 ? 0.01 : this.fazeOffset;
-    this.normalOffset = this.offset;
+    
     this.countPoints = 50;
+    if($(window).width()<= 500){
+      this.countPoints = 30;
+    }
+    
+
+    
 
     this.id = "wave-" + parseInt(Math.random() * 10000);
     this.h = this.element.outerHeight();
@@ -58,11 +69,25 @@ export default class Wave {
       this.offset -= 1 - this.normalOffset / this.offset;
     }
   }
+  resize(){
+    this.h = this.element.outerHeight();
+    this.w = this.element.outerWidth();
+    this.canvas.width = this.w;
+    this.canvas.height = this.h;
+
+    if(this.normalOffset > 15 && $(window).width()<= 500){
+      this.normalOffset * 0.5
+    }
+    
+  }
   events() {
     window.scrollbar.on((status) => {
       if (this.offset < this.normalOffset * 3) {
         this.offset *= Math.sqrt((this.normalOffset * 3) / this.offset);
       }
+    })
+    window.addEventListener('resize',()=>{
+      this.resize()
     })
   }
   draw() {

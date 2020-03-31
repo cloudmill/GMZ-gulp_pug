@@ -101,24 +101,22 @@ gulp.task("scss", function() {
 /////Работа со скриптами
 const logError = function(err) {
   //gutil.log(err);
-  this.emit('end');
+  this.emit("end");
 };
 let jsInProccess = false;
 gulp.task("js", function(callback) {
-  if(!jsInProccess){
+  if (!jsInProccess) {
     jsInProccess = true;
     gulp
-    .src(_.js.dir + _.js.start)
-    .pipe(webpack(webpackConfig))
-    .pipe(errorHandler(logError))
-    .pipe(gulp.dest(_.dist.js));
+      .src(_.js.dir + _.js.start)
+      .pipe(webpack(webpackConfig))
+      .pipe(errorHandler(logError))
+      .pipe(gulp.dest(_.dist.js));
 
     jsInProccess = false;
-    callback()
+    callback();
   }
-  
 });
-
 
 /////Работа с картинками
 gulp.task("images", function() {
@@ -136,7 +134,7 @@ gulp.task("pngSprite", function() {
         imgName: "../images/sprite.png",
         cssName: "pngSprite.scss",
         cssFormat: "scss",
-        algorithm: "binary-tree",
+        algorithm: "top-down",
         cssVarMap: function(sprite) {
           sprite.name = "icon-" + sprite.name;
         }
@@ -146,6 +144,7 @@ gulp.task("pngSprite", function() {
   var imgStream = spriteData.img.pipe(gulp.dest(_.dist.images)); // путь, куда сохраняем картинку
 
   return merge(imgStream, cssStream);
+  
 });
 gulp.task("svgSprite", function() {
   return gulp
@@ -230,13 +229,15 @@ gulp.task("clear-build", function() {
     .pipe(clean());
 });
 gulp.task("copy-deploy", function() {
-  return gulp.src(dirDist + '**/*').pipe(gulp.dest(dirDeploy));
+  return gulp.src(dirDist + "**/*").pipe(gulp.dest(dirDeploy));
 });
-gulp.task("clear-deploy", function(){
-  return gulp.src(dirDeploy, {
+gulp.task("clear-deploy", function() {
+  return gulp
+    .src(dirDeploy, {
       read: false,
       allowEmpty: true
-    }).pipe(clean());
+    })
+    .pipe(clean());
 });
 
 gulp.task("pre-scss", gulp.parallel("pngSprite", "svgSprite", "font2css"));
