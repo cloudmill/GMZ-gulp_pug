@@ -1,0 +1,128 @@
+.main-recept {
+  background: $background-additional;
+  position: relative;
+
+  &-box {
+    padding-top: 254px;
+    padding-bottom: 50px;
+
+    .recept {
+      &-header {
+        margin-bottom: 90px;
+        width: 100%;
+        display: block;
+
+        h2 {
+          @include UI-Font-PFRegalTextPro-bold;
+        }
+      }
+
+      &-wrapper {
+        display: flex;
+        justify-content: space-between;
+
+        .text-left {
+          position: absolute;
+          font-family: 'Lineatura';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 260px;
+          line-height: 78px;
+          color: #fff;
+          transform: rotate(-90deg) translateX(-50%);
+          left: 50px;
+          transform-origin: left;
+          bottom: 40%;
+        }
+
+        &-content {
+          flex-basis: 70%;
+          max-width: 780px;
+
+          display: flex;
+          flex-wrap: wrap;
+
+          .page-card {
+            margin-right: 30px;
+            margin-bottom: 30px;
+            width: 340px;
+            height: 428px;
+            
+            &:nth-child(2n) {
+              margin-right: 0px;
+              margin-bottom: 0px;
+              top: 0;
+            }
+
+            &:nth-child(odd) {
+              top: 30px;
+            }
+          }
+        }
+
+        &-list {
+          display: flex;
+          flex-basis: 30%;
+          align-self: flex-start;
+          flex-direction: column;
+          position: relative;
+          font-family: 'CeraPro';
+          font-size: 16px;
+          line-height: 20px;
+          color: #312930;
+          font-style: normal;
+          font-weight: normal;
+          max-width: 400px;
+          padding-left: 72px;
+          padding-right: 72px;
+          padding-top: 29px;
+          padding-bottom: 39px;
+
+          &::after {
+            left: 0;
+            top: 0;
+            position: absolute;
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            transform: skewX(-3deg);
+            z-index: 1;
+          }
+
+          .clear {
+            text-decoration-line: underline;
+            color: #312930;
+            z-index: 10;
+          }
+
+          .list-group {
+            z-index: 10;
+            position: relative;
+            margin-bottom: 50px;
+
+            &-title {
+              font-size: 11px;
+              letter-spacing: 0.15em;
+              text-transform: uppercase;
+              margin-bottom: 20px;
+            }
+
+            &-selection {
+              .main-checkbox {
+                margin-bottom: 7px;
+              }
+
+              .display-full {
+                color: #EE7754;
+                margin-top: 20px;
+                margin-left: 45px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
