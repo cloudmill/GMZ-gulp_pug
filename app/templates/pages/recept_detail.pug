@@ -1,0 +1,101 @@
+extends ../layouts/default.pug
+
+include ../modules/subscription.pug
+include ../modules/footer.pug
+include ../modules/header.pug
+include ../modules/recepts.pug
+include ../modules/wherebuy.pug
+
+block variables
+ -var pageTitle='Рецепт'
+
+block content
+  +header()
+  section.main-recept.bg-additional
+    .content.main-recept-box
+      .pagination
+        a.pagination-back.white(href="./recept_list.html") Рецепты
+      .recept-header
+        h2 Баклажаны с сыром «Сулугуни» и помидорами
+      .recept-wrapper
+        .recept-wrapper-content
+          .slider-recept
+            .main-slider-buttons.slider-buttons
+              +btn-slider('left').bg-additional#slider-recept-left
+              +btn-slider('right').bg-additional#slider-recept-right
+            .swiper-wrapper
+              .slider-el.swiper-slide
+                img(src="./images/recept_slider.png", alt="Баклажаны с сыром «Сулугуни» и помидорами")
+              .slider-el.swiper-slide
+                img(src="./images/recept_slider.png", alt="Баклажаны с сыром «Сулугуни» и помидорами")
+          .recept-information
+            .thumbs
+              .thumbs-el
+                .thumbs-img
+                  img(src="./images/recept_slider.png")
+              .thumbs-el
+                .thumbs-img
+                  img(src="./images/recept_slider.png")
+            .cooking
+              .cooking-el
+                +icon('cooking-servings', 'svg').cooking-el-icon
+                .title 2 порции
+              .cooking-el
+                +icon('cooking-time', 'svg').cooking-el-icon
+                .title 40 минут
+          .recept-productinfo
+            .column-info
+              h2 Энергетическая ценность
+              .column-info-item
+                .left Калорийность
+                .right 377 кДж
+              .column-info-item
+                .left Белки
+                .right 10,3 г
+              .column-info-item
+                .left Жиры
+                .right 36,8 г
+              .column-info-item
+                .left Углеводы
+                .right 70 г
+            .column-info
+              h2 Ингридиенты
+              .column-info-item
+                .left Багет
+                .right 1 шт
+              .column-info-item
+                .left Ветчина
+                .right 3-4 ломтика
+              .column-info-item
+                .left Сыр «Адыгейский»
+                .right 3-4 ломтика
+          .recept-cooking
+            h2 Приготовление
+            .cooking-row
+              .cooking-info
+                .cooking-info-num 1.
+                .cooking-info-text Перцы вымыть, срезать плодоножку и аккуратно удалить семенную коробку, стараясь не повредить стенки.
+              .cooking-info  
+                .cooking-info-num 2.
+                .cooking-info-text Приготовить сырную начинку: сыр натереть на крупной терке, чеснок пропустить через пресс, зелень вымыть, обсушить и мелко порубить.
+              .cooking-info  
+                .cooking-info-num 3.
+                .cooking-info-text Соединить сыр, чеснок, зелень, соль, перец, паприку, добавить немного майонеза и хорошо перемешать.
+              .cooking-info  
+                .cooking-info-num 4.
+                .cooking-info-text Наполнить перцы начинкой и убрать в холодильник на 1-2 часа. Перцы порезать кружками, разложить на блюде и украсить зеленью.
+                  span Приятного аппетита!
+          .recept-footer
+            +link('Поделиться', '#', 'true')
+            +link('Распечатать', '#')
+        .product-wrapper-content
+          .product-image
+            img(src="./images/img-products-2-min.png")
+            img(src="./images/img-products-2-min.png")
+          .product-title Сыр «Косичка» «Гиагинский» копченый
+          .product-print
+            +icon('recept-product-print', 'svg')
+  +recepts().bg-white
+  +wherebuy().bg-white
+  +subscription().bg-white
+  +footer().bg-white

@@ -6,6 +6,7 @@ let sliders = {
     this.mainSlider();
     this.receptSlider();
     this.productSlider();
+    this.receptSliderOne();
   },
   mainSlider: function() {
     //let delayChangeSlide = 2500;
@@ -70,6 +71,19 @@ let sliders = {
           slidesPerView: 5,
           spaceBetween: 20,
         }
+      },
+    });
+  },
+  receptSliderOne: function() {
+    return new Swiper(".slider-recept", {
+      speed: 600,
+      slidesPerView: 1,
+      updateOnWindowResize: true,
+      spaceBetween: 0,
+
+      navigation: {
+        nextEl: "#slider-recept-right",
+        prevEl: "#slider-recept-left"
       },
     });
   }

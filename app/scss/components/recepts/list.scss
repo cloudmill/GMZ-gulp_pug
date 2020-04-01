@@ -1,4 +1,4 @@
-.main-recept {
+.main-recepts, .main-recept {
   background: $background-additional;
   position: relative;
 
@@ -13,7 +13,7 @@
       padding-top: 160px;
     }
 
-    .recept {
+    .recepts {
       &-header {
         margin-bottom: 90px;
         width: 100%;

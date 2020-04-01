@@ -3,6 +3,7 @@ extends ../layouts/default.pug
 include ../modules/footer.pug
 include ../modules/header.pug
 include ../modules/recepts.pug
+include ../modules/wherebuy.pug
 include ../modules/subscription.pug
 
 block variables
@@ -81,12 +82,7 @@ block content
             .product-desc-row-el
               .title вес упаковки:
               .desc 5 кг
-          .product-buy.left-product-mg
-            .title Где купить?
-            .desc Мы представлены в самые крупных и популярных торговых сетях в России.
-            +link('Продробнее', '#', 'true')
-          .shopsbg-marquee
-            .shops
+          +wherebuy().left-product-mg
         a.next-product(href="./product.html")
           .wrapper
             .text

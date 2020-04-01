@@ -6,15 +6,18 @@
   }
 }
 
-.shopsbg-marquee {
-  position: relative;
-  .shops {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 225px;
-    background-image: url('../images/shops-bg.png');
-    background-repeat: repeat-x;
+.wherebuy-group.left-product-mg {
+  align-items: flex-start;
+  flex-direction: column;
+  margin-right: -20px;
+  margin-left: 80px;
+
+  @include screen('md', 'max') {
+    margin-left: -20px;
+  }
+
+  .desc {
+    margin-bottom: 30px;
   }
 }
 
@@ -397,29 +400,6 @@
               line-height: 30px;
               color: #312930;
             }
-          }
-        }
-
-        &-buy {
-          margin-bottom: 50px;
-
-          .title {
-            @include UI-Font-PFRegalTextPro-bold;
-            margin-bottom: 30px;
-
-            @include screen('xs', 'max') {
-              margin-bottom: 10px;
-            }
-          }
-
-          .desc {
-            font-family: 'CeraPro';
-            font-style: normal;
-            font-weight: normal;
-            font-size: 20px;
-            line-height: 30px;
-            color: #312930;
-            margin-bottom: 30px;
           }
         }
       }

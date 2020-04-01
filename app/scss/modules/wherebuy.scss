@@ -1,0 +1,37 @@
+.shopsbg-marquee {
+  position: relative;
+  .shops {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 225px;
+    background-image: url('../images/shops-bg.png');
+    background-repeat: repeat-x;
+  }
+}
+
+.wherebuy-group {
+  margin-bottom: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  .title {
+    @include UI-Font-PFRegalTextPro-bold;
+    margin-bottom: 30px;
+
+    @include screen('xs', 'max') {
+      margin-bottom: 10px;
+    }
+  }
+
+  .desc {
+    font-family: 'CeraPro';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
+    color: #312930;
+    max-width: 400px;
+  }
+}
