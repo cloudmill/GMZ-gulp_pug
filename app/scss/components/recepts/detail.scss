@@ -18,6 +18,7 @@
         align-self: start;
         width: 30%;
         position: relative;
+        margin-top: 60px;
 
         @include screen('lg', 'max') {
          transform: scale(0.8);

@@ -1,0 +1,49 @@
+.main-about {
+  &-info {
+    max-width: 1060px;
+    display: grid;
+    color: #312930;
+    grid-row-gap: 50px;
+    grid-column-gap: 100px;
+    align-items: center;
+    margin-left: 180px;
+
+    .about-info-el {
+      
+      &.gifimage  {
+        grid-column: 1/2;
+        justify-self: end;
+        img {
+          max-width: 234px;
+          max-height: 234px;
+        }
+      }
+
+      &.smallboldtext {
+        grid-column: 2/3;
+        font-family: 'PFRegalTextPro';
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 38px;
+      }
+
+      &.bigboldtext {
+        justify-self: end;
+        font-family: 'Lineatura';
+        font-size: 50px;
+        line-height: 68px;
+        margin-top: -15px;
+      }
+
+      &.smalltext {
+        font-family: 'CeraPro';
+        font-size: 20px;
+        line-height: 30px;
+      }
+    }
+  }   
+}
+
+.main-about-persons {
+  
+}

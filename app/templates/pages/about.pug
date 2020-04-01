@@ -1,0 +1,32 @@
+extends ../layouts/default.pug
+
+include ../modules/forms.pug
+include ../modules/header.pug
+include ../modules/footer.pug
+
+block variables
+ -var pageTitle='О нас'
+
+mixin main-partners-box-nav-el(json)
+  each data in json
+    a.main-partners-box-nav-link(href=data.link) #{data.title}
+
+block content
+  +header()
+  section.main-partners#main-partners.bg-additional
+    .content.main-partners-box
+      .main-partners-box-nav
+        +main-partners-box-nav-el(getData('pages/partners/main'))
+      h2.main-partners-box-description Мы хотим привить миллионам людей вести здоровый образ жизни, донести до каждого чистоту горного воздуха и воды в наших сырах.
+  section.main-about-info
+    .about-info-el.gifimage 
+      img(src="./images/cheese.gif")
+    .about-info-el.smallboldtext Гордимся местом, в котором живём и доносим это через наш продукт.
+    .about-info-el.bigboldtext Самое главное для нас - люди.
+    .about-info-el.smalltext Ведь наш продукт на 80% сделан руками людей, которые многие века перенимали ремесло домашних сыроделов.
+  section.main-about-persons
+    .content
+      img(src="./images/about-persons-bg.png", alt="Персонажи")
+  section.main-about-slider
+    h2 История завода
+    .slider
