@@ -19,6 +19,19 @@
         width: 30%;
         position: relative;
 
+        @include screen('lg', 'max') {
+         transform: scale(0.8);
+         transform-origin: right center; 
+        }
+
+        @include screen('md', 'max') {
+          transform: scale(1);
+          margin: 0 auto;
+          margin-bottom: 150px;
+          width: 80%;
+          margin-top: 100px;
+        }
+
         &::after {
           width: 270px;
           height: 270px;
@@ -30,10 +43,17 @@
           left: 0;
           top: 0;
           z-index: 1;
+
+          @include screen('md', 'max') {
+            width: 80%;
+            height: 80%;
+            margin-left: 20px;
+          }
         }
         
         &:before {
           background-image: url('../images/shadow-products.svg');
+          background-repeat: no-repeat;
           position: absolute;
           bottom: 0;
           left: -80px;
@@ -51,7 +71,9 @@
         position: relative;
 
         img {
+          position: relative;
           width: 70%;
+          height: auto;
 
           &:last-child {
             left: 25%;
@@ -69,13 +91,17 @@
         position: relative;
         width: 60%;
         margin-top: 10%;
+
+        @include screen('md', 'max') {
+          width: 100%;
+        }
       }
 
       &-print {
         position: absolute;
-        top: -20%;
+        top: -10%;
         z-index: 10;
-        left: -20%;
+        left: -10%;
       }
     }
     
@@ -85,10 +111,6 @@
           margin-bottom: 60px;
 
           @include screen('md', 'max') {
-            max-width: 600px;
-          }
-
-          @include screen('sm', 'max') {
             max-width: 100%;
           }
 
@@ -101,6 +123,15 @@
         display: flex;
         justify-content: space-between;
         margin-top: 80px;
+        margin-bottom: 40px;
+
+        @include screen('md', 'max') {
+          position: absolute;
+          width: calc(100% - 40px);
+          margin: 0 auto;
+          bottom: 0;
+          margin-bottom: 40px;
+        }
       }
 
       &-cooking {
@@ -139,10 +170,19 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+
+        @include screen('md', 'max') {
+          flex-direction: column;
+        }
       
         &-content {
           width: 700px;
           overflow: hidden;
+
+          @include screen('md', 'max') {
+            width: 100%;
+          }
+
         }
       }
     }
@@ -150,6 +190,16 @@
     .slider {
       &-recept {
         position: relative;
+
+        .swiper-wrapper {
+          .slider-el.swiper-slide {
+            img {
+              @include screen('md', 'max') {
+                width: 100%;
+              }
+            }
+          }
+        }
       }
 
       &-buttons {
@@ -284,6 +334,19 @@
           }
         }
       }
+    }
+  }
+}
+
+.receptbuy {
+  @include screen('md', 'max') {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  @include screen('md', 'max') {
+    .left > .desc {
+      margin-bottom: 15px;
     }
   }
 }
