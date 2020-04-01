@@ -11,7 +11,7 @@ import customScrollbar from "./modules/scrollbar.js";
 import header from "./modules/header.js";
 
 //components
-import maps from "./modules/header.js";
+import maps from "./components/maps.js";
 
 
 $(document).ready(function() {
