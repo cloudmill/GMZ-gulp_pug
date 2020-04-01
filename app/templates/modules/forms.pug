@@ -1,34 +1,63 @@
+//- 
+
+mixin buttonSubmit(name)
+  button.main-link.addon(type="submit") #{name}
+    span
+      +icon('main-link-plus', 'svg')
+      +icon('main-link-arrow', 'svg')
+
+
+//- FORMS
+
+//-форма подписки
+mixin subscriptionForm
+  section.subscription&attributes(attributes)
+    .content.subscription-box
+      form.subscription-box-form
+        h2 Подпишитесь на нас
+        .main-field
+          input(type="email" id="email-sub" placeholder="Введите почту")
+          label(class="main-field-addon")
+            button
+              +icon('arrow', 'svg')
+      .subscription-box-marquee
+
+
 mixin askQuestionForm
   section.contact&attributes(attributes)
     .content.contact-box
       .contact-box-header
         h2 Задайте вопрос или оставьте заявку на сотрудничество
-      form.contact-box-form
-        .contact-box-form-el
-          +field('text', 'name', 'Ваше имя', 'Ваше имя', '')
-          +field('text', 'phone', 'Ваш телефон', 'Ваш телефон', 'необязательно')
-          +field('email', 'email', 'Ваша почта для ответа', 'Ваша почта для ответа', '')
-        .contact-box-form-el
-          +textarea('question', '29', '10', 'Ваш вопрос', 'необязательно')
-        .contact-box-form-el
-          +checkbox('pricelist', 'pricelist', 'Хочу получить прайс-листи')
-          +checkbox('agree', 'agree', 'Согласие на обработку персональных данных в соответствии с политикой конфиденциальности')
-        .contact-box-form-el
-          +link('Отправить', '#', 'true')
+      .contact-box-content
+        form.contact-box-form
+          .contact-box-form-el
+            +field('text', 'name', 'Ваше имя', 'Ваше имя', '')
+            +field('text', 'phone', 'Ваш телефон', 'Ваш телефон', 'необязательно')
+            +field('email', 'email', 'Ваша почта для ответа', 'Ваша почта для ответа', '')
+          .contact-box-form-el
+            +textarea('question', '29', '10', 'Ваш вопрос', 'необязательно')
+          .contact-box-form-el
+            +checkbox('pricelist', 'pricelist', 'Хочу получить прайс-листи')
+            +checkbox('agree', 'agree', 'Согласие на обработку персональных данных в соответствии с политикой конфиденциальности')
+          .contact-box-form-el
+            +buttonSubmit('Отправить')
+        .contact-box-success
 
 mixin contactUsForm
   section.contact&attributes(attributes)
     .content.contact-box
       .contact-box-header
         h2 Связаться с нами
-      form.contact-box-form
-        .contact-box-form-el
-          +field('text', 'name', 'Ваше имя', 'Ваше имя', '')
-          +field('text', 'phone', 'Ваш телефон', 'Ваш телефон', 'необязательно')
-          +field('email', 'email', 'Ваша почта для ответа', 'Ваша почта для ответа', '')
-        .contact-box-form-el
-          +textarea('question', '29', '10', 'Ваш вопрос', 'необязательно')
-        .contact-box-form-el
-          +checkbox('agree', 'agree', 'Согласие на обработку персональных данных в соответствии с политикой конфиденциальности')
-        .contact-box-form-el
-          +link('Задать вопрос', '#', 'true')
+      .contact-box-content
+        form.contact-box-form 
+          .contact-box-form-el
+            +field('text', 'name', 'Ваше имя', 'Ваше имя', '')
+            +field('text', 'phone', 'Ваш телефон', 'Ваш телефон', 'необязательно')
+            +field('email', 'email', 'Ваша почта для ответа', 'Ваша почта для ответа', '')
+          .contact-box-form-el
+            +textarea('question', '29', '10', 'Ваш вопрос', 'необязательно')
+          .contact-box-form-el
+            +checkbox('agree', 'agree', 'Согласие на обработку персональных данных в соответствии с политикой конфиденциальности')
+          .contact-box-form-el
+            +buttonSubmit('Задать вопрос')
+        .contact-box-success

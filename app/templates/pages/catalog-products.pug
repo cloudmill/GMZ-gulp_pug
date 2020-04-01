@@ -1,6 +1,6 @@
 extends ../layouts/default.pug
 
-include ../modules/subscription.pug
+include ../modules/forms.pug
 include ../modules/footer.pug
 include ../modules/header.pug
 
@@ -101,5 +101,5 @@ block content
               +icon('cloud-2', 'svg').cloud-1
               +icon('cloud-1', 'svg').cloud-2
 
-    +subscription().bg-white
+    +subscriptionForm().bg-white
     +footer().bg-white

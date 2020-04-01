@@ -4,7 +4,7 @@ include ../modules/footer.pug
 include ../modules/header.pug
 include ../modules/recepts.pug
 include ../modules/wherebuy.pug
-include ../modules/subscription.pug
+include ../modules/forms.pug
 
 block variables
  -var pageTitle='Сыр Косичка «Гиагинский» копченый'
@@ -92,5 +92,5 @@ block content
                 img(src="./images/img-products-3-min.png")
                 img(src="./images/img-products-3-min.png")
     +recepts()
-    +subscription().bg-white
+    +subscriptionForm().bg-white
     +footer().bg-white

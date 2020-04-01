@@ -3,7 +3,7 @@ extends ../layouts/default.pug
 include ../modules/header.pug
 include ../modules/footer.pug
 include ../modules/recepts.pug
-include ../modules/subscription.pug
+include ../modules/forms.pug
 
 block variables
   -var pageTitle='Главная'
@@ -93,5 +93,5 @@ block content
               span 2019
             .news-text Молочный завод «Янино» стал участником благотворительного новогоднего мероприятия «завтрак в манеже»
 
-  +subscription().bg-white
+  +subscriptionForm().bg-white
   +footer().bg-white

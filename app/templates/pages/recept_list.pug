@@ -1,6 +1,6 @@
 extends ../layouts/default.pug
 
-include ../modules/subscription.pug
+include ../modules/forms.pug
 include ../modules/footer.pug
 include ../modules/header.pug
 
@@ -45,5 +45,5 @@ block content
               +checkbox('5', '5', 'Сыр «Спагетти» «Гиагинский»')
               button.display-full Показать все 
           button.clear Сбросить фильтр
-  +subscription().bg-additional
+  +subscriptionForm().bg-additional
   +footer().bg-additional

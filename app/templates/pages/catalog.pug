@@ -1,6 +1,6 @@
 extends ../layouts/default.pug
 
-include ../modules/subscription.pug
+include ../modules/forms.pug
 include ../modules/footer.pug
 include ../modules/header.pug
 
@@ -28,5 +28,5 @@ block content
             img(src="./images/img-product-4.png", alt="")
           .catalog-el-text Cыворотка
         .text-bottom Продукция
-    +subscription().bg-white
+    +subscriptionForm().bg-white
     +footer().bg-white
