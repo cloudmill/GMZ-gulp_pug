@@ -3,7 +3,7 @@
     width: 839px;
     margin-bottom: 80px;
 
-    @include screen('custom-660', 'max') {
+    @include screen("custom-660", "max") {
       width: auto;
     }
 
@@ -19,7 +19,7 @@
     justify-content: space-between;
     flex-flow: wrap;
 
-    @include screen('custom-660', 'max') {
+    @include screen("custom-660", "max") {
       flex-direction: column;
     }
 
@@ -27,11 +27,11 @@
       width: 45%;
       display: flex;
       flex-direction: column;
-      font-family: 'CeraPro';
+      font-family: "CeraPro";
       align-items: start;
       justify-content: flex-end;
 
-      @include screen('custom-660', 'max') {
+      @include screen("custom-660", "max") {
         width: 100%;
       }
 
@@ -40,17 +40,82 @@
       }
     }
   }
-  &-content{
+  &-content {
     position: relative;
     width: 100%;
+    &.messed {
+      .contact-box {
+        &-success {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+    }
   }
-  &-success{
+  &-success {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% + 20px);
     opacity: 0;
     pointer-events: none;
+    padding: 60px 100px;
+    z-index: 2;
+    background: #ffffff;
+    transition: opacity 0.4s ease-in-out;
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: -2;
+      position: absolute;
+      background: #f6f5f3;
+      transform: skewX(-6deg);
+    }
+    &:after {
+      content: "";
+      display: block;
+      width: 100%;
+      left: 0;
+      top: 0;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+      background-image: url(../images/succes_form_line.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    &-text {
+      font-family: PFRegalTextPro;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 25px;
+      line-height: 130%;
+      color: #312930;
+      max-width: 480px;
+    }
+
+    button {
+      position: absolute;
+      bottom: 60px;
+      right: 100px;
+    }
+  }
+}
+.contact {
+  &.bg-additional {
+    .contact-box {
+      &-success {
+        background: #f6f5f3;
+        &:before {
+          background: #ffffff;
+        }
+      }
+    }
   }
 }

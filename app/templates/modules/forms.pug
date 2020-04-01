@@ -42,6 +42,8 @@ mixin askQuestionForm
           .contact-box-form-el
             +buttonSubmit('Отправить')
         .contact-box-success
+          .contact-box-success-text Ваше сообщение успешно отправлено. Ответим вам, как только сможем.
+          +buttonSubmit('Отправить еще')
 
 mixin contactUsForm
   section.contact&attributes(attributes)
@@ -61,3 +63,5 @@ mixin contactUsForm
           .contact-box-form-el
             +buttonSubmit('Задать вопрос')
         .contact-box-success
+          .contact-box-success-text Ваше сообщение успешно отправлено. Ответим вам, как только сможем.
+          +buttonSubmit('Отправить еще')

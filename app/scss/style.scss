@@ -57,6 +57,10 @@
     @include screen("sm", "max") {
       padding-top: 160px;
     }
+
+    @include screen("xs", "max") {
+      padding-top: 130px;
+    }
   }
 }
 
