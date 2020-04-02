@@ -61,4 +61,11 @@ block content
         .slider-about-container.swiper-wrapper
           +slider-about-container-el(getData('sliders/about'))
   section.main-about-awards
+    .content.main-about-awards-box
+      h2 Наши награды
+      .slider-awards-control
+        .buttons.main-awards-buttons
+          +btn-slider('left').bg-additional#slider-awards-left
+          +btn-slider('right').bg-additional#slider-awards-right
+      
     
