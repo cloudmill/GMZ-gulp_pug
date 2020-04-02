@@ -31,9 +31,9 @@ mixin askQuestionForm
       .contact-box-content
         form.contact-box-form
           .contact-box-form-el
-            +inputFiled('text', 'name', 'Ваше имя')
-            +inputFiled('text', 'phone', 'Ваш телефон', null)
-            +inputFiled('email', 'email', 'Ваша почта для ответа', false)
+            +inputField('text', 'name', 'Ваше имя')
+            +inputField('text', 'phone', 'Ваш телефон', null)
+            +inputField('email', 'email', 'Ваша почта для ответа', false)
           .contact-box-form-el
             +textarea('question', '29', '10', 'Ваш вопрос', 'необязательно')
           .contact-box-form-el
@@ -53,9 +53,9 @@ mixin contactUsForm
       .contact-box-content
         form.contact-box-form 
           .contact-box-form-el
-            +inputFiled('text', 'name', 'Ваше имя')
-            +inputFiled('text', 'phone', 'Ваш телефон', null)
-            +inputFiled('email', 'email', 'Ваша почта для ответа', false)
+            +inputField('text', 'name', 'Ваше имя')
+            +inputField('text', 'phone', 'Ваш телефон', null)
+            +inputField('email', 'email', 'Ваша почта для ответа', false)
           .contact-box-form-el
             +textarea('question', '29', '10', 'Ваш вопрос', 'необязательно')
           .contact-box-form-el

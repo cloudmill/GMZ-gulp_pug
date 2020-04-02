@@ -154,7 +154,52 @@ button {
 }
 
 //Стили для спрайтов
-.icon,.svg-icon{
+.icon,
+.svg-icon {
   display: inline-block;
 }
-@include sprites($spritesheet-sprites)
+@include sprites($spritesheet-sprites);
+
+/* Стили для карты */
+.map-container{
+  #map {
+    height: 500px;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    //hide controls
+    [class*="-copyrights-pane"] {
+      display: none !important;
+      
+    }
+  
+    [class*="-controls__toolbar_right"] {
+      display: none !important;
+    }
+    [class*="-controls__toolbar_left"] {
+      float: right;
+      margin-right: -2px;
+      margin-top: 60px;
+      [class*="-searchbox"] {
+        display: none !important;
+      }
+    }
+  
+    //change css controls
+    [class*="-controls-pane"] {
+      top: 50% !important;
+      pointer-events: none;
+    }
+    [class*="-zoom__button"],
+    [class*="-float-button"] {
+      border-radius: 50%;
+      pointer-events: auto;
+    }
+    [class*="-controls__control"] {
+      left: auto !important;
+      right: 8px !important;
+      top: 0 !important;
+      transform: translateY(-50%);
+    }
+  }
+}
