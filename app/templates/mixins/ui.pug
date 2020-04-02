@@ -1,4 +1,9 @@
-mixin inputFiled(type_param, id_param, label, binding = true)
+mixin selectField(name,placeholder,options)
+  .main-field.main-field-select
+    select.select2-field(name=name placeholder=placeholder)
+      each option in options
+        option(value=option)= option
+mixin inputField(type_param, id_param, label, binding = true)
   .main-field
     if(binding == true)
       input(type=type_param name=id_param id=id_param placeholder=label required)
@@ -10,7 +15,7 @@ mixin inputFiled(type_param, id_param, label, binding = true)
         label(for=id_param class="main-field-addon") Необязательно
     .main-field-error Поле заполнено неверно
 
-    //- inputFiled({тип поля ввода}, {имя поля}, {заголовок}, {обязательное ли поле (можно передать "null" или слово которое нужно вывести вместо "Необязательно","false" - не выводит слово)})
+    //- inputField({тип поля ввода}, {имя поля}, {заголовок}, {обязательное ли поле (можно передать "null" или слово которое нужно вывести вместо "Необязательно","false" - не выводит слово)})
 
 mixin textarea(id_param, cols_param, rows_param, label_text, label_addon)
   .main-field

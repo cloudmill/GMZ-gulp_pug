@@ -1,0 +1,69 @@
+extends ../layouts/default.pug
+
+include ../modules/footer.pug
+include ../modules/header.pug
+
+include ../modules/forms.pug
+
+block variables
+  -var pageTitle='Где купить'
+  mixin whereBuy-map-marks-list(json)
+    .whereBuy-map-points(data-scrollbar)
+      each point in json
+        button.whereBuy-map-point
+          +icon('str-right-light-color','svg').map-point-icon
+          .map-point-name= point.name
+          .map-point-adress= point.adress
+
+  mixin whereBuy-map-marks-data(json)
+    .map_data
+      each point in json
+        input.placeMark(type="hidden"
+          data-cords= point.pos
+          data-name= point.name)
+block content
+  +header()
+  section.page-section.bg-additional
+    .content
+      .whereBuy-head
+        h1.page-title Где купить
+        .whereBuy-search  
+          +selectField('city','Ваш город',['Москва','Воронеж','Новгород'])
+        button.whereBuy-geo
+          +icon('srt-paper-plane','svg')
+      .whereBuy-map.map-container
+        .whereBuy-map-content
+          +whereBuy-map-marks-list(getData('/pages/whereBuy/placeMarks'))
+        #map
+          +whereBuy-map-marks-data(getData('/pages/whereBuy/placeMarks'))
+  section.shops-section
+    .content
+      h1.page-title Интернет-магазины
+      .shops-list
+        .shops-item
+          img(src='images/image-shops-1.png')
+          +icon('str-right-light-color','svg')
+        .shops-item
+          img(src='images/image-shops-2.png')
+          +icon('str-right-light-color','svg')
+        .shops-item
+          img(src='images/image-shops-3.png')
+          +icon('str-right-light-color','svg')
+        .shops-item
+          img(src='images/image-shops-4.png')
+          +icon('str-right-light-color','svg')
+        .shops-item
+          img(src='images/image-shops-5.png')
+          +icon('str-right-light-color','svg')
+        .shops-item
+          img(src='images/image-shops-6.png')
+          +icon('str-right-light-color','svg')
+        .shops-item
+          img(src='images/image-shops-7.png')
+          +icon('str-right-light-color','svg')
+        .shops-item
+          img(src='images/image-shops-8.png')
+          +icon('str-right-light-color','svg')
+
+  +subscriptionForm()
+  +footer()

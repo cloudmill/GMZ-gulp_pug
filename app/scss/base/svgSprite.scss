@@ -8,7 +8,7 @@
     display: inline-block;
     background-image: url("../images/sprite.svg");
     background-repeat: no-repeat;
-    background-size: 40.3em 353.2em;
+    background-size: 40.3em 358.3em;
 }
 
 .no-svg .svg-icon:before {
@@ -449,8 +449,17 @@
 
 
 
-  .svg-icon.svg-statistics:before {
+  .svg-icon.svg-srt-paper-plane:before {
       background-position: 0em -326.8em;
+      width: 2.8em;
+      height: 2.8em;
+  }
+
+
+
+
+  .svg-icon.svg-statistics:before {
+      background-position: 0em -329.6em;
       width: 10.3em;
       height: 7em;
   }
@@ -458,8 +467,17 @@
 
 
 
+  .svg-icon.svg-str-right-light-color:before {
+      background-position: 0em -336.6em;
+      width: 4.3em;
+      height: 2.3em;
+  }
+
+
+
+
   .svg-icon.svg-timer:before {
-      background-position: 0em -333.8em;
+      background-position: 0em -338.9em;
       width: 3.3em;
       height: 3.3em;
   }
@@ -468,7 +486,7 @@
 
 
   .svg-icon.svg-twitter:before {
-      background-position: 0em -337.1em;
+      background-position: 0em -342.2em;
       width: 2em;
       height: 1.8em;
   }
@@ -477,7 +495,7 @@
 
 
   .svg-icon.svg-vk:before {
-      background-position: 0em -338.9em;
+      background-position: 0em -344em;
       width: 2.6em;
       height: 1.6em;
   }
@@ -486,7 +504,7 @@
 
 
   .svg-icon.svg-vote:before {
-      background-position: 0em -340.5em;
+      background-position: 0em -345.6em;
       width: 12.1em;
       height: 11em;
   }
@@ -495,7 +513,7 @@
 
 
   .svg-icon.svg-wikipedia:before {
-      background-position: 0em -351.5em;
+      background-position: 0em -356.6em;
       width: 2.8em;
       height: 1.7em;
   }
