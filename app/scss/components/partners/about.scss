@@ -156,9 +156,79 @@
                 font-size: 260px;
                 color: #EE7754;
                 z-index: 3;
-                right: -30px;
+                right: -5px;
               }
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+.main-about-awards {
+  &-box {
+    .main-about-awards-header {
+      display: flex;
+      justify-content: space-between;
+      h2 {
+        @include UI-Font-PFRegalTextPro-bold;
+        margin-bottom: 80px;
+      }
+    }
+  }
+
+  &-content {
+    &.swiper-container {
+      overflow: visible!important;
+      margin-top: 120px;
+    }
+
+    .swiper-wrapper {
+      display: flex;
+      justify-content: space-between;
+      overflow: visible!important;
+
+      .slider-awards-el {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .medal {
+          position: relative;
+          z-index: 10;
+          top: -50%;
+          transform: translateY(10%);
+        }
+
+        .time-medal {
+          position: absolute;
+          z-index: 10;
+          bottom: 0;
+          top: 44%;
+          font-family: 'CeraPro';
+          font-size: 14px;
+        }
+
+        &::before {
+          position: absolute;
+          display: block;
+          content: '';
+          width: 230px;
+          height: 136px;
+          background: #D7F9DF;
+          transform: skewX(-10deg) translateX(-50%);
+          left: 50%;  
+          top: 0;
+        }
+
+        .description-award {
+          .title {
+            font-family: 'CeraPro';
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 24px;
           }
         }
       }

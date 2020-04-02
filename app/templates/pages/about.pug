@@ -62,10 +62,33 @@ block content
           +slider-about-container-el(getData('sliders/about'))
   section.main-about-awards
     .content.main-about-awards-box
-      h2 Наши награды
-      .slider-awards-control
-        .buttons.main-awards-buttons
+      .main-about-awards-header
+        h2 Наши награды
+        .buttons.main-slider-buttons
           +btn-slider('left').bg-additional#slider-awards-left
           +btn-slider('right').bg-additional#slider-awards-right
-      
-    
+      .main-about-awards-content.swiper-container
+        .swiper-wrapper
+
+          .slider-awards-el
+            +icon('medal-icon-1', 'svg').medal
+            .time-medal 2019
+            .description-award
+              .title Выставка «Золотая осень» г. Москва
+              +link('Сыр Косичка «Гиагинский» копченый', '#', 'true')
+
+          .slider-awards-el
+            +icon('medal-icon-1', 'svg').medal
+            .time-medal 2019
+            .description-award
+              .title Выставка «Золотая осень» г. Москва
+              +link('Сыр Косичка «Гиагинский» копченый', '#', 'true')
+
+          .slider-awards-el
+            +icon('medal-icon-1', 'svg').medal
+            .time-medal 2019
+            .description-award
+              .title Выставка «Золотая осень» г. Москва
+              +link('Сыр Косичка «Гиагинский» копченый', '#', 'true')
+  +subscriptionForm().bg-white
+  +footer().bg-white
