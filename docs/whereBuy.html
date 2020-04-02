@@ -53,20 +53,93 @@
           <div class="whereBuy-head">
             <h1 class="page-title">Где купить</h1>
             <div class="whereBuy-search"> 
-              <div class="main-filed main-filed-select">
-                <select class="select2-field" name="city">
+              <div class="main-field main-field-select">
+                <select class="select2-field" name="city" placeholder="Ваш город">
                   <option value="Москва">Москва</option>
                   <option value="Воронеж">Воронеж</option>
                   <option value="Новгород">Новгород</option>
                 </select>
               </div>
             </div>
+            <button class="whereBuy-geo"><i class="svg-icon svg-srt-paper-plane"></i>
+            </button>
           </div>
-          <div class="contacts-map" id="map">
-            <div class="map_data">
-              <input class="placeMark" type="hidden" data-cords="61.283240311585,31.132082116528" data-name="1">
-              <input class="placeMark" type="hidden" data-cords="63.283240311585,31.132082116528" data-name="2">
-              <input class="placeMark" type="hidden" data-cords="64.283240311585,31.132082116528" data-name="3">
+          <div class="whereBuy-map map-container">
+            <div class="whereBuy-map-content">
+              <div class="whereBuy-map-points" data-scrollbar="data-scrollbar">
+                <button class="whereBuy-map-point"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">Перекресток</div>
+                  <div class="map-point-adress">ул. Камышовая, 17/1</div>
+                </button>
+                <button class="whereBuy-map-point"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">Перекресток</div>
+                  <div class="map-point-adress">пр-кт Энгельса, 120 лит.А</div>
+                </button>
+                <button class="whereBuy-map-point"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">ОптКлуб РЯДЫ</div>
+                  <div class="map-point-adress">Пулковское ш. 43, корп.1, лит.А</div>
+                </button>
+                <button class="whereBuy-map-point"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">Перекресток</div>
+                  <div class="map-point-adress">пр-кт Энгельса, 120 лит.А</div>
+                </button>
+                <button class="whereBuy-map-point"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">ОптКлуб РЯДЫ</div>
+                  <div class="map-point-adress">Пулковское ш. 43, корп.1, лит.А</div>
+                </button>
+                <button class="whereBuy-map-point"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">Перекресток</div>
+                  <div class="map-point-adress">пр-кт Энгельса, 120 лит.А</div>
+                </button>
+                <button class="whereBuy-map-point"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">ОптКлуб РЯДЫ</div>
+                  <div class="map-point-adress">Пулковское ш. 43, корп.1, лит.А</div>
+                </button>
+                <button class="whereBuy-map-point"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">Перекресток</div>
+                  <div class="map-point-adress">пр-кт Энгельса, 120 лит.А</div>
+                </button>
+                <button class="whereBuy-map-point"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">ОптКлуб РЯДЫ</div>
+                  <div class="map-point-adress">Пулковское ш. 43, корп.1, лит.А</div>
+                </button>
+              </div>
+            </div>
+            <div id="map">
+              <div class="map_data">
+                <input class="placeMark" type="hidden" data-cords="60.08, 31.13" data-name="Перекресток"/>
+                <input class="placeMark" type="hidden" data-cords="61.08, 31.13" data-name="Перекресток"/>
+                <input class="placeMark" type="hidden" data-cords="62.08, 31.13" data-name="ОптКлуб РЯДЫ"/>
+                <input class="placeMark" type="hidden" data-cords="63.08, 31.13" data-name="Перекресток"/>
+                <input class="placeMark" type="hidden" data-cords="64.08, 31.13" data-name="ОптКлуб РЯДЫ"/>
+                <input class="placeMark" type="hidden" data-cords="65.08, 31.13" data-name="Перекресток"/>
+                <input class="placeMark" type="hidden" data-cords="66.08, 31.13" data-name="ОптКлуб РЯДЫ"/>
+                <input class="placeMark" type="hidden" data-cords="67.08, 31.13" data-name="Перекресток"/>
+                <input class="placeMark" type="hidden" data-cords="68.08, 31.13" data-name="ОптКлуб РЯДЫ"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="shops-section">
+        <div class="content">
+          <h1 class="page-title">Интернет-магазины</h1>
+          <div class="shops-list">
+            <div class="shops-item"><img src="images/image-shops-1.png"><i class="svg-icon svg-str-right-light-color"></i>
+            </div>
+            <div class="shops-item"><img src="images/image-shops-2.png"><i class="svg-icon svg-str-right-light-color"></i>
+            </div>
+            <div class="shops-item"><img src="images/image-shops-3.png"><i class="svg-icon svg-str-right-light-color"></i>
+            </div>
+            <div class="shops-item"><img src="images/image-shops-4.png"><i class="svg-icon svg-str-right-light-color"></i>
+            </div>
+            <div class="shops-item"><img src="images/image-shops-5.png"><i class="svg-icon svg-str-right-light-color"></i>
+            </div>
+            <div class="shops-item"><img src="images/image-shops-6.png"><i class="svg-icon svg-str-right-light-color"></i>
+            </div>
+            <div class="shops-item"><img src="images/image-shops-7.png"><i class="svg-icon svg-str-right-light-color"></i>
+            </div>
+            <div class="shops-item"><img src="images/image-shops-8.png"><i class="svg-icon svg-str-right-light-color"></i>
             </div>
           </div>
         </div>
