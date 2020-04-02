@@ -1,15 +1,17 @@
-.main-about {
-  &-info {
-    max-width: 1060px;
+.main-about-info {
+  color: #312930;
+  margin-top: 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  &-box {
     display: grid;
-    color: #312930;
     grid-row-gap: 50px;
     grid-column-gap: 100px;
     align-items: center;
-    margin-left: 180px;
+    max-width: 1000px;
 
     .about-info-el {
-      
       &.gifimage  {
         grid-column: 1/2;
         justify-self: end;
@@ -18,7 +20,7 @@
           max-height: 234px;
         }
       }
-
+  
       &.smallboldtext {
         grid-column: 2/3;
         font-family: 'PFRegalTextPro';
@@ -26,24 +28,140 @@
         font-size: 25px;
         line-height: 38px;
       }
-
+  
       &.bigboldtext {
         justify-self: end;
         font-family: 'Lineatura';
         font-size: 50px;
         line-height: 68px;
         margin-top: -15px;
+        max-width: 450px;
       }
-
+  
       &.smalltext {
         font-family: 'CeraPro';
         font-size: 20px;
         line-height: 30px;
       }
     }
-  }   
+  }
 }
 
 .main-about-persons {
-  
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.main-about-slider {
+  margin-top: 120px;
+
+  &-box {
+    h2 {
+      @include UI-Font-PFRegalTextPro-bold;
+      margin-bottom: 80px;
+    }
+
+    .slider-about-box {
+      display: flex;
+      flex-direction: column;
+      font-family: 'CeraPro';
+
+      .slider-about-control {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+
+        .dates {
+          font-size: 20px;
+          line-height: 25px;
+          width: 65%;
+          display: flex;
+          justify-content: space-between;
+
+          &.swiper-container {
+            margin: unset!important;
+          }
+
+          .date-btn.swiper-slide {
+            border-bottom: 2px solid #ffffff;
+            width: auto!important;
+            margin-right: 60px;
+
+            &:last-child {
+              margin-right: 0px;
+            }
+          }
+
+          .date-btn.swiper-slide.swiper-slide-thumb-active {
+            color: #ee7754;
+            border-bottom: 2px solid #ee7754;
+            padding-bottom: 2px;
+          }
+        }
+      }
+
+      .slider-about-container {
+        margin-top: 86px;
+
+        &-el {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .description {
+            max-width: 35%;
+            &-title {
+              font-family: 'PFRegalTextPro';
+              font-weight: bold;
+              font-size: 25px;
+              line-height: 34px;
+              margin-bottom: 26px;
+            }
+
+            &-text {
+              font-size: 16px;
+              line-height: 24px;
+            }
+          }
+
+          .image {
+            position: relative;
+            img {
+              position: relative;
+              z-index: 2;
+              margin-right: 50px;
+            }
+
+            &-date {
+              font-family: 'Lineatura';
+              line-height: 78px;
+              position: absolute;
+              top: 0;
+              right: 0;
+
+              span.back {
+                font-size: 110px;
+                color: #fff;
+                text-shadow: 0 0 1px #221d21;
+                z-index: 1;
+                position: absolute;
+                top: -38%;
+                left: -25%;
+              }
+
+              span.front {
+                position: relative;
+                font-size: 260px;
+                color: #EE7754;
+                z-index: 3;
+                right: -30px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

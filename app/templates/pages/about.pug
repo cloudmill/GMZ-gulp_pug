@@ -7,6 +7,18 @@ include ../modules/footer.pug
 block variables
  -var pageTitle='О нас'
 
+mixin slider-about-container-el(json)
+  each data in json
+    .slider-about-container-el.swiper-slide
+      .description
+        .description-title #{data.title}
+        .description-text #{data.text}
+      .image
+        img(src=data.img)
+        .image-date
+          span.back #{data.back_time}
+          span.front #{data.front_time}  
+
 mixin main-partners-box-nav-el(json)
   each data in json
     a.main-partners-box-nav-link(href=data.link) #{data.title}
@@ -19,14 +31,34 @@ block content
         +main-partners-box-nav-el(getData('pages/partners/main'))
       h2.main-partners-box-description Мы хотим привить миллионам людей вести здоровый образ жизни, донести до каждого чистоту горного воздуха и воды в наших сырах.
   section.main-about-info
-    .about-info-el.gifimage 
-      img(src="./images/cheese.gif")
-    .about-info-el.smallboldtext Гордимся местом, в котором живём и доносим это через наш продукт.
-    .about-info-el.bigboldtext Самое главное для нас - люди.
-    .about-info-el.smalltext Ведь наш продукт на 80% сделан руками людей, которые многие века перенимали ремесло домашних сыроделов.
+    .main-about-info-box
+      .about-info-el.gifimage 
+        img(src="./images/cheese.gif")
+      .about-info-el.smallboldtext Гордимся местом, в котором живём и доносим это через наш продукт.
+      .about-info-el.bigboldtext Самое главное для нас - люди.
+      .about-info-el.smalltext Ведь наш продукт на 80% сделан руками людей, которые многие века перенимали ремесло домашних сыроделов.
   section.main-about-persons
     .content
-      img(src="./images/about-persons-bg.png", alt="Персонажи")
+      img(src="./images/about-persons-bg.svg", alt="Персонажи")
   section.main-about-slider
-    h2 История завода
-    .slider
+    .content.main-about-slider-box
+      h2 История завода
+      .slider-about-box.swiper-container
+        .slider-about-control
+          .buttons.main-slider-buttons
+            +btn-slider('left').bg-additional#slider-about-left
+            +btn-slider('right').bg-additional#slider-about-right
+          .dates.swiper-container
+            .swiper-wrapper
+              button.date-btn.swiper-slide 1949
+              button.date-btn.swiper-slide 1968
+              button.date-btn.swiper-slide 1979
+              button.date-btn.swiper-slide 1988
+              button.date-btn.swiper-slide 1999
+              button.date-btn.swiper-slide 2006
+              button.date-btn.swiper-slide 2010
+              button.date-btn.swiper-slide 2020
+        .slider-about-container.swiper-wrapper
+          +slider-about-container-el(getData('sliders/about'))
+  section.main-about-awards
+    
