@@ -1,7 +1,7 @@
-mixin about
+mixin about(Title)
   section.about&attributes(attributes)
     .content.about-box
       .about-box-rectangle
-        h2 О нас
+        h2 #{Title}
         a(href="#about")
           +icon('arrow', 'svg')

@@ -66,6 +66,7 @@
       display: flex;
       flex-direction: column;
       font-family: 'CeraPro';
+      overflow: visible;
 
       .slider-about-control {
         display: flex;
@@ -168,23 +169,19 @@
 
 .main-about-awards {
   &-box {
+    overflow: visible;
     .main-about-awards-header {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 100px;
       h2 {
         @include UI-Font-PFRegalTextPro-bold;
-        margin-bottom: 80px;
       }
     }
   }
 
   &-content {
-    &.swiper-container {
-      overflow: visible!important;
-      margin-top: 120px;
-    }
-
-    .swiper-wrapper {
+    &.swiper-wrapper {
       display: flex;
       justify-content: space-between;
       overflow: visible!important;
@@ -194,21 +191,27 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
 
-        .medal {
+        .award-data {
           position: relative;
-          z-index: 10;
-          top: -50%;
-          transform: translateY(10%);
-        }
+          display: flex;
+          flex-direction: column;
+          align-items: center;
 
-        .time-medal {
-          position: absolute;
-          z-index: 10;
-          bottom: 0;
-          top: 44%;
-          font-family: 'CeraPro';
-          font-size: 14px;
+          .medal {
+            position: relative;
+            z-index: 10;
+            margin-bottom: 30px;
+          }
+  
+          .time-medal {
+            position: relative;
+            z-index: 10;
+            bottom: 0;
+            font-family: 'CeraPro';
+            font-size: 14px;
+          }
         }
 
         &::before {
@@ -220,10 +223,11 @@
           background: #D7F9DF;
           transform: skewX(-10deg) translateX(-50%);
           left: 50%;  
-          top: 0;
+          top: 31%;
         }
 
         .description-award {
+          margin-top: 40px;
           .title {
             font-family: 'CeraPro';
             font-weight: bold;
@@ -233,5 +237,11 @@
         }
       }
     }
+  }
+}
+
+.about-invert {
+  .about-box-rectangle:before {
+    background: #F6F5F3;
   }
 }

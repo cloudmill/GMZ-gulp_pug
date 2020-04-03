@@ -8,6 +8,7 @@ let sliders = {
     this.productSlider();
     this.receptSliderOne();
     this.aboutSlider();
+    this.awardsSlider();
   },
   mainSlider: function() {
     //let delayChangeSlide = 2500;
@@ -92,6 +93,12 @@ let sliders = {
     return new Swiper(".slider-about-box", {
       speed: 600,
       spaceBetween: 500,
+      loop: true,
+
+      autoplay: {
+        delay: 6000,
+        disableOnInteraction: false
+      },
 
       navigation: {
         nextEl: "#slider-about-right",
@@ -105,6 +112,17 @@ let sliders = {
           slideThumbActiveClass: '.active',
         },
       },
+    });
+  },
+  awardsSlider: function() {
+    return new Swiper(".main-about-awards-box", {
+      speed: 600,
+      slidesPerView: 3,
+
+      navigation: {
+        nextEl: "#slider-awards-right",
+        prevEl: "#slider-awards-left"
+      }
     });
   }
 };
