@@ -1,0 +1,207 @@
+.main-howdo-header, .main-howdo-cooking-box, .main-howdo-salting-box, .main-howdo-cool-box, .main-howdo-delivery-box {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.number-stage {
+  font-family: 'Lineatura';
+  position: absolute;
+  right: 0;
+  font-size: 260px;
+  line-height: 78px;
+  z-index: 10;
+}
+
+.description-howdo {
+  flex-basis: 47%;
+  h2 {
+    @include UI-Font-PFRegalTextPro-bold;
+  }
+
+  &-offset {
+    margin-left: 80px;
+    font-family: 'CeraPro';
+    margin-top: 40px;
+    color: #312930;
+    max-width: 75%;
+
+    .text {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 27px;
+    }
+
+    ul.list-main {
+      margin-bottom: 82px;
+      li {
+        margin-bottom: 15px;
+        position: relative;
+        display: flex;
+
+        &::before {
+          position: relative;
+          display: block;
+          content: '';
+          width: 20px;
+          height: 20px;
+          background: transparent;
+          border: 2px solid #EE7754;
+          margin-right: 40px;
+          border-radius: 10px;
+        }
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+
+    .total {
+      font-size: 20px;
+      line-height: 28px;
+      font-family: 'PFRegalTextPro';
+      font-weight: bold;
+    }
+  }
+}
+
+.image-howdo {
+  position: relative;
+  flex-basis: 50%;
+
+  img {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.main-partners {
+  &-box {
+    .main-howdo-header {
+      align-items: center;
+      margin-top: 50px;
+
+      .number-stage {
+        color: #fff;
+      }
+
+      .image {
+        position: relative;
+        flex-basis: 50%;
+
+        img {
+          width: 100%;
+          position: relative;
+          z-index: 1;
+        }
+
+        .number-stage {
+          position: absolute;
+          font-family: 'Lineatura';
+          font-size: 260px;
+          line-height: 78px;
+          color: #fff;
+          z-index: 10;
+          right: 0;
+          top: 50%;
+        }
+      }
+    }
+  }
+}
+
+.main-howdo-cooking {
+  margin-top: 242px;
+  align-items: flex-start;
+
+  .number-stage {
+    color: #fff3d6;
+    top: 37%;
+  }
+
+  .description-howdo {
+    flex-basis: 40%;
+    z-index: 11;
+  }
+
+  .image-howdo {
+    position: relative;
+
+    &::before {
+      background: #fff3d6;
+      width: 600px;
+      height: 408px;
+      position: absolute;
+      display: block;
+      content: "";
+      left: -50%;
+      top: -10%;
+      transform: translateX(50%) skewX(-4deg);
+    }
+
+    img {
+      margin-top: 36px;
+      margin-left: 80px;
+      width: auto;
+    }
+  }
+}
+
+.main-howdo-salting-box {
+  padding-top: 178px;
+  padding-bottom: 202px;
+  align-items: center;
+
+  .number-stage {
+    color: #FFF3D6;
+    bottom: 35%;
+  }
+
+  .description-howdo {
+    flex-basis: 40%;
+  }
+
+  .image-howdo {
+    max-width: 587px;
+    margin-right: 54px;
+  }
+}
+
+.main-howdo-cool-box {
+  align-items: center;
+
+  .description-howdo {
+    z-index: 11;
+    flex-basis: 42%;
+  }
+
+  .image-howdo {
+    margin-left: -40px;
+  }
+
+  .number-stage {
+    top: 55%;
+    color: #FAE1E1;
+  }
+}
+
+.main-howdo-delivery-box {
+  align-items: center;
+
+  .image-howdo img {
+    width: auto;
+  }
+
+  .description-howdo {
+    flex-basis: 43%;
+  }
+
+  .number-stage {
+    color: #fff;
+    bottom: 21%;
+    right: -5%;
+    z-index: 0;
+  }
+}

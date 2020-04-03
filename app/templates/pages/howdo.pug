@@ -1,0 +1,73 @@
+extends ../layouts/default.pug
+
+include ../modules/forms.pug
+include ../modules/header.pug
+include ../modules/footer.pug
+include ../modules/about.pug
+
+block variables
+ -var pageTitle='Как мы это делаем'
+
+mixin main-partners-box-nav-el(json)
+  each data in json
+    a.main-partners-box-nav-link(href=data.link) #{data.title}
+
+block content
+  +header()
+  section.main-partners#main-partners.bg-additional
+    .content.main-partners-box
+      .main-partners-box-nav
+        +main-partners-box-nav-el(getData('pages/partners/main'))
+      .main-howdo-header
+        .description-howdo
+          h2 Приемка и подготовка молока
+          .description-howdo-offset
+            .text Сырье проходит входной контроль на соответствие качества установленным требованиям по следующим показателям:
+            ul.list-main
+              li Органолептические (вкус, цвет, запах)
+              li Физико-химические
+              li Микробиологические
+              li Массовая доля жира и белка
+            .total После положительного заключения лаборатории о качестве сырья, молоко проходит нормализацию и пастеризацию
+        .image-howdo
+          img(src="./images/main-howdo-bg-1.svg")
+        .number-stage 01
+  section.main-howdo-cooking
+    .content.main-howdo-cooking-box
+      .image-howdo
+        img(src="./images/main-howdo-bg-2.png")
+      .description-howdo
+        h2 Приготовление сырной массы
+        .description-howdo-offset
+          .text Далее, разделяем молоко на сыворотку и молочный белок. Молочный белок используется для изготовления мягких и полутвердых фигурных сыров. <br><br> Сыворотка отправляется в цех сушки, для получения молочной сухой сыворотки.
+      .number-stage 02
+  section.main-howdo-salting
+    .content.main-howdo-salting-box
+      .description-howdo
+        h2 Формовка и посолка
+        .description-howdo-offset
+          .text При производстве сыров «Сулугуни», «Чечил», «Охотничий», «Косичка», «Спагетти» сырная масса подвергается плавлению. Из сырных нитей мастера-сыровары плетут сыры. При производстве сыра «Адыгейский» сырная масса укладывается в формовочные корзины. <br><br> Все сыры отправляются на процедуру соления и охлаждения, а отдельные виды — проходят естественный процесс копчения.
+      .image-howdo
+        img(src="./images/main-howdo-bg-3.png")
+      .number-stage 03
+  section.main-howdo-cool.bg-additional
+    .content.main-howdo-cool-box
+      .image-howdo
+        img(src="./images/main-howdo-bg-4.png")
+      .description-howdo
+        h2 Охлаждение и упаковка
+        .description-howdo-offset
+          .text Во время охлаждения сыра «Адыгейский» происходит процесс самопрессования. Для сохранения свежести и защиты от внешней среды все виды сыров упаковываются в вакуумную пленку.
+      .number-stage 04
+  section.main-howdo-delivery.bg-additional
+    .content.main-howdo-delivery-box
+      .description-howdo
+        h2 Доставка
+        .description-howdo-offset
+          .text В автопарке завода 16 корпоративных грузовых машин, предназначенных для доставки готовой продукции до складов и распределительных центров. Во всех автомобилях установлены системы с температурного режима.
+      .image-howdo
+        img(src="./images/main-howdo-bg-5.png")
+      .number-stage 05
+  +about('Перейти в каталог').bg-additional
+  +subscriptionForm().bg-additional
+  +footer().bg-additional
