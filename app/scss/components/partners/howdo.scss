@@ -2,6 +2,10 @@
   display: flex;
   justify-content: space-between;
   position: relative;
+
+  @include screen('md', 'max') {
+    flex-direction: column;
+  }
 }
 
 .number-stage {
@@ -11,10 +15,26 @@
   font-size: 260px;
   line-height: 78px;
   z-index: 10;
+
+  @include screen('sm', 'max') {
+    font-size: 170px;
+    line-height: 58px;
+  }
+
+  @include screen('xs', 'max') {
+    font-size: 120px;
+    line-height: 38px;
+  }
 }
 
 .description-howdo {
+  z-index: 2;
   flex-basis: 47%;
+
+  @include screen('md', 'max') {
+    flex-basis: 100%;
+  }
+
   h2 {
     @include UI-Font-PFRegalTextPro-bold;
   }
@@ -26,6 +46,12 @@
     color: #312930;
     max-width: 75%;
 
+    @include screen('sm', 'max') {
+      max-width: 100%;
+      margin-left: 0px;
+      margin-top: 20px;
+    }
+
     .text {
       font-size: 16px;
       line-height: 24px;
@@ -34,6 +60,11 @@
 
     ul.list-main {
       margin-bottom: 82px;
+
+      @include screen('xs', 'max') {
+        margin-bottom: 27px;
+      }
+
       li {
         margin-bottom: 15px;
         position: relative;
@@ -62,6 +93,11 @@
       line-height: 28px;
       font-family: 'PFRegalTextPro';
       font-weight: bold;
+
+      @include screen('xs', 'max') {
+        font-size: 16px;
+        line-height: 22px;
+      }
     }
   }
 }
@@ -83,29 +119,58 @@
       align-items: center;
       margin-top: 50px;
 
+      &::before {
+        background-repeat: no-repeat;
+        position: absolute;
+        background: url('../images/main-howdo-dashed-1.svg');
+        display: block;
+        content: '';
+        left: -10%;
+        top: -5%;
+        width: 1278px;
+        height: 1062px;
+        z-index: 1;
+
+        @include screen('md', 'max') {
+          display: none;
+        }
+      }
+
       .number-stage {
         color: #fff;
+
+        @include screen('md', 'max') {
+          bottom: 19%;
+        }
+
+        @include screen('xs', 'max') {
+          bottom: 10%;
+          right: 4%;
+        }
+      }
+
+      .description-howdo {
+        @include screen('md', 'max') {
+          margin-bottom: 40px;
+        }
       }
 
       .image {
         position: relative;
         flex-basis: 50%;
 
+        @include screen('md', 'max') {
+          flex-basis: 100%;
+        }
+
         img {
           width: 100%;
           position: relative;
           z-index: 1;
-        }
 
-        .number-stage {
-          position: absolute;
-          font-family: 'Lineatura';
-          font-size: 260px;
-          line-height: 78px;
-          color: #fff;
-          z-index: 10;
-          right: 0;
-          top: 50%;
+          @include screen('md', 'max') {
+            height: auto;
+          }
         }
       }
     }
@@ -115,15 +180,56 @@
 .main-howdo-cooking {
   margin-top: 242px;
   align-items: flex-start;
+  position: relative;
+
+  @include screen('md', 'max') {
+    margin-top: 60px;
+  }
+
+  &-box {
+    @include screen('md', 'max') {
+      flex-direction: column-reverse
+    }  
+  }
+
+  &::before {
+    position: absolute;
+    background-repeat: no-repeat;
+    background: url('../images/main-howdo-dashed-2.svg');
+    display: block;
+    content: "";
+    left: 9%;
+    top: 22%;
+    width: 948px;
+    height: 790px;
+    z-index: 1;
+
+    @include screen('md', 'max') {
+      display: none;
+    }
+  }
 
   .number-stage {
     color: #fff3d6;
     top: 37%;
+
+    @include screen('md', 'max') {
+      top: -5%;
+    }
+
+    @include screen('xs', 'max') {
+      top: 20%;
+    }
   }
 
   .description-howdo {
     flex-basis: 40%;
     z-index: 11;
+
+    @include screen('md', 'max') {
+      flex-basis: 100%;
+      margin-bottom: 46px;
+    }
   }
 
   .image-howdo {
@@ -131,7 +237,7 @@
 
     &::before {
       background: #fff3d6;
-      width: 600px;
+      width: 100%;
       height: 408px;
       position: absolute;
       display: block;
@@ -139,12 +245,27 @@
       left: -50%;
       top: -10%;
       transform: translateX(50%) skewX(-4deg);
+ 
+      @include screen('xs', 'max') {
+        height: 220px;
+      }
+    }
+
+    @include screen('md', 'max') {
+      margin: 0 auto;
+      text-align: center;
     }
 
     img {
       margin-top: 36px;
       margin-left: 80px;
       width: auto;
+
+      @include screen('md', 'max') {
+        margin-top: 0px;
+        margin-left: 0px;
+        width: 90%;
+      }
     }
   }
 }
@@ -154,13 +275,47 @@
   padding-bottom: 202px;
   align-items: center;
 
+  @include screen('md', 'max') {
+    padding-top: 68px;
+    padding-bottom: 50px; 
+  }
+
+  &::before {
+    position: absolute;
+    background-repeat: no-repeat;
+    background: url('../images/main-howdo-dashed-3.svg');
+    display: block;
+    content: "";
+    left: -11%;
+    top: 40%;
+    width: 1203px;
+    height: 961px;
+    z-index: 1;
+
+    @include screen('md', 'max') {
+      display: none;
+    }
+  }
+
   .number-stage {
     color: #FFF3D6;
     bottom: 35%;
+
+    @include screen('sm', 'max') {
+      bottom: 15%;
+    }
   }
 
   .description-howdo {
     flex-basis: 40%;
+
+    @include screen('sm', 'max') {
+      flex-basis: 100%;
+
+      h2 {
+        width: 70%;
+      }
+    }
   }
 
   .image-howdo {
@@ -172,30 +327,83 @@
 .main-howdo-cool-box {
   align-items: center;
 
+  @include screen('md', 'max') {
+    flex-direction: column-reverse;
+  }
+
   .description-howdo {
     z-index: 11;
     flex-basis: 42%;
+
+    @include screen('md', 'max') {
+      flex-basis: 100%;
+      margin-top: 65px;
+    }
   }
 
   .image-howdo {
     margin-left: -40px;
+
+    @include screen('md', 'max') {
+      margin-bottom: 60px;
+    }
+
+    @include screen('xs', 'max') {
+      margin-left: -50px;
+    }
   }
 
   .number-stage {
     top: 55%;
     color: #FAE1E1;
+
+    @include screen('md', 'max') {
+      top: 10%;
+    }
+
+    @include screen('xs', 'max') {
+      top: 15%;
+    }
   }
 }
 
 .main-howdo-delivery-box {
   align-items: center;
 
+  &::before {
+    position: absolute;
+    background-repeat: no-repeat;
+    background: url('../images/main-howdo-dashed-4.svg');
+    display: block;
+    content: "";
+    left: -10%;
+    bottom: 43%;
+    width: 926px;
+    height: 902px;
+    z-index: 1;
+
+    @include screen('md', 'max') {
+      display: none;
+    }
+  }
+
   .image-howdo img {
-    width: auto;
+    width: 100%;
+    height: auto;
+
+    @include screen('md', 'max') {
+      text-align: center;
+      margin: 0 auto;
+      margin-left: -20px;
+    }
   }
 
   .description-howdo {
     flex-basis: 43%;
+
+    @include screen('md', 'max') {
+      flex-basis: 100%;
+    }
   }
 
   .number-stage {
@@ -203,5 +411,9 @@
     bottom: 21%;
     right: -5%;
     z-index: 0;
+
+    @include screen('md', 'max') {
+      right: 0;
+    }
   }
 }
