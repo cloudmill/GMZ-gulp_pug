@@ -1,0 +1,119 @@
+.page404 {
+  position: relative;
+  background: #d7f9df;
+  height: calc(100vh - 20px);
+  &-bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    max-width: 1050px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+  }
+  &-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(../images/404_circle.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    z-index: -2;
+  }
+  &-4 {
+    width: 235px;
+    height: 388px;
+    background-image: url(../images/4.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    z-index: -4;
+    &.right {
+      margin-left: 450px;
+    }
+  }
+  &-title {
+    font-family: Lineatura;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 34px;
+    line-height: 42px;
+    text-align: center;
+    color: #81df97;
+    margin: 35px 0;
+  }
+  &-box{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 400px;
+    .main-link{
+      margin-bottom: 30px;
+    }
+  }
+  &-clouds{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    z-index: -3;
+    &.up{
+      z-index: -1;
+      i{
+        position: absolute;
+        &:nth-child(1){
+          right: 10%;
+          left: auto;
+          top: 50%;
+        }
+        &:nth-child(2){
+          right: 15%;
+          left: auto;
+          top: 20%;
+        }
+        &:nth-child(3){
+          right: 28%;
+          left: auto;
+          top: 30%;
+          font-size: 6px;
+        }
+      }
+    }
+    i{
+      position: absolute;
+      &:nth-child(1){
+        left: 15%;
+        top: 30%;
+      }
+      &:nth-child(2){
+        left: 90px;
+        top: 50%;
+      }
+      &:nth-child(3){
+        left: 28%;
+        top: 33%;
+      }
+    }
+  }
+  .header-box {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    pointer-events: none;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
