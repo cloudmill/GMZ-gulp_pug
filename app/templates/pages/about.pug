@@ -3,6 +3,7 @@ extends ../layouts/default.pug
 include ../modules/forms.pug
 include ../modules/header.pug
 include ../modules/footer.pug
+include ../modules/about.pug
 
 block variables
  -var pageTitle='О нас'
@@ -17,7 +18,7 @@ mixin slider-about-container-el(json)
         img(src=data.img)
         .image-date
           span.back #{data.back_time}
-          span.front #{data.front_time}  
+          span.front #{data.front_time}
 
 mixin main-partners-box-nav-el(json)
   each data in json
@@ -61,34 +62,37 @@ block content
         .slider-about-container.swiper-wrapper
           +slider-about-container-el(getData('sliders/about'))
   section.main-about-awards
-    .content.main-about-awards-box
+    .content.main-about-awards-box.swiper-container
       .main-about-awards-header
         h2 Наши награды
         .buttons.main-slider-buttons
           +btn-slider('left').bg-additional#slider-awards-left
           +btn-slider('right').bg-additional#slider-awards-right
-      .main-about-awards-content.swiper-container
-        .swiper-wrapper
+      .main-about-awards-content.swiper-wrapper
 
-          .slider-awards-el
-            +icon('medal-icon-1', 'svg').medal
-            .time-medal 2019
+          .slider-awards-el.swiper-slide
+            .award-data
+              +icon('medal-icon-1', 'svg').medal
+              .time-medal 2019
             .description-award
               .title Выставка «Золотая осень» г. Москва
               +link('Сыр Косичка «Гиагинский» копченый', '#', 'true')
 
-          .slider-awards-el
-            +icon('medal-icon-1', 'svg').medal
-            .time-medal 2019
+          .slider-awards-el.swiper-slide
+            .award-data
+              +icon('medal-icon-2', 'svg').medal
+              .time-medal 2019
             .description-award
-              .title Выставка «Золотая осень» г. Москва
-              +link('Сыр Косичка «Гиагинский» копченый', '#', 'true')
+              .title Всероссийский смотр-конкурс «Функциональные молочные продукты»
+              +link('Сыр «Адыгейский»', '#', 'true')
 
-          .slider-awards-el
-            +icon('medal-icon-1', 'svg').medal
-            .time-medal 2019
+          .slider-awards-el.swiper-slide
+            .award-data
+              +icon('medal-icon-3', 'svg').medal
+              .time-medal 2019
             .description-award
-              .title Выставка «Золотая осень» г. Москва
+              .title I Международный форум «Салон сыра»
               +link('Сыр Косичка «Гиагинский» копченый', '#', 'true')
+  +about('Партнерам').bg-white.about-invert          
   +subscriptionForm().bg-white
   +footer().bg-white
