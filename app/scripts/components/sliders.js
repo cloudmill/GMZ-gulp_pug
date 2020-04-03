@@ -94,11 +94,14 @@ let sliders = {
       speed: 600,
       spaceBetween: 500,
       loop: true,
+      autoHeight: true,
+      calculateHeight:true,
 
       autoplay: {
         delay: 6000,
         disableOnInteraction: false
       },
+      
 
       navigation: {
         nextEl: "#slider-about-right",
@@ -117,7 +120,19 @@ let sliders = {
   awardsSlider: function() {
     return new Swiper(".main-about-awards-box", {
       speed: 600,
-      slidesPerView: 3,
+      slidesPerView: 1,
+      loop: true,
+      loopedSlides: 3,
+      freeMode: true,
+
+      breakpoints: {
+        767: {
+          slidesPerView: 3,
+          spaceBetween: 10,
+          loop: false,
+          loopedSlides: 0,
+        }
+      },
 
       navigation: {
         nextEl: "#slider-awards-right",

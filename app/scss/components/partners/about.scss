@@ -11,10 +11,26 @@
     align-items: center;
     max-width: 1000px;
 
+    @include screen('md', 'max') {
+      margin-top: 40px;
+      max-width: 100%;
+    }
+
+    @include screen('xs', 'max') {
+      grid-row-gap: 50px;
+    }
+
     .about-info-el {
       &.gifimage  {
         grid-column: 1/2;
         justify-self: end;
+
+        @include screen('md', 'max') {
+          grid-row: 2/3;
+          text-align: center;
+          justify-self: center;
+        }
+
         img {
           max-width: 234px;
           max-height: 234px;
@@ -27,6 +43,15 @@
         font-weight: bold;
         font-size: 25px;
         line-height: 38px;
+
+        @include screen('md', 'max') {
+          grid-column: 1/2;
+        }
+
+        @include screen('xs', 'max') {
+          font-size: 18px;
+          line-height: 23px;
+        }
       }
   
       &.bigboldtext {
@@ -36,12 +61,28 @@
         line-height: 68px;
         margin-top: -15px;
         max-width: 450px;
+
+        @include screen('md', 'max') {
+          justify-self: start;
+          max-width: 100%;
+        }
+
+        @include screen('xs', 'max') {
+          font-size: 30px;
+          line-height: 39px;
+          margin-top: 0px;
+        }
       }
   
       &.smalltext {
         font-family: 'CeraPro';
         font-size: 20px;
         line-height: 30px;
+
+        @include screen('xs', 'max') {
+          font-size: 16px;
+          line-height: 24px;
+        }
       }
     }
   }
@@ -51,6 +92,14 @@
   display: flex;
   justify-content: center;
   margin-top: 100px;
+
+  @include screen('md', 'max') {
+    .content {
+      img {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .main-about-slider {
@@ -60,6 +109,10 @@
     h2 {
       @include UI-Font-PFRegalTextPro-bold;
       margin-bottom: 80px;
+
+      @include screen('sm', 'max') {
+        margin-bottom: 30px;
+      }
     }
 
     .slider-about-box {
@@ -67,6 +120,11 @@
       flex-direction: column;
       font-family: 'CeraPro';
       overflow: visible;
+      margin-bottom: 80px;
+
+      @include screen('sm', 'max') {
+        margin-bottom: 40px;
+      }
 
       .slider-about-control {
         display: flex;
@@ -74,12 +132,22 @@
         align-items: center;
         z-index: 10;
 
+        @include screen('sm', 'max') {
+          .main-slider-buttons {
+            display: none;
+          }
+        }
+
         .dates {
           font-size: 20px;
           line-height: 25px;
           width: 65%;
           display: flex;
           justify-content: space-between;
+
+          @include screen('sm', 'max') {
+            width: 100%;
+          }
 
           &.swiper-container {
             margin: unset!important;
@@ -89,6 +157,10 @@
             border-bottom: 2px solid #ffffff;
             width: auto!important;
             margin-right: 60px;
+
+            @include screen('xs', 'max') {
+              margin-right: 25px;
+            }
 
             &:last-child {
               margin-right: 0px;
@@ -111,14 +183,36 @@
           align-items: center;
           justify-content: space-between;
 
+          @include screen('md', 'max') {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+
+          @include screen('sm', 'max') {
+            align-self: flex-start;
+          }
+
           .description {
             max-width: 35%;
+            padding-right: 10px;
+
+            @include screen('md', 'max') {
+              max-width: 100%;
+              margin-bottom: 55px;
+            }
+
             &-title {
               font-family: 'PFRegalTextPro';
               font-weight: bold;
               font-size: 25px;
               line-height: 34px;
               margin-bottom: 26px;
+
+              @include screen('sm', 'max') {
+                font-size: 18px;
+                line-height: 23px;
+                margin-bottom: 10px;
+              }
             }
 
             &-text {
@@ -129,10 +223,21 @@
 
           .image {
             position: relative;
+
+            @include screen('md', 'max') {
+              width: 100%;
+              height: auto;
+            }
+
             img {
               position: relative;
               z-index: 2;
               margin-right: 50px;
+
+              @include screen('md', 'max') {
+                width: 100%;
+                height: auto;
+              }
             }
 
             &-date {
@@ -150,6 +255,15 @@
                 position: absolute;
                 top: -38%;
                 left: -25%;
+
+                @include screen('sm', 'max') {
+                  font-size: 70px;
+                  top: -50%;
+                }
+
+                @include screen('xs', 'max') {
+                  font-size: 50px;
+                }
               }
 
               span.front {
@@ -158,6 +272,14 @@
                 color: #EE7754;
                 z-index: 3;
                 right: -5px;
+
+                @include screen('sm', 'max') {
+                  font-size: 150px;
+                }
+
+                @include screen('xs', 'max') {
+                  font-size: 90px;
+                }
               }
             }
           }
@@ -170,12 +292,24 @@
 .main-about-awards {
   &-box {
     overflow: visible;
+
+    @include screen('sm', 'max') {
+      overflow: hidden;   
+    }
+
     .main-about-awards-header {
       display: flex;
       justify-content: space-between;
       margin-bottom: 100px;
       h2 {
         @include UI-Font-PFRegalTextPro-bold;
+      }
+
+      @include screen('sm', 'max') {
+        margin-bottom: 40px; 
+        .buttons {
+          display: none;
+        }
       }
     }
   }
@@ -192,6 +326,11 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+
+        @include screen('sm', 'max') {
+          max-width: 233px;
+          margin-right: 20px;
+        }
 
         .award-data {
           position: relative;
