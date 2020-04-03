@@ -2,7 +2,7 @@
     {
        "title":"О нас",
        "description":"Кто мы и как работаем",
-       "link":"#about"
+       "link":"/about.html"
     },
 
     {
@@ -14,6 +14,6 @@
     {
         "title":"Где купить",
         "description":"На полках магазинов",
-        "link":"#buy-info"
+        "link":"/whereBuy.html"
     }
 ]

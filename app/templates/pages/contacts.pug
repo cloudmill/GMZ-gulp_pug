@@ -56,11 +56,12 @@ block content
       h2.page-title Мы в социальных сетях
       .contacts-social
         +contacts-social-list(getData('/pages/contacts/social'))
-      .contacts-map#map
-        .map_data
-          input.placeMark(type="hidden"
-            data-cords="61.283240311585,31.132082116528",
-            data-name="1")
+      .contacts-map.map-container
+        #map
+          .map_data
+            input.placeMark(type="hidden"
+              data-cords="44.864020, 40.073503",
+              data-name="1",date-id='0')
 
   +contactUsForm()
   +subscriptionForm()

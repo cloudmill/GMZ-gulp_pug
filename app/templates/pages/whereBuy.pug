@@ -10,7 +10,7 @@ block variables
   mixin whereBuy-map-marks-list(json)
     .whereBuy-map-points(data-scrollbar)
       each point in json
-        button.whereBuy-map-point
+        button.whereBuy-map-point(data-id=point.id)
           +icon('str-right-light-color','svg').map-point-icon
           .map-point-name= point.name
           .map-point-adress= point.adress
@@ -20,7 +20,9 @@ block variables
       each point in json
         input.placeMark(type="hidden"
           data-cords= point.pos
-          data-name= point.name)
+          data-name= point.name
+          data-id=point.id)
+          
 block content
   +header()
   section.page-section.bg-additional
@@ -29,7 +31,7 @@ block content
         h1.page-title Где купить
         .whereBuy-search  
           +selectField('city','Ваш город',['Москва','Воронеж','Новгород'])
-        button.whereBuy-geo
+        button.whereBuy-geo#setGeoInMap
           +icon('srt-paper-plane','svg')
       .whereBuy-map.map-container
         .whereBuy-map-content
