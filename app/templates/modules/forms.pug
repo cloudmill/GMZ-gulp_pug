@@ -1,10 +1,9 @@
 //- 
 
 mixin buttonSubmit(name)
-  button.main-link.addon(type="submit") #{name}
-    span
-      +icon('main-link-plus', 'svg')
-      +icon('main-link-arrow', 'svg')
+  button.main-link(type="submit") #{name}
+    span.bottomLines
+    span.morphPlus
 
 
 //- FORMS

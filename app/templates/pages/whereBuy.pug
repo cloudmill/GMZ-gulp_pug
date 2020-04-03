@@ -22,7 +22,13 @@ block variables
           data-cords= point.pos
           data-name= point.name
           data-id=point.id)
-          
+  mixin whereBuy-shops-list(json)
+    .shops-list
+      each shop in json
+        a.shops-item(href=shop.link)
+          img(src=shop.img)
+          +icon('str-right-light-color','svg')
+
 block content
   +header()
   section.page-section.bg-additional
@@ -41,31 +47,7 @@ block content
   section.shops-section
     .content
       h1.page-title Интернет-магазины
-      .shops-list
-        .shops-item
-          img(src='./images/wherebuy/image-shops-1.png')
-          +icon('str-right-light-color','svg')
-        .shops-item
-          img(src='./images/wherebuy/image-shops-2.png')
-          +icon('str-right-light-color','svg')
-        .shops-item
-          img(src='./images/wherebuy/image-shops-3.png')
-          +icon('str-right-light-color','svg')
-        .shops-item
-          img(src='./images/wherebuy/image-shops-4.png')
-          +icon('str-right-light-color','svg')
-        .shops-item
-          img(src='./images/wherebuy/image-shops-5.png')
-          +icon('str-right-light-color','svg')
-        .shops-item
-          img(src='./images/wherebuy/image-shops-6.png')
-          +icon('str-right-light-color','svg')
-        .shops-item
-          img(src='./images/wherebuy/image-shops-7.png')
-          +icon('str-right-light-color','svg')
-        .shops-item
-          img(src='./images/wherebuy/image-shops-8.png')
-          +icon('str-right-light-color','svg')
+      +whereBuy-shops-list(getData('/pages/whereBuy/shops'))
 
   +subscriptionForm()
   +footer()

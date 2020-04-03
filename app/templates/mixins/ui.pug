@@ -35,12 +35,12 @@ mixin checkbox(id_param, name_param, text)
 
 mixin link(name, link, addon)
   if(addon == 'true')
-    a.main-link.addon(href=link) #{name}
-      span
-        +icon('main-link-plus', 'svg')
-        +icon('main-link-arrow', 'svg')
+    a.main-link(href=link) #{name}
+      span.bottomLines
+      span.morphPlus
   else
     a.main-link(href=link) #{name}
+      span.bottomLines
 
 
 mixin btn-slider(direction)

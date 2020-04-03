@@ -33,7 +33,7 @@ let animations = {
     $(".fixed-base").each((key, item) => {
       fixeds.push(new Fixed(item));
     });
-  }
+  },
 };
 
 export default animations;
