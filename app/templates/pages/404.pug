@@ -1,0 +1,32 @@
+extends ../layouts/default.pug
+
+include ../modules/footer.pug
+include ../modules/header.pug
+
+block variables
+  -var pageTitle='Где купить'
+
+
+block content
+  +header()
+  section.page404
+    .content
+      .page404-bg
+        .page404-clouds
+          +icon('cloud-1','svg')
+          +icon('cloud-2','svg')
+          +icon('cloud-3','svg')
+        .page404-clouds.up
+          +icon('cloud-1','svg')
+          +icon('cloud-2','svg')
+          +icon('cloud-3','svg')
+        .page404-circle
+        .page404-4.left
+        .page404-4.right
+      .page404-box
+        .page404-title увы, этой страницы больше нет
+        +link('Главная страница','./index.html','true')
+        +link('Продукция','./catalog-products.html','true')
+    .header-box
+      +icon('print-product','svg')
+      +icon('print-product','svg')
