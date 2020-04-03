@@ -30,7 +30,11 @@ block content
     .content.main-partners-box
       .main-partners-box-nav
         +main-partners-box-nav-el(getData('pages/partners/main'))
-      h2.main-partners-box-description Мы хотим привить миллионам людей вести здоровый образ жизни, донести до каждого чистоту горного воздуха и воды в наших сырах.
+      .main-about-header
+        h2.main-about-header-description Мы хотим привить миллионам людей вести здоровый образ жизни, донести до каждого чистоту горного воздуха и воды в наших сырах.
+        .image
+          img(src="./images/main-about-bg.png")
+          +icon('print-main', 'svg').print
   section.main-about-info
     .main-about-info-box
       .about-info-el.gifimage 
