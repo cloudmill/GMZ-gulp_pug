@@ -1,6 +1,12 @@
 section {
   &.subscription {
     padding-top: 200px;
+    @include screen("md", "max"){
+      padding-top: 120px;
+    }
+    @include screen("sm", "max"){
+      padding-top: 60px;
+    }
   }
 }
 
@@ -44,10 +50,13 @@ section {
       width: 30%;
       margin-bottom: 40px;
       @include UI-Font-PFRegalTextPro-bold;
-
+      @include screen("md", "max"){
+        width: 250px;
+      }
       @include screen("sm", "max") {
         width: 100%;
       }
+      
     }
 
     & > .main-field {

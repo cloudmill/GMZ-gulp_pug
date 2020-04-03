@@ -50,6 +50,7 @@
   "scripts": {
     "watch": "gulp watch",
     "dev": "gulp dev",
+    "deploy": "gulp deploy",
     "build": "gulp build"
   }
 }

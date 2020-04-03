@@ -4,6 +4,12 @@
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 120px;
     margin-top: 1px;
+    @include screen("md", "max"){
+      grid-column-gap: 50px;
+    }
+    @include screen("sm", "max"){
+      grid-template-columns: 1fr;
+    }
   }
   &-item{
     display: flex;
@@ -17,5 +23,13 @@
     i{
       filter: grayscale(1) brightness(0);
     }
+    @include screen("sm", "max"){
+      padding: 20px 0;
+      i{
+        transform-origin: left center;
+        transform: scale(0.55);
+      }
+    }
+    
   }
 }

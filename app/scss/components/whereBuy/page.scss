@@ -1,6 +1,9 @@
 .whereBuy {
   &-head {
     padding-bottom: 60px;
+    @include screen("sm", "max"){
+      padding-bottom: 30px;
+    }
   }
   &-search {
     display: inline-block;
@@ -8,6 +11,10 @@
     margin-right: 60px;
     .main-field {
       margin-bottom: 0;
+    }
+    @include screen("sm", "max"){
+      width: calc(100% - 85px);
+      margin-right: 30px;
     }
   }
   &-geo {
@@ -23,6 +30,12 @@
   &-map {
     position: relative;
     margin-bottom: 180px;
+    @include screen("md", "max"){
+      margin-bottom: 120px;
+    }
+    @include screen("sm", "max"){
+      margin-bottom: 60;
+    }
     &-content {
       width: 450px;
       padding: 50px;
@@ -57,6 +70,26 @@
         transform: skewX(-5deg);
         z-index: -2;
         bottom: -50px;
+      }
+      @include screen("md", "max") {
+        position: relative;
+        top: 0;
+        height: 420px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 60px;
+        &:after{
+          content: none;
+        }
+        &:before{
+          transform: none;
+          padding: 0;
+          top: 0;
+          left: 0;
+        }
+      }
+      @include screen("sm", "max"){
+        padding: 20px;
       }
     }
     &-points {
@@ -110,6 +143,26 @@
           line-height: 28px;
           color: #312930;
         }
+      }
+      @include screen("md", "max"){
+        padding: 15px 0;
+        padding-left: 50px;
+        width: calc(100% - 15px);
+        .map-point{
+          &-name{
+            font-size: 16px;
+          }
+          &-adress{
+            font-size: 12px;
+          }
+        }
+        i{
+          transform-origin: left center;
+          transform: scale(0.55) translateY(-80%);
+        }
+      }
+      @include screen("sm", "max"){
+        padding-left: 30px;
       }
     }
   }

@@ -5,6 +5,12 @@ footer {
 
   &.footer {
     padding-top: 200px;
+    @include screen("md", "max"){
+      padding-top: 120px;
+    }
+    @include screen("sm", "max"){
+      padding-top: 60px;
+    }
   }
 }
 

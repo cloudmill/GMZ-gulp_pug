@@ -4,7 +4,6 @@ import select2 from 'select2';
 
 let forms = {
   init: function() {
-    //select2($);
     this.select2Init();
   },
   select2Init: function() {
