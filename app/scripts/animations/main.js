@@ -1,11 +1,13 @@
 import $ from "jquery";
 import Wave from "./wave.js";
 import Fixed from "./fixed.js";
+import MouseParalax from "./mouseParalax.js";
 
 let animations = {
   init: function() {
     this.waveAnimation();
     this.fixedInBlock();
+    this.mouseParalax();
   },
 
   waveAnimation: function() {
@@ -34,6 +36,12 @@ let animations = {
       fixeds.push(new Fixed(item));
     });
   },
+  mouseParalax: function(){
+    let mouseParalaxItems = []
+    $('.mouseParalax').each(function(key,item){
+      mouseParalaxItems.push(new MouseParalax(item))
+    })
+  }
 };
 
 export default animations;

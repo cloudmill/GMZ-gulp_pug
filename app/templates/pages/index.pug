@@ -46,7 +46,7 @@ block content
     .content.promo-box
       .promo-box-top
         .top-left
-          img(src="./images/promo-box-top.svg" alt="Персонажи")
+          img.mouseParalax(src="./images/promo-box-top.svg" alt="Персонажи")
           +icon('promo-box-top-text', 'svg')
         .top-right
           h2 Эксклюзивное право <br>на производство адыгейского сыра
@@ -56,11 +56,11 @@ block content
         .bottom-img
           +icon('print-main', 'svg')
           .mountains
-            img(src="./images/mountains.png" alt="ГоРы")
-            .mountains-cheese
+            img.mouseParalax(src="./images/mountains.png" alt="ГоРы")
+            .mountains-cheese.mouseParalax
               img(src="./images/shadow-products.svg" alt="")
-            +icon('rhombus', 'svg').rhombus-1
-            +icon('rhombus', 'svg').rhombus-2
+            +icon('rhombus', 'svg').rhombus-1.mouseParalax
+            +icon('rhombus', 'svg').rhombus-2.mouseParalax
         .bottom-text
           h2 Наша продукция изготавливается <br>в экологически чистом регионе <br>из отборного коровьего молока
           .text-desc

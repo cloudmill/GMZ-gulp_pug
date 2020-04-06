@@ -51,3 +51,36 @@ body[data-scrollbar="true"]{
 }
 
 
+/* Slider-bullets animation */
+.main-index-box-control-items-el.active{
+  .elipce_slider{
+    circle{
+      animation: circleCurveAnimate 4s both linear;
+    }
+    &.first{
+      circle{
+        animation: circleCurveAnimate 2.5s both linear;
+      }
+    }
+  }
+  
+}
+.elipce_slider{
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  circle{
+    stroke-dashoffset: 66;
+    stroke-dasharray: 66;
+  }
+  @keyframes circleCurveAnimate {
+    0%{
+      stroke-dashoffset: 66;
+    }
+    100%{
+      stroke-dashoffset: 0;
+    }
+  }
+}
