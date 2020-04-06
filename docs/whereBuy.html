@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Где купить</title>
+    <link href="css/style.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="header-static">
+          <div class="header-box"><a class="header-box-logotype" href="/"><i class="svg-icon svg-logotype"></i><i class="svg-icon svg-logotype-short"></i></a>
+            <button class="header-box-nav-button" id="change-nav">
+              <div class="burger"><span></span></div><i class="svg-icon svg-navigation"></i>
+            </button>
+          </div>
+          <div class="header-box-nav lg">
+            <div class="wrapper">
+              <div class="header-box-nav-el"><a class="header-box-nav-el-link" href="/about.html">О нас</a>
+                <div class="header-box-nav-el-desc">Кто мы и как работаем</div>
+              </div>
+              <div class="header-box-nav-el"><a class="header-box-nav-el-link" href="/catalog.html">Продукция</a>
+                <div class="header-box-nav-el-desc">Сыры, масла, сыворотка</div>
+              </div>
+              <div class="header-box-nav-el"><a class="header-box-nav-el-link" href="/whereBuy.html">Где купить</a>
+                <div class="header-box-nav-el-desc">На полках магазинов</div>
+              </div>
+            </div>
+          </div>
+          <div class="header-buttom">
+            <div class="header-buttom-nav"><a href="#">Как мы это делаем</a><a href="./news_list.html">Новости и акции</a><a href="./partners.html">Партнерам</a><a href="#">Рецепты</a><a href="./contacts.html">Контакты</a></div>
+            <div class="header-buttom-help">
+              <div class="left">
+                <div class="left-desc">Служба поддержки потребителей</div>
+                <div class="left-number">8 800 250-93-93</div><a class="main-link" href="#">Задать вопрос<span class="bottomLines"></span></a>
+              </div>
+              <div class="right">
+                <div class="right-desc">Мы в социальных сетях</div>
+                <div class="right-group"><a class="right-group-link" href="https://www.instagram.com/mzgiaginsky/"><i class="svg-icon svg-instagram"></i></a><a class="right-group-link" href="https://vk.com/mzgiaginsky"><i class="svg-icon svg-vk"></i></a><a class="right-group-link" href="https://twitter.com/mzgiaginsky"><i class="svg-icon svg-twitter"></i></a><a class="right-group-link" href="https://www.facebook.com/mzgiaginsky/"><i class="svg-icon svg-facebook"></i></a><a class="right-group-link" href="https://ok.ru/mzgiaginsky"><i class="svg-icon svg-ok"></i></a><a class="right-group-link" href="https://ru.wikipedia.org/wiki/Адыгейский_сыр"><i class="svg-icon svg-wikipedia"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="header-buttom-footer">
+              <div class="left">© ОАО Молочный завод «Гиагинский» 2020 г.</div>
+              <div class="right">Сделано в  <a href="https://cloudmill.ru" target="_blank">CloudMill</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="page-section bg-additional">
+        <div class="content">
+          <div class="whereBuy-head">
+            <h1 class="page-title">Где купить</h1>
+            <div class="whereBuy-search"> 
+              <div class="main-field main-field-select">
+                <select class="select2-field" name="city" placeholder="Ваш город">
+                  <option value="Москва">Москва</option>
+                  <option value="Воронеж">Воронеж</option>
+                  <option value="Новгород">Новгород</option>
+                </select>
+              </div>
+            </div>
+            <button class="whereBuy-geo" id="setGeoInMap"><i class="svg-icon svg-srt-paper-plane"></i>
+            </button>
+          </div>
+          <div class="whereBuy-map map-container">
+            <div class="whereBuy-map-content">
+              <div class="whereBuy-map-points" data-scrollbar="data-scrollbar">
+                <button class="whereBuy-map-point" data-id="0"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">Перекресток</div>
+                  <div class="map-point-adress">ул. Камышовая, 17/1</div>
+                </button>
+                <button class="whereBuy-map-point" data-id="1"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">Перекресток</div>
+                  <div class="map-point-adress">пр-кт Энгельса, 120 лит.А</div>
+                </button>
+                <button class="whereBuy-map-point" data-id="2"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">ОптКлуб РЯДЫ</div>
+                  <div class="map-point-adress">Пулковское ш. 43, корп.1, лит.А</div>
+                </button>
+                <button class="whereBuy-map-point" data-id="3"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">Перекресток</div>
+                  <div class="map-point-adress">пр-кт Энгельса, 120 лит.А</div>
+                </button>
+                <button class="whereBuy-map-point" data-id="4"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">ОптКлуб РЯДЫ</div>
+                  <div class="map-point-adress">Пулковское ш. 43, корп.1, лит.А</div>
+                </button>
+                <button class="whereBuy-map-point" data-id="5"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">Перекресток</div>
+                  <div class="map-point-adress">пр-кт Энгельса, 120 лит.А</div>
+                </button>
+                <button class="whereBuy-map-point" data-id="6"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">ОптКлуб РЯДЫ</div>
+                  <div class="map-point-adress">Пулковское ш. 43, корп.1, лит.А</div>
+                </button>
+                <button class="whereBuy-map-point" data-id="7"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">Перекресток</div>
+                  <div class="map-point-adress">пр-кт Энгельса, 120 лит.А</div>
+                </button>
+                <button class="whereBuy-map-point" data-id="8"><i class="svg-icon svg-str-right-light-color map-point-icon"></i>
+                  <div class="map-point-name">ОптКлуб РЯДЫ</div>
+                  <div class="map-point-adress">Пулковское ш. 43, корп.1, лит.А</div>
+                </button>
+              </div>
+            </div>
+            <div id="map">
+              <div class="map_data">
+                <input class="placeMark" type="hidden" data-cords="60.08, 31.13" data-name="Перекресток" data-id="0"/>
+                <input class="placeMark" type="hidden" data-cords="61.08, 31.13" data-name="Перекресток" data-id="1"/>
+                <input class="placeMark" type="hidden" data-cords="62.08, 31.13" data-name="ОптКлуб РЯДЫ" data-id="2"/>
+                <input class="placeMark" type="hidden" data-cords="63.08, 31.13" data-name="Перекресток" data-id="3"/>
+                <input class="placeMark" type="hidden" data-cords="64.08, 31.13" data-name="ОптКлуб РЯДЫ" data-id="4"/>
+                <input class="placeMark" type="hidden" data-cords="65.08, 31.13" data-name="Перекресток" data-id="5"/>
+                <input class="placeMark" type="hidden" data-cords="66.08, 31.13" data-name="ОптКлуб РЯДЫ" data-id="6"/>
+                <input class="placeMark" type="hidden" data-cords="67.08, 31.13" data-name="Перекресток" data-id="7"/>
+                <input class="placeMark" type="hidden" data-cords="68.08, 31.13" data-name="ОптКлуб РЯДЫ" data-id="8"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="shops-section">
+        <div class="content">
+          <h1 class="page-title">Интернет-магазины</h1>
+          <div class="shops-list"><a class="shops-item" href="https://www.okeydostavka.ru/"><img src="./images/wherebuy/image-shops-1.png"/><i class="svg-icon svg-str-right-light-color"></i></a><a class="shops-item" href="https://magnit-info.ru/"><img src="./images/wherebuy/image-shops-2.png"/><i class="svg-icon svg-str-right-light-color"></i></a><a class="shops-item" href="https://www.metro-cc.ru/"><img src="./images/wherebuy/image-shops-3.png"/><i class="svg-icon svg-str-right-light-color"></i></a><a class="shops-item" href="https://www.victoria-group.ru/"><img src="./images/wherebuy/image-shops-4.png"/><i class="svg-icon svg-str-right-light-color"></i></a><a class="shops-item" href="https://lenta.com/"><img src="./images/wherebuy/image-shops-5.png"/><i class="svg-icon svg-str-right-light-color"></i></a><a class="shops-item" href="https://www.auchan.ru/"><img src="./images/wherebuy/image-shops-6.png"/><i class="svg-icon svg-str-right-light-color"></i></a><a class="shops-item" href="https://dixy.ru/"><img src="./images/wherebuy/image-shops-7.png"/><i class="svg-icon svg-str-right-light-color"></i></a><a class="shops-item" href="http://grinn-corp.ru/chain-stores-line.html"><img src="./images/wherebuy/image-shops-8.png"/><i class="svg-icon svg-str-right-light-color"></i></a>
+          </div>
+        </div>
+      </section>
+      <section class="subscription">
+        <div class="content subscription-box">
+          <form class="subscription-box-form">
+            <h2>Подпишитесь на нас</h2>
+            <div class="main-field">
+              <input type="email" id="email-sub" placeholder="Введите почту"/>
+              <label class="main-field-addon">
+                <button><i class="svg-icon svg-arrow"></i>
+                </button>
+              </label>
+            </div>
+          </form>
+          <div class="subscription-box-marquee"></div>
+        </div>
+      </section>
+      <footer class="footer">
+        <div class="content footer-box">
+          <div class="footer-box-row">
+            <div class="footer-box-nav-production">
+              <div class="footer-box-nav-production-left">
+                <div class="footer-box-nav-production-left-group"><a href="./catalog.html">Продукция</a>
+                  <div class="footer-box-nav-production-left-group-desc">Сыры, масла, сыворотка</div>
+                </div>
+                <div class="footer-box-nav-production-left-group"><a href="#">О нас</a>
+                  <div class="footer-box-nav-production-left-group-desc">Кто мы и как работаем</div>
+                </div>
+              </div>
+              <div class="footer-box-nav-production-right"><a href="#">Где купить</a><a href="./news_list.html">Новости и акции</a><a href="./partners.html">Партнерам</a><a href="#">Контакты</a></div>
+            </div>
+            <div class="footer-box-nav-contact">
+              <div class="footer-box-nav-contact-group">
+                <div class="footer-box-nav-contact-group-name">Адрес</div>
+                <div class="footer-box-nav-contact-group-desc">385600, Россия, Республика Адыгея, Гиагинский район, станица Гиагинская, ул. Ленина, 142</div>
+              </div>
+              <div class="footer-box-nav-contact-group">
+                <div class="footer-box-nav-contact-group-name">Часы работы</div>
+                <div class="footer-box-nav-contact-group-desc">Понедельник ­–­­ Пятница 8:00 ­–­­ 17:00</div>
+              </div>
+              <div class="footer-box-nav-contact-group">
+                <div class="footer-box-nav-contact-group-name">Выходные дни</div>
+                <div class="footer-box-nav-contact-group-desc">Суббота, Воскресенье</div>
+              </div>
+            </div>
+            <div class="footer-box-nav-tel">
+              <div class="footer-box-nav-tel-group">
+                <div class="footer-box-nav-tel-group-desc">Служба поддержки потребителей</div>
+                <div class="footer-box-nav-tel-group-number">8 800 250-93-93</div>
+              </div><a class="main-link" href="#">Задать вопрос<span class="bottomLines"></span></a>
+            </div>
+            <div class="footer-box-nav-adderlinks"><a href="#">Политика конфиденциальности</a><a href="#">Положение о персональных данных</a><a href="#">СОУТ</a></div>
+            <div class="footer-box-nav-social">
+              <div class="footer-box-nav-social-title">Мы в социальных сетях</div>
+              <div class="footer-box-nav-social-group"><a class="footer-box-nav-social-group-link" href="https://www.instagram.com/mzgiaginsky/" target="_blank"><i class="svg-icon svg-instagram"></i></a><a class="footer-box-nav-social-group-link" href="https://vk.com/mzgiaginsky" target="_blank"><i class="svg-icon svg-vk"></i></a><a class="footer-box-nav-social-group-link" href="https://twitter.com/mzgiaginsky" target="_blank"><i class="svg-icon svg-twitter"></i></a><a class="footer-box-nav-social-group-link" href="https://www.facebook.com/mzgiaginsky/" target="_blank"><i class="svg-icon svg-facebook"></i></a><a class="footer-box-nav-social-group-link" href="https://ok.ru/mzgiaginsky" target="_blank"><i class="svg-icon svg-ok"></i></a><a class="footer-box-nav-social-group-link" href="https://ru.wikipedia.org/wiki/Адыгейский_сыр" target="_blank"><i class="svg-icon svg-wikipedia"></i></a>
+              </div>
+            </div>
+            <div class="footer-box-nav-copyright">© ОАО Молочный завод «Гиагинский» 2020 г.</div>
+            <div class="footer-box-nav-worked">Сделано в <a href="https://cloudmill.ru" target="_blank">CloudMill</a></div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div id="scroll-box-events"></div>
+    <script src="js/scripts.min.js"></script>
+  </body>
+</html>
