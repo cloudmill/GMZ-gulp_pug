@@ -184,6 +184,18 @@ footer {
       &-group {
         &-link {
           margin-right: 37px;
+          position: relative;
+
+          &:hover {
+            i::before {
+              filter: brightness(100%);
+            }
+          }
+
+          i::before {
+            filter: brightness(0);
+            transition: filter 0.3s;
+          }
 
           @include screen('md', 'max') {
             margin-right: 27px;

@@ -1,6 +1,6 @@
 mixin footer-box-nav-social-group-link(json)
   each data in json
-    a.footer-box-nav-social-group-link(href=data.link)
+    a.footer-box-nav-social-group-link(href=data.link, target="_blank")
       +icon(data.ico, 'svg')
 
 mixin footer()

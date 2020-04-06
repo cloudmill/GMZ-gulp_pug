@@ -11,21 +11,39 @@ let sliders = {
     this.awardsSlider();
   },
   mainSlider: function() {
-    //let delayChangeSlide = 2500;
+    var delayChangeSlide = 2500;
+
+    function move() {
+      var elem = document.getElementById("progress"); 
+      var width = 1;
+      var autoplayTime = delayChangeSlide / 100;
+      var id = setInterval(frame, autoplayTime);
+      function frame() {
+          if (width >= 100) {
+              clearInterval(id);
+          } else {
+              width++; 
+              elem.style.width = width + '%'; 
+          }
+      }
+    }
+
     return new Swiper(".main-index-box-slider", {
       speed: 1500,
       spaceBetween: 500,
-      //loop: true,
+      watchSlidesProgress: true,
+      loop: true,
+      onProgress: move,
 
       navigation: {
         nextEl: "#slider-main-right",
         prevEl: "#slider-main-left"
       },
 
-      // autoplay: {
-      //   delay: delayChangeSlide,
-      //   disableOnInteraction: false
-      // },
+      autoplay: {
+         delay: delayChangeSlide,
+         disableOnInteraction: false
+      },
 
       pagination: {
         clickable: true,
@@ -33,7 +51,7 @@ let sliders = {
         bulletClass: "main-index-box-control-items-el",
         bulletActiveClass: "active",
         renderBullet: function(index, className) {
-          return '<button class="' + className + '"></button>';
+          return '<button class="' + className + '"><span></span></button>';
         }
       }
     });

@@ -151,7 +151,7 @@
   margin-bottom: 70px;
   display: flex;
   flex-direction: row;
-  font-family: "CeraPro";
+  font-family: "CeraPro"; 
 
   &-error {
     opacity: 0;
@@ -173,6 +173,18 @@
     display: block;
     right: 0px;
     font-size: 12px;
+
+    i.svg-icon.svg-arrow {
+      filter: brightness(0);
+      transition: all 0.3s;
+    }
+
+    &:hover {
+      i.svg-icon.svg-arrow {
+        filter: brightness(100%);
+        transform: translateX(3px);
+      }
+    }
   }
 
   &-select {
@@ -263,6 +275,12 @@
   input:focus,
   textarea:focus {
     border-bottom: 1px solid #ee7754;
+
+    &+.main-field-addon {
+      i.svg-icon.svg-arrow {
+        filter: brightness(100%);
+      }
+    }
 
     &::placeholder {
       color: transparent;

@@ -264,9 +264,24 @@
           margin-right: 19px;
           position: relative;
           transition: transform 0.2s;
+          cursor: pointer;
 
           &:hover {
             transform: scale(1.2);
+          }
+
+          span {
+            content: '';
+            border-radius: 100%;
+            position: absolute;
+            display: block;
+            width: 25px;
+            height: 25px;
+            left: 5px;
+            background: #fff;
+            border: 2px solid #312930;
+            top: 50%;
+            transform: translate(50%,-50%);
           }
 
           &::before {
