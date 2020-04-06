@@ -11,23 +11,7 @@ let sliders = {
     this.awardsSlider();
   },
   mainSlider: function() {
-    var delayChangeSlide = 2500;
-
-    function move() {
-      var elem = document.getElementById("progress"); 
-      var width = 1;
-      var autoplayTime = delayChangeSlide / 100;
-      var id = setInterval(frame, autoplayTime);
-      function frame() {
-          if (width >= 100) {
-              clearInterval(id);
-          } else {
-              width++; 
-              elem.style.width = width + '%'; 
-          }
-      }
-    }
-
+    let delayChangeSlide = 2500;
     return new Swiper(".main-index-box-slider", {
       speed: 1500,
       spaceBetween: 500,
@@ -41,8 +25,8 @@ let sliders = {
       },
 
       autoplay: {
-         delay: delayChangeSlide,
-         disableOnInteraction: false
+        delay: delayChangeSlide,
+        disableOnInteraction: false
       },
 
       pagination: {
@@ -51,7 +35,15 @@ let sliders = {
         bulletClass: "main-index-box-control-items-el",
         bulletActiveClass: "active",
         renderBullet: function(index, className) {
-          return '<button class="' + className + '"><span></span></button>';
+          let svg = `<svg class="elipce_slider first" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="11.5" cy="11.5" r="10.5" stroke="#312930" stroke-width="2"/>
+                    </svg>`
+          return '<button class="' + className + '">'+svg+'</button>';
+        }
+      },
+      on:{
+        slideChange: function(){
+          $(document).find('.elipce_slider.first').removeClass('first');
         }
       }
     });

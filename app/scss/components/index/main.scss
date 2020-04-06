@@ -289,13 +289,13 @@
             border-radius: 100%;
             position: absolute;
             display: block;
-            width: 25px;
-            height: 25px;
-            left: 5px;
+            width: 23px;
+            height: 23px;
+            left: 50%;
             background: #fff;
             border: 2px solid #d3d3d3;
             top: 50%;
-            transform: translate(50%,-50%);
+            transform: translate(-50%,-50%);
           }
 
           &.active {
