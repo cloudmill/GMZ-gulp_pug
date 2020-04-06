@@ -6,9 +6,9 @@ mixin selectField(name,placeholder,options)
 mixin inputField(type_param, id_param, label, binding = true)
   .main-field
     if(binding == true)
-      input(type=type_param name=id_param id=id_param placeholder=label required)
+      input(type=type_param name=id_param id=id_param placeholder=label required)&attributes(attributes)
     else
-      input(type=type_param name=id_param id=id_param placeholder=label)
+      input(type=type_param name=id_param id=id_param placeholder=label)&attributes(attributes)
       if(binding)
         label(for=id_param class="main-field-addon") #{binding}
       else if (binding != false)

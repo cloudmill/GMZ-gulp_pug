@@ -28,16 +28,15 @@ mixin askQuestionForm
       .contact-box-header
         h2 Задайте вопрос или оставьте заявку на сотрудничество
       .contact-box-content
-        form.contact-box-form
+        form.contact-box-form#askQuestionForm
           .contact-box-form-el
-            +inputField('text', 'name', 'Ваше имя')
-            +inputField('text', 'phone', 'Ваш телефон', null)
-            +inputField('email', 'email', 'Ваша почта для ответа', false)
+            +inputField('text', 'name', 'Ваше имя')#name
+            +inputField('text', 'phone', 'Ваш телефон', null)#phone
+            +inputField('email', 'email', 'Ваша почта для ответа', false)#email
           .contact-box-form-el
-            +textarea('question', '29', '10', 'Ваш вопрос', 'необязательно')
+            +textarea('question', '29', '10', 'Ваш вопрос', 'необязательно')#question
           .contact-box-form-el
-            +checkbox('pricelist', 'pricelist', 'Хочу получить прайс-листи')
-            +checkbox('agree', 'agree', 'Согласие на обработку персональных данных в соответствии с политикой конфиденциальности')
+            +checkbox('agree', 'agree', 'Согласие на обработку персональных данных в соответствии с политикой конфиденциальности')#agree
           .contact-box-form-el
             +buttonSubmit('Отправить')
         .contact-box-success

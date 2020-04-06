@@ -81,6 +81,7 @@ let sliders = {
           el: '.product-bullets',
           slidesPerView: 5,
           spaceBetween: 20,
+          slideThumbActiveClass: '.active',
         }
       },
     });
@@ -91,10 +92,25 @@ let sliders = {
       slidesPerView: 1,
       updateOnWindowResize: true,
       spaceBetween: 0,
+      loop: true,
+
+      autoplay: {
+        delay: 2600,
+        disableOnInteraction: false
+      },
 
       navigation: {
         nextEl: "#slider-recept-right",
         prevEl: "#slider-recept-left"
+      },
+
+      thumbs: {
+        swiper: {
+          el: '.thumbs.thumbs-recept-slider',
+          slidesPerView: 'auto',
+          spaceBetween: 10,
+          slideThumbActiveClass: '.active',
+        }
       },
     });
   },

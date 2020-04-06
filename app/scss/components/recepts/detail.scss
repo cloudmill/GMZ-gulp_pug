@@ -15,14 +15,13 @@
 
     .product {
       &-wrapper-content {
-        align-self: start;
         width: 30%;
         position: relative;
         margin-top: 60px;
 
         @include screen('lg', 'max') {
-         transform: scale(0.8);
-         transform-origin: right center; 
+          transform: scale(0.8);
+          transform-origin: right center; 
         }
 
         @include screen('md', 'max') {
@@ -33,15 +32,17 @@
           margin-top: 100px;
         }
 
-        &::after {
-          width: 270px;
-          height: 270px;
-          background: #FFFFFF;
-          transform: rotate(45deg);
+        span {
+          width: 360px;
+          height: 360px;
+          background-image: url('../images/bg-recept-product.svg');
+          background-repeat: no-repeat;
+          background-position: center left;
+          background-size: 100%;
           content: '';
           display: block;
           position: absolute;
-          left: 0;
+          left: -50px;
           top: 0;
           z-index: 1;
 
@@ -50,19 +51,6 @@
             height: 80%;
             margin-left: 20px;
           }
-        }
-        
-        &:before {
-          background-image: url('../images/shadow-products.svg');
-          background-repeat: no-repeat;
-          position: absolute;
-          bottom: 0;
-          left: -80px;
-          width: 100%;
-          height: 108px;
-          display: block;
-          z-index: 10;
-          content: "";
         }
       }
 
@@ -91,7 +79,20 @@
         z-index: 10;
         position: relative;
         width: 60%;
-        margin-top: 10%;
+        margin-top: 10%!important;
+
+        &:before {
+          background-image: url('../images/shadow-products.svg');
+          background-repeat: no-repeat;
+          position: absolute;
+          bottom: 0;
+          left: -80px;
+          width: 100vw;
+          height: 108px;
+          display: block;
+          z-index: 10;
+          content: "";
+        }
 
         @include screen('md', 'max') {
           width: 100%;
@@ -228,8 +229,27 @@
         height: 60px;
         display: block;
         overflow: hidden;
-        border: 1px dashed #D5D2CC;
+        border: 1px dashed #D4D1CC;
         border-radius: 50px;
+        position: relative;
+        cursor: pointer;
+
+        &.swiper-slide-thumb-active {
+          border: 1px dashed #EE7754;
+        }
+
+        &::before {
+          position: absolute;
+          box-shadow: inset 0 0 0 6px #f6f5f3;
+          width: 102%;
+          height: 102%;
+          z-index: 10;
+          top: 0;
+          left: 0;
+          display: block;
+          content: "";
+          border-radius: 50px;
+        }
       }
 
       &-img {

@@ -37,12 +37,21 @@ block content
               +checkbox('hot', 'hot', 'Горячие блюда')
           .list-group
             .list-group-title Продукт:
-            .list-group-selection
+            .list-group-selection.product-select
               +checkbox('1', '1', 'Сыр «Косичка» «Гиагинский» копченый')
               +checkbox('2', '2', 'Сыр «Косичка» «Гиагинский»')
               +checkbox('3', '3', 'Сыр «Охотничий» «Гиагинский» копченый')
               +checkbox('4', '4', 'Сыр «Спагетти» «Гиагинский» копченый')
               +checkbox('5', '5', 'Сыр «Спагетти» «Гиагинский»')
+
+              +checkbox('6', '6', 'Сыр «Адыгейский»')
+              +checkbox('7', '7', 'Сыр «Адыгейский» копченый')
+              +checkbox('8', '8', 'Сыр «Адыгейский Домашний»')
+              +checkbox('9', '9', 'Сыр «Сулугуни»')
+              +checkbox('10', '10', 'Сыр «Чечил»')
+              +checkbox('11', '11', 'Сыр «Чечил» копченый')
+              +checkbox('12', '12', 'Сыр «Охотничий» копченый')
+              +checkbox('13', '13', 'Сыр «Косичка» копченый Дарфреш')
               button.display-full Показать все 
           button.clear Сбросить фильтр
   +subscriptionForm().bg-additional

@@ -29,13 +29,14 @@ block content
               .slider-el.swiper-slide
                 img(src="./images/recept_slider.png", alt="Баклажаны с сыром «Сулугуни» и помидорами")
           .recept-information
-            .thumbs
-              .thumbs-el
-                .thumbs-img
-                  img(src="./images/recept_slider.png")
-              .thumbs-el
-                .thumbs-img
-                  img(src="./images/recept_slider.png")
+            .thumbs.thumbs-recept-slider
+              .swiper-wrapper
+                .thumbs-el.swiper-slide
+                  .thumbs-img
+                    img(src="./images/recept_slider.png")
+                .thumbs-el.swiper-slide
+                  .thumbs-img
+                    img(src="./images/recept_slider.png")
             .cooking
               .cooking-el
                 +icon('cooking-servings', 'svg').cooking-el-icon
@@ -59,7 +60,7 @@ block content
                 .left Углеводы
                 .right 70 г
             .column-info
-              h2 Ингридиенты
+              h2 Ингредиенты
               .column-info-item
                 .left Багет
                 .right 1 шт
@@ -88,13 +89,15 @@ block content
           .recept-footer
             +link('Поделиться', '#', 'true')
             +link('Распечатать', '#')
-        .product-wrapper-content
-          .product-image
-            img(src="./images/img-products-2-min.png")
-            img(src="./images/img-products-2-min.png")
-          .product-title Сыр «Косичка» «Гиагинский» копченый
-          .product-print
-            +icon('recept-product-print', 'svg')
+        .product-wrapper-content.fixed-base
+          .fixed-item
+            .product-image
+              img(src="./images/img-products-2-min.png")
+              img(src="./images/img-products-2-min.png")
+            .product-title Сыр «Косичка» «Гиагинский» копченый
+            .product-print
+              +icon('recept-product-print', 'svg')
+            span
   +recepts().bg-white
   +wherebuy().bg-white.receptbuy
   +subscriptionForm().bg-white

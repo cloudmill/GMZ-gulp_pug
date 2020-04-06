@@ -3,10 +3,21 @@
   .shops {
     position: relative;
     display: block;
-    width: 100%;
+    width: 100vw;
     height: 225px;
     background-image: url('../images/shops-bg.png');
     background-repeat: repeat-x;
+    margin-left: -45px;
+    animation: shops-bg-move 7s linear infinite;
+
+    @keyframes shops-bg-move {
+      0% {
+        background-position-x: 960px;
+      }
+      100% {
+        background-position-x: 0px;
+      }
+    }
   }
 }
 

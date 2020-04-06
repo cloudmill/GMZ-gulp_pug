@@ -13,22 +13,24 @@ block content
     +header()
     section.main-product
       .main-product-box
-        .product-item
-          .product-item-img
-            .image
-              img(src="./images/img-products-2-min.png")
-              img(src="./images/img-products-2-min.png")
-            .addons
-              +icon('cloud-1', 'svg').cloud-1
-              +icon('cloud-2', 'svg').cloud-2
-              +icon('cloud-2', 'svg').cloud-3
-              +icon('rhombus', 'svg').rhombus-1
-              +icon('rhombus', 'svg').rhombus-2
-              +icon('print-product', 'svg').print
+        .product-item.fixed-base
+          .fixed-item
+            .product-item-img
+              .image
+                img(src="./images/img-products-2-min.png")
+                img(src="./images/img-products-2-min.png")
+              .addons
+                +icon('cloud-1', 'svg').cloud-1
+                +icon('cloud-2', 'svg').cloud-2
+                +icon('cloud-2', 'svg').cloud-3
+                +icon('rhombus', 'svg').rhombus-1
+                +icon('rhombus', 'svg').rhombus-2
+                +icon('print-product', 'svg').print
         .content-section
           .pagination
             a.pagination-back Продукция
           .product-title Сыр Косичка «Гиагинский» копченый
+            +icon('cloud-2', 'svg')
           .product-composition.left-product-mg
             .product-composition-title Состав:
             .product-composition-desc Молоко нормализированное пастеризованное, молокосвертывающий ферментный препарат микробного происхождения, закваска термофильных молочнокислых микроорганизмов, соль пищевая
@@ -83,14 +85,15 @@ block content
               .title вес упаковки:
               .desc 5 кг
           +wherebuy().left-product-mg
-        a.next-product(href="./product.html")
-          .wrapper
-            .text
-                .next следующий продукт
-                .title Сыр «Чечил» копченый
-            .image
-                img(src="./images/img-products-3-min.png")
-                img(src="./images/img-products-3-min.png")
+    section.next
+      a.next-product(href="./product.html")
+        .wrapper
+          .text
+              .next следующий продукт
+              .title Сыр «Чечил» копченый
+          .image
+              img(src="./images/img-products-3-min.png")
+              img(src="./images/img-products-3-min.png")
     +recepts()
     +subscriptionForm().bg-white
     +footer().bg-white

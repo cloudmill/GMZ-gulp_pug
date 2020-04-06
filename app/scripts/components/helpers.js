@@ -43,6 +43,25 @@ let helpers = {
       event.preventDefault();
       $("input[type=checkbox]").prop('checked', false);
     });
+
+    $('.display-full').click(function(event) {
+      $(this).toggleClass('on')
+      event.preventDefault();
+      $('.list-group-selection.product-select > .main-checkbox:nth-child(n+5)').each(function() {
+          if($('.display-full').hasClass('on')) {
+            $('.display-full').text('Скрыть элементы');
+            $(this).removeClass("hide-main-checkbox");
+          } else {
+            $('.display-full').text('Показать все');
+            $(this).addClass("hide-main-checkbox");
+          }
+      });
+    });
+
+    $('.list-group-selection.product-select > .main-checkbox:nth-child(n+5)').each(function() {
+      $(this).addClass("hide-main-checkbox");
+    });
+    
   },
 };
 export default helpers;
