@@ -17,7 +17,6 @@ let sliders = {
       spaceBetween: 500,
       watchSlidesProgress: true,
       loop: true,
-      onProgress: move,
 
       navigation: {
         nextEl: "#slider-main-right",
