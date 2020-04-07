@@ -182,7 +182,20 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        background: #FFE3BE;
+        transform: rotate(45deg);
+        width: 396px;
+        height: 396px;
+        display: block;
+        content: '';
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
 
       @include screen('md', 'max') {
         flex-basis: 100%;
@@ -192,53 +205,19 @@
       @include screen('xs', 'max') {
         align-items: flex-start;
       }
-
-      &:hover {
-        .products-el-title {
-          color: #EE7754;
-        }
-
-        .products-el-hover {
-          opacity: 1;
-
-          .rhombus-1 {
-            transform: translateX(0) translateY(-50%);
-          }
-
-          .cloud-1 {
-            transform: translateX(10%) translateY(-50%);
-          }
-        }
-      }
-
-      &-hover {
+      &-hover{
         opacity: 0;
         position: absolute;
-        width: auto;
+        width: 396px;
+        pointer-events: none;
         height: 100%;
+        z-index: 5;
         transition: opacity 0.3s;
         bottom: -10%;
-
         @mixin hover-el {
           position: absolute;
-          left: 0;
-          transform: translateX(-100%) translateY(-50%);
           z-index: 10;
         }
-
-        &::before {
-          position: relative;
-          top: 0;
-          left: 0;
-          display: block;
-          background: #FFE3BE;
-          transform: rotate(45deg);
-          width: 396px;
-          height: 396px;
-          display: block;
-          content: '';
-        }
-
         .rhombus-1 {
           @include hover-el;
           bottom: 30%;
@@ -249,10 +228,8 @@
         .rhombus-2 {
           @include hover-el;
           top: 8%;
-          right: 0;
-          transform: translateX(87%) translateY(-50%);
           font-size: 3px;
-          transition: transform .2s ease-out;
+          transition: transform .3s ease-out;
         }
 
         .cloud-1 {
@@ -264,12 +241,65 @@
         .cloud-2 {
           @include hover-el;
           bottom: 44%;
-          right: 0;
-          transform: translateX(87%) translateY(-50%);
-          transition: transform .2s ease-out;
+          transition: transform .4s ease-out;
         }
       }
-
+      &:nth-child(2n-1){
+        .products-el-hover{
+          .rhombus-1{
+            left: 0;
+            transform: translate(-100%,-50%);
+          }
+          .rhombus-2{
+            right: 0;
+            transform: translate(100px,-50%);
+          }
+          .cloud-1{
+            left: 10%;
+            transform: translate(-100%,-50%);
+          }
+          .cloud-2{
+            right: 10%;
+            transform: translate(100px,-50%);
+          }
+        }
+      }
+      &:nth-child(2n){
+        .products-el-hover{
+          .rhombus-1{
+            right: 0;
+            transform: translate(100px,-50%);
+          }
+          .rhombus-2{
+            left: 0;
+            transform: translate(-100%,-50%);
+          }
+          .cloud-1{
+            right: 10%;
+            transform: translate(100px,-50%);
+          }
+          .cloud-2{
+            left: 10%;
+            transform: translate(-100%,-50%);
+          }
+        }
+      }
+      &:nth-child(2n),&:nth-child(2n-1){
+        &:hover{
+          &:before{
+            opacity: 1;
+          }
+          .products-el-title {
+            color: #EE7754;
+          }
+          .products-el-hover{
+            opacity: 1;
+            .rhombus-1,.rhombus-2,.cloud-1,.cloud-2{
+              transform: translateX(0) translateY(-50%);
+            }
+          }
+        }
+      }
       &-title {
         @include UI-Font-PFRegalTextPro-bold;
         position: relative;

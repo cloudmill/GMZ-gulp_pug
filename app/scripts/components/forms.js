@@ -5,7 +5,7 @@ import select2 from 'select2';
 let forms = {
   init: function() {
     this.select2Init();
-    this.askQuestionForm();
+    //this.askQuestionForm();
   },
   select2Init: function() {
     $(".select2-field").each((key,item)=>{

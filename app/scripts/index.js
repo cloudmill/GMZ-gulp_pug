@@ -17,6 +17,8 @@ $(document).ready(function() {
   /* ScrollBar */
   window.scrollbar = new customScrollbar();
 
+  /* Доп функционал */
+  helpers.init();
 
 
   /* Функционал для Header */
@@ -31,7 +33,4 @@ $(document).ready(function() {
   maps.init();
   sliders.init();
   forms.init();
-
-  /* Доп функционал */
-  helpers.init();
 });
