@@ -379,12 +379,6 @@
 
 .main-about-awards {
   &-box {
-    overflow: visible;
-
-    @include screen('sm', 'min') {
-      overflow: hidden;   
-    }
-
     .main-about-awards-header {
       display: flex;
       justify-content: space-between;
@@ -403,7 +397,13 @@
   }
 
   &-content {
-    &.swiper-wrapper {
+    overflow: visible;
+
+    @include screen('sm', 'min') {
+      overflow: hidden;   
+    }
+    
+    .swiper-wrapper {
       display: flex;
       justify-content: space-between;
       overflow: visible!important;

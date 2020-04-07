@@ -66,14 +66,14 @@ block content
         .slider-about-container.swiper-wrapper
           +slider-about-container-el(getData('sliders/about'))
   section.main-about-awards
-    .content.main-about-awards-box.swiper-container
+    .content.main-about-awards-box
       .main-about-awards-header
         h2 Наши награды
         .buttons.main-slider-buttons
           +btn-slider('left').bg-additional#slider-awards-left
           +btn-slider('right').bg-additional#slider-awards-right
-      .main-about-awards-content.swiper-wrapper
-
+      .main-about-awards-content.swiper-container
+        .swiper-wrapper
           .slider-awards-el.swiper-slide
             .award-data
               +icon('medal-icon-1', 'svg').medal

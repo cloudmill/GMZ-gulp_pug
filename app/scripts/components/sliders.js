@@ -149,7 +149,7 @@ let sliders = {
     });
   },
   awardsSlider: function() {
-    return new Swiper(".main-about-awards-box", {
+    return new Swiper(".main-about-awards-content", {
       speed: 600,
       slidesPerView: 1,
       loop: true,
