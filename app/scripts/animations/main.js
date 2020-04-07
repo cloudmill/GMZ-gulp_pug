@@ -2,12 +2,14 @@ import $ from "jquery";
 import Wave from "./wave.js";
 import Fixed from "./fixed.js";
 import MouseParalax from "./mouseParalax.js";
+import ScrollRotate from "./scrollRotate.js";
 
 let animations = {
   init: function() {
     this.waveAnimation();
     this.fixedInBlock();
     this.mouseParalax();
+    this.scrollRotate();
   },
 
   waveAnimation: function() {
@@ -40,6 +42,12 @@ let animations = {
     let mouseParalaxItems = []
     $('.mouseParalax').each(function(key,item){
       mouseParalaxItems.push(new MouseParalax(item))
+    })
+  },
+  scrollRotate: function(){
+    let scrollRotateItems = []
+    $('.scrollRotate').each(function(key,item){
+      scrollRotateItems.push(new ScrollRotate(item))
     })
   }
 };

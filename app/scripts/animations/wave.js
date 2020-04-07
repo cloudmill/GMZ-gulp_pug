@@ -53,8 +53,10 @@ export default class Wave {
     this.events();
   }
   update() {
-    this.ctx.clearRect(0, 0, this.w, this.h);
-    this.draw();
+    if(window.isObservable(this.element)){
+      this.ctx.clearRect(0, 0, this.w, this.h);
+      this.draw();
+    }
     this.move();
     requestAnimationFrame(() => {
       this.update();

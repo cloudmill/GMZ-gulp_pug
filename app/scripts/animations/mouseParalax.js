@@ -13,6 +13,7 @@ export default class MouseParalax {
   }
   events(){
     $(document).on('mousemove',(e)=>{
+      if(window.isObservable(this.el))
         this.update(e.pageX,e.pageY);
     })
   }

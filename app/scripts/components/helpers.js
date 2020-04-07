@@ -5,6 +5,10 @@ let helpers = {
     this.resizeImg();
     this.events();
     this.spoilerCheckbox();
+    this.animateOnLoadPage();
+
+    //Проверка на позицию блока в видимой области
+    window.isObservable = this.isObservable;
   },
   events: function() {
     $(window).on("resize", () => {
@@ -63,5 +67,24 @@ let helpers = {
     });
     
   },
+
+  isObservable: function($item){
+    let find = true;
+    if($item.offset().top + $item.height() < 0 || $item.offset().left + $item.width() < 0){
+      find = false;
+    }
+    if($item.offset().top > $(window).height() || $item.offset().left > $(window).width()){
+      find = false;
+    }
+    return find;
+  },
+
+  animateOnLoadPage: function(){
+    $(window).on('load',function(){
+      $('.onLoad').each((key,item)=>{
+        $(item).addClass('pageLoaded')
+      })
+    })
+  }
 };
 export default helpers;
