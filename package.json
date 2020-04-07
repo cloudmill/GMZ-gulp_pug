@@ -42,6 +42,7 @@
   "dependencies": {
     "fancybox": "^3.0.1",
     "jquery": "^3.4.1",
+    "jquery.maskedinput": "^1.4.1",
     "select2": "^4.0.13",
     "smooth-scrollbar": "^8.5.2",
     "swiper": "^5.3.6",
