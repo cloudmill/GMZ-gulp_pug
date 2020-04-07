@@ -5,7 +5,7 @@ import 'jquery.maskedinput/src/jquery.maskedinput';
 let forms = {
   init: function() {
     this.select2Init();
-    //this.askQuestionForm();
+    this.askQuestionForm();
   },
 
   select2Init: function() {
