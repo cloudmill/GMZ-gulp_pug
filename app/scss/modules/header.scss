@@ -259,9 +259,15 @@
           }
   
           &-number {
+            display: block;
             font-weight: bold;
             font-size: 24px;
             margin-bottom: 25px;
+            transition: 0.3s;
+
+            &:hover {
+              color: #ee7754;
+            }
           }
         }
   
@@ -273,6 +279,16 @@
   
           &-group-link {
             margin-right: 37px;
+
+            filter: brightness(0%);
+            opacity: 0.8;
+            transition: all .3s;
+        
+            &:hover {
+              filter: brightness(100%);
+              transform: translateX(3px);
+              opacity: 1;
+            }
   
             &:last-child {
               margin-right: 0px;

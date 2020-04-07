@@ -1,7 +1,6 @@
-mixin about(Title)
+mixin about(title, link)
   section.about&attributes(attributes)
-    .content.about-box
+    a.content.about-box(href=link)
       .about-box-rectangle
-        h2 #{Title}
-        a(href="#about")
-          +icon('arrow', 'svg')
+        h2 #{title}
+        +icon('arrow', 'svg')

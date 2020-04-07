@@ -15,7 +15,8 @@ mixin subscriptionForm
       form.subscription-box-form
         h2 Подпишитесь на нас
         .main-field
-          input(type="email" id="email-sub" placeholder="Введите почту")
+          input(type="text" id="email-sub" name="email-sub" placeholder="Введите почту")
+          .main-field-error Поле заполнено неверно
           label(class="main-field-addon")
             button
               +icon('arrow', 'svg')
@@ -28,7 +29,7 @@ mixin askQuestionForm
       .contact-box-header
         h2 Задайте вопрос или оставьте заявку на сотрудничество
       .contact-box-content
-        form.contact-box-form#askQuestionForm
+        form.contact-box-form
           .contact-box-form-el
             +inputField('text', 'name', 'Ваше имя')
             +inputField('text', 'phone', 'Ваш телефон', null)

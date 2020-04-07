@@ -5,6 +5,9 @@ section {
 }
 
 .about-box {
+  cursor: pointer;
+  display: block;
+
   &-rectangle {
     display: flex;
     align-items: center;
@@ -73,7 +76,8 @@ section {
       z-index: 2;
     }
 
-    & > a {
+    & > i {
+      filter: brightness(0%);
       z-index: 2;
       @include screen('custom-660', 'max') {
         margin-top: 20px;
@@ -82,6 +86,10 @@ section {
   }
 }
 
-.about-box-rectangle:hover::before  {
-  background-color: #F9E9C0;
+.about-box-rectangle:hover::before, .about-box-rectangle.bg-additional:hover::before {
+  background-color: #F9E9C0!important;
+}
+
+.about-box-rectangle:hover::after, .about-box-rectangle.bg-additional:hover::after {
+  filter: sepia(100%);
 }

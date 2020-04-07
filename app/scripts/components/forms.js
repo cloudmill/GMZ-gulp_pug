@@ -6,6 +6,7 @@ let forms = {
   init: function() {
     this.select2Init();
     this.askQuestionForm();
+    this.subscriptionForm();
   },
 
   select2Init: function() {
@@ -19,21 +20,21 @@ let forms = {
 
   askQuestionForm: function() {
     var formData = {
-      'username': $('#askQuestionForm input[name=name]'),
-      'telephone': $('#askQuestionForm input[name=phone]'),
-      'email': $('#askQuestionForm input[name=email]'),
-      'question': $('#askQuestionForm textarea[name=question]')
+      'username': $('form.contact-box-form input[name=name]'),
+      'telephone': $('form.contact-box-form input[name=phone]'),
+      'email': $('form.contact-box-form input[name=email]'),
+      'question': $('form.contact-box-form textarea[name=question]')
     };
     
     formData['telephone'].mask("+9 (999) 999-9999", {
       placeholder:"+7 (___) ___ - __ - __" 
     });
 
-    $('#askQuestionForm button.main-link').click(function(event){
+    $('form.contact-box-form button.main-link').click(function(event){
       $('.main-field').removeClass('error');
       $('.main-checkbox-name').find('p').css({'color': '#312930'});
 
-      var agreeData = $('#askQuestionForm input[name=agree]:checked');
+      var agreeData = $('form.contact-box-form input[name=agree]:checked');
 
       for(var value in formData) {
         if(formData[value].val() == '' || formData[value].val() == undefined) {
@@ -51,6 +52,18 @@ let forms = {
 
       if($('#askQuestionForm .main-field.error').length > 0 || agreeData.length == 0) {
         event.preventDefault();
+      }
+    });
+  },
+
+  subscriptionForm: function() {
+    var email = $('form.subscription-box-form input[name=email-sub]');
+    $('form.subscription-box-form button').click(function(event){
+      $('.main-field').removeClass('error');
+      
+      if(email.val() == '' || email.val() == undefined) {
+        event.preventDefault();
+        $(this).parent().parent().addClass('error');
       }
     });
   },
