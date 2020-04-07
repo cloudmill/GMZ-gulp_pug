@@ -17,7 +17,6 @@
       &-wrapper-content {
         width: 30%;
         position: relative;
-        margin-top: 60px;
 
         @include screen('lg', 'max') {
           transform: scale(0.8);
@@ -30,6 +29,11 @@
           margin-bottom: 150px;
           width: 80%;
           margin-top: 100px;
+        }
+        
+        .group-product {
+          height: 100%;
+          padding-bottom: 120px;
         }
 
         span {
@@ -101,7 +105,7 @@
 
       &-print {
         position: absolute;
-        top: -10%;
+        top: 0%;
         z-index: 10;
         left: -10%;
       }

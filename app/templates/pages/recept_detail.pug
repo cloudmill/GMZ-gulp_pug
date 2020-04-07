@@ -90,14 +90,14 @@ block content
             +link('Поделиться', '#', 'true')
             +link('Распечатать', '#')
         .product-wrapper-content.fixed-base
-          .fixed-item
-            .product-image
-              img(src="./images/img-products-2-min.png")
-              img(src="./images/img-products-2-min.png")
-            .product-title Сыр «Косичка» «Гиагинский» копченый
-            .product-print
-              +icon('recept-product-print', 'svg')
-            span
+            .group-product.fixed-item
+              span
+              .product-image
+                img(src="./images/img-products-2-min.png")
+                img(src="./images/img-products-2-min.png")
+              .product-title Сыр «Косичка» «Гиагинский» копченый
+              .product-print
+                +icon('recept-product-print', 'svg').scrollRotate
   +recepts().bg-white
   +wherebuy().bg-white.receptbuy
   +subscriptionForm().bg-white

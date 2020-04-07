@@ -6,6 +6,10 @@ section.next {
   padding-bottom: 180px;
   padding-top: 0px;
 
+  @include screen('custom-860', 'max') {
+    background-image: unset;
+  }
+
   &::after {
     display: block;
     left: 0;

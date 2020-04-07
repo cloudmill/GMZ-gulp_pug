@@ -88,12 +88,13 @@
       }
 
       &-img {
+        padding-bottom: 150px;
         width: 100%;
-        object-fit: cover;
+        height: auto;
         position: relative;
 
         @include screen('md', 'max') {
-          transform: scale(0.8);
+          width: 80%;
           transform-origin: top;
         }
 
@@ -103,7 +104,8 @@
 
         @include screen('sm', 'max') {
           transform-origin: center;
-          transform: scale(0.7);
+          width: 70%;
+          margin: 0 auto;
         }
     
         .image {
@@ -153,8 +155,8 @@
 
           .cloud-2 {
             font-size: 6px;
-            bottom: 13%;
-            right: 9%;
+            bottom: 31%;
+            right: 10%;
             transform: translateX(-550px);
             transition: 1.1s ease-out;
           }
@@ -183,7 +185,7 @@
           }
 
           .print {
-            bottom: -34%;
+            bottom: 0;
             right: -1%;
           }
         }
@@ -198,6 +200,7 @@
       @include screen('xs', 'max') {
         padding-left: 20px;
         padding-right: 20px;
+        max-width: 100%;
       }
 
       .pagination {
@@ -328,6 +331,7 @@
           margin-bottom: 100px;
           position: relative;
           width: 100%;
+          height: auto;
           overflow: hidden;
 
           .buttons {
