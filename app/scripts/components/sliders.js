@@ -126,7 +126,13 @@ let sliders = {
         delay: 6000,
         disableOnInteraction: false
       },
-      
+
+      breakpoints: {
+        767: {
+          autoHeight: false,
+          calculateHeight:false,
+        },
+      },
 
       navigation: {
         nextEl: "#slider-about-right",
@@ -150,18 +156,22 @@ let sliders = {
       loopedSlides: 3,
       freeMode: true,
 
+      autoplay: {
+        delay: 6000,
+        disableOnInteraction: false
+      },
+
       breakpoints: {
         767: {
           slidesPerView: 3,
           spaceBetween: 10,
-          loop: false,
-          loopedSlides: 0,
+          loopedSlides: 3,
         }
       },
 
       navigation: {
-        nextEl: "#slider-awards-right",
-        prevEl: "#slider-awards-left"
+        nextEl: "#slider-awards-left",
+        prevEl: "#slider-awards-right"
       }
     });
   }

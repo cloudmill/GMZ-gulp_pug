@@ -216,8 +216,12 @@
         align-items: center;
         z-index: 10;
 
-        @include screen('sm', 'max') {
-          .main-slider-buttons {
+        .main-slider-buttons {
+          & > button {
+            margin-right: 10px;
+          }
+
+          @include screen('sm', 'max') {
             display: none;
           }
         }
@@ -377,7 +381,7 @@
   &-box {
     overflow: visible;
 
-    @include screen('sm', 'max') {
+    @include screen('sm', 'min') {
       overflow: hidden;   
     }
 
