@@ -258,6 +258,10 @@
     }
   }
 
+  textarea {
+    resize: none; //возможность ресайза
+  }
+
   input,
   textarea,
   .select2-selection__rendered {
