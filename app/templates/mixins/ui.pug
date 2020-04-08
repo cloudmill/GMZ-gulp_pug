@@ -35,11 +35,11 @@ mixin checkbox(id_param, name_param, text)
 
 mixin link(name, link, addon)
   if(addon == 'true')
-    a.main-link(href=link) #{name}
+    a.main-link(href=link)&attributes(attributes) #{name}
       span.bottomLines
       span.morphPlus
   else
-    a.main-link(href=link) #{name}
+    a.main-link(href=link)&attributes(attributes) #{name}
       span.bottomLines
 
 

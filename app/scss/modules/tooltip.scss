@@ -26,6 +26,12 @@
     justify-content: center;
 	opacity: 0;
 	pointer-events: none;
+
+	@include screen('sm', 'max') {
+		width: 300px;
+		height: 200px;
+		margin-left: -100px;
+	}
 }
 
 .tooltip__content {
@@ -43,6 +49,11 @@
 	padding-right: 40px;
 	padding-top: 25px;
 	text-align: center;
+
+	@include screen('sm', 'max') {
+		font-size: 10px;
+		line-height: 16px;
+	}
 }
 
 .tooltip__shape,

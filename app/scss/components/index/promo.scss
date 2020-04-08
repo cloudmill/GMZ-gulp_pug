@@ -164,7 +164,7 @@
         }
 
         @include screen('xs', 'max' ) {
-          margin-top: -80px;
+          margin-top: 0px;
         }
 
         i.svg-icon.svg-print-main {
@@ -181,15 +181,16 @@
             top: 0%;
             width: unset;
             height: unset;
-            transform: scale(.9);
+            font-size: 9px;
           }
 
           @include screen('sm', 'max') {
-            transform: scale(.7);
+            font-size: 7px;
+            margin-bottom: 15px;
           }
 
           @include screen('xs', 'max') {
-            transform: scale(.6);
+            font-size: 6px;
           }
         }
 
@@ -253,14 +254,14 @@
             bottom: -18%;
 
             @include screen('sm', 'max') {
-              transform: scale(.7);
+              font-size: 7px;
               bottom: -31%;
             }
 
             @include screen('xs', 'max') {
-              transform: scale(.4);
-              bottom: -50%;
-              right: 0%;
+              font-size: 4px;
+              bottom: -17%;
+              right: 48px;
             }
           }
 
@@ -268,7 +269,7 @@
             position: absolute;
             right: 22%;
             bottom: 5%;
-            transform: scale(.7);
+            font-size: 7px;
 
             @include screen('lg', 'max') {
               display: none;

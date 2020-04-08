@@ -67,6 +67,7 @@ const config = {
 
 export default class Tooltip {
   constructor(el) {
+    this.isShown = false;
     this.DOM = {};
     this.DOM.el = el;
     this.type = this.DOM.el.getAttribute('data-type');
@@ -92,8 +93,12 @@ export default class Tooltip {
   initEvents() {
     this.mouseenterFn = () => {
       this.mouseTimeout = setTimeout(() => {
-        this.isShown = true;
-        this.show();
+        if( !this.isShown ) {
+          this.isShown = true;
+          this.show();
+          console.log('trigger enabled');
+        }
+
       }, 75);
     }
     this.mouseleaveFn = () => {
@@ -101,16 +106,20 @@ export default class Tooltip {
       if( this.isShown ) {
         this.isShown = false;
         this.hide();
+        console.log('trigger disabled');
       }
     }
+
     this.DOM.trigger.addEventListener('mouseenter', this.mouseenterFn);
     this.DOM.trigger.addEventListener('mouseleave', this.mouseleaveFn);
-    this.DOM.trigger.addEventListener('touchstart', this.mouseenterFn);
-    this.DOM.trigger.addEventListener('touchend', this.mouseleaveFn);
+    this.DOM.trigger.addEventListener('touchstart', this.mouseenterFn, true);
+    this.DOM.trigger.addEventListener('touchcancel', this.mouseleaveFn, true);
   }
+
   show() {
     this.animate('in');
   }
+  
   hide() {
     this.animate('out');
   }
@@ -145,11 +154,5 @@ export default class Tooltip {
       let decoAnimOpts = {targets: this.DOM.deco};
       anime(Object.assign(decoAnimOpts, config[this.type][dir].deco));
     }
-  }
-  destroy() {
-    this.DOM.trigger.removeEventListener('mouseenter', this.mouseenterFn);
-    this.DOM.trigger.removeEventListener('mouseleave', this.mouseleaveFn);
-    this.DOM.trigger.removeEventListener('touchstart', this.mouseenterFn);
-    this.DOM.trigger.removeEventListener('touchend', this.mouseleaveFn);
   }
 };
