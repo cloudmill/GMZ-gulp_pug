@@ -6,6 +6,7 @@ let helpers = {
     this.events();
     this.spoilerCheckbox();
     this.animateOnLoadPage();
+    this.marqueeRepeatBlock();
 
     //Проверка на позицию блока в видимой области
     window.isObservable = this.isObservable;
@@ -85,6 +86,10 @@ let helpers = {
         $(item).addClass('pageLoaded')
       })
     })
+  },
+
+  marqueeRepeatBlock: function() {
+    $('.shopsbg-marquee').append($('.shopsbg-marquee').html());
   }
 };
 export default helpers;

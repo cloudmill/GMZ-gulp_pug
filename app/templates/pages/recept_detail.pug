@@ -87,10 +87,20 @@ block content
                 .cooking-info-text Наполнить перцы начинкой и убрать в холодильник на 1-2 часа. Перцы порезать кружками, разложить на блюде и украсить зеленью.
                   span Приятного аппетита!
           .recept-footer
-            +link('Поделиться', '#', 'true')
-            +link('Распечатать', '#')
-        .product-wrapper-content.fixed-base
-            .group-product.fixed-item
+            .left
+              +link('Поделиться', '#', 'true')
+              .recept-social-links
+                a.social-link(href="https://www.facebook.com/mzgiaginsky/")
+                  +icon('facebook', 'svg')
+                a.social-link(href="https://vk.com/mzgiaginsky")
+                  +icon('vk', 'svg')
+                a.social-link(href="https://www.facebook.com/mzgiaginsky/")
+                  +icon('twitter', 'svg')
+            .right
+              a.print-page(href="#" onclick="window.print();") Распечатать
+                +icon('printer', 'svg')
+        .product-wrapper-content
+            .group-product
               span
               .product-image
                 img(src="./images/img-products-2-min.png")

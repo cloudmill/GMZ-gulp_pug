@@ -454,11 +454,11 @@
 
       .shopsbg-marquee {
         margin-left: -30%;
-        margin-bottom: 100px;
+        margin-bottom: 300px;
 
         @include screen('custom-860', 'max') {
           margin-bottom: 0px;
-          padding-bottom: 0px;
+          padding-bottom: 300px;
           margin-left: 0%;
         }
       }

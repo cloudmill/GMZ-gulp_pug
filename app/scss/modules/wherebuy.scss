@@ -1,24 +1,55 @@
-.shopsbg-marquee {
-  position: relative;
-  .shops {
+.shopsbg {
+  &-marquee {
     position: relative;
-    display: block;
-    width: 100vw;
-    height: 225px;
-    background-image: url('../images/shops-bg.png');
-    background-repeat: repeat-x;
-    margin-left: -45px;
-    animation: shops-bg-move 7s linear infinite;
+    display: flex;
+    margin-bottom: 180px;
+  }
 
-    @keyframes shops-bg-move {
+  &-wrapper {
+    display: inline-block;
+  }
+
+  &-list {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 225px;
+    flex-wrap: wrap;
+    width: 1441px;
+
+    &:first-child {
+      animation: shops-bg-move-first 10s linear infinite;
+    }
+
+    &:last-child {
+      animation: shops-bg-move-last 10s linear infinite;
+    }
+    
+
+    @keyframes shops-bg-move-first {
       0% {
-        background-position-x: 960px;
+        transform: translateX(0%);
       }
       100% {
-        background-position-x: 0px;
+        transform: translateX(-100%);
+      }
+    }
+
+    @keyframes shops-bg-move-last {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(0%);
       }
     }
   }
+
+  &-item {
+    width: 280px;
+    text-align: center;
+  }
+
 }
 
 .wherebuy-group {
@@ -26,6 +57,10 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+
+  @include screen('xs', 'max') {
+    margin-bottom: 30px;
+  }
 
   .title {
     @include UI-Font-PFRegalTextPro-bold;
