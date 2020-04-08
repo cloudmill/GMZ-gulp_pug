@@ -14,10 +14,15 @@ import maps from "./components/maps.js";
 import sliders from "./components/sliders.js";
 import forms from "./components/forms.js";
 import helpers from "./components/helpers.js";
+import BackgroundAnimation from "./components/image-background";
+import DashedBackgroundInit from "./components/dashBackgroundInit";
 
-$(document).ready(function() {
-  /* ScrollBar */
-  window.scrollbar = new customScrollbar();
+$(document).ready(function () {
+    BackgroundAnimation('.catalog-el-text');
+    DashedBackgroundInit();
+
+    /* ScrollBar */
+    window.scrollbar = new customScrollbar();
 
   /* Доп функционал */
   helpers.init();
@@ -25,15 +30,15 @@ $(document).ready(function() {
   /* Функционал для Header */
   header.init();
 
-  /*Анимации*/
-  animations.init();
+    /*Анимации*/
+    animations.init();
 
-  /*            */
-  /* Компоненты */
-  /*            */
-  maps.init();
-  sliders.init();
-  forms.init();
+    /*            */
+    /* Компоненты */
+    /*            */
+    maps.init();
+    sliders.init();
+    forms.init();
 
   /* Тултипы */
   var tooltips = Array.from(document.querySelectorAll('.tooltip'));
