@@ -2,5 +2,6 @@ mixin about(title, link)
   section.about&attributes(attributes)
     a.content.about-box(href=link)
       .about-box-rectangle
+        canvas.about-partners-dashed(width="100%", height="100%")
         h2 #{title}
         +icon('arrow', 'svg')
