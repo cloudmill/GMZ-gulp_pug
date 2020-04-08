@@ -7,19 +7,22 @@ include ../modules/header.pug
 include ../modules/forms.pug
 
 block variables
-  -var pageTitle='Контакты'
+  - var pageTitle='Контакты'
 
   mixin contacts-phones-list(json)
     each data in json
       .contacts-phones-item
         .contacts-phones-title= data.title
         .contacts-phones-values
-          each contact in data.contacts
-            a= contact
+          each contact, i in data.contacts
+            if(i == 0)
+              a(href='tel:'+contact)= contact
+            else
+              a(href='mailto:'+contact)= contact
 
   mixin contacts-social-list(json)
     each data in json
-      .contacts-social-item
+      a.contacts-social-item(href=data.link, tagret="_blank")
         .contacts-social-img
           +icon(data.icon, 'svg')
         .contacts-social-text= data.name

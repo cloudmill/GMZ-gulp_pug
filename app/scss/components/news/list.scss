@@ -1,4 +1,22 @@
 .page-section {
+  position: relative;
+  .text-left {
+    position: absolute;
+    font-family: 'Lineatura';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 260px;
+    line-height: 78px;
+    color: #fff;
+    transform: rotate(-90deg) translateX(-50%);
+    left: 50px;
+    transform-origin: left;
+    bottom: 30%;
+
+    @include screen('lg', 'max') {
+      display: none;
+    }
+  }
   &.bg-additional {
     .news {
       &-type {
@@ -100,6 +118,10 @@
           padding-top: 34%;
           @include screen("sm", "max") {
             bottom: 22%;
+          }
+
+          @include screen("xs", "max") {
+            bottom: 35%;
           }
         }
 

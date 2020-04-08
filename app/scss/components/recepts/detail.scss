@@ -157,31 +157,6 @@
             @include screen('sm', 'max') {
               display: none;
             }
-
-            a.social-link {
-              width: 62px;
-              height: 62px;
-              margin: 10px 0;
-              border-radius: 50%;
-              background: #fff;
-              border: 1px solid #312930;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              margin-right: 10px;
-              transition: all 0.3s;
-
-              i {
-                filter: brightness(0);
-              }
-
-              &:hover {
-                background: #312930;
-                i {
-                  filter: brightness(0%) invert(1);
-                }
-              }
-            }
           }
         }
 

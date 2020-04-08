@@ -1,26 +1,32 @@
 [
   {
     "name": "Instagram",
-    "icon": "gray-inst"
+    "icon": "gray-inst",
+    "link": "https://www.instagram.com/mzgiaginsky/"
   },
   {
     "name": "Вконтакте",
-    "icon": "gray-vk"
+    "icon": "gray-vk",
+    "link": "https://vk.com/mzgiaginsky"
   },
   {
     "name": "Twitter",
-    "icon": "gray-tw"
+    "icon": "gray-tw",
+    "link": "https://twitter.com/mzgiaginsky"
   },
   {
     "name": "Facebook",
-    "icon": "gray-fb"
+    "icon": "gray-fb",
+    "link": "https://www.facebook.com/mzgiaginsky/"
   },
   {
     "name": "Одноклассники",
-    "icon": "gray-ok"
+    "icon": "gray-ok",
+    "link": "https://ok.ru/mzgiaginsky"
   },
   {
     "name": "Википедия",
-    "icon": "gray-wp"
+    "icon": "gray-wp",
+    "link": "https://ru.wikipedia.org/wiki/Адыгейский_сыр"
   }
 ]

@@ -12,23 +12,19 @@
     "img":"./images/wherebuy/image-shops-3.png"
   },
   {
-    "link": "https://www.victoria-group.ru/",
-    "img":"./images/wherebuy/image-shops-4.png"
+    "link": "https://www.auchan.ru/",
+    "img":"./images/wherebuy/image-shops-6.png"
   },
   {
     "link": "https://lenta.com/",
     "img":"./images/wherebuy/image-shops-5.png"
   },
   {
-    "link": "https://www.auchan.ru/",
-    "img":"./images/wherebuy/image-shops-6.png"
-  },
-  {
     "link": "https://dixy.ru/",
     "img":"./images/wherebuy/image-shops-7.png"
   },
   {
-    "link": "http://grinn-corp.ru/chain-stores-line.html",
-    "img":"./images/wherebuy/image-shops-8.png"
+    "link": "https://5ka.ru",
+    "img":"./images/wherebuy/image-shops-9.svg"
   }
 ]
