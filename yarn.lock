@@ -1068,6 +1068,11 @@ amdefine@>=0.0.4:
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
+animejs@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/animejs/-/animejs-3.1.0.tgz#748a90fc1d4bef3efed64508af9a6a82babf5c47"
+  integrity sha512-BjnCroPPQPEAngT0M89pz9TBcOGgOFLnVoq3+jV2upl4rn60k57/AXvESTnuILsNgOEjGuhMEOMp7IlQzk40kA==
+
 ansi-colors@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-1.1.0.tgz#6374b4dd5d4718ff3ce27a671a3b1cad077132a9"
@@ -2618,6 +2623,11 @@ character-parser@^2.1.1:
   integrity sha1-x84o821LzZdE5f/CxfzeHHMmH8A=
   dependencies:
     is-regex "^1.0.3"
+
+charming@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/charming/-/charming-3.0.2.tgz#2a08db0bbea153e457bc0e7475e1b4e3a0d8d4cb"
+  integrity sha512-T0n8yF4m9m0du07ydm52jh8JbNbhW0D9ugNwBg+naJ/myv4T6wdo9TN5X5YEAoKAZbZuAaZomKnuIUCyoq3rlw==
 
 cheerio-select@*:
   version "0.0.3"

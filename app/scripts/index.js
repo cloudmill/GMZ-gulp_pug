@@ -1,7 +1,9 @@
 import $ from "jquery";
+import anime from 'animejs/lib/anime.es.js';
 
 //Animations
 import animations from "./animations/main.js";
+import Tooltip from "./animations/tooltipAnimations.js";
 
 //Modules
 import customScrollbar from "./modules/scrollbar.js";
@@ -20,7 +22,6 @@ $(document).ready(function() {
   /* Доп функционал */
   helpers.init();
 
-
   /* Функционал для Header */
   header.init();
 
@@ -33,4 +34,8 @@ $(document).ready(function() {
   maps.init();
   sliders.init();
   forms.init();
+
+  /* Тултипы */
+  var tooltips = Array.from(document.querySelectorAll('.tooltip'));
+  var init = (() => tooltips.forEach(t => new Tooltip(t)))();
 });
