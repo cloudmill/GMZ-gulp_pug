@@ -46,12 +46,12 @@ export default class Fixed {
     this.limitBottom = baseS + this.scrollTop - targetS;
     this.limitTop = this.scrollTop + this.top + this.addOffset;
 
+    if (this.scrollTop > this.limitBottom && this.topConst <= this.limitTop) {
+      this.stopBottom();
+    }
+
     if (this.topConst <= this.limitTop) {
       this.render();
-      console.log(this);
-      if (this.scrollTop > this.limitBottom) {
-        this.stopBottom();
-      }
     } else {
       this.clear();
     }
@@ -65,6 +65,7 @@ export default class Fixed {
   stopBottom() {
     let pos = this.limitBottom - this.scrollTop;
     this.target.css("top", pos + "px");
+    
   }
   clear() {
     this.target.css("top", "0");
