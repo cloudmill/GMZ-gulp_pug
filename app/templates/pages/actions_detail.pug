@@ -7,15 +7,16 @@ include ../modules/header.pug
 block variables
   -var pageTitle='Акция детально'
 
-  mixin content-detail(json)
-    each data in json
-      h4 #{data.title}
-      each text in data.texts
-        p #{text}
-  mixin news-detail-social-links(json)
-    each data in json
-      a.newsDetail-social-item(href=data.link)
-        +icon(data.ico, 'svg')
+mixin content-detail(json)
+  each data in json
+    h4 #{data.title}
+    each text in data.texts
+      p #{text}
+      
+mixin news-detail-social-links(json)
+  each data in json
+    a.social-link(href=data.link)
+      +icon(data.ico, 'svg')
 
 
 block content
