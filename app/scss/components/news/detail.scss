@@ -118,6 +118,7 @@
       top: 0;
       background: #d7f9df;
       padding: 40px 30px;
+      margin-bottom: 140px;
       @include screen("950", "max") {
         position: relative;
         display: flex;
@@ -125,6 +126,7 @@
         padding: 20px 10px;
         width: 100vw;
         margin-left: -40px;
+        margin-bottom: 0px;
       }
       @include screen("xs", "max") {
         transform: translateX(20px) !important;

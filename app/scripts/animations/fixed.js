@@ -7,7 +7,8 @@ export default class Fixed {
     this.h = this.base.outerHeight();
 
     this.top = 50;
-    this.targetH = this.target.outerHeight();
+    this.targetH = this.target.outerHeight() + parseInt(this.target.css('margin-bottom'));
+    console.log(this.targetH);
 
     this.init();
   }
@@ -29,7 +30,7 @@ export default class Fixed {
   }
   update() {
     this.h = this.base.outerHeight();
-    this.targetH = this.target.outerHeight();
+    this.targetH = this.target.outerHeight() + parseInt(this.target.css('margin-bottom'));
 
     let header = $(".header");
 

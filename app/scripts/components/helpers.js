@@ -7,6 +7,7 @@ let helpers = {
     this.spoilerCheckbox();
     this.animateOnLoadPage();
     this.marqueeRepeatBlock();
+    this.spoilerSocilaLinks();
 
     //Проверка на позицию блока в видимой области
     window.isObservable = this.isObservable;
@@ -90,6 +91,14 @@ let helpers = {
 
   marqueeRepeatBlock: function() {
     $('.shopsbg-marquee').append($('.shopsbg-marquee').html());
+  },
+
+  spoilerSocilaLinks: function() {
+    var parent = $('.recept-footer .left');
+
+    parent.find('.main-link').click(function(){
+      parent.find('.recept-social-links').toggleClass('active');
+    });
   }
 };
 export default helpers;
