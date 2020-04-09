@@ -27,6 +27,12 @@
         .group-product {
           height: 100%;
 
+          &:hover {
+            span {
+              filter: sepia(80%);
+            }
+          }
+
           @include screen('lg', 'max') {
             margin-bottom: 60px;
           }
