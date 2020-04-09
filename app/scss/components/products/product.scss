@@ -94,18 +94,19 @@
         position: relative;
 
         @include screen('md', 'max') {
-          width: 80%;
+          width: 90%;
           transform-origin: top;
         }
 
         @include screen('custom-860', 'max') {
-          top: -50px;
+          
         }
 
         @include screen('sm', 'max') {
           transform-origin: center;
-          width: 70%;
+          width: 80%;
           margin: 0 auto;
+          left: -20px;
         }
     
         .image {
@@ -121,6 +122,10 @@
             left: 21%;
             position: absolute;
             top: 26%;
+
+            @include screen('md', 'max') {
+              left: 27%;
+            }
           } 
 
           @include screen('md', 'max') {
@@ -151,6 +156,10 @@
             top: 20%;
             transform: translateX(-200px);
             transition: 0.8s ease-out;
+
+            @include screen('950', 'max') {
+              font-size: 8px;
+            }
           }
 
           .cloud-2 {
@@ -159,34 +168,70 @@
             right: 10%;
             transform: translateX(-550px);
             transition: 1.1s ease-out;
+
+            @include screen('950', 'max') {
+              font-size: 5px;
+            }
           }
 
           .cloud-3 {
-            bottom: 44%;
-            right: 15%;
+            bottom: 48%;
+            right: 17%;
             transform: translateX(-680px);
             transition: 1s ease-out;
+            z-index: -1;
+
+            @include screen('950', 'max') {
+              font-size: 8px;
+            }
           }
 
           .rhombus-1 {
             font-size: 8px;
-            left: 0%;
-            bottom: 30%;
+            left: 6%;
+            bottom: 49%;
             transform: translateX(-150px);
             transition: 0.9s ease-out;
+
+            @include screen('lg', 'max') {
+              font-size: 6px;
+              left: 3%;
+              bottom: 52%;
+            }
+
+            @include screen('950', 'max') {
+              font-size: 5px;
+            }
           }
 
           .rhombus-2 {
             font-size: 4px;
-            left: 12%;
-            bottom: 24%;
+            left: 17%;
+            bottom: 45%;
             transform: translateX(-300px);
             transition: 0.8s ease-out;
+
+            @include screen('950', 'max') {
+              font-size: 3px;
+            }
           }
 
           .print {
             bottom: 0;
             right: -1%;
+            @include screen('lg', 'max') {
+              font-size: 8px;
+            }
+
+            @include screen('950', 'max') {
+              font-size: 7px;
+            }
+
+            @include screen('xs', 'max') {
+              bottom: 60px;
+              right: -7%;
+              font-size: 5px;
+            }
           }
         }
       }
