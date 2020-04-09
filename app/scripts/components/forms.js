@@ -25,12 +25,26 @@ let forms = {
       'email': $('form.contact-box-form input[name=email]'),
       'question': $('form.contact-box-form textarea[name=question]')
     };
-    
+
     formData['telephone'].mask("+9 (999) 999-9999", {
       placeholder:"+7 (___) ___ - __ - __" 
     });
 
+    //Логика работы сообщения об успешном ответе
+    $('.contact-box-success button.main-link').click(function(event){
+      event.preventDefault();
+      $('.contact-box-success').css({
+        'opacity': 0,
+        'pointer-events': 'none'
+      });
+
+      $('form.contact-box-form').find('input').val('').removeAttr('selected').prop("checked", false);
+      $('form.contact-box-form').find('textarea').val('');
+    });
+
+    //Логика работы формы
     $('form.contact-box-form button.main-link').click(function(event){
+      event.preventDefault();
       $('.main-field').removeClass('error');
       $('.main-checkbox-name').find('p').css({'color': '#312930'});
 
@@ -50,8 +64,12 @@ let forms = {
         $('.main-checkbox-name').find('p').css({'color': '#bb9753'});
       }
 
-      if($('#askQuestionForm .main-field.error').length > 0 || agreeData.length == 0) {
-        event.preventDefault();
+      //Все хорошо, показываем сообщение что отправили данные с формы
+      if($('form.contact-box-form .main-field.error').length == 0 && agreeData.length == 1) {
+        $('.contact-box-success').css({
+          'opacity': 1,
+          'pointer-events': 'all'
+        });
       }
     });
   },

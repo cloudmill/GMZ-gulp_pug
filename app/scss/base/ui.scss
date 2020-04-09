@@ -135,6 +135,12 @@
     flex-direction: row;
     align-items: center;
 
+    p > a {
+      &:hover {
+        color: #EE7754;
+      }
+    }
+
     & > p {
       margin-left: 15px;
       color: $color-text-main;
@@ -151,7 +157,7 @@
   margin-bottom: 70px;
   display: flex;
   flex-direction: row;
-  font-family: "CeraPro"; 
+  font-family: "CeraPro";
 
   &-error {
     opacity: 0;
