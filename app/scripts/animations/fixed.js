@@ -8,15 +8,16 @@ export default class Fixed {
 
     this.top = 50;
     this.targetH = this.target.outerHeight() + parseInt(this.target.css('margin-bottom'));
-    console.log(this.targetH);
 
     this.init();
   }
   init() {
     this.topConst = this.target.offset().top + window.scrollbar.scrollTop;
+    
     window.scrollbar.on(() => {
       if (this.inited) this.update();
     });
+
     window.addEventListener("resize", () => {
       if ($(window).width() <= 950) {
         this.inited = false;
