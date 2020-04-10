@@ -13,7 +13,7 @@ block variables
 
 mixin info-box-el(json)
   each data in json
-    .info-box-el
+    .info-box-el.visual-animation-base-block
       h3 #{data.number} <sup>#{data.units}</sup>
       p #{data.text}
 
@@ -31,28 +31,30 @@ mixin main-partners-box-nav-el(json)
 block content
     +header()
     section.main-partners#main-partners.bg-additional
-      .content.main-partners-box
+      canvas.partners-page-dashed(width="737", height="648")
+      .content.main-partners-box.visual-animation-base-block
         .main-partners-box-nav
           +main-partners-box-nav-el(getData('pages/partners/main'))
         h2.main-partners-box-description Продукция завода <span class="text-border-dashed">«Гиагинский»</span> представлена во всех федеральных сетях, а потребители знают и ищут именно наш бренд.
     section.info#info
+      canvas.partners-download-dashed(width="737", height="648")
       .content.info-box
         .info-box-header
-          p За 2019 год мы произвели
+          p.visual-animation-base За 2019 год мы произвели
         +info-box-el(getData('pages/partners/info-partners'))
-        .info-box-details
+        .info-box-details.visual-animation-base-block
           a(href="#details") Скачать презентацию
             span.bottomLines
     section.prevs
         .content.prevs-box
           .prevs-box-info
-            h2 Имеем эксклюзивное право на производство Адыгейского сыра и производим по технологии НМПТ
+            h2.visual-animation-base Имеем эксклюзивное право на производство Адыгейского сыра и производим по технологии НМПТ
             +icon('prevslogo', 'svg').scrollRotate
-          .prevs-box-row
+          .prevs-box-row.visual-animation-base-block
             +prevs-row-el(getData('pages/partners/prevs'))
             .prevs-box-row-el.mouseParalax
               +icon('pack', 'svg')(class="pack")
     +askQuestionForm().bg-additional
-    +about('О нас', './about.html').bg-additional
+    +about('О нас', './about.html').bg-additional.visual-animation-base-block
     +subscriptionForm().bg-additional
     +footer().bg-additional

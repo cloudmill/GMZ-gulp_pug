@@ -32,8 +32,8 @@ block content
   section.page-section.bg-additional
     .content
       .contacts-head
-        h1.page-title Контакты
-      .contacts-rect
+        h1.page-title.visual-animation-base Контакты
+      .contacts-rect.visual-animation-base-block
         .contacts-col.double
           .contacts-rect-img
             +icon('location-color', 'svg')
@@ -53,11 +53,11 @@ block content
           .contacts-rect-text
             span.sub Выходные дни
             span.small Суббота, Воскресенье
-      .contacts-phones
+      .contacts-phones.visual-animation-base-block
         +contacts-phones-list(getData('/pages/contacts/phones'))
 
-      h2.page-title Мы в социальных сетях
-      .contacts-social
+      h2.page-title.visual-animation-base Мы в социальных сетях
+      .contacts-social.visual-animation-base-block
         +contacts-social-list(getData('/pages/contacts/social'))
       .contacts-map.map-container
         #map

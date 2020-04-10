@@ -5,13 +5,16 @@ function findAndAddCaption() {
     const items = document.querySelectorAll('.visual-animation-base');
     items.forEach((item) => {
         item.innerHTML = item.innerHTML.split('<br>').map((line) => {
-            return line.split('').map((char, index, array) => {
-                return '<span>' + (
-                    char.trim() === ""
-                        ? "&nbsp;"
-                        : char
-                ) + '</span>'
-            }).join('');
+            return line.split(' ').map((word) => {
+                return '<span class="visual-animation-word">'+word.split('').map((char)=>{
+                    return '<span>' + (
+                        char.trim() === ""
+                            ? "&nbsp;"
+                            : char
+                    ) + '</span>'
+                }).join('')+'</span>';
+
+            }).join(' ');
         }).join('<br>');
         elements.push(item);
     });
@@ -61,11 +64,11 @@ function onScreen(elements) {
     elements.forEach((item) => {
         if (!item.classList.contains('visual-animation-showing')) {
             const topPosition = item.getClientRects()[0].top;
-            if (topPosition < height && topPosition > 0) {
+            if (topPosition-0.2*height < height && topPosition > 0) {
                 setTimeout(() => {
                     item.classList.add('visual-animation-showing');
                 }, delayNumber * 1000);
-                delayNumber++;
+                // delayNumber++;
                 //item.classList.add('visual-animation-showing');
             } else {
                 // item.classList.remove('visual-animation-showing');
@@ -76,11 +79,11 @@ function onScreen(elements) {
     elementsBlock.forEach((item) => {
         if (!item.classList.contains('visual-animation-showing-block')) {
             const topPosition = item.getClientRects()[0].top;
-            if (topPosition < height && topPosition > 0) {
+            if (topPosition-0.2*height < height && topPosition > 0) {
                 setTimeout(() => {
                     item.classList.add('visual-animation-showing-block');
                 }, delayNumber * 500);
-                delayNumber++;
+                // delayNumber++;
                 //item.classList.add('visual-animation-showing-block');
             } else {
                 // item.classList.remove('visual-animation-showing');

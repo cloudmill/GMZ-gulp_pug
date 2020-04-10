@@ -23,7 +23,7 @@ block variables
           data-name= point.name
           data-id=point.id)
   mixin whereBuy-shops-list(json)
-    .shops-list
+    .shops-list.visual-animation-base-block
       each shop in json
         a.shops-item(href=shop.link)
           img(src=shop.img)
@@ -34,8 +34,8 @@ block content
   section.page-section.bg-additional
     .content
       .whereBuy-head
-        h1.page-title Где купить
-        .whereBuy-search  
+        h1.page-title.visual-animation-base Где купить
+        .whereBuy-search
           +selectField('city','Ваш город',['Москва','Воронеж','Новгород'])
         button.whereBuy-geo#setGeoInMap
           +icon('srt-paper-plane','svg')
@@ -46,7 +46,7 @@ block content
           +whereBuy-map-marks-data(getData('/pages/whereBuy/placeMarks'))
   section.shops-section
     .content
-      h1.page-title Интернет-магазины
+      h1.page-title.visual-animation-base Интернет-магазины
       +whereBuy-shops-list(getData('/pages/whereBuy/shops'))
 
   +subscriptionForm()

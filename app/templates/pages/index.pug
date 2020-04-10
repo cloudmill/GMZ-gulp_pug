@@ -50,20 +50,17 @@ block content
           img.mouseParalax(src="./images/promo-box-top.svg" alt="Персонажи")
           +icon('promo-box-top-text', 'svg')
         .top-right
-          h2 Эксклюзивное право <br>на производство адыгейского сыра
-          p 
-            span.nmtp НМПТ 
-            | гарантирует сохранение <br>
-            span.originrecep оригинальной рецептуры 
-            | и точного следования технологии производства.
-          .tooltip.tooltip--cora(data-type="cora")
-            .tooltip__trigger(role="tooltip", aria-describedby="info-cora")
-                +link('Что такое НМПТ', '#', 'false')
-            .tooltip__base
-                svg.tooltip__shape(width="375", height="275", viewBox="0 0 375 275")
-                    path(opacity="0.97", fill-rule="evenodd", fill="#312930", d="M375 0L0 40.5669L24.7333 266.5H173.92L186 275L198.08 266.5H342.067L375 0Z")
-                .tooltip__content#info-cora 
-                  span НМПТ – это обозначение, представляющее или содержащее наименование географического объекта, ставшее известным в результате его использования в отношении товара, особые свойства которого исключительно (или главным образом) определяются природными условиями и (или) людскими факторами, ­характерными для этого географического объекта.
+          h2.visual-animation-base Эксклюзивное право <br>на производство адыгейского сыра
+          .visual-animation-base-block
+            p НМПТ гарантирует сохранение оригинальной рецептуры и точного следования технологии производства.
+            .tooltip.tooltip--cora(data-type="cora")
+              .tooltip__trigger(role="tooltip", aria-describedby="info-cora")
+                  +link('Что такое НМПТ', '#', 'false')
+              .tooltip__base
+                  svg.tooltip__shape(width="375", height="275", viewBox="0 0 375 275")
+                      path(opacity="0.97", fill-rule="evenodd", fill="#312930", d="M375 0L0 40.5669L24.7333 266.5H173.92L186 275L198.08 266.5H342.067L375 0Z")
+                  .tooltip__content#info-cora
+                    span НМПТ – это обозначение, представляющее или содержащее наименование географического объекта, ставшее известным в результате его использования в отношении товара, особые свойства которого исключительно (или главным образом) определяются природными условиями и (или) людскими факторами, ­характерными для этого географического объекта.
       .promo-box-bottom
         .bottom-img
           +icon('print-main', 'svg').scrollRotate
@@ -76,8 +73,8 @@ block content
             +icon('cloud-1', 'svg').cloud-1.mouseParalax
             +icon('cloud-2', 'svg').cloud-2.mouseParalax
         .bottom-text
-          h2 Наша продукция изготавливается <br>в экологически чистом регионе <br>из отборного коровьего молока
-          .text-desc
+          h2.visual-animation-base Наша продукция изготавливается <br>в экологически чистом регионе <br>из отборного коровьего молока
+          .text-desc.visual-animation-base-block
             p Мы остаемся верны традициям, соблюдая оригинальную рецептуру.
             p Продукция изготавливается вручную лучшими 
               span мастерами-сыроделами.
@@ -85,9 +82,9 @@ block content
   section.news
     .content.news-box
       .news-header
-        h2.page-title Новости
+        h2.page-title.visual-animation-base Новости
         +link('Все новости', './news_list.html', 'true')
-      .news-row
+      .news-row.visual-animation-base-block
         a.news-item(style="--color_rect: #FFF3D6" 
           href="./news_list.html")
           .news-item-image

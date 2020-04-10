@@ -32,24 +32,24 @@ block content
         +main-partners-box-nav-el(getData('pages/partners/main'))
       .main-about-header
         canvas.about-dashed(width="100%", height="100%")
-        h2.main-about-header-description Мы хотим привить миллионам людей вести здоровый образ жизни, донести до каждого чистоту горного воздуха и воды в наших сырах.
-        .image
+        h2.visual-animation-base.main-about-header-description Мы хотим привить миллионам людей вести здоровый образ жизни, донести до каждого чистоту горного воздуха и воды в наших сырах.
+        .image.visual-animation-base-block
           img(src="./images/main-about-bg.png")
           +icon('print-main', 'svg').print.scrollRotate
   section.main-about-info
-    .main-about-info-box
+    .main-about-info-box.visual-animation-base-block
       .about-info-el.gifimage 
         img(src="./images/cheese.gif")
       .about-info-el.smallboldtext Гордимся местом, в котором живём и доносим это через наш продукт.
       .about-info-el.bigboldtext Самое главное для нас - люди.
       .about-info-el.smalltext Ведь наш продукт на 80% сделан руками людей, которые многие века перенимали ремесло домашних сыроделов.
   section.main-about-persons
-    .content
+    .content.visual-animation-base-block
       img(src="./images/about-persons-bg.svg", alt="Персонажи")
   section.main-about-slider
     .content.main-about-slider-box
-      h2 История завода
-      .slider-about-box.swiper-container
+      h2.visual-animation-base История завода
+      .slider-about-box.swiper-container.visual-animation-base-block
         .slider-about-control
           .buttons.main-slider-buttons
             +btn-slider('left').bg-additional#slider-about-left
@@ -69,11 +69,12 @@ block content
   section.main-about-awards
     .content.main-about-awards-box
       .main-about-awards-header
-        h2 Наши награды
-        .buttons.main-slider-buttons
-          +btn-slider('left').bg-additional#slider-awards-left
-          +btn-slider('right').bg-additional#slider-awards-right
-      .main-about-awards-content.swiper-container
+        h2.visual-animation-base Наши награды
+        .visual-animation-base-block
+          .buttons.main-slider-buttons
+            +btn-slider('left').bg-additional#slider-awards-left
+            +btn-slider('right').bg-additional#slider-awards-right
+      .main-about-awards-content.swiper-container.visual-animation-base-block
         .swiper-wrapper
           .slider-awards-el.swiper-slide
             .award-data
@@ -98,6 +99,6 @@ block content
             .description-award
               .title I Международный форум «Салон сыра»
               +link('Сыр Косичка «Гиагинский» копченый', '#', 'true')
-  +about('Партнерам', './partners.html').bg-white.about-invert          
+  +about('Партнерам', './partners.html').bg-white.about-invert.visual-animation-base-block
   +subscriptionForm().bg-white
   +footer().bg-white

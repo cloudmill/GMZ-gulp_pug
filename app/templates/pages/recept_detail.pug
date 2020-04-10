@@ -16,10 +16,10 @@ block content
       .pagination
         a.pagination-back.white(href="./recept_list.html") Рецепты
       .recept-header
-        h2 Баклажаны с сыром «Сулугуни» и помидорами
+        h2.visual-animation-base Баклажаны с сыром «Сулугуни» и помидорами
       .recept-wrapper
         .recept-wrapper-content
-          .slider-recept
+          .slider-recept.visual-animation-base-block
             .main-slider-buttons.slider-buttons
               +btn-slider('left').bg-additional#slider-recept-left
               +btn-slider('right').bg-additional#slider-recept-right
@@ -28,7 +28,7 @@ block content
                 img(src="./images/recept_slider.png", alt="Баклажаны с сыром «Сулугуни» и помидорами")
               .slider-el.swiper-slide
                 img(src="./images/recept_slider.png", alt="Баклажаны с сыром «Сулугуни» и помидорами")
-          .recept-information
+          .recept-information.visual-animation-base-block
             .thumbs.thumbs-recept-slider
               .swiper-wrapper
                 .thumbs-el.swiper-slide
@@ -44,7 +44,7 @@ block content
               .cooking-el
                 +icon('cooking-time', 'svg').cooking-el-icon
                 .title 40 минут
-          .recept-productinfo
+          .recept-productinfo.visual-animation-base-block
             .column-info
               h2 Энергетическая ценность
               .column-info-item
@@ -70,7 +70,7 @@ block content
               .column-info-item
                 .left Сыр «Адыгейский»
                 .right 3-4 ломтика
-          .recept-cooking
+          .recept-cooking.visual-animation-base-block
             h2 Приготовление
             .cooking-row
               .cooking-info
@@ -86,7 +86,7 @@ block content
                 .cooking-info-num 4.
                 .cooking-info-text Наполнить перцы начинкой и убрать в холодильник на 1-2 часа. Перцы порезать кружками, разложить на блюде и украсить зеленью.
                   span Приятного аппетита!
-          .recept-footer
+          .recept-footer.visual-animation-base-block
             .left
               +link('Поделиться', '#', 'true')
               .recept-social-links
@@ -99,7 +99,7 @@ block content
             .right
               a.print-page(href="#" onclick="window.print();") Распечатать
                 +icon('printer', 'svg')
-        .product-wrapper-content.fixed-base
+        .product-wrapper-content.fixed-base.visual-animation-base-block
             a.group-product.fixed-item(href="./product.html")
               span
               .product-image
