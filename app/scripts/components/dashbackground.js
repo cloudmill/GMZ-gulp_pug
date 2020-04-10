@@ -22,6 +22,8 @@ class DashBackground {
                 noReset: false,
                 isStop: false,
                 isRestoreAfterStop: true,
+                additionalHeightPercentage: 0,
+                additionalWidthPercentage: 0,
                 onEnd: () => {
                 }
             }
@@ -67,7 +69,7 @@ class DashBackground {
         this.ctx.moveTo(newX, newY);
         this.ctx.beginPath();
         this.interval = setInterval(() => {
-            if (this._options.isStop){
+            if (this._options.isStop) {
                 this._options.isStop = false;
                 this.ctx.closePath();
                 clearInterval(this.interval);
@@ -112,7 +114,7 @@ class DashBackground {
         });
     }
 
-    getCanvasSize(element){
+    getCanvasSize(element) {
         const parent = element.parentElement;
         const style = getComputedStyle(parent);
         const newWidth = parseInt(style.width, 10) * (
@@ -125,16 +127,24 @@ class DashBackground {
         this._options.canvasWidth = newWidth;
         this._options.canvasHeight = newHeight;
 
-        return ({
-            newHeight,
-            newWidth
-        })
+        return (
+            {
+                newHeight,
+                newWidth
+            }
+        )
     }
 
     recalculateCanvas(element) {
-        const {newWidth, newHeight} = this.getCanvasSize(element);
-        element.setAttribute('width', newWidth);
-        element.setAttribute('height', newHeight);
+        const { newWidth, newHeight } = this.getCanvasSize(element);
+        element.setAttribute('width', newWidth + (
+            100 - this._options.additionalHeightPercentage
+        ) * newWidth / 100);
+        element.setAttribute('height',
+            newHeight + (
+            100 - this._options.additionalHeightPercentage
+            ) * newHeight / 100
+        );
         this._options.newWidth = parseInt(newWidth, 10) * (
             100 - this._options.offsetRightPercentage
         ) / 100;

@@ -16,8 +16,10 @@ import forms from "./components/forms.js";
 import helpers from "./components/helpers.js";
 import BackgroundAnimation from "./components/image-background";
 import DashedBackgroundInit from "./components/dashBackgroundInit";
+import VisualAnimation from  './components/visual-animation';
 
 $(document).ready(function () {
+  VisualAnimation();
   BackgroundAnimation('.catalog-el-text');
   DashedBackgroundInit();
 

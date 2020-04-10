@@ -13,7 +13,7 @@ block content
     +header()
     section.main-product
       .main-product-box
-        .product-item.fixed-base
+        .product-item.fixed-base.visual-animation-base-block
           .fixed-item
             .product-item-img.onLoad
               .image
@@ -26,16 +26,17 @@ block content
                 +icon('rhombus', 'svg').rhombus-1
                 +icon('rhombus', 'svg').rhombus-2
                 +icon('print-product', 'svg').print.scrollRotate
-        .content-section
+        .content-section.visual-animation-base-block
           .pagination
             a.pagination-back Продукция
-          .product-title Сыр Косичка «Гиагинский» копченый
+          .product-title
+            .visual-animation-base Сыр Косичка «Гиагинский» копченый
             +icon('cloud-2', 'svg')
-          .product-composition.left-product-mg
+          .product-composition.left-product-mg.visual-animation-base-block
             .product-composition-title Состав:
             .product-composition-desc Молоко нормализированное пастеризованное, молокосвертывающий ферментный препарат микробного происхождения, закваска термофильных молочнокислых микроорганизмов, соль пищевая
           .product-desc.left-product-mg Это настоящая находка для больших поклонников сыра, которая порадует и оригинальным вкусом, и необычным оформлением. Легкий аромат копчения, приятная слоистая текстура, умеренно упругая корочка соблазнительного золотисто-коричневого цвета и мягкие волокна с нежным сливочным вкусом — копченый сыр «Косичка» сочетает в себе, казалось бы, совершенно несовместимые гастрономические качества.
-          .product-row
+          .product-row.visual-animation-base-block
             .product-row-el
               +icon('beer', 'svg').icon
               .title Идеален как закуска к пиву
@@ -51,7 +52,7 @@ block content
             .product-row-el
               +icon('paste', 'svg').icon
               .title Добавка к пасте
-          .product-slider
+          .product-slider.visual-animation-base-block
             .buttons.main-slider-buttons
               +btn-slider('left').bg-white#slider-main-left
               +btn-slider('right').bg-white#slider-main-right
@@ -68,7 +69,7 @@ block content
                 .product-bullets-thumb.swiper-slide
                   .thumb-wrapper
                     img(src="./images/product-slider-1.jpg")
-          .product-desc-row.left-product-mg
+          .product-desc-row.left-product-mg.visual-animation-base-block
             .product-desc-row-el
               .title формовка:
               .desc Весовой
@@ -84,13 +85,13 @@ block content
             .product-desc-row-el
               .title вес упаковки:
               .desc 5 кг
-          +wherebuy().left-product-mg
-    section.next
+          +wherebuy().left-product-mg.visual-animation-base-block
+    section.next.visual-animation-base-block
       a.next-product(href="./product.html")
         .wrapper
           .text
               .next следующий продукт
-              .title Сыр «Чечил» копченый
+              .title.visual-animation-base Сыр «Чечил» копченый
           .image
               img(src="./images/img-products-3-min.png")
               img(src="./images/img-products-3-min.png")

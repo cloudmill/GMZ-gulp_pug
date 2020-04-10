@@ -9,7 +9,7 @@ block variables
 
 mixin recept-slider(json)
   each data in json
-    a.recepts-box-slider-card.page-card(href=data.link)
+    a.recepts-box-slider-card.page-card.visual-animation-base-block(href=data.link)
       img(src="./images/" + data.image, alt=data.title).fullImg
       .recepts-box-slider-card-text
         p.title #{data.title}
@@ -21,12 +21,12 @@ block content
   section.main-recepts 
     .content.main-recepts-box
       .recepts-header
-        h2 Рецепты
+        h2.visual-animation-base Рецепты
       .recepts-wrapper
         .text-left Рецепты
         .recepts-wrapper-content
           +recept-slider(getData('sliders/recepts'))
-        form.recepts-wrapper-list
+        form.recepts-wrapper-list.visual-animation-base-block
           .list-group
             .list-group-title Категория:
             .list-group-selection

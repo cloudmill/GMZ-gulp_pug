@@ -114,7 +114,6 @@ section {
       width: 1289px;
       height: 352px;
       position: absolute;
-      background: url('../images/main-right-dash.svg');
       background-repeat: no-repeat;
       z-index: -1;
       top: -112%;
@@ -256,7 +255,6 @@ section {
     &::after {
       position: absolute;
       content: "";
-      background: url(../images/bg-dashed-download.svg);
       width: 1098.09px;
       height: 503px;
       display: block;

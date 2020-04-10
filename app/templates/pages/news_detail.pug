@@ -21,38 +21,39 @@ block content
   +header()
   section.page-section.waveSection-bottom(data-color="#F6F5F3")
     .content
-      .pagination
+      .pagination.visual-animation-base-block
         a.pagination-back.white Новости и акции
       .newsDetail-head
-        h1.page-title Завод стал участником благотворительного новогоднего мероприятия «завтрак в манеже»
-        .newsDetail-box.fixed-base
-          .newsDetail-img
-            img(src="images/img-newsDetail-1.jpg")
-            .newsDetail-date 25 января 2020
-          .newsDetail-content 
-            +content-detail(getData('pages/news/detail_texts'))
-          .fixed-item
-            .newsDetail-social-list
-              +news-detail-social-links(getData('pages/news/social_links'))
+        h1.page-title.visual-animation-base Завод стал участником благотворительного новогоднего мероприятия «завтрак в манеже»
+        .visual-animation-base-block
+          .newsDetail-box.fixed-base
+            .newsDetail-img
+              img(src="images/img-newsDetail-1.jpg")
+              .newsDetail-date 25 января 2020
+            .newsDetail-content
+              +content-detail(getData('pages/news/detail_texts'))
+            .fixed-item
+              .newsDetail-social-list
+                +news-detail-social-links(getData('pages/news/social_links'))
   section.news
     .content.news-box
       .news-header
-        h2.page-title Другие новости и акции
+        h2.page-title.visual-animation-base Другие новости и акции
       .news-row
-        a.news-item.small-item(href="./news_detail.html")
+        a.news-item.small-item.visual-animation-base-block(href="./news_detail.html")
           .news-item-image
           .news-content
             .news-type Новость
             .news-time 25.05. 
               span 2019
             .news-text Молочный завод «Янино» стал участником благотворительного новогоднего мероприятия «завтрак в манеже»
-        a.news-item.small-item(href="./news_detail.html")
+        a.news-item.small-item.visual-animation-base-block(href="./news_detail.html")
           .news-content
             .news-type Новость
             .news-time 25.05. 
               span 2019
             .news-text Молочный завод «Янино» стал участником благотворительного новогоднего мероприятия «завтрак в манеже»
-        a.news-item.small-item(href="./news_detail.html")
+        a.news-item.small-item.visual-animation-base-block(href="./news_detail.html")
           .news-content
             .news-type Новость
             .news-time 25.05. 

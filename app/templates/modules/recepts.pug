@@ -12,11 +12,12 @@ mixin recepts
     canvas.recepts-dashed(width="100%", height="100%")
     .content.recepts-box
       .recepts-box-left
-        h2 Рецепты <br>с адыгейским сыром
-        .recepts-box-left-arrows.main-slider-buttons
-          +btn-slider('left').bg-additional#slider-recepts-left
-          +btn-slider('right').bg-additional#slider-recepts-right
-        +link('Все рецепты', './recept_list.html', 'true')
+        h2.visual-animation-base Рецепты <br>с адыгейским сыром
+        .visual-animation-base-block
+          .recepts-box-left-arrows.main-slider-buttons
+            +btn-slider('left').bg-additional#slider-recepts-left
+            +btn-slider('right').bg-additional#slider-recepts-right
+          +link('Все рецепты', './recept_list.html', 'true')
       .recepts-box-right
         .recepts-box-slider
           .swiper-wrapper

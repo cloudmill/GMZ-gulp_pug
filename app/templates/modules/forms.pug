@@ -11,8 +11,8 @@ mixin subscriptionForm
   section.subscription&attributes(attributes)
     .content.subscription-box
       form.subscription-box-form
-        h2 Подпишитесь на нас
-        .main-field
+        h2.visual-animation-base Подпишитесь на нас
+        .main-field.visual-animation-base-block
           input(type="text" id="email-sub" name="email-sub" placeholder="Введите почту")
           .main-field-error Поле заполнено неверно
           label(class="main-field-addon")
@@ -27,37 +27,38 @@ mixin askQuestionForm
   section.contact&attributes(attributes)
     .content.contact-box
       .contact-box-header
-        h2 Задайте вопрос или оставьте заявку на сотрудничество
-      .contact-box-content
-        form.contact-box-form
-          .contact-box-form-el
-            +inputField('text', 'name', 'Ваше имя')
-            +inputField('text', 'phone', 'Ваш телефон', null)
-            +inputField('text', 'email', 'Ваша почта для ответа', false)
-          .contact-box-form-el
-            +textarea('question', '29', '10', 'Ваш вопрос', 'необязательно')
-          .contact-box-form-el
-            .main-checkbox
-              input(type="checkbox" id='agree' name='agree')
-              label(for='agree' class="main-checkbox-name")
-                +icon('checkbox', 'svg').state-default
-                +icon('checkbox-hover', 'svg').state-hover
-                +icon('checkbox-checked', 'svg').state-checked
-                p Согласие на обработку персональных данных в соответствии с 
-                  a(href="./politics.html") политикой конфиденциальности
-          .contact-box-form-el
-            +buttonSubmit('Отправить')
-        .contact-box-success
-          .contact-box-success-text Ваше сообщение успешно отправлено. Ответим вам, как только сможем.
-          +buttonSubmit('Отправить еще')
+        h2.visual-animation-base Задайте вопрос или оставьте заявку на сотрудничество
+      .visual-animation-base-block
+        .contact-box-content
+          form.contact-box-form
+            .contact-box-form-el
+              +inputField('text', 'name', 'Ваше имя')
+              +inputField('text', 'phone', 'Ваш телефон', null)
+              +inputField('text', 'email', 'Ваша почта для ответа', false)
+            .contact-box-form-el
+              +textarea('question', '29', '10', 'Ваш вопрос', 'необязательно')
+            .contact-box-form-el
+              .main-checkbox
+                input(type="checkbox" id='agree' name='agree')
+                label(for='agree' class="main-checkbox-name")
+                  +icon('checkbox', 'svg').state-default
+                  +icon('checkbox-hover', 'svg').state-hover
+                  +icon('checkbox-checked', 'svg').state-checked
+                  p Согласие на обработку персональных данных в соответствии с
+                    a(href="./politics.html") политикой конфиденциальности
+            .contact-box-form-el
+              +buttonSubmit('Отправить')
+          .contact-box-success
+            .contact-box-success-text Ваше сообщение успешно отправлено. Ответим вам, как только сможем.
+            +buttonSubmit('Отправить еще')
 
 mixin contactUsForm
   section.contact&attributes(attributes)
     .content.contact-box
       .contact-box-header
-        h2 Связаться с нами
+        h2.visual-animation-base Связаться с нами
       .contact-box-content
-        form.contact-box-form 
+        form.contact-box-form.visual-animation-base-block
           .contact-box-form-el
             +inputField('text', 'name', 'Ваше имя')
             +inputField('text', 'phone', 'Ваш телефон', null)
