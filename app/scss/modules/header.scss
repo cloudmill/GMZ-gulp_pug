@@ -9,6 +9,10 @@
 
   .header-static > .header-box .header-box-nav-button {
     top: 4px;
+
+    @include screen('xs', 'max') {
+      top: 0px;
+    }
   }
 
   a.header-box-logotype {

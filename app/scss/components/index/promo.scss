@@ -7,6 +7,21 @@
     padding-top: 222px;
     padding-bottom: 367px;
 
+    &::before {
+      position: absolute;
+      content: '';
+      display: block;
+      background: url('../images/promo-box-bottom-dashed.svg');
+      bottom: 15%;
+      left: 0;
+      width: 1749px;
+      height: 163px;
+
+      @include screen('sm', 'max') {
+        display: none;
+      }
+    }
+
     @include screen('sm', 'max') {
       padding-top: 111px;
       padding-bottom: 111px;
@@ -224,7 +239,7 @@
             @include screen('lg', 'max') {
               height: auto;
               width: 100%;
-              margin: 0 auto;
+              margin: 0 auto; 
             }  
           }
 
@@ -353,7 +368,7 @@
             font-size: 20px;
             line-height: 32px;
             font-family: 'CeraPro';
-            margin-bottom: 20px;
+            margin-bottom: 18px;
 
             @include screen('xs', 'max') {
               font-size: 16px;
