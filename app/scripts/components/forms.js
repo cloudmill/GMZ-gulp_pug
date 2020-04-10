@@ -75,12 +75,30 @@ let forms = {
   },
 
   subscriptionForm: function() {
-    var email = $('form.subscription-box-form input[name=email-sub]');
-    $('form.subscription-box-form button').click(function(event){
+    var defBlock = $('form.subscription-box-form');
+    var subBlock = $('.subscription-box-success');
+    var email = defBlock.find('input[name=email-sub]');
+
+    function subBlockDisplay(displayValue) {
+      subBlock.css({
+        'opacity': parseInt(displayValue),
+        'pointer-events': displayValue ? 'all' : 'none'
+      });
+    };
+
+    //Логика работы сообщения об успешном ответе
+    subBlock.find('button.main-link').click(function(event){
+      event.preventDefault();
+      subBlockDisplay(0);
+    });
+
+    defBlock.find('button').click(function(event){
+      event.preventDefault();
       $('.main-field').removeClass('error');
       
-      if(email.val() == '' || email.val() == undefined) {
-        event.preventDefault();
+      if(email.val() != '' && email.val() != undefined) {
+        subBlockDisplay(1);
+      } else {
         $(this).parent().parent().addClass('error');
       }
     });

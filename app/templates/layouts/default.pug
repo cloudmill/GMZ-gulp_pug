@@ -1,6 +1,7 @@
 block variables
 include ../mixins/mixins
 include ../mixins/ui
+include ../modules/forms.pug
 
 doctype html
 html(lang="ru")
@@ -13,6 +14,9 @@ html(lang="ru")
         .container
             block content
             include ../modules/footer
+        .modal
+            .modal-content
+                +askQuestionFormModal()
         #scroll-box-events
         script(src='js/scripts.min.js')
         block scripts

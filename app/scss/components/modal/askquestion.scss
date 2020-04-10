@@ -1,0 +1,25 @@
+.modal.active {
+  .modal-content {
+    position: relative;
+    max-width: 700px;
+    background: #FFFFFF;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 80px;
+    padding-top: 80px;
+    height: 100vh;
+  
+    .contact-box-header {
+      margin-bottom: 60px;
+    }
+  
+    .contact-box-content {
+      .contact-box-form > .contact-box-form-el {
+        width: 100%;
+        .main-field {
+          margin-bottom: 50px;
+        }
+      }
+    }
+  }
+}

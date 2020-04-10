@@ -8,6 +8,7 @@ let helpers = {
     this.animateOnLoadPage();
     this.marqueeRepeatBlock();
     this.spoilerSocilaLinks();
+    this.controlModal();
 
     //Проверка на позицию блока в видимой области
     window.isObservable = this.isObservable;
@@ -98,6 +99,14 @@ let helpers = {
 
     parent.find('.main-link').click(function(){
       parent.find('.recept-social-links').toggleClass('active');
+    });
+  },
+
+  controlModal: function() {
+    var modal = $('.modal-content');
+    $('a#controlModal').click(function(){
+      $('.modal').toggleClass('active');
+      window.scrollbar.stopScroll();
     });
   }
 };

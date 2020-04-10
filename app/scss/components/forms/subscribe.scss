@@ -13,6 +13,35 @@ section {
 .subscription-box {
   position: relative;
 
+  &-success {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+    background: #fff;
+    transition: opacity .4s ease-in-out;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: $color-text-main;
+
+    & > h2 {
+      width: 80%;
+      margin-bottom: 40px;
+      @include UI-Font-PFRegalTextPro-bold;
+      @include screen("sm", "max") {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
   &-marquee {
     position: absolute;
     width: 100vw;

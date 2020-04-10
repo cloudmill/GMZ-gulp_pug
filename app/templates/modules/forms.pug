@@ -1,5 +1,4 @@
 //- 
-
 mixin buttonSubmit(name)
   button.main-link(type="submit") #{name}
     span.bottomLines
@@ -7,7 +6,6 @@ mixin buttonSubmit(name)
 
 
 //- FORMS
-
 //-форма подписки
 mixin subscriptionForm
   section.subscription&attributes(attributes)
@@ -20,6 +18,9 @@ mixin subscriptionForm
           label(class="main-field-addon")
             button
               +icon('arrow', 'svg')
+      .subscription-box-success
+        h2 Вы успешно подписались на рассылку.
+        +buttonSubmit('Подписаться еще')
       .subscription-box-marquee
 
 mixin askQuestionForm
@@ -77,3 +78,23 @@ mixin contactUsForm
         .contact-box-success
           .contact-box-success-text Ваше сообщение успешно отправлено. Ответим вам, как только сможем.
           +buttonSubmit('Отправить еще')
+
+mixin askQuestionFormModal
+  .contact-box-header
+    h2 Задать вопрос
+  .contact-box-content
+    form.contact-box-form 
+      .contact-box-form-el
+        +inputField('text', 'name', 'Ваше имя')
+        +inputField('text', 'phone', 'Ваш телефон', null)
+        +inputField('text', 'email', 'Ваша почта для ответа', false)
+        +textarea('question', '29', '3', 'Ваш вопрос', 'необязательно')
+        .main-checkbox
+          input(type="checkbox" id='agree' name='agree')
+          label(for='agree' class="main-checkbox-name")
+            +icon('checkbox', 'svg').state-default
+            +icon('checkbox-hover', 'svg').state-hover
+            +icon('checkbox-checked', 'svg').state-checked
+            p Согласие на обработку персональных данных в соответствии с 
+              a(href="./politics.html") политикой конфиденциальности
+        +buttonSubmit('Задать вопрос')
