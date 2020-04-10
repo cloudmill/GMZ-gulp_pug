@@ -25,7 +25,6 @@
         width: 737px;
         height: 648px;
         position: absolute;
-        // background: url('../images/promo-box-dashed.svg');
         background-repeat: no-repeat;
         top: -47%;
         right: 62%;
@@ -110,7 +109,7 @@
             }
           }
 
-          & > p {
+          p {
             font-size: 20px;
             line-height: 32px;
             margin-bottom: 30px;
@@ -221,6 +220,7 @@
           right: -10%;
 
           img {
+            width: 100%;
             @include screen('lg', 'max') {
               height: auto;
               width: 100%;
