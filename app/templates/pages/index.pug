@@ -51,7 +51,11 @@ block content
           +icon('promo-box-top-text', 'svg')
         .top-right
           h2 Эксклюзивное право <br>на производство адыгейского сыра
-          p НМПТ гарантирует сохранение оригинальной рецептуры и точного следования технологии производства.
+          p 
+            span.nmtp НМПТ 
+            | гарантирует сохранение <br>
+            span.originrecep оригинальной рецептуры 
+            | и точного следования технологии производства.
           .tooltip.tooltip--cora(data-type="cora")
             .tooltip__trigger(role="tooltip", aria-describedby="info-cora")
                 +link('Что такое НМПТ', '#', 'false')
@@ -64,11 +68,13 @@ block content
         .bottom-img
           +icon('print-main', 'svg').scrollRotate
           .mountains
-            img.mouseParalax(src="./images/mountains.png" alt="ГоРы")
+            img.mouseParalax(src="./images/mountains.png" alt="Горы")
             .mountains-cheese.mouseParalax
               img(src="./images/shadow-products.svg" alt="")
             +icon('rhombus', 'svg').rhombus-1.mouseParalax
             +icon('rhombus', 'svg').rhombus-2.mouseParalax
+            +icon('cloud-1', 'svg').cloud-1.mouseParalax
+            +icon('cloud-2', 'svg').cloud-2.mouseParalax
         .bottom-text
           h2 Наша продукция изготавливается <br>в экологически чистом регионе <br>из отборного коровьего молока
           .text-desc
