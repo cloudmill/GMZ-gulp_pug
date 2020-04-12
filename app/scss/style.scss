@@ -20,6 +20,10 @@
 
 @import 'components/main';
 
+.scrollbar-track-y {
+  display: none !important;
+}
+
 .bg-white {
   background-color: #fff;
 }

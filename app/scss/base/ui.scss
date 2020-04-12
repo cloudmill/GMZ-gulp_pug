@@ -64,7 +64,7 @@
   width: auto;
   height: 100%;
   &.auto-height {
-    width: 100%;
+    width: calc(100% + 10px);
     height: auto;
   }
 }

@@ -5,8 +5,15 @@
   background: #fff;
   position: fixed;
   height: 90px;
-
   transition: top 0.4s ease-in-out, background 0.4s ease-in-out;
+
+  .header-static > .header-box .header-box-nav-button {
+    top: 4px;
+
+    @include screen('xs', 'max') {
+      top: 0px;
+    }
+  }
 
   a.header-box-logotype {
     .svg-icon.svg-logotype {
@@ -15,7 +22,7 @@
     }
 
     i.svg-icon.svg-logotype-short {
-      top: -20px;
+      top: -15px;
       opacity: 1;
       z-index: 1;
     }
@@ -31,7 +38,7 @@
     }
 
     i.svg-icon.svg-logotype-short {
-      top: -20px;
+      top: -15px;
       opacity: 1;
     }
   }

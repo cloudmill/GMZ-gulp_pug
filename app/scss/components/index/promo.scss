@@ -7,6 +7,21 @@
     padding-top: 222px;
     padding-bottom: 367px;
 
+    &::before {
+      position: absolute;
+      content: '';
+      display: block;
+      background: url('../images/promo-box-bottom-dashed.svg');
+      bottom: 15%;
+      left: 0;
+      width: 1749px;
+      height: 163px;
+
+      @include screen('sm', 'max') {
+        display: none;
+      }
+    }
+
     @include screen('sm', 'max') {
       padding-top: 111px;
       padding-bottom: 111px;
@@ -25,7 +40,6 @@
         width: 737px;
         height: 648px;
         position: absolute;
-        // background: url('../images/promo-box-dashed.svg');
         background-repeat: no-repeat;
         top: -47%;
         right: 62%;
@@ -80,6 +94,7 @@
           z-index: 2;
           font-family: 'CeraPro';
           width: 40%;
+          margin-bottom: 52px;
 
           @include screen('md', 'max') {
             width: 50%;
@@ -88,6 +103,7 @@
           @include screen('sm', 'max') {
             width: 100%;
             padding-top: 50px;
+            margin-bottom: 0px;
           }
 
           & > h2 {
@@ -108,19 +124,35 @@
             }
           }
 
-          & > p {
+          p {
             font-size: 20px;
             line-height: 32px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            width: 90%;
+
+            span.nmtp {
+              background-size: 100%;
+              background: url('../images/nmtp-span-background.svg') no-repeat bottom;
+            }
+
+            span.originrecep {
+              background: url('../images/originrecept-span-background.svg') no-repeat bottom;
+              background-size: 100%;
+            }
 
             @include screen('xs', 'max') {
               font-size: 16px;
             }
           }
 
-          & > a {
+          .main-link {
             font-size: 17px;
             position: relative;
+            
+            & .bottomLines::before {
+              left: 56%;
+              top: -5px;
+            }
 
             &::after {
               content: "";
@@ -203,10 +235,11 @@
           right: -10%;
 
           img {
+            width: 100%;
             @include screen('lg', 'max') {
               height: auto;
               width: 100%;
-              margin: 0 auto;
+              margin: 0 auto; 
             }  
           }
 
@@ -276,6 +309,19 @@
             }
             
           }
+
+          & > i.svg-icon.svg-cloud-1.cloud-1 {
+            position: absolute;
+            right: 0%;
+            top: 30%;
+          }
+
+          & > i.svg-icon.svg-cloud-2.cloud-2 {
+            position: absolute;
+            left: 42%;
+            top: 30%;
+            font-size: 5px;
+          }
         }
       }
       
@@ -312,7 +358,7 @@
         .text-desc {
           display: flex;
           flex-direction: column;
-          width: 50%;
+          width: 47%;
 
           @include screen('lg', 'max') {
             width: 100%;
@@ -322,11 +368,16 @@
             font-size: 20px;
             line-height: 32px;
             font-family: 'CeraPro';
-            margin-bottom: 20px;
+            margin-bottom: 18px;
 
             @include screen('xs', 'max') {
               font-size: 16px;
               line-height: 24px;
+            }
+
+            span {
+              background: url('../images/originrecept-span-background.svg') no-repeat bottom;
+              background-size: 100%;
             }
 
             &:last-child {
