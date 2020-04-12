@@ -1,139 +1,164 @@
-const elements = [];
-const elementsBlock = [];
-
-function detectMob() {
-    const toMatch = [
-        /Android/i,
-        /webOS/i,
-        /iPhone/i,
-        /iPad/i,
-        /iPod/i,
-        /BlackBerry/i,
-        /Windows Phone/i
-    ];
-
-    return toMatch.some((toMatchItem) => {
-        return navigator.userAgent.match(toMatchItem);
-    });
-}
-
-function findAndAddCaption() {
-    const items = document.querySelectorAll('.visual-animation-base');
-    items.forEach((item) => {
-        item.innerHTML = item.innerHTML.split('<br>').map((line) => {
-            return line.split(' ').map((word) => {
-                return '<span class="visual-animation-word">' + word.split('').map((char) => {
-                    return '<span>' + (
-                        char.trim() === ""
-                            ? "&nbsp;"
-                            : char
-                    ) + '</span>'
-                }).join('') + '</span>';
-
-            }).join(' ');
-        }).join('<br>');
-        elements.push(item);
-    });
-}
-
-function findAndAddBlock() {
-    const items = document.querySelectorAll('.visual-animation-base-block');
-    items.forEach((item) => {
-        elementsBlock.push(item);
-    });
-}
-
-function onWheel(callback) {
-    return (e) => {
-        e = e || window.event;
-
-        const delta = e.deltaY || e.detail || e.wheelDelta;
-        callback(delta);
-        // e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-    };
-}
-
-function applyEventListeners(elem, callback) {
-    if (elem.addEventListener) {
-        if ('onwheel' in document) {
-            // IE9+, FF17+, Ch31+
-            elem.addEventListener("wheel", onWheel(callback));
-        } else if ('onmousewheel' in document) {
-            // устаревший вариант события
-            elem.addEventListener("mousewheel", onWheel(callback));
-        } else {
-            // Firefox < 17
-            elem.addEventListener("MozMousePixelScroll", onWheel(callback));
-        }
-    } else { // IE8-
-        elem.attachEvent("onmousewheel", onWheel(callback));
+class VisualAnimation {
+    constructor(additionalToClass) {
+        this.additionalToClass = additionalToClass || '';
+        this.elements = [];
+        this.elementsBlock = [];
     }
-}
 
-function showAll() {
-    elements.forEach((item) => {
-        if (!item.classList.contains('visual-animation-showing')) {
-            item.classList.add('visual-animation-showing');
-        }
-    });
-    elementsBlock.forEach((item) => {
-        if (!item.classList.contains('visual-animation-showing-block')) {
-            item.classList.add('visual-animation-showing-block');
-        }
-    });
-}
+    findAndAddBlock() {
+        const items = document.querySelectorAll('.visual-animation-base-block' + this.additionalToClass);
+        items.forEach((item) => {
+            this.elementsBlock.push(item);
+        });
+    }
 
-function onScreen(elements) {
-    const height = window.innerHeight
-        || document.documentElement.clientHeight
-        || document.body.clientHeight;
+    findAndAddCaption() {
+        const items = document.querySelectorAll('.visual-animation-base' + this.additionalToClass);
+        items.forEach((item) => {
+            item.innerHTML = item.innerHTML.split('<br>').map((line) => {
+                return line.split(' ').map((word) => {
+                    return '<span class="visual-animation-word' + this.additionalToClass + '">'
+                        + word.split('').map((char) => {
+                            return '<span>' + (
+                                char.trim() === ""
+                                    ? "&nbsp;"
+                                    : char
+                            ) + '</span>'
+                        }).join('') + '</span>';
 
-    let delayNumber = 0;
+                }).join(' ');
+            }).join('<br>');
+            this.elements.push(item);
+        });
+    }
 
-    elements.forEach((item) => {
-        if (!item.classList.contains('visual-animation-showing')) {
-            const topPosition = item.getClientRects()[0].top;
-            if (topPosition - 0.2 * height < height && topPosition > 0) {
-                setTimeout(() => {
-                    item.classList.add('visual-animation-showing');
-                }, delayNumber * 1000);
-                // delayNumber++;
-                //item.classList.add('visual-animation-showing');
+    onWheel(callback) {
+        return (e) => {
+            e = e || window.event;
+
+            const delta = e.deltaY || e.detail || e.wheelDelta;
+            callback(delta);
+            // e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+        };
+    }
+
+    applyEventListeners(elem, callback) {
+        if (elem.addEventListener) {
+            if ('onwheel' in document) {
+                // IE9+, FF17+, Ch31+
+                elem.addEventListener("wheel", this.onWheel(callback));
+            } else if ('onmousewheel' in document) {
+                // устаревший вариант события
+                elem.addEventListener("mousewheel", othis.nWheel(callback));
             } else {
-                // item.classList.remove('visual-animation-showing');
+                // Firefox < 17
+                elem.addEventListener("MozMousePixelScroll", this.onWheel(callback));
             }
+        } else { // IE8-
+            elem.attachEvent("onmousewheel", this.onWheel(callback));
         }
-    });
-    delayNumber = 1;
-    elementsBlock.forEach((item) => {
-        if (!item.classList.contains('visual-animation-showing-block')) {
-            const topPosition = item.getClientRects()[0].top;
-            if (topPosition - 0.2 * height < height && topPosition > 0) {
-                setTimeout(() => {
-                    item.classList.add('visual-animation-showing-block');
-                }, delayNumber * 500);
-                // delayNumber++;
-                //item.classList.add('visual-animation-showing-block');
-            } else {
-                // item.classList.remove('visual-animation-showing');
-            }
-        }
-    });
-}
+    }
 
-function changeClassOnShow() {
-    onScreen(elements);
+    detectMob() {
+        const toMatch = [
+            /Android/i,
+            /webOS/i,
+            /iPhone/i,
+            /iPad/i,
+            /iPod/i,
+            /BlackBerry/i,
+            /Windows Phone/i
+        ];
+
+        return toMatch.some((toMatchItem) => {
+            return navigator.userAgent.match(toMatchItem);
+        });
+    }
+
+    showAll() {
+        this.elements.forEach((item) => {
+            if (!item.classList.contains('visual-animation-showing' + this.additionalToClass)) {
+                item.classList.add('visual-animation-showing' + this.additionalToClass);
+            }
+        });
+        this.elementsBlock.forEach((item) => {
+            if (!item.classList.contains('visual-animation-showing-block' + this.additionalToClass)) {
+                item.classList.add('visual-animation-showing-block' + this.additionalToClass);
+            }
+        });
+    }
+
+    onScreen(elements) {
+        const height = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+
+        let delayNumber = 0;
+
+        this.elements.forEach((item) => {
+            if (!item.classList.contains('visual-animation-showing' + this.additionalToClass)) {
+                const topPosition = item.getClientRects()[0].top;
+                if (topPosition - 0.2 * height < height && topPosition > 0) {
+                    setTimeout(() => {
+                        item.classList.add('visual-animation-showing' + this.additionalToClass);
+                    }, delayNumber * 1000);
+                    // delayNumber++;
+                    //item.classList.add('visual-animation-showing');
+                } else {
+                    // item.classList.remove('visual-animation-showing');
+                }
+            }
+        });
+        delayNumber = 1;
+        this.elementsBlock.forEach((item) => {
+            if (!item.classList.contains('visual-animation-showing-block' + this.additionalToClass)) {
+                const topPosition = item.getClientRects()[0].top;
+                if (topPosition - 0.2 * height < height && topPosition > 0) {
+                    setTimeout(() => {
+                        item.classList.add('visual-animation-showing-block' + this.additionalToClass);
+                    }, delayNumber * 500);
+                    // delayNumber++;
+                    //item.classList.add('visual-animation-showing-block');
+                } else {
+                    // item.classList.remove('visual-animation-showing');
+                }
+            }
+        });
+    }
+
+    changeClassOnShow() {
+        this.onScreen(this.elements);
+    }
 }
 
 function init() {
-    findAndAddCaption();
-    findAndAddBlock();
-    applyEventListeners(document.body, changeClassOnShow);
-    changeClassOnShow();
+    const block = new VisualAnimation();
+    block.findAndAddCaption();
+    block.findAndAddBlock();
+    block.applyEventListeners(document.body, block.changeClassOnShow.bind(block));
+    block.changeClassOnShow();
 
-    if (detectMob()){
-        showAll();
+    if (block.detectMob()) {
+        block.showAll();
     }
 }
 
+function initSpecial() {
+    const block = new VisualAnimation('-s');
+    block.findAndAddCaption();
+    block.findAndAddBlock();
+    block.applyEventListeners(document.body, block.changeClassOnShow.bind(block));
+    block.changeClassOnShow();
+
+    return (
+        {
+            show: () => {
+                block.showAll();
+            }
+        }
+    )
+}
+
 export default init;
+
+export { initSpecial };

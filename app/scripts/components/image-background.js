@@ -23,14 +23,22 @@ function showImageOnMove(el, x, y) {
     const { imageContainer, link } = getImageContainer(el);
 
     if (!imageContainer.classList.contains('image-background-showed')) {
-        imageContainer.childNodes[0].classList.add('animationImageBefore');
+        imageContainer.childNodes.forEach((element) => {
+            if (element.classList) {
+                element.classList.add('animationImageBefore');
+            }
+        });
         imageContainer.style.display = 'block';
         imageContainer.classList.add('image-background-showed');
         link.classList.add('image-background-index');
         imageContainer.classList.remove('image-background-hidden');
         el.parentElement.classList.add('image-background-parent-index');
         setTimeout(() => {
-            imageContainer.childNodes[0].classList.add('animationImage');
+            imageContainer.childNodes.forEach((element) => {
+                if (element.classList) {
+                    element.classList.add('animationImage');
+                }
+            });
         }, 100);
     }
 
@@ -63,8 +71,14 @@ function getImageContainer(el) {
 
     for (let i = 0; i < parentBlock.childNodes.length; i++) {
         const item = parentBlock.childNodes[i];
-        if (item.childNodes.length && item.childNodes[0].tagName && item.childNodes[0].tagName.toUpperCase()
-            === "IMG") {
+        let imgFound = false;
+        for (let j = 0; j < item.childNodes.length; j++) {
+            if (item.childNodes.length && item.childNodes[j].tagName && item.childNodes[j].tagName.toUpperCase()
+                === "IMG") {
+                imgFound = true;
+            }
+        }
+        if (imgFound) {
             result.imageContainer = item;
         } else {
             result.link = item;
@@ -78,10 +92,20 @@ function hideImage(el) {
     const { imageContainer, link } = getImageContainer(el);
 
     if (imageContainer.classList.contains('image-background-showed')) {
-        imageContainer.childNodes[0].classList.remove('animationImageBefore');
-        imageContainer.childNodes[0].classList.remove('animationImage');
+
+        imageContainer.childNodes.forEach((element) => {
+            if (element.classList) {
+                element.classList.remove('animationImageBefore');
+                element.classList.remove('animationImage');
+            }
+        });
         imageContainer.classList.remove('image-background-showed');
-        imageContainer.childNodes[0].classList.remove('animationImage');
+
+        imageContainer.childNodes.forEach((element) => {
+            if (element.classList) {
+                element.classList.remove('animationImage');
+            }
+        });
         imageContainer.classList.add('image-background-hidden');
         setTimeout(() => {
             imageContainer.style.display = 'none';
@@ -99,8 +123,9 @@ function addEventListeners(selectors) {
         const items = document.querySelectorAll(path);
         items.forEach((element) => {
             element.addEventListener('mousemove', (e) => {
-                const scrolledTop = Math.abs(parseInt(document.querySelector('.scroll-content').style.transform.split(',')[1]));
-                showImageOnMove(element, e.clientX, e.clientY+scrolledTop);
+                const scrolledTop = Math.abs(parseInt(document.querySelector('.scroll-content').style.transform.split(
+                    ',')[1])) || 0;
+                showImageOnMove(element, e.clientX, e.clientY + scrolledTop);
             });
             element.addEventListener('mouseout', () => {
                 hideImage(element);

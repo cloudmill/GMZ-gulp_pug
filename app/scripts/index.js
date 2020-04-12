@@ -20,7 +20,6 @@ import VisualAnimation from  './components/visual-animation';
 import Loading from './components/loader';
 
 $(document).ready(function () {
-
   /* ScrollBar */
   window.scrollbar = new customScrollbar();
 

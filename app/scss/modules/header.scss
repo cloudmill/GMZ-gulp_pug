@@ -5,7 +5,7 @@
   background: #fff;
   position: fixed;
   height: 90px;
-  transition: top 0.4s ease-in-out, background 0.4s ease-in-out;
+  transition: top 0.4s ease-in-out;//, background 0.4s ease-in-out;
 
   .header-static > .header-box .header-box-nav-button {
     top: 4px;
@@ -30,7 +30,7 @@
 }
 
 .header.hide{
-  transition: top 0.4s ease-in-out, background 0.4s ease-in-out;
+  transition: top 0.4s ease-in-out;//, background 0.4s ease-in-out;
   background: #fff;
   a.header-box-logotype {
     .svg-icon.svg-logotype {
@@ -155,18 +155,18 @@
   &-static.active {
     position: fixed;
     height: calc(100vh + 10px);
-    background-color: #F9EFE1;
+    // background-color: #F9EFE1;
     width: calc(100%);
     margin-left: -20px;
     margin-top: -60px;
     padding-top: 30px;
     padding-left: 20px;
     padding-right: 20px;
-    background-image: url('../images/header-static-bg.svg');
+    // background-image: url('../images/header-static-bg.svg');
     background-position: bottom;
     background-repeat: no-repeat;
     border-top: 30px solid #fff;
-    transition: background-color 0.3s ease;
+    // transition: background-color 0.3s ease;
 
     @include screen('xs', 'max') {
       border-top: unset;
@@ -209,9 +209,9 @@
     } 
 
     .header-box-nav {
-      transition: transform 0.3s;
-      transform: translateY(127px);
-      top: 0px;
+      // transition: transform 0.3s;
+      //transform: translateY(127px);
+      top: 127px;
       margin-left: -20px;
 
       @include screen('custom-660', 'max') {
@@ -356,7 +356,7 @@
       width: 100%;
       position: absolute;
       top: 50%;
-      transition: transform .3s;
+      // transition: transform .3s;
       transform: translateY(-50%);
 
       @include screen('custom-660', 'max') {
@@ -437,7 +437,7 @@
 */
 .header.sticky {
   @include screen('xs', 'max') {
-    transform: translateY(0);
+    //transform: translateY(0);
     height: auto;
   }
 }
