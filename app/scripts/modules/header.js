@@ -33,8 +33,8 @@ class Burger {
         this.overlayElement = overlayElement;
         this.overlay = new ShapeOverlays(this.overlayElement, () => {
             // this.overlayElement.classList.add('hide');
-            setTimeout(()=>{
-              // this.overlayElement.style.display = 'none';
+            setTimeout(() => {
+                // this.overlayElement.style.display = 'none';
             }, 500);
         });
 
@@ -53,37 +53,31 @@ class Burger {
 
     toggleOverlay() {
         // this.overlayElement.style.display = 'block';
-         this.overlayElement.classList.remove('hide');
+        this.overlayElement.classList.remove('hide');
         if (this.overlay.isAnimating) {
             return false;
         }
         this.overlay.toggle();
         if (this.overlay.isOpened === true) {
             this.button[0].classList.add('is-opened-navi');
-            /*for (var i = 0; i < gNavItems.length; i++) {
-                gNavItems[i].classList.add('is-opened');
-            }*/
         } else {
             this.button[0].classList.remove('is-opened-navi');
-            /*for (var i = 0; i < gNavItems.length; i++) {
-                gNavItems[i].classList.remove('is-opened');
-            }*/
         }
-      setTimeout(()=>{
-        if (this.overlay.isOpened) {
-          document.querySelector('.header-static').classList.add('visual-animation-base-block-s');
-          this._show();
-          const b = initSpecial();
-          setTimeout(()=>{
-            b.show()
-          },700);
-        }
-      }, 200);
-      setTimeout(()=>{
-        if (!this.overlay.isOpened) {
-          this.overlayElement.classList.add('hide');
-        }
-      }, 1600);
+        setTimeout(() => {
+            if (this.overlay.isOpened) {
+                document.querySelector('.header-static').classList.add('visual-animation-base-block-s');
+                this._show();
+                const b = initSpecial();
+                setTimeout(() => {
+                    b.show()
+                }, 700);
+            }
+        }, 200);
+        setTimeout(() => {
+            if (!this.overlay.isOpened) {
+                this.overlayElement.classList.add('hide');
+            }
+        }, 1600);
     }
 
     show() {
@@ -96,7 +90,6 @@ class Burger {
         this.element.parent().css("top", 50 + "px");
         this.element.parent().removeClass("sticky");
         this.element.parent().removeClass("hide");
-        // this.element.parent().hide();
     }
 
     hide() {

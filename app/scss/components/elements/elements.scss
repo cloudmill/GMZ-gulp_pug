@@ -119,21 +119,26 @@
   top: 0;
   transition: opacity 500ms ease 0s;
   z-index: 4;
-  > i{
+
+  > i {
     position: absolute;
-    &:nth-child(1){
+
+    &:nth-child(1) {
       top: 70%;
       right: 0%;
       z-index: 5;
-      &:before{
+
+      &:before {
         transform: scale(0.8);
       }
     }
-    &:nth-child(2){
+
+    &:nth-child(2) {
       left: -20%;
       top: 15%;
       z-index: 5;
-      &:before{
+
+      &:before {
         transform: scale(0.5);
       }
     }
