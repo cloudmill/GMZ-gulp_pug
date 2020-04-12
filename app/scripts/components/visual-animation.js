@@ -1,18 +1,34 @@
 const elements = [];
 const elementsBlock = [];
 
+function detectMob() {
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+
+    return toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
+}
+
 function findAndAddCaption() {
     const items = document.querySelectorAll('.visual-animation-base');
     items.forEach((item) => {
         item.innerHTML = item.innerHTML.split('<br>').map((line) => {
             return line.split(' ').map((word) => {
-                return '<span class="visual-animation-word">'+word.split('').map((char)=>{
+                return '<span class="visual-animation-word">' + word.split('').map((char) => {
                     return '<span>' + (
                         char.trim() === ""
                             ? "&nbsp;"
                             : char
                     ) + '</span>'
-                }).join('')+'</span>';
+                }).join('') + '</span>';
 
             }).join(' ');
         }).join('<br>');
@@ -54,6 +70,19 @@ function applyEventListeners(elem, callback) {
     }
 }
 
+function showAll() {
+    elements.forEach((item) => {
+        if (!item.classList.contains('visual-animation-showing')) {
+            item.classList.add('visual-animation-showing');
+        }
+    });
+    elementsBlock.forEach((item) => {
+        if (!item.classList.contains('visual-animation-showing-block')) {
+            item.classList.add('visual-animation-showing-block');
+        }
+    });
+}
+
 function onScreen(elements) {
     const height = window.innerHeight
         || document.documentElement.clientHeight
@@ -64,7 +93,7 @@ function onScreen(elements) {
     elements.forEach((item) => {
         if (!item.classList.contains('visual-animation-showing')) {
             const topPosition = item.getClientRects()[0].top;
-            if (topPosition-0.2*height < height && topPosition > 0) {
+            if (topPosition - 0.2 * height < height && topPosition > 0) {
                 setTimeout(() => {
                     item.classList.add('visual-animation-showing');
                 }, delayNumber * 1000);
@@ -79,7 +108,7 @@ function onScreen(elements) {
     elementsBlock.forEach((item) => {
         if (!item.classList.contains('visual-animation-showing-block')) {
             const topPosition = item.getClientRects()[0].top;
-            if (topPosition-0.2*height < height && topPosition > 0) {
+            if (topPosition - 0.2 * height < height && topPosition > 0) {
                 setTimeout(() => {
                     item.classList.add('visual-animation-showing-block');
                 }, delayNumber * 500);
@@ -101,6 +130,10 @@ function init() {
     findAndAddBlock();
     applyEventListeners(document.body, changeClassOnShow);
     changeClassOnShow();
+
+    if (detectMob()){
+        showAll();
+    }
 }
 
 export default init;

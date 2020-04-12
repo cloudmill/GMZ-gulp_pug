@@ -17,11 +17,9 @@ import helpers from "./components/helpers.js";
 import BackgroundAnimation from "./components/image-background";
 import DashedBackgroundInit from "./components/dashBackgroundInit";
 import VisualAnimation from  './components/visual-animation';
+import Loading from './components/loader';
 
 $(document).ready(function () {
-  VisualAnimation();
-  BackgroundAnimation('.catalog-el-text');
-  DashedBackgroundInit();
 
   /* ScrollBar */
   window.scrollbar = new customScrollbar();
@@ -45,4 +43,20 @@ $(document).ready(function () {
   /* Тултипы */
   var tooltips = Array.from(document.querySelectorAll('.tooltip'));
   var init = (() => tooltips.forEach(t => new Tooltip(t)))();
+
+  window.scrollbar.stopScroll();
+  Loading({
+    beforeStart: ()=>{
+      document.querySelector('.scrollbar-track-y').classList.add('hide-display-for-loader');
+    },
+    beforeEnd: ()=>{
+      window.scrollbar.startScroll();
+      document.querySelector('.scrollbar-track-y').classList.remove('hide-display-for-loader');
+    },
+    onEnd: ()=>{
+      VisualAnimation();
+      BackgroundAnimation('.catalog-el-text');
+      DashedBackgroundInit();
+    }
+  });
 });

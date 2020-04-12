@@ -106,7 +106,7 @@
         opacity: 0;
         position: absolute;
 
-        @include screen('lg', 'max') {
+        /*@include screen('lg', 'max') {
           opacity: 1;
           position: relative;
         }
@@ -116,7 +116,7 @@
             width: 100%;
             height: auto;
           }
-        }
+        }*/
       }
 
       &:hover {
