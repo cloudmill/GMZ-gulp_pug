@@ -119,30 +119,6 @@
   top: 0;
   transition: opacity 500ms ease 0s;
   z-index: 4;
-
-  > i {
-    position: absolute;
-
-    &:nth-child(1) {
-      top: 70%;
-      right: 0%;
-      z-index: 5;
-
-      &:before {
-        transform: scale(0.8);
-      }
-    }
-
-    &:nth-child(2) {
-      left: -20%;
-      top: 15%;
-      z-index: 5;
-
-      &:before {
-        transform: scale(0.5);
-      }
-    }
-  }
 }
 
 .image-background-hidden {
@@ -193,7 +169,8 @@
 }
 
 .main-catalog-dashed {
-  top: 70%;
+  top: 50%!important;
+  z-index: 10!important;
   // z-index: 1;
 }
 
