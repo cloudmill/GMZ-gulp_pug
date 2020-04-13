@@ -53,6 +53,9 @@ class Burger {
 
     toggleOverlay() {
         // this.overlayElement.style.display = 'block';
+        const scrolledTop = Math.abs(parseInt(document.querySelector('.scroll-content').style.transform.split(
+            ',')[1])) || 0;
+        this.overlayElement.style.top = scrolledTop+'px';
         this.overlayElement.classList.remove('hide');
         if (this.overlay.isAnimating) {
             return false;
@@ -93,6 +96,9 @@ class Burger {
     }
 
     hide() {
+        if (this.overlay.isAnimating){
+            return;
+        }
         this.toggleOverlay();
 
         window.scrollbar.startScroll();

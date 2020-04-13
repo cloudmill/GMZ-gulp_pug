@@ -77,11 +77,18 @@ class VisualAnimation {
 
     showAll() {
         this.elements.forEach((item) => {
+            if (!item.classList.contains('visual-animation-base' + this.additionalToClass)) {
+                item.classList.add('visual-animation-base' + this.additionalToClass);
+            }
             if (!item.classList.contains('visual-animation-showing' + this.additionalToClass)) {
                 item.classList.add('visual-animation-showing' + this.additionalToClass);
             }
         });
         this.elementsBlock.forEach((item) => {
+            if (!item.classList.contains('visual-animation-base-block' + this.additionalToClass)) {
+                item.classList.add('visual-animation-base-block' + this.additionalToClass);
+            }
+            item.classList.add('visual-animation-base-block' + this.additionalToClass);
             if (!item.classList.contains('visual-animation-showing-block' + this.additionalToClass)) {
                 item.classList.add('visual-animation-showing-block' + this.additionalToClass);
             }
@@ -131,12 +138,22 @@ class VisualAnimation {
     }
 
     removeClasses(){
-        this.elements.forEach((item) => {
+        const baseElements = document.querySelectorAll('.visual-animation-base' + this.additionalToClass);
+        baseElements.forEach((item) => {
             item.classList.remove('visual-animation-base' + this.additionalToClass);
             item.classList.remove('visual-animation-showing' + this.additionalToClass);
         });
-        this.elementsBlock.forEach((item) => {
+        const baseElementsShowing = document.querySelectorAll('.visual-animation-showing' + this.additionalToClass);
+        baseElementsShowing.forEach((item) => {
+            item.classList.remove('visual-animation-showing' + this.additionalToClass);
+        });
+        const blockElements = document.querySelectorAll('.visual-animation-base-block' + this.additionalToClass);
+        blockElements.forEach((item) => {
             item.classList.remove('visual-animation-base-block' + this.additionalToClass);
+            item.classList.remove('visual-animation-showing-block' + this.additionalToClass);
+        });
+        const blockElementsShowing = document.querySelectorAll('.visual-animation-showing-block' + this.additionalToClass);
+        blockElementsShowing.forEach((item) => {
             item.classList.remove('visual-animation-showing-block' + this.additionalToClass);
         });
     }
@@ -158,13 +175,15 @@ function initSpecial() {
     const block = new VisualAnimation('-s');
     block.findAndAddCaption();
     block.findAndAddBlock();
-    block.applyEventListeners(document.body, block.changeClassOnShow.bind(block));
     block.changeClassOnShow();
 
     return (
         {
             show: () => {
                 block.showAll();
+                setTimeout(()=>{
+                    block.removeClasses();
+                },2000);
             }
         }
     )
@@ -173,7 +192,6 @@ function initMain() {
     const block = new VisualAnimation('-m');
     block.findAndAddCaption();
     block.findAndAddBlock();
-    block.applyEventListeners(document.body, block.changeClassOnShow.bind(block));
     block.changeClassOnShow();
 
     return (
