@@ -26,6 +26,16 @@
     border-radius: 50%;
     border: 1px solid #ee7754;
     transform: translateY(3px);
+    transition: all 0.3s;
+
+    &:hover {
+      background: #ee7754;
+      transform: scale(1.1);
+
+      i {
+        filter: brightness(0) invert(1);
+      }
+    }
   }
   &-map {
     position: relative;

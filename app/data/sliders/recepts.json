@@ -1,14 +1,14 @@
 [
     {
-        "title": "Пирог с адыгейским сыром и брынзой",
+        "title": "Сырная тарелка с ароматной зеленью и фисташками",
         "time": "55 минут",
         "image": "recepts-slider-el-1.jpg",
         "link": "#"
     },
 
     {
-        "title": "Сыр «Адыгейский» жаренный на сливочном масле («кояж»)",
-        "time": "25 минут",
+        "title": "Вареники с сыром «Адыгейский»",
+        "time": "55 минут",
         "image": "recepts-slider-el-2.jpg",
         "link": "#"
     },
@@ -16,28 +16,28 @@
     {
         "title": "Пирог с адыгейским сыром и брынзой",
         "time": "55 минут",
-        "image": "recepts-slider-el-1.jpg",
+        "image": "recepts-slider-el-3.jpg",
         "link": "#"
     },
 
     {
         "title": "Сыр «Адыгейский» жаренный на сливочном масле («кояж»)",
         "time": "25 минут",
-        "image": "recepts-slider-el-2.jpg",
+        "image": "recepts-slider-el-4.jpg",
         "link": "#"
     },
 
     {
-        "title": "Пирог с адыгейским сыром и брынзой",
+        "title": "Тарелка с копчеными сырами «Футбольное удовольствие»",
+        "time": "25 минут",
+        "image": "recepts-slider-el-5.jpg",
+        "link": "#"
+    },
+
+    {
+        "title": "Мясо по-французски под сыром «Сулугуни»",
         "time": "55 минут",
-        "image": "recepts-slider-el-1.jpg",
-        "link": "#"
-    },
-
-    {
-        "title": "Сыр «Адыгейский» жаренный на сливочном масле («кояж»)",
-        "time": "25 минут",
-        "image": "recepts-slider-el-2.jpg",
+        "image": "recepts-slider-el-6.jpg",
         "link": "#"
     }
 ]
