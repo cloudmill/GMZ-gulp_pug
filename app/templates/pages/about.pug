@@ -41,12 +41,14 @@ block content
           img(src="./images/main-about-bg.png")
           +icon('print-main', 'svg').print.scrollRotate
   section.main-about-info
-    .main-about-info-box.visual-animation-base-block
-      .about-info-el.gifimage 
-        img(src="./images/cheese.gif")
-      .about-info-el.smallboldtext Гордимся местом, в котором живём и доносим это через наш продукт.
-      .about-info-el.bigboldtext Самое главное для нас - люди.
-      .about-info-el.smalltext Ведь наш продукт на 80% сделан руками людей, которые многие века перенимали ремесло домашних сыроделов.
+    .content 
+      .main-about-info-box.visual-animation-base-block
+        .about-info-el.gifimage 
+          img(src="./images/cheese.gif")
+        .about-info-el.smallboldtext Гордимся местом, <br>в котором живём и доносим это через наш продукт.
+        .about-info-el.bigboldtext Самое главное для нас - 
+          span люди.
+        .about-info-el.smalltext Ведь наш продукт на 80% сделан руками людей, которые многие века перенимали ремесло домашних сыроделов.
   section.main-about-persons
     .content.visual-animation-base-block
       img(src="./images/about-persons-bg.svg", alt="Персонажи")

@@ -85,8 +85,6 @@
 .main-about-info {
   color: #312930;
   margin-top: 100px;
-  max-width: 1200px;
-  margin: 0 auto;
   
   &-box {
     display: grid;
@@ -127,9 +125,11 @@
         font-weight: bold;
         font-size: 25px;
         line-height: 38px;
+        max-width: 384px;
 
         @include screen('md', 'max') {
           grid-column: 1/2;
+          max-width: 100%;
         }
 
         @include screen('xs', 'max') {
@@ -143,8 +143,26 @@
         font-family: 'Lineatura';
         font-size: 50px;
         line-height: 68px;
-        margin-top: -15px;
         max-width: 450px;
+
+        & > span {
+          position: relative;
+
+          &::before {
+            content: "";
+            display: block;
+            width: 115px;
+            height: 34px;
+            position: absolute;
+            background-size: cover;
+            background: url('../images/main-link-lines.svg');
+            background-repeat: no-repeat;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -42%;
+          }
+        }
+
 
         @include screen('md', 'max') {
           justify-self: start;
