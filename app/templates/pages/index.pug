@@ -18,8 +18,8 @@ mixin main-slider(json)
           +icon('rhombus', 'svg').rhombus-1
           +icon('rhombus', 'svg').rhombus-2
           +icon('cheese', 'svg').cheese
-      .main-index-box-slider-el-right
-        h2 #{data.title}
+      .main-index-box-slider-el-right.visual-animation-base-block-m
+        h2.visual-animation-base-m #{data.title}
         p #{data.text}
         +link('Подробнее', data.link, 'true')
 
@@ -34,9 +34,9 @@ block content
       +icon('cloud-3', 'svg').cloud-right-1
     .content.main-index-box
       .main-index-box-slider
-        .swiper-wrapper
+        .swiper-wrapper.visual-animation-base-block-m
           +main-slider(getData('sliders/main'))
-    .main-index-box-control
+    .main-index-box-control.visual-animation-base-block-m
       .main-index-box-control-arrows.main-slider-buttons
         +btn-slider('left').bg-white#slider-main-left
         +btn-slider('right').bg-white#slider-main-right

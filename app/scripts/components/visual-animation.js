@@ -129,6 +129,17 @@ class VisualAnimation {
     changeClassOnShow() {
         this.onScreen(this.elements);
     }
+
+    removeClasses(){
+        this.elements.forEach((item) => {
+            item.classList.remove('visual-animation-base' + this.additionalToClass);
+            item.classList.remove('visual-animation-showing' + this.additionalToClass);
+        });
+        this.elementsBlock.forEach((item) => {
+            item.classList.remove('visual-animation-base-block' + this.additionalToClass);
+            item.classList.remove('visual-animation-showing-block' + this.additionalToClass);
+        });
+    }
 }
 
 function init() {
@@ -158,7 +169,25 @@ function initSpecial() {
         }
     )
 }
+function initMain() {
+    const block = new VisualAnimation('-m');
+    block.findAndAddCaption();
+    block.findAndAddBlock();
+    block.applyEventListeners(document.body, block.changeClassOnShow.bind(block));
+    block.changeClassOnShow();
+
+    return (
+        {
+            show: () => {
+                block.showAll();
+                setTimeout(()=>{
+                    block.removeClasses();
+                },2000);
+            }
+        }
+    )
+}
 
 export default init;
 
-export { initSpecial };
+export { initSpecial, initMain };
