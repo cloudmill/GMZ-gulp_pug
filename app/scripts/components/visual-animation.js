@@ -132,12 +132,12 @@ class VisualAnimation {
 
     removeClasses(){
         this.elements.forEach((item) => {
-            item.classList.remove('visual-animation-showing' + this.additionalToClass);
             item.classList.remove('visual-animation-base' + this.additionalToClass);
+            item.classList.remove('visual-animation-showing' + this.additionalToClass);
         });
         this.elementsBlock.forEach((item) => {
-            item.classList.remove('visual-animation-showing-block' + this.additionalToClass);
             item.classList.remove('visual-animation-base-block' + this.additionalToClass);
+            item.classList.remove('visual-animation-showing-block' + this.additionalToClass);
         });
     }
 }

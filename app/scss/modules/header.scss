@@ -331,7 +331,6 @@
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
-    z-index: 5;
 
     &-logotype {
       position: relative;
@@ -356,9 +355,9 @@
     &-nav {
       width: 100%;
       position: absolute;
-      top: 0;
+      top: 50%;
       // transition: transform .3s;
-      // transform: translateY(-50%);
+      transform: translateY(-50%);
 
       @include screen('custom-660', 'max') {
         &.lg {

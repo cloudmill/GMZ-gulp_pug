@@ -58,6 +58,11 @@
     -webkit-transform: translate(0px, 100px);
     -ms-transform: translate(0px, 100px);
     transform: translate(0px, 100px);
+    &.header-box-nav{
+      -webkit-transform: translate(0px, -50%);
+      -ms-transform: translate(0px, -50%);
+      transform: translate(0px, -50%);
+    }
   }
 }
 
@@ -67,6 +72,12 @@
     -webkit-animation: notransform 1s;
     animation: notransform 1s;
     animation-fill-mode: forwards;
+    &.header-box-nav{
+      opacity: 1.0;
+      -webkit-animation: notransformHeaderMenu 1s;
+      animation: notransformHeaderMenu 1s;
+      animation-fill-mode: forwards;
+    }
   }
 }
 
@@ -109,6 +120,32 @@
 @keyframes notransform {
   100% {
     transform: none;
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  0% {
+    opacity: 0.0;
+  }
+}
+
+@-webkit-keyframes notransformHeaderMenu {
+  100% {
+    transform: translateY(-50%);
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  0% {
+    opacity: 0.0;
+  }
+}
+
+@keyframes notransformHeaderMenu {
+  100% {
+    transform: translateY(-50%);
     opacity: 1.0;
   }
   50% {
