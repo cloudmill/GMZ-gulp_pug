@@ -9,33 +9,38 @@ block variables
 
 block content
     +header()
-    section.main-catalog.visual-animation-base-block
-      canvas.main-catalog-dashed(width="100%", height="100%")
+    section.main-catalog.visual-animation-base-block  
       .content.main-catalog-box
         a.catalog-el(href="./catalog-products.html")
-          .catalog-el-img
-            +icon('rhombus', 'svg').rhombus-1
-            +icon('rhombus', 'svg').rhombus-2
+          .catalog-el-img.first-card
+            +icon('rhombus', 'svg')
+            +icon('rhombus', 'svg')
+            +icon('print-product', 'svg')
             img(src="./images/img-product-1.png", alt="")
           .catalog-el-text Адыгейские сыры
         a.catalog-el(href="./catalog-products.html")
-          .catalog-el-img
-            +icon('rhombus', 'svg').rhombus-1
-            +icon('rhombus', 'svg').rhombus-2
+          .catalog-el-img.two-card
+            +icon('rhombus', 'svg')
+            +icon('rhombus', 'svg')
+            +icon('print-product', 'svg')
             img(src="./images/img-product-2.png", alt="")
           .catalog-el-text Вытяжные сыры
         a.catalog-el(href="./catalog-products.html")
-          .catalog-el-img
-            +icon('rhombus', 'svg').rhombus-1
-            +icon('rhombus', 'svg').rhombus-2
+          .catalog-el-img.third-card
+            +icon('rhombus', 'svg')
+            +icon('rhombus', 'svg')
+            +icon('print-product', 'svg')
             img(src="./images/img-product-3.png", alt="")
           .catalog-el-text Масло и спред
         a.catalog-el(href="./catalog-products.html")
-          .catalog-el-img
-            +icon('rhombus', 'svg').rhombus-1
-            +icon('rhombus', 'svg').rhombus-2
+          .catalog-el-img.four-card
+            +icon('rhombus', 'svg')
+            +icon('rhombus', 'svg')
+            +icon('print-product', 'svg')
             img(src="./images/img-product-4.png", alt="")
           .catalog-el-text Cыворотка
-        .text-bottom Продукция
+      .main-catalog-fixed.waveSection-bottom(data-color="#f6f5f3")
+          .text-bottom Продукция
+          canvas.main-catalog-dashed(width="100%", height="100%")
     +subscriptionForm().bg-white
     +footer().bg-white
