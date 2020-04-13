@@ -199,11 +199,11 @@
   position: relative;
 }
 
-.partners-page-dashed {
+.main-partners > .partners-page-dashed {
   position: absolute;
-  right: -30%;
-  left: auto;
-  top: 350px;
+  left: 25%;
+  top: 325px;
+  z-index: 1;
 }
 
 .recepts-dashed, .main-catalog-dashed, .main-catalog-products-dashed {
@@ -241,8 +241,9 @@ canvas.main-catalog-products-dashed {
 
 .about-partners-dashed {
   position: absolute;
-  top: 10px;
-  left: -13px;
+  top: -2%;
+  left: -4%;
+  transform: scale(0.9)
 }
 
 canvas.how-do-dashed-bg1, canvas.how-do-dashed-bg2, canvas.how-do-dashed-bg3, canvas.how-do-dashed-bg4, canvas.how-do-dashed-bg5 {
@@ -271,8 +272,8 @@ canvas.how-do-dashed-bg4 {
 
 .partners-download-dashed {
   position: absolute;
-  top: 245px;
-  left: -5%;
+  top: 31%;
+  left: 1%;
 }
 
 ////

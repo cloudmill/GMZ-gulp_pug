@@ -1,7 +1,5 @@
 extends ../layouts/default.pug
 
-
-
 include ../modules/footer.pug
 include ../modules/header.pug
 include ../modules/about.pug
@@ -10,6 +8,7 @@ include ../modules/forms.pug
 
 block variables
  -var pageTitle='Партнерам'
+  -var selectPage = '#partners'
 
 mixin info-box-el(json)
   each data in json
@@ -26,11 +25,14 @@ mixin prevs-row-el(json)
 
 mixin main-partners-box-nav-el(json)
   each data in json
-    a.main-partners-box-nav-link(href=data.link) #{data.title}
+    if(data.link == selectPage)
+      a.main-partners-box-nav-link(href=data.link).active #{data.title}
+    else
+      a.main-partners-box-nav-link(href=data.link) #{data.title}
 
 block content
     +header()
-    section.main-partners#main-partners.bg-additional
+    section.main-partners#main-partners.waveSection-bottom(data-color="#f6f5f3").bg-additional
       canvas.partners-page-dashed(width="737", height="648")
       .content.main-partners-box.visual-animation-base-block
         .main-partners-box-nav
@@ -40,7 +42,7 @@ block content
       canvas.partners-download-dashed(width="737", height="648")
       .content.info-box
         .info-box-header
-          p.visual-animation-base За 2019 год мы произвели
+          p.visual-animation-base За 2019 год мы произвели:
         +info-box-el(getData('pages/partners/info-partners'))
         .info-box-details.visual-animation-base-block
           a(href="#details") Скачать презентацию
@@ -52,9 +54,9 @@ block content
             +icon('prevslogo', 'svg').scrollRotate
           .prevs-box-row.visual-animation-base-block
             +prevs-row-el(getData('pages/partners/prevs'))
-            .prevs-box-row-el.mouseParalax
+            .prevs-box-row-el
               +icon('pack', 'svg')(class="pack")
-    +askQuestionForm().bg-additional
+    +askQuestionForm().waveSection-top(data-color="#f6f5f3").bg-additional
     +about('О нас', './about.html').bg-additional.visual-animation-base-block
     +subscriptionForm().bg-additional
     +footer().bg-additional

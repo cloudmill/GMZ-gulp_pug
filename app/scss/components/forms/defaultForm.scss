@@ -18,6 +18,7 @@
     width: 100%;
     justify-content: space-between;
     flex-flow: wrap;
+    align-items: start;
 
     @include screen("custom-660", "max") {
       flex-direction: column;

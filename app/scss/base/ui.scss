@@ -136,6 +136,7 @@
     align-items: center;
 
     p > a {
+      text-decoration: underline;
       &:hover {
         color: #EE7754;
       }
@@ -266,6 +267,7 @@
 
   textarea {
     resize: none; //возможность ресайза
+    padding-bottom: 22px;
   }
 
   input,

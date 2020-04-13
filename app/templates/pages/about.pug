@@ -32,6 +32,7 @@ block content
   +header()
   section.main-partners#main-partners.waveSection-bottom(data-color="#f6f5f3").bg-additional
     .content.main-partners-box
+      +icon('cloud-2', 'svg').cloud-2
       .main-partners-box-nav
         +main-partners-box-nav-el(getData('pages/partners/main'))
       .main-about-header
@@ -40,6 +41,8 @@ block content
         .image.visual-animation-base-block
           img(src="./images/main-about-bg.png")
           +icon('print-main', 'svg').print.scrollRotate
+          +icon('cloud-2', 'svg').cloud-2
+          +icon('cloud-3', 'svg').cloud-3
   section.main-about-info
     .content 
       .main-about-info-box.visual-animation-base-block

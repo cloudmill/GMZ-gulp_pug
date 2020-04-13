@@ -3,42 +3,17 @@ section {
     padding-top: 130px;
     position: relative;
 
-    &::before {
-      display: block;
-      content: "";
-      width: 100%;
-      height: 50px;
-      position: absolute;
-      left: 0;
-      bottom: -27px;
-      background-size: cover;
-      background: #ffffff;
-      border-radius: 50%/50%;
-    }
-
     @include screen('xs', 'max') {
       padding-top: 50px;
     }
   }
 
   &.info {
-    padding-top: 120px;
+    padding-top: 70px;
     position: relative;
 
     @include screen('custom-860', 'max') {
       padding-top: 0px;
-    }
-
-    &::after {
-      display: block;
-      content: '';
-      background-image: url('../images/section-main-header.svg');
-      width: 100%;
-      height: 50px;
-      position: absolute;
-      left: 0;
-      top: -50px;
-      background-size: cover;
     }
   }
 }
@@ -164,19 +139,25 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
+  grid-column-gap: 10%;
 
   @include screen('custom-860', 'max') {
     grid-template-rows: auto 1fr 1fr auto;
+    grid-column-gap: unset;
   }
 
   &-header {
     grid-column: 2 / 4;
     width: 384px;
+    justify-self: baseline;
+    align-self: center;
 
     @include screen('custom-860', 'max') {
       grid-column: 1 / 4;
       font-size: 34px;
       width: 100%;
+      justify-self: initial;
+      align-self: initial;
     }
 
     & > p {
@@ -245,6 +226,7 @@ section {
     grid-column: 2 / 3;
     align-items: center;
     position: relative;
+    text-align: center;
 
     @include screen('sm', 'max') {
       grid-column: 1 / 4;
@@ -290,7 +272,7 @@ section {
         height: 21px;
         display: block;
         position: absolute;
-        left: 0;
+        left: 16%;
         top: 100%;
 
         &:before {
@@ -405,10 +387,11 @@ section {
         width: 100%;
       }
 
-      & > .pack {
+      .pack {
+        position: relative;
+        bottom: -50px;
         @include screen('md', 'max') {
           left: 50%;
-          transform: scale(.7) translateX(-50%);
           position: absolute;
           padding-top: 10px;
           transform-origin: left;

@@ -55,22 +55,6 @@ section {
       transition: 0.3s;
     }
 
-    &::after {
-      position: absolute;
-      content: '';
-      // background: url('../images/about-rectangle-dashed.svg');
-      background-repeat: no-repeat;
-      width: 1043px;
-      height: 258px;
-      display: block;
-      left: 8%;
-      top: 10%;
-
-      @include screen('lg', 'max') {
-        display: none;
-      }
-    }
-
     & > h2 {
       @include UI-Font-PFRegalTextPro-bold;
       z-index: 2;
@@ -90,6 +74,8 @@ section {
   background-color: #F9E9C0!important;
 }
 
-.about-box-rectangle:hover::after, .about-box-rectangle.bg-additional:hover::after {
-  filter: sepia(100%);
+.about-box-rectangle:hover, .about-box-rectangle.bg-additional:hover {
+  > .about-partners-dashed {
+    filter: sepia(100%);
+  }
 }

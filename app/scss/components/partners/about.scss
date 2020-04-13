@@ -1,4 +1,17 @@
 .main-partners-box {
+  position: relative;
+
+  .cloud-2 {
+    position: absolute;
+    bottom: 17%;
+    left: -7%;
+    font-size: 8px;
+
+    @include screen('md', 'max') {
+      display: none;
+    }
+  }
+
   .main-about-header {
     display: flex;
 
@@ -7,7 +20,6 @@
     }
 
     .image {
-      max-width: 20%;
       position: relative;
       margin-left: -5%;
 
@@ -23,12 +35,33 @@
       .print {
         position: absolute;
         bottom: -10%;
-        left: 50%;
-        transform: translateX(-20%);
+        left: 20%;
 
         @include screen('md', 'max') {
-          top: 7%;
-          right: 6%;
+          left: 50%;
+          top: -5%;
+        }
+      }
+
+      .cloud-2 {
+        position: absolute;
+        top: 5%;
+        left: 20%;
+        font-size: 4px;
+
+        @include screen('md', 'max') {
+          display: none;
+        }
+      }
+
+      .cloud-3 {
+        position: absolute;
+        top: 15%;
+        right: -10%;
+        font-size: 6px;
+
+        @include screen('md', 'max') {
+          display: none;
         }
       }
     }
@@ -49,24 +82,6 @@
         @include screen('xs', 'max') {
           font-size: 24px;
           line-height: 26px;
-        }
-    
-        &::before {
-          content: "";
-          width: 1289px;
-          height: 352px;
-          position: absolute;
-          // background: url('../images/main-right-dash.svg');
-          background-repeat: no-repeat;
-          z-index: -1;
-          top: -112%;
-          left: -38%;
-          transform: translate(50%, 50%);
-          z-index: -1;
-    
-          @include screen('lg', 'max') {
-           display: none;
-          }
         }
     
         @include screen('sm', 'max') {
@@ -194,6 +209,18 @@
   display: flex;
   justify-content: center;
   margin-top: 100px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    display: block;
+    background: url('../images/promo-box-bottom-dashed.svg');
+    bottom: 15%;
+    left: -4%;
+    width: 1749px;
+    height: 163px;
+  }
 
   @include screen('md', 'max') {
     .content {
@@ -416,6 +443,7 @@
 
   &-content {
     overflow: visible;
+    padding-bottom: 20px;
 
     @include screen('sm', 'min') {
       overflow: hidden;   
@@ -478,6 +506,17 @@
             font-weight: bold;
             font-size: 18px;
             line-height: 24px;
+            margin-bottom: 10px;
+          }
+
+          .main-link {
+            .bottomLines {
+              &::before {
+                background: url('../images/main-link-lines-products.svg');
+                width: 100%;
+                animation: unset;
+              }
+            }
           }
         }
       }

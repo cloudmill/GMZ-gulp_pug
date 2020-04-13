@@ -36,7 +36,7 @@ mixin askQuestionForm
               +inputField('text', 'phone', 'Ваш телефон', null)
               +inputField('text', 'email', 'Ваша почта для ответа', false)
             .contact-box-form-el
-              +textarea('question', '29', '10', 'Ваш вопрос', 'необязательно')
+              +textarea('question', '29', '11', 'Ваш вопрос', 'необязательно')
             .contact-box-form-el
               .main-checkbox
                 input(type="checkbox" id='agree' name='agree')
@@ -44,8 +44,8 @@ mixin askQuestionForm
                   +icon('checkbox', 'svg').state-default
                   +icon('checkbox-hover', 'svg').state-hover
                   +icon('checkbox-checked', 'svg').state-checked
-                  p Согласие на обработку персональных данных в соответствии с
-                    a(href="./politics.html") политикой конфиденциальности
+                  p Согласие на обработку персональных данных в соответствии с 
+                    a(href="./politics.html")  политикой конфиденциальности
             .contact-box-form-el
               +buttonSubmit('Отправить')
           .contact-box-success
@@ -64,7 +64,7 @@ mixin contactUsForm
             +inputField('text', 'phone', 'Ваш телефон', null)
             +inputField('text', 'email', 'Ваша почта для ответа', false)
           .contact-box-form-el
-            +textarea('question', '29', '10', 'Ваш вопрос', 'необязательно')
+            +textarea('question', '29', '11', 'Ваш вопрос', 'необязательно')
           .contact-box-form-el
             .main-checkbox
               input(type="checkbox" id='agree' name='agree')
@@ -72,8 +72,8 @@ mixin contactUsForm
                 +icon('checkbox', 'svg').state-default
                 +icon('checkbox-hover', 'svg').state-hover
                 +icon('checkbox-checked', 'svg').state-checked
-                p Согласие на обработку персональных данных в соответствии с 
-                  a(href="./politics.html") политикой конфиденциальности
+                p Согласие на обработку персональных данных в соответствии с  
+                  a(href="./politics.html")  политикой конфиденциальности
           .contact-box-form-el
             +buttonSubmit('Задать вопрос')
         .contact-box-success
@@ -96,6 +96,6 @@ mixin askQuestionFormModal
             +icon('checkbox', 'svg').state-default
             +icon('checkbox-hover', 'svg').state-hover
             +icon('checkbox-checked', 'svg').state-checked
-            p Согласие на обработку персональных данных в соответствии с 
-              a(href="./politics.html") политикой конфиденциальности
+            p Согласие на обработку персональных данных в соответствии с  
+              a(href="./politics.html")  политикой конфиденциальности
         +buttonSubmit('Задать вопрос')
