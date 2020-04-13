@@ -186,10 +186,9 @@ canvas.main-catalog-products-dashed {
   // left: 87px !important;
 }
 
-.about-dashed {
+.main-about-header > canvas.about-dashed {
   position: absolute;
   z-index: 1;
-  right: 44px;
   top: 315px;
   left: auto;
 }

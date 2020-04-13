@@ -7,6 +7,7 @@ include ../modules/about.pug
 
 block variables
  -var pageTitle='О нас'
+ -var selectPage = '#about'
 
 mixin slider-about-container-el(json)
   each data in json
@@ -22,11 +23,14 @@ mixin slider-about-container-el(json)
 
 mixin main-partners-box-nav-el(json)
   each data in json
-    a.main-partners-box-nav-link(href=data.link) #{data.title}
+    if(data.link == selectPage)
+      a.main-partners-box-nav-link(href=data.link).active #{data.title}
+    else
+      a.main-partners-box-nav-link(href=data.link) #{data.title}
 
 block content
   +header()
-  section.main-partners#main-partners.bg-additional
+  section.main-partners#main-partners.waveSection-bottom(data-color="#f6f5f3").bg-additional
     .content.main-partners-box
       .main-partners-box-nav
         +main-partners-box-nav-el(getData('pages/partners/main'))
@@ -49,23 +53,24 @@ block content
   section.main-about-slider
     .content.main-about-slider-box
       h2.visual-animation-base История завода
-      .slider-about-box.swiper-container.visual-animation-base-block
-        .slider-about-control
-          .buttons.main-slider-buttons
-            +btn-slider('left').bg-additional#slider-about-left
-            +btn-slider('right').bg-additional#slider-about-right
-          .dates.swiper-container
-            .swiper-wrapper
-              button.date-btn.swiper-slide 1949
-              button.date-btn.swiper-slide 1968
-              button.date-btn.swiper-slide 1979
-              button.date-btn.swiper-slide 1988
-              button.date-btn.swiper-slide 1999
-              button.date-btn.swiper-slide 2006
-              button.date-btn.swiper-slide 2010
-              button.date-btn.swiper-slide 2020
-        .slider-about-container.swiper-wrapper
-          +slider-about-container-el(getData('sliders/about'))
+      .visual-animation-base-block
+        .slider-about-box.swiper-container
+          .slider-about-control
+            .buttons.main-slider-buttons
+              +btn-slider('left').bg-additional#slider-about-left
+              +btn-slider('right').bg-additional#slider-about-right
+            .dates.swiper-container
+              .swiper-wrapper
+                button.date-btn.swiper-slide 1949
+                button.date-btn.swiper-slide 1968
+                button.date-btn.swiper-slide 1979
+                button.date-btn.swiper-slide 1988
+                button.date-btn.swiper-slide 1999
+                button.date-btn.swiper-slide 2006
+                button.date-btn.swiper-slide 2010
+                button.date-btn.swiper-slide 2020
+          .slider-about-container.swiper-wrapper
+            +slider-about-container-el(getData('sliders/about'))
   section.main-about-awards
     .content.main-about-awards-box
       .main-about-awards-header
@@ -74,7 +79,7 @@ block content
           .buttons.main-slider-buttons
             +btn-slider('left').bg-additional#slider-awards-left
             +btn-slider('right').bg-additional#slider-awards-right
-      .main-about-awards-content.swiper-container.visual-animation-base-block
+      .main-about-awards-content.swiper-container
         .swiper-wrapper
           .slider-awards-el.swiper-slide
             .award-data
