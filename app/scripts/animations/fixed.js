@@ -6,7 +6,7 @@ export default class Fixed {
     this.target = this.base.find(".fixed-item > *");
     this.h = this.base.outerHeight();
 
-    this.top = 50;
+    this.top = 250; //Я хз, почему-то сломался отступ от верха, не уверен что это оно
     this.targetH = this.target.outerHeight() + parseInt(this.target.css('margin-bottom'));
 
     this.init();

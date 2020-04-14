@@ -1,0 +1,30 @@
+block variables
+include ../mixins/mixins
+include ../mixins/ui
+include ../modules/forms.pug
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title=pageTitle
+        link(href='css/style.min.css' rel='stylesheet')
+    body
+        svg.shape-overlays.hide(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", viewBox="0 0 100 100", preserveAspectRatio="none")
+            path.shape-overlays__path(d="M 0 100 C 50 100 50 100 100 100 V 100 H 0")
+            path.shape-overlays__path(d="M 0 100 C 50 100 50 100 100 100 V 100 H 0")
+            path.shape-overlays__path(d="M 0 100 C 50 100 50 100 100 100 V 100 H 0")
+        .loader
+            .img-back
+                .img-front-container
+                    .img-front
+        .container.bg-additional.visual-animation-base-block-m
+            block content
+            include ../modules/footer
+        .modal
+            .modal-content
+                +askQuestionFormModal()
+        #scroll-box-events
+        script(src='js/scripts.min.js')
+        block scripts

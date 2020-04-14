@@ -66,7 +66,7 @@ let sliders = {
     });
   },
   productSlider: function() {
-    return new Swiper(".product-slider", {
+    return new Swiper(".slider-owerflow", {
       speed: 600,
       slidesPerView: 1,
       updateOnWindowResize: true,

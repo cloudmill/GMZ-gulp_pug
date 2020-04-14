@@ -52,23 +52,25 @@ block content
             .product-row-el
               +icon('paste', 'svg').icon
               .title Добавка к пасте
-          .product-slider.visual-animation-base-block
-            .buttons.main-slider-buttons
-              +btn-slider('left').bg-white#slider-main-left
-              +btn-slider('right').bg-white#slider-main-right
-            .swiper-wrapper
-              .product-img.swiper-slide
-                img(src="./images/product-slider-1.jpg")
-              .product-img.swiper-slide
-                img(src="./images/product-slider-1.jpg")
-            .product-bullets
-              .swiper-wrapper
-                .product-bullets-thumb.swiper-slide
-                  .thumb-wrapper
+          .visual-animation-base-block
+            .product-slider
+              .slider-owerflow
+                .buttons.main-slider-buttons
+                  +btn-slider('left').bg-white#slider-main-left
+                  +btn-slider('right').bg-white#slider-main-right
+                .swiper-wrapper
+                  .product-img.swiper-slide
                     img(src="./images/product-slider-1.jpg")
-                .product-bullets-thumb.swiper-slide
-                  .thumb-wrapper
+                  .product-img.swiper-slide
                     img(src="./images/product-slider-1.jpg")
+                .product-bullets
+                  .swiper-wrapper
+                    .product-bullets-thumb.swiper-slide
+                      .thumb-wrapper
+                        img(src="./images/product-slider-1.jpg")
+                    .product-bullets-thumb.swiper-slide
+                      .thumb-wrapper
+                        img(src="./images/product-slider-1.jpg")
           .product-desc-row.left-product-mg.visual-animation-base-block
             .product-desc-row-el
               .title формовка:
@@ -95,6 +97,7 @@ block content
           .image
               img(src="./images/img-products-3-min.png")
               img(src="./images/img-products-3-min.png")
-    +recepts(1)
+      .wave.waveSection-top(data-color="#ffffff")
+    +recepts(1).recepts-box.productpage-padding
     +subscriptionForm().bg-white
     +footer().bg-white

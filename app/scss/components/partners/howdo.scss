@@ -351,7 +351,7 @@
   }
 
   .number-stage {
-    top: 55%;
+    top: 52%;
     color: #FAE1E1;
 
     @include screen('md', 'max') {
@@ -404,8 +404,8 @@
 
   .number-stage {
     color: #fff;
-    bottom: 21%;
-    right: -5%;
+    bottom: 17%;
+    right: -4%;
     z-index: 0;
 
     @include screen('md', 'max') {
