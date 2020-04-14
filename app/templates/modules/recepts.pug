@@ -7,12 +7,17 @@ mixin recept-slider(json)
         p.time #{data.time}
           +icon('timer', 'svg')
           
-mixin recepts
+mixin recepts(title_type)
   section.recepts
     canvas.recepts-dashed(width="100%", height="100%")
     .content.recepts-box
-      .recepts-box-left
-        h2.visual-animation-base Рецепты <br>с адыгейским сыром
+      .recepts-box-left 
+
+        if(title_type == 1)
+          h2.visual-animation-base Рецепты <br>с адыгейским сыром
+        else
+          h2.visual-animation-base Другие рецепты
+
         .visual-animation-base-block
           .recepts-box-left-arrows.main-slider-buttons
             +btn-slider('left').bg-additional#slider-recepts-left

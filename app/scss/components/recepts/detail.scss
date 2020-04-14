@@ -5,10 +5,26 @@
 }
 
 .main-recept {
-  padding-bottom: 80px;
   &-box {
     font-family: 'CeraPro';
     color: #312930;
+    position: relative;
+    padding-bottom: 80px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      display: block;
+      background: url('../images/promo-box-bottom-dashed.svg');
+      top: 32%;
+      left: -19%;
+      width: 1749px;
+      height: 163px;
+
+      @include screen('md', 'max') {
+        display: none;
+      }
+    }
 
     .pagination {
       margin-bottom: 40px;
@@ -264,6 +280,8 @@
     }
 
     .slider {
+      position: relative;
+
       &-recept {
         position: relative;
 

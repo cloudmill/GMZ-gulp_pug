@@ -19,15 +19,16 @@ block content
         h2.visual-animation-base Баклажаны с сыром «Сулугуни» и помидорами
       .recept-wrapper
         .recept-wrapper-content
-          .slider-recept.visual-animation-base-block
-            .main-slider-buttons.slider-buttons
-              +btn-slider('left').bg-additional#slider-recept-left
-              +btn-slider('right').bg-additional#slider-recept-right
-            .swiper-wrapper
-              .slider-el.swiper-slide
-                img(src="./images/recept_slider.png", alt="Баклажаны с сыром «Сулугуни» и помидорами")
-              .slider-el.swiper-slide
-                img(src="./images/recept_slider.png", alt="Баклажаны с сыром «Сулугуни» и помидорами")
+          .visual-animation-base-block
+            .slider-recept
+              .main-slider-buttons.slider-buttons
+                +btn-slider('left').bg-additional#slider-recept-left
+                +btn-slider('right').bg-additional#slider-recept-right
+              .swiper-wrapper
+                .slider-el.swiper-slide
+                  img(src="./images/recept_slider.png", alt="Баклажаны с сыром «Сулугуни» и помидорами")
+                .slider-el.swiper-slide
+                  img(src="./images/recept_slider.png", alt="Баклажаны с сыром «Сулугуни» и помидорами")
           .recept-information.visual-animation-base-block
             .thumbs.thumbs-recept-slider
               .swiper-wrapper
@@ -108,7 +109,7 @@ block content
               .product-title Сыр «Косичка» «Гиагинский» копченый
               .product-print
                 +icon('recept-product-print', 'svg').scrollRotate
-  +recepts().bg-white
+  +recepts(2).bg-white
   +wherebuy().bg-white.receptbuy
   +subscriptionForm().bg-white
   +footer().bg-white

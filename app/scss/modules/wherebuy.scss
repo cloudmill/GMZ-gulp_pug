@@ -37,7 +37,7 @@
 
     @keyframes shops-bg-move-last {
       0% {
-        transform: translateX(100%);
+        transform: translateX(calc(100% - 50px));
       }
       100% {
         transform: translateX(0%);
