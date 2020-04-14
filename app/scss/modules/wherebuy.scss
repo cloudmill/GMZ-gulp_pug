@@ -16,6 +16,7 @@
     height: 225px;
     flex-wrap: wrap;
     width: 1441px;
+    justify-content: space-evenly;
 
     &:first-child {
       animation: shops-bg-move-first 10s linear infinite;
@@ -27,7 +28,7 @@
     
 
     @keyframes shops-bg-move-first {
-      0% {
+      0% {  
         transform: translateX(0%);
       }
       100% {
@@ -37,7 +38,7 @@
 
     @keyframes shops-bg-move-last {
       0% {
-        transform: translateX(calc(100% - 50px));
+        transform: translateX(100%);
       }
       100% {
         transform: translateX(0%);
