@@ -7,10 +7,14 @@ include ../modules/about.pug
 
 block variables
  -var pageTitle='Как мы это делаем'
+ -var selectPage = '#howdo'
 
 mixin main-partners-box-nav-el(json)
   each data in json
-    a.main-partners-box-nav-link(href=data.link) #{data.title}
+    if(data.link == selectPage)
+      a.main-partners-box-nav-link(href=data.link).active #{data.title}
+    else
+      a.main-partners-box-nav-link(href=data.link) #{data.title}
 
 block content
   +header()
@@ -18,7 +22,7 @@ block content
   canvas.how-do-dashed-bg2
   canvas.how-do-dashed-bg3
   canvas.how-do-dashed-bg4
-  section.main-partners#main-partners.bg-additional
+  section.main-partners#main-partners.waveSection-bottom(data-color="#f6f5f3").bg-additional
     .content.main-partners-box
       .main-partners-box-nav
         +main-partners-box-nav-el(getData('pages/partners/main'))
@@ -34,7 +38,7 @@ block content
               li Массовая доля жира и белка
             .total После положительного заключения лаборатории о качестве сырья, молоко проходит нормализацию и пастеризацию
         .image-howdo.visual-animation-base-block
-          img.mouseParalax(src="./images/main-howdo-bg-1.svg").
+          img.mouseParalax(src="./images/main-howdo-bg-1.svg")
         .number-stage.visual-animation-base-block 01
   section.main-howdo-cooking
     .content.main-howdo-cooking-box
@@ -54,7 +58,7 @@ block content
       .image-howdo.visual-animation-base-block
         img.mouseParalax(src="./images/main-howdo-bg-3.png")
       .number-stage.visual-animation-base-block 03
-  section.main-howdo-cool.bg-additional
+  section.main-howdo-cool.waveSection-top(data-color="#f6f5f3").bg-additional
     .content.main-howdo-cool-box
       .image-howdo.visual-animation-base-block
         img.mouseParalax(src="./images/main-howdo-bg-4.png")
