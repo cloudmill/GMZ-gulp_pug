@@ -137,13 +137,17 @@ class DashBackground {
 
     recalculateCanvas(element) {
         const { newWidth, newHeight } = this.getCanvasSize(element);
-        element.setAttribute('width', newWidth + (
-            100 - this._options.additionalHeightPercentage
-        ) * newWidth / 100);
-        element.setAttribute('height',
-            newHeight + (
-            100 - this._options.additionalHeightPercentage
-            ) * newHeight / 100
+        element.setAttribute(
+            'width',
+            (
+                100 + this._options.additionalWidthPercentage
+            ) / 100 * newWidth
+        );
+        element.setAttribute(
+            'height',
+            (
+                100 + this._options.additionalHeightPercentage
+            ) / 100 * newHeight
         );
         this._options.newWidth = parseInt(newWidth, 10) * (
             100 - this._options.offsetRightPercentage
@@ -153,7 +157,7 @@ class DashBackground {
         if (this._options.isRestoreAfterStop) {
             setTimeout(() => {
                 this.startDo();
-            }, this._options.msBySteps + 1);
+            }, this._options.msBySteps + 10);
         }
     }
 

@@ -60,6 +60,8 @@ function init() {
                 width: 1280,
                 height: 1064,
                 cropHeightPercentage:79,
+                offsetLeftPercentage: 0,
+                cropWidthPercentage: 5,
             }
         ).start();
     }
@@ -104,6 +106,7 @@ function init() {
                 height: 963,
                 cropHeightPercentage:82,
                 offsetRightPercentage: 12,
+                offsetLeftPercentage: 10,
             }
         ).start();
     }
@@ -126,6 +129,7 @@ function init() {
                 height: 905,
                 cropHeightPercentage:82,
                 offsetRightPercentage: 35,
+                offsetLeftPercentage: 3,
             }
         ).start();
     }
@@ -230,7 +234,7 @@ function init() {
                 stopAt: 100,
                 width: 1046,
                 height: 259,
-                widthOffset: 200,
+                additionalWidthPercentage: 30,
             }
         ).start();
     }
