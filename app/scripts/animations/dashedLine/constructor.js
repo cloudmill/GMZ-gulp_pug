@@ -1,4 +1,24 @@
 class DashBackground {
+    constructor(element, path, options) {
+        this._options = { ...this.getBaseOptions(), ...options };
+        this.ctx = element.getContext("2d");
+        this.path = path;
+
+        if (this._options.resize) {
+            if (!this._options.noReset) {
+                this.recalculateCanvas(element);
+            } else {
+                this.getCanvasSize(element);
+                this._options.newWidth = this._options.width * (
+                    100 - this._options.offsetRightPercentage
+                ) / 100;
+                this._options.newHeight = this._options.height;
+            }
+            this.addEventListener(element);
+        }
+        this.start();
+    }
+
     getBaseOptions() {
         return (
             {
@@ -158,25 +178,6 @@ class DashBackground {
             setTimeout(() => {
                 this.startDo();
             }, this._options.msBySteps + 10);
-        }
-    }
-
-    constructor(element, path, options) {
-        this._options = { ...this.getBaseOptions(), ...options };
-        this.ctx = element.getContext("2d");
-        this.path = path;
-
-        if (this._options.resize) {
-            if (!this._options.noReset) {
-                this.recalculateCanvas(element);
-            } else {
-                this.getCanvasSize(element);
-                this._options.newWidth = this._options.width * (
-                    100 - this._options.offsetRightPercentage
-                ) / 100;
-                this._options.newHeight = this._options.height;
-            }
-            this.addEventListener(element);
         }
     }
 

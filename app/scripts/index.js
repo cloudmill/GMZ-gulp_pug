@@ -1,5 +1,4 @@
 import $ from "jquery";
-import anime from 'animejs/lib/anime.es.js';
 
 //Animations
 import animations from "./animations/main.js";
@@ -14,9 +13,6 @@ import maps from "./components/maps.js";
 import sliders from "./components/sliders.js";
 import forms from "./components/forms.js";
 import helpers from "./components/helpers.js";
-import BackgroundAnimation from "./components/image-background";
-import DashedBackgroundInit from "./components/dashBackgroundInit";
-import VisualAnimation, { initMain } from './components/visual-animation';
 import Loading from './components/loader';
 
 $(document).ready(function () {
@@ -28,9 +24,6 @@ $(document).ready(function () {
 
     /* Функционал для Header */
     header.init();
-
-    /*Анимации*/
-    animations.init();
 
     /*            */
     /* Компоненты */
@@ -55,11 +48,8 @@ $(document).ready(function () {
             document.querySelector('.scrollbar-track-y').classList.remove('hide-display-for-loader');
         },
         onEnd: () => {
-            initMain().show();
-
-            VisualAnimation();
-            BackgroundAnimation('.catalog-el-text');
-            DashedBackgroundInit();
+            /*Анимации*/ 
+            animations.init();
         }
     });
 });

@@ -1,7 +1,7 @@
 import $ from "jquery";
 import ShapeOverlays from "../components/HamburgerOverlay";
 
-import { initSpecial } from '../components/visual-animation';
+import { initSpecial } from '../animations/visualAnimation.js';
 
 let header = {
     init: function () {
