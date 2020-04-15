@@ -10,10 +10,10 @@ block variables
 mixin products-list(json)
   each data in json
     a.products-container(href=data.link)
-      .products-img
+      .products-img.visual-animation-base-block
         img(src=data.img)
         img(src=data.img)
-      .products-title #{data.title}
+      .products-title.visual-animation-base #{data.title}
       .products-hover
         +icon('rhombus', 'svg').rhombus-1
         +icon('rhombus', 'svg').rhombus-2
@@ -32,7 +32,7 @@ block content
             .category-el-title Адыгейские сыры
           a.main-products-category-el.active(href="#")
             .category-el-icon
-              +icon('img-catalog-product-2', 'svg').icon-background
+              +icon('img-catalog-product-2', 'png').icon-background
               .icon-active-bg
             .category-el-title Вытяжные сыры
           a.main-products-category-el(href="#")

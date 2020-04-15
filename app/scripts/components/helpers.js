@@ -13,11 +13,13 @@ let helpers = {
     //Проверка на позицию блока в видимой области
     window.isObservable = this.isObservable;
   },
+
   events: function() {
     $(window).on("resize", () => {
       this.resizeImg();
     });
   },
+
   /* Ресайз изображений */
   resizeImg: function() {
     let imgs = $(".fullImg");
@@ -103,10 +105,8 @@ let helpers = {
   },
 
   controlModal: function() {
-    var modal = $('.modal-content');
     $('a#controlModal').click(function(){
       $('.modal').toggleClass('active');
-      window.scrollbar.stopScroll();
     });
   }
 };

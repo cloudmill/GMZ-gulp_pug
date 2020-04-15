@@ -8,6 +8,63 @@
     padding-bottom: 80px;
     padding-top: 80px;
     height: 100vh;
+
+    @include screen('sm', 'max') {
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-bottom: 40px;
+      padding-top: 40px;     
+    }
+
+    a#controlModal {
+      width: 42px;
+      height: 42px;
+      background: #312930;
+      right: 0;
+      top: 0;
+      position: absolute;
+      border-radius: 50px;
+      margin-top: 10px;
+      margin-right: 10px;
+
+      span {
+        position: absolute;
+        top: 50%;
+        left: 27%;
+
+        &::before {
+          display: block;
+          width: 20px;
+          height: 1px;
+          content: "";
+          position: absolute;
+          left: 0;
+          transition: transform .3s;
+          z-index: 2;
+          transform: rotate(45deg) translateY(-50%);
+          background: #fff;
+          bottom: auto;
+          top: 50%;
+          transform-origin: top;
+        }
+
+        &::after {
+          display: block;
+          width: 20px;
+          height: 1px;
+          content: "";
+          position: absolute;
+          left: 0;
+          transition: transform .3s;
+          z-index: 2;
+          transform: rotate(-45deg) translateY(-50%);
+          background: #fff;
+          bottom: auto;
+          top: 50%;
+          transform-origin: top;   
+        } 
+      }
+    }
   
     .contact-box-header {
       margin-bottom: 60px;
