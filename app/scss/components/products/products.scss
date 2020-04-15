@@ -172,38 +172,30 @@
   }
 
   &-items {
-    display: flex;
-    flex-flow: row wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 137px;
+    grid-row-gap: 116px;
     .products-el {
       position: relative;
-      flex-basis: 50%;
-      margin-bottom: 70px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      width: 100%;
       &::before {
         position: absolute;
-        top: 0;
-        left: 0;
-        display: block;
-        background: #FFE3BE;
-        transform: rotate(45deg);
+        bottom: 10%;
+        left: 36%;
+        background: #ffe3be;
+        transform: rotate(45deg) translateX(-50%);
         width: 396px;
         height: 396px;
         display: block;
-        content: '';
-        opacity: 0;
-        transition: opacity 0.3s;
+        content: "";
+        opacity: 1; //временно
+        transition: opacity .3s;
       }
 
-      @include screen('md', 'max') {
-        flex-basis: 100%;
-        align-items: center;
-      }
-
-      @include screen('xs', 'max') {
-        align-items: flex-start;
-      }
       &-hover{
         opacity: 0;
         position: absolute;
@@ -303,7 +295,7 @@
         @include UI-Font-PFRegalTextPro-bold;
         position: relative;
         z-index: 2;
-        padding: 0px 50px;
+        margin-left: 133px;
         height: 200px;
 
         @include screen('sm', 'max') {
@@ -313,39 +305,27 @@
       }
 
       &-img {
-        margin-bottom: 40px;
         position: relative;
         z-index: 2;
+        text-align: center;
 
         @include screen('sm', 'max') {
           width:100%;
           object-fit:cover;
         }
-
-        &::after {
-          background: url('../images/shadow-products.svg') no-repeat;
-          background-position: bottom;
-          position: absolute;
-          content: "";
-          display: block;
-          width: 100%;
-          height: 100%;
-          bottom: -15%;
-          left: -50%;
-          transform: translateX(20%);
-        }
         
         img {
-          max-width: 50%;
+          max-width:60%;
           height: auto;
 
           @include screen('xs', 'max') {
-            max-width:50%;
+            max-width:60%;
             object-fit:cover;
           }
 
           &:first-child {
-            left: 20%;
+            left: 3%;
+            z-index: 1;
             position: absolute;
           }
         }
