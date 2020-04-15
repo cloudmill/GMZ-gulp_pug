@@ -7,6 +7,19 @@ include ../modules/header.pug
 block variables
  -var pageTitle='Вытяжные'
 
+mixin products-list(json)
+  each data in json
+    a.products-container(href=data.link)
+      .products-img
+        img(src=data.img)
+        img(src=data.img)
+      .products-title #{data.title}
+      .products-hover
+        +icon('rhombus', 'svg').rhombus-1
+        +icon('rhombus', 'svg').rhombus-2
+        +icon('cloud-2', 'svg').cloud-1
+        +icon('cloud-1', 'svg').cloud-2
+
 block content
     +header()
     section.main-products
@@ -34,71 +47,6 @@ block content
             .category-el-title Сыворотка
             
         .main-products-items
-          a.products-el(href="./product.html")
-            .products-el-img.visual-animation-base-block
-              img(src="./images/img-products-1-min.png")
-              img(src="./images/img-products-1-min.png")
-            .products-el-title.visual-animation-base Сыр <br> «Охотничий» копченый
-            .products-el-hover.visual-animation-base-block
-              +icon('rhombus', 'svg').rhombus-1
-              +icon('rhombus', 'svg').rhombus-2
-              +icon('cloud-2', 'svg').cloud-1
-              +icon('cloud-1', 'svg').cloud-2
-
-          a.products-el(href="./product.html")
-            .products-el-img.visual-animation-base-block
-              img(src="./images/img-products-2-min-new.png")
-              img(src="./images/img-products-2-min-new.png")
-            .products-el-title.visual-animation-base Сыр Косичка «Гиагинский» копченый
-            .products-el-hover
-              +icon('rhombus', 'svg').rhombus-1
-              +icon('rhombus', 'svg').rhombus-2
-              +icon('cloud-2', 'svg').cloud-1
-              +icon('cloud-1', 'svg').cloud-2
-
-          a.products-el(href="./product.html")
-            .products-el-img.visual-animation-base-block
-              img(src="./images/img-products-3-min.png")
-              img(src="./images/img-products-3-min.png")
-            .products-el-title.visual-animation-base Сыр «Чечил» копченый
-            .products-el-hover
-              +icon('rhombus', 'svg').rhombus-1
-              +icon('rhombus', 'svg').rhombus-2
-              +icon('cloud-2', 'svg').cloud-1
-              +icon('cloud-1', 'svg').cloud-2
-
-          a.products-el(href="./product.html")
-            .products-el-img.visual-animation-base-block
-              img(src="./images/img-products-4-min.png")
-              img(src="./images/img-products-4-min.png")
-            .products-el-title.visual-animation-base Сыр «Чечил»
-            .products-el-hover
-              +icon('rhombus', 'svg').rhombus-1
-              +icon('rhombus', 'svg').rhombus-2
-              +icon('cloud-2', 'svg').cloud-1
-              +icon('cloud-1', 'svg').cloud-2
-
-          a.products-el(href="./product.html")
-            .products-el-img.visual-animation-base-block
-              img(src="./images/img-products-5-min.png")
-              img(src="./images/img-products-5-min.png")
-            .products-el-title.visual-animation-base Сыр «Спагетти» «Гиагинский» копченый
-            .products-el-hover
-              +icon('rhombus', 'svg').rhombus-1
-              +icon('rhombus', 'svg').rhombus-2
-              +icon('cloud-2', 'svg').cloud-1
-              +icon('cloud-1', 'svg').cloud-2
-
-          a.products-el(href="./product.html")
-            .products-el-img.visual-animation-base-block
-              img(src="./images/img-products-6-min.png")
-              img(src="./images/img-products-6-min.png")
-            .products-el-title.visual-animation-base Сыр «Косичка» «Гиагинский»
-            .products-el-hover
-              +icon('rhombus', 'svg').rhombus-1
-              +icon('rhombus', 'svg').rhombus-2
-              +icon('cloud-2', 'svg').cloud-1
-              +icon('cloud-1', 'svg').cloud-2
-
+          +products-list(getData('pages/products/products'))
     +subscriptionForm().bg-white
     +footer().bg-white

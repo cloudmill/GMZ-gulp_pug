@@ -1,0 +1,37 @@
+[
+    {
+       "title":"Сыр «Охотничий» копченый",
+       "img":"./images/img-products-1-min.png",
+       "link":"./product.html"
+    },
+
+    {
+        "title":"Сыр Косичка «Гиагинский» копченый",
+        "img":"./images/img-products-2-min-new.png",
+        "link":"./product.html"
+    },
+
+    {
+        "title":"Сыр «Чечил» копченый",
+        "img":"./images/img-products-3-min.png",
+        "link":"./product.html"
+    },
+
+    {
+        "title":"Сыр «Чечил»",
+        "img":"./images/img-products-4-min.png",
+        "link":"./product.html"
+    },
+
+    {
+        "title":"Сыр «Чечил» копченый",
+        "img":"./images/img-products-5-min.png",
+        "link":"./product.html"
+    },
+
+    {
+        "title":"Сыр «Чечил»",
+        "img":"./images/img-products-6-min.png",
+        "link":"./product.html"
+    }
+]
