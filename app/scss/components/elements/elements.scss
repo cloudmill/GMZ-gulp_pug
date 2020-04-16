@@ -1,3 +1,19 @@
+@function pow($number, $exp) {
+  $value: 1;
+
+  @if $exp > 0 {
+    @for $i from 1 through $exp {
+      $value: $value * $number;
+    }
+  }
+
+  @else if $exp < 0 {
+    @for $i from 1 through -$exp {
+      $value: $value / $number;
+    }
+  }
+  @return $value;
+}
 
 .visual-animation-word, .visual-animation-word-s, .visual-animation-word-m {
   white-space: nowrap;
@@ -9,19 +25,20 @@
   -webkit-transform-style: flat;
   transform-style: flat;
 
-  > * > * {
-    -webkit-animation: notransform 1s;
-    animation: notransform 1s;
+  > * > .animate {
+    -webkit-animation: notransform 500ms;
+    animation: notransform 500ms;
     opacity: 1.0;
     animation-fill-mode: forwards;
     display: inline-block;
   }
 }
-
-@for $i from 1 through 10 {
-  @for $j from 1 through 50 {
+$c: 0;
+@for $i from 1 through 15 {
+  @for $j from 1 through 20 {
+    $c: $c+1;
     .visual-animation-showing > *:nth-child(#{$i}n) > *:nth-child(#{$j}n) {
-      animation-delay: #{$i*$j * 30}ms;
+      // animation-delay: #{$c * (30)}ms;
     }
   }
   .visual-animation-showing-block > *:nth-child(#{$i}n) {
@@ -103,7 +120,7 @@
     /*-webkit-transform: rotate3d(5, 0, 0, 90deg);
     -ms-transform: rotate3d(5, 0, 0, 90deg);
     transform: rotate3d(5, 0, 0, 90deg);*/
-    opacity: 0.0;
+    opacity: 0.0 !important;
   }
 }
 
