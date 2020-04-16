@@ -33,32 +33,15 @@
     display: inline-block;
   }
 }
-$c: 0;
 @for $i from 1 through 15 {
-  @for $j from 1 through 20 {
-    $c: $c+1;
-    .visual-animation-showing > *:nth-child(#{$i}n) > *:nth-child(#{$j}n) {
-      // animation-delay: #{$c * (30)}ms;
-    }
-  }
   .visual-animation-showing-block > *:nth-child(#{$i}n) {
     animation-delay: #{$i * 30}ms;
   }
 
-  @for $j from 1 through 50 {
-    .visual-animation-showing-s > *:nth-child(#{$i}n) > *:nth-child(#{$j}n) {
-      animation-delay: #{$i*$j * 30}ms;
-    }
-  }
   .visual-animation-showing-block-s > *:nth-child(#{$i}n) {
     animation-delay: #{$i * 250}ms;
   }
 
-  @for $j from 1 through 50 {
-    .visual-animation-showing-m > *:nth-child(#{$i}n) > *:nth-child(#{$j}n) {
-      animation-delay: #{$i*$j * 30}ms;
-    }
-  }
   .visual-animation-showing-block-s > *:nth-child(#{$i}n) {
     animation-delay: #{$i * 250}ms;
   }
