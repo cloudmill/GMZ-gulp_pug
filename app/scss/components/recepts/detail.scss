@@ -87,20 +87,16 @@
       &-image {
         z-index: 10;
         position: relative;
-        left: 10%;
+        width: 67%;
 
         img {
           position: relative;
-          width: 244px;
+          width: 100%;
           height: auto;
+          left: 33%;
 
           @include screen('md', 'max') {
             width: 60%;
-          }
-
-          &:last-child {
-            left: 25%;
-            position: absolute;
           }
         }
       }

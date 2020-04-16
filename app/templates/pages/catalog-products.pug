@@ -22,6 +22,9 @@ mixin products-list(json)
 block content
     +header()
     section.main-products
+      .main-products-fixed.waveSection-bottom-clip(data-color="#ffffff")
+        .text-bottom Вытяжные
+        canvas.main-catalog-dashed(width="100%", height="100%")
       .content.main-products-box
         .main-products-category.visual-animation-base-block
           a.main-products-category-el(href="#")

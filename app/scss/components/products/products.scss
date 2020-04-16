@@ -5,11 +5,58 @@
     background: url('../images/catalog-bottom.png') no-repeat $background-additional;
     background-position: bottom;
     padding-bottom: 20px;
+
+    //Временно
+    @include screen('sm', 'max') {
+      padding-bottom: 80px;
+    }
+
+    &-fixed {
+      display: none;
+    }
   }
 
   @include screen('md', 'min') {
+    &-fixed {
+      position: absolute;
+      height: 240px;
+      width: calc(100% - 40px);
+      left: 50%;
+      top: 17%;
+      z-index: 1;
+      background: #fff;
+      transform: translateX(-50%);
+      padding-right: 20px;
+      padding-left: 20px;
+
+      canvas {
+        width: 100%;
+        top: 0%;
+        z-index: 5;
+      }
+  
+      .text-bottom {
+        position: absolute;
+        display: block;
+        color: #fff;
+        font-family: 'Lineatura';
+        position: absolute;
+        bottom: 0%;
+        font-size: 260px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        text-align: center;
+        z-index: 2;
+  
+        @include screen('lg', 'max') {
+          display: none;
+        }
+      }
+    }
+
     &::after {
-      background: url('../images/catalog-bottom.png') no-repeat $background-additional;
+      background: $background-additional;
       background-position: bottom;
       background-size: contain;
       position: absolute;
@@ -178,9 +225,12 @@
     grid-row-gap: 116px;
 
     @include screen('md', 'max') {
+      grid-column-gap: 10px;
+      grid-row-gap: 80px; 
+    }
+
+    @include screen('950', 'max') {
       grid-template-columns: 100%;
-      grid-column-gap: 0;
-      grid-row-gap: 50px; 
     }
   }
 
@@ -312,6 +362,10 @@
       opacity: 0;
       transition: opacity .3s;
       z-index: 1;
+
+      @include screen('md', 'max') {
+        display: none;
+      }
     }
 
     & > .products-img {
@@ -347,11 +401,15 @@
         height: 431px;
         z-index: 10;
 
-        @include screen('sm', 'max') {
+        @include screen('950', 'max') {
           position: relative;
           width: 70%;
           height: auto;
           margin-left: 0%;
+        }
+
+        @include screen('sm', 'max') {
+          width: 100%;
         }
       }
     }
@@ -362,7 +420,7 @@
       @include UI-Font-PFRegalTextPro-bold;
       z-index: 2;
 
-      @include screen('sm', 'max') {
+      @include screen('950', 'max') {
         margin: 0;
         text-align: left;
         max-width: 100%;
