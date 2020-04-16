@@ -87,6 +87,12 @@
       color: #312930;
       margin-bottom: 30px;
       margin-top: 60px;
+
+      @include screen("xs", "max") {
+        &:first-child {
+          margin-top: 40px;
+        }
+      }
     }
     p {
       font-family: 'CeraPro';

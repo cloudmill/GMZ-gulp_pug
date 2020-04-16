@@ -23,6 +23,7 @@ function init() {
                 width: 1546,
                 height: 714,
                 cropHeightPercentage: 30,
+                minWidthStartRendering: 767,
             }
         )
     }
@@ -37,6 +38,7 @@ function init() {
                 stopAt: 99,
                 width: 1546,
                 height: 714,
+                minWidthStartRendering: 767,
             }
         )
     }
@@ -54,6 +56,7 @@ function init() {
                 cropHeightPercentage:79,
                 offsetLeftPercentage: 0,
                 cropWidthPercentage: 5,
+                minWidthStartRendering: 767,
             }
         )
     }
@@ -70,6 +73,7 @@ function init() {
                 height: 793,
                 cropHeightPercentage:84.5,
                 offsetRightPercentage: 30,
+                minWidthStartRendering: 767,
             }
         )
     }
@@ -87,6 +91,7 @@ function init() {
                 cropHeightPercentage:82,
                 offsetRightPercentage: 12,
                 offsetLeftPercentage: 10,
+                minWidthStartRendering: 767,
             }
         )
     }
@@ -104,6 +109,7 @@ function init() {
                 cropHeightPercentage:82,
                 offsetRightPercentage: 35,
                 offsetLeftPercentage: 3,
+                minWidthStartRendering: 767,
             }
         )
     }
@@ -119,6 +125,7 @@ function init() {
                 width: 1546,
                 height: 714,
                 cropHeightPercentage: 30,
+                minWidthStartRendering: 767,
             }
         )
     }
@@ -132,7 +139,8 @@ function init() {
                 startFrom: 0,
                 stopAt: 100,
                 width: 1546,
-                height: 714
+                height: 714,
+                minWidthStartRendering: 767,
             }
         )
     }
@@ -149,7 +157,8 @@ function init() {
                 height: 714,
                 cropHeightPercentage: 60,
                 additionalWidthPercentage: 20,
-                cropWidthPercentage: -50
+                cropWidthPercentage: -50,
+                minWidthStartRendering: 767,
             }
         )
     }
@@ -163,7 +172,8 @@ function init() {
                 startFrom: 0,
                 stopAt: 100,
                 width: 1132,
-                height: 352
+                height: 352,
+                minWidthStartRendering: 0,
             }
         )
     }
@@ -179,6 +189,7 @@ function init() {
                 width: 1046,
                 height: 259,
                 additionalWidthPercentage: 30,
+                minWidthStartRendering: 767,
             }
         )
     }
@@ -195,6 +206,7 @@ function init() {
                 height: 649,
                 offsetRightPercentage: 30,
                 cropHeightPercentage: 28,
+                minWidthStartRendering: 767,
                 onEnd: () => {
                     /*new DashedBackground(
                         bgPromo,

@@ -9,6 +9,7 @@ let sliders = {
     this.receptSliderOne();
     this.aboutSlider();
     this.awardsSlider();
+    this.newsAndStockSlider();
   },
   mainSlider: function() {
     let delayChangeSlide = 5000;
@@ -174,6 +175,20 @@ let sliders = {
         prevEl: "#slider-awards-right"
       }
     });
+  },
+  newsAndStockSlider: function() {
+    return new Swiper(".news-row", {
+      speed: 5200,
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      freeMode: false,
+
+      breakpoints: {
+        1023: {
+          spaceBetween: 120,
+        }
+      }
+    });    
   }
 };
 

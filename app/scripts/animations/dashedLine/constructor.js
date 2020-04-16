@@ -182,8 +182,12 @@ class DashBackground {
     }
 
     start() {
-        this.isStarted = true;
-        this.startDo();
+        if(document.documentElement.clientWidth >= this._options.minWidthStartRendering) {
+            this.isStarted = true;
+            this.startDo();
+        } else {
+            this.isStarted = false;
+        }
     }
 
     startDo() {

@@ -35,10 +35,7 @@ section {
     }
 
     @include screen('xs', 'max') {
-      padding-top: 60px;
-      padding-bottom: 60px;
-      padding-left: 40px;
-      padding-right: 40px;
+      padding: 40px 40px;
     }
 
     &::before {
@@ -58,6 +55,9 @@ section {
     & > h2 {
       @include UI-Font-PFRegalTextPro-bold;
       z-index: 2;
+      @include screen('xs', 'max') {
+        font-size: 18px;
+      }
     }
 
     & > i {

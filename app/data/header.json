@@ -2,18 +2,18 @@
     {
        "title":"О нас",
        "description":"Кто мы и как работаем",
-       "link":"/about.html"
+       "link":"./about.html"
     },
 
     {
         "title":"Продукция",
         "description":"Сыры, масла, сыворотка",
-        "link":"/catalog.html"
+        "link":"./catalog.html"
     },
 
     {
         "title":"Где купить",
         "description":"На полках магазинов",
-        "link":"/whereBuy.html"
+        "link":"./whereBuy.html"
     }
 ]

@@ -11,7 +11,7 @@ block variables
 
 mixin main-partners-box-nav-el(json)
   each data in json
-    if(data.link == selectPage)
+    if(data.activedata == selectPage)
       a.main-partners-box-nav-link(href=data.link).active #{data.title}
     else
       a.main-partners-box-nav-link(href=data.link) #{data.title}

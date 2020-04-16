@@ -22,6 +22,7 @@
     .image {
       position: relative;
       margin-left: -5%;
+      height: 100%;
 
       @include screen('md', 'max') {
         margin-left: 0;
@@ -34,12 +35,17 @@
 
       .print {
         position: absolute;
-        bottom: -10%;
+        bottom: -18%;
         left: 20%;
 
         @include screen('md', 'max') {
-          left: 50%;
-          top: -5%;
+          left: 65%;
+          top: 15%;
+          font-size: 9px;
+        }
+
+        @include screen('sm', 'max') {
+          left: 59%;
         }
       }
 
@@ -90,7 +96,7 @@
     
         @include screen('xs', 'max') {
           margin-top: 40px;
-          margin-bottom: 90px;
+          margin-bottom: 40px;
           width: 100%;
         }
       }
@@ -100,6 +106,10 @@
 .main-about-info {
   color: #312930;
   margin-top: 100px;
+
+  @include screen('sm', 'max') {
+    margin-top: 60px;
+  }
   
   &-box {
     display: grid;
@@ -114,7 +124,7 @@
     }
 
     @include screen('xs', 'max') {
-      grid-row-gap: 50px;
+      grid-row-gap: 32px;
     }
 
     .about-info-el {
@@ -175,6 +185,10 @@
             left: 50%;
             transform: translateX(-50%);
             bottom: -42%;
+
+            @include screen('xs', 'max') {
+              bottom: -62%;
+            }
           }
         }
 
@@ -211,6 +225,10 @@
   margin-top: 100px;
   position: relative;
 
+  @include screen('xs', 'max') {
+    margin-top: 40px;
+  }
+
   &::before {
     position: absolute;
     content: "";
@@ -233,6 +251,10 @@
 
 .main-about-slider {
   margin-top: 120px;
+
+  @include screen('xs', 'max') {
+    margin-top: 80px;
+  }
 
   &-box {
     h2 {

@@ -1,16 +1,19 @@
 [
     {
        "title":"О нас",
-       "link":"#about"
+       "activedata":"#about",
+       "link": "./about.html"
     },
 
     {
         "title":"Как мы это делаем",
-        "link":"#howdo"
+        "activedata":"#howdo",
+        "link": "./howdo.html"
     },
 
     {
         "title":"Партнерам",
-        "link":"#partners"
+        "activedata":"#partners",
+        "link": "./partners.html"
     }
 ]

@@ -40,6 +40,12 @@ section {
     color: $color-text-main;
     font-family: 'CeraPro';
 
+    @include screen('xs', 'max') {
+      justify-content: space-between;
+      width: 100%;
+      max-width: 325px;
+    }
+
     &-link {
       font-size: 25px;
       line-height: 31px;
@@ -51,7 +57,6 @@ section {
         position: relative;
 
         &::after {
-          margin-top: 5px;
           display: block;
           content: '';
           height: 1px;

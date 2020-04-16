@@ -10,34 +10,34 @@
         "title": "Вареники с сыром «Адыгейский»",
         "time": "55 минут",
         "image": "recepts-slider-el-2.jpg",
-        "link": "#"
+        "link": "./recept_detail.html"
     },
 
     {
         "title": "Пирог с адыгейским сыром и брынзой",
         "time": "55 минут",
         "image": "recepts-slider-el-3.jpg",
-        "link": "#"
+        "link": "./recept_detail.html"
     },
 
     {
         "title": "Сыр «Адыгейский» жаренный на сливочном масле («кояж»)",
         "time": "25 минут",
         "image": "recepts-slider-el-4.jpg",
-        "link": "#"
+        "link": "./recept_detail.html"
     },
 
     {
         "title": "Тарелка с копчеными сырами «Футбольное удовольствие»",
         "time": "25 минут",
         "image": "recepts-slider-el-5.jpg",
-        "link": "#"
+        "link": "./recept_detail.html"
     },
 
     {
         "title": "Мясо по-французски под сыром «Сулугуни»",
         "time": "55 минут",
         "image": "recepts-slider-el-6.jpg",
-        "link": "#"
+        "link": "./recept_detail.html"
     }
 ]
