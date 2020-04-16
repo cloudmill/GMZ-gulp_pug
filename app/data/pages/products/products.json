@@ -1,37 +1,37 @@
 [
     {
        "title":"Сыр «Охотничий» копченый",
-       "img":"./images/img-products-1-min.png",
+       "img":"./images/img-productsprev-1-min.png",
        "link":"./product.html"
     },
 
     {
         "title":"Сыр Косичка «Гиагинский» копченый",
-        "img":"./images/img-products-2-min-new.png",
+        "img":"./images/img-productsprev-2-min.png",
         "link":"./product.html"
     },
 
     {
         "title":"Сыр «Чечил» копченый",
-        "img":"./images/img-products-3-min.png",
+        "img":"./images/img-productsprev-3-min.png",
         "link":"./product.html"
     },
 
     {
         "title":"Сыр «Чечил»",
-        "img":"./images/img-products-4-min.png",
+        "img":"./images/img-productsprev-4-min.png",
         "link":"./product.html"
     },
 
     {
-        "title":"Сыр «Чечил» копченый",
-        "img":"./images/img-products-5-min.png",
+        "title":"Сыр «Спагетти» «Гиагинский» копченый",
+        "img":"./images/img-productsprev-5-min.png",
         "link":"./product.html"
     },
 
     {
-        "title":"Сыр «Чечил»",
-        "img":"./images/img-products-6-min.png",
+        "title":"Сыр «Косичка» «Гиагинский»",
+        "img":"./images/img-productsprev-6-min.png",
         "link":"./product.html"
     }
 ]

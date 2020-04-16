@@ -4,11 +4,12 @@
   &-header {
     h2 {
       margin-top: 120px;
-      padding-bottom: 73px;
+      padding-bottom: 120px;
       @include UI-Font-PFRegalTextPro-bold;
 
       @include screen('sm', 'max') {
         margin-top: 40px;
+        padding-bottom: 80px;
       }
     }
   }

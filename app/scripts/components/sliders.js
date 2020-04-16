@@ -11,7 +11,7 @@ let sliders = {
     this.awardsSlider();
   },
   mainSlider: function() {
-    let delayChangeSlide = 2500;
+    let delayChangeSlide = 5000;
     return new Swiper(".main-index-box-slider", {
       speed: 1500,
       spaceBetween: 500,

@@ -343,27 +343,16 @@
       }
 
       img {
-        position: absolute;
+        position: relative;
         width: auto;
         height: 431px;
-        margin-left: -10%;
+        z-index: 10;
 
         @include screen('sm', 'max') {
           position: relative;
           width: 70%;
           height: auto;
           margin-left: 0%;
-        }
-
-        &:first-child {
-          z-index: 10;
-        }
-
-        &:last-child {
-          left: 30%;
-          @include screen('sm', 'max') {
-            position: absolute;
-          }
         }
       }
     }

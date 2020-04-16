@@ -167,7 +167,7 @@
           & > p {
             font-family: 'CeraPro';
             font-size: 20px;
-            line-height: 31px;
+            line-height: 30px; //было 31 (16.04.2019)
             margin-bottom: 49px;
 
             @include screen('xs', 'max') {
