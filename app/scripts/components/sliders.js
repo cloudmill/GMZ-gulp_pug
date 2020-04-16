@@ -186,6 +186,7 @@ let sliders = {
       breakpoints: {
         1023: {
           spaceBetween: 120,
+          slidesPerView: 3,
         }
       }
     });    

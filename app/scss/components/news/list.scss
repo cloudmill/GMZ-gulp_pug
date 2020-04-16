@@ -169,8 +169,12 @@
       }
     }
 
-    @include screen("md", "max") {
-      &.swiper-slide { width: 70% }
+    &.swiper-slide { 
+      width: calc(100% / 3); 
+
+      @include screen("md", "max") {
+        width: 70%
+      }
     }
 
     //small items row
