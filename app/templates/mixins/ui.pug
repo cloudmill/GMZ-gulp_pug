@@ -4,7 +4,7 @@ mixin selectField(name,placeholder,options)
       each option in options
         option(value=option)= option
 mixin inputField(type_param, id_param, label, binding = true)
-  .main-field
+  .main-field.visual-animation-base-block
     if(binding == true)
       input(type=type_param name=id_param id=id_param placeholder=label required)&attributes(attributes)
     else
@@ -18,7 +18,7 @@ mixin inputField(type_param, id_param, label, binding = true)
     //- inputField({тип поля ввода}, {имя поля}, {заголовок}, {обязательное ли поле (можно передать "null" или слово которое нужно вывести вместо "Необязательно","false" - не выводит слово)})
 
 mixin textarea(id_param, cols_param, rows_param, label_text, label_addon)
-  .main-field
+  .main-field.visual-animation-base-block
     textarea(name=id_param, id=id_param cols=cols_param, rows=rows_param, placeholder=label_text)
     label(for=id_param class="main-field-name")
     if(label_addon != '')

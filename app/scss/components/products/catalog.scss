@@ -1,15 +1,7 @@
 .main-catalog {
   position: relative;
   padding-bottom: 10px;
-  background: #F6F5F3;
-
-  @include screen('lg', 'max') {
-    background: $background-additional;
-    background-repeat: no-repeat;
-    background-image: url('../images/catalog-bottom.png');
-    background-position: bottom;
-    background-size: contain;
-  }
+  background: #F6F5F3;  
 
   &-fixed {
     position: absolute;
@@ -45,6 +37,10 @@
     padding-top: 257px;
     position: relative;
     z-index: 10;
+
+    @include screen('md', 'max') {
+      padding-bottom: 70px;
+    }
     
     @include screen('xs', 'max') {
       padding-top: 120px;
@@ -69,6 +65,7 @@
       @include screen('sm', 'max') {
         line-height: 30px;
         font-size: 50px;
+        margin-bottom: 66px
       }
 
       @include screen('xs', 'max') {
@@ -99,6 +96,21 @@
               top: 70%;
               right: 0%;
               z-index: 5;
+
+              @include screen('950', 'max') {
+                top: 70%;
+                left: 15%;
+                right: unset;
+              }
+              
+              @include screen('sm', 'max') {
+                top: 63%;
+              }
+
+              @include screen('xs', 'max') {
+                font-size: 6px;
+                left: 10%;
+              }
         
               &:before {
                 transform: scale(0.8);
@@ -109,6 +121,10 @@
               left: -20%;
               top: 15%;
               z-index: 5;
+
+              @include screen('950', 'max') {
+                display: none;
+              }
         
               &:before {
                 transform: scale(0.5);
@@ -119,6 +135,15 @@
               right: 10%;
               top: 5%;
               z-index: 5;
+
+              @include screen('sm', 'max') {
+                font-size: 8px;
+              }
+
+              @include screen('xs', 'max') {
+                font-size: 6px;
+                top: -4%;
+              }
         
               &:before {
                 transform: scale(1.1);
@@ -135,7 +160,22 @@
               bottom: -1%;
               right: 38%;
               z-index: 5;
-        
+
+              @include screen('950', 'max') {
+                bottom: unset;
+                right: 11%;
+                z-index: 5;
+                top: 8%;
+              }
+              
+              @include screen('sm', 'max') {
+
+              }
+
+              @include screen('xs', 'max') {
+                font-size: 6px;
+              }
+
               &:before {
                 transform: scale(0.8);
               }
@@ -145,6 +185,10 @@
               right: -35%;
               top: 5%;
               z-index: 5;
+
+              @include screen('950', 'max') {
+                display: none;
+              }
         
               &:before {
                 transform: scale(0.5);
@@ -155,6 +199,21 @@
               left: -7%;
               top: 30%;
               z-index: 5;
+
+              @include screen('950', 'max') {
+                left: 17%;
+                top: unset;
+                bottom: 4%;
+              }
+              
+              @include screen('sm', 'max') {
+                font-size: 8px;
+              }
+
+              @include screen('xs', 'max') {
+                font-size: 6px;
+                bottom: -4%;
+              }
         
               &:before {
                 transform: scale(1.1);
@@ -171,6 +230,22 @@
               bottom: -5%;
               right: 22%;
               z-index: 5;
+
+              @include screen('950', 'max') {
+                top: 70%;
+                left: 15%;
+                right: unset;
+                bottom: unset;
+              }
+              
+              @include screen('sm', 'max') {
+                top: 63%;
+              }
+
+              @include screen('xs', 'max') {
+                font-size: 6px;
+                left: 10%;
+              }
         
               &:before {
                 transform: scale(0.8);
@@ -181,6 +256,10 @@
               left: -18%;
               top: 14%;
               z-index: 5;
+
+              @include screen('950', 'max') {
+                display: none;
+              }
         
               &:before {
                 transform: scale(0.5);
@@ -191,6 +270,17 @@
               right: -5%;
               top: 49%;
               z-index: 5;
+
+              @include screen('sm', 'max') {
+                font-size: 8px;
+                right: 10%;
+                top: 5%;
+              }
+
+              @include screen('xs', 'max') {
+                font-size: 6px;
+                top: -4%;
+              }
         
               &:before {
                 transform: scale(1.1);
@@ -207,6 +297,22 @@
               bottom: 12%;
               left: 10%;
               z-index: 5;
+
+              @include screen('950', 'max') {
+                bottom: unset;
+                left: unset;
+                right: 11%;
+                z-index: 5;
+                top: 8%;
+              }
+              
+              @include screen('sm', 'max') {
+
+              }
+
+              @include screen('xs', 'max') {
+                font-size: 6px;
+              }
         
               &:before {
                 transform: scale(0.8);
@@ -217,6 +323,10 @@
               right: -30%;
               top: 10%;
               z-index: 5;
+
+              @include screen('950', 'max') {
+                display: none;
+              }
         
               &:before {
                 transform: scale(0.5);
@@ -227,6 +337,21 @@
               left: 0%;
               top: -4%;
               z-index: 5;
+              
+              @include screen('950', 'max') {
+                left: 17%;
+                top: unset;
+                bottom: 4%;
+              }
+              
+              @include screen('sm', 'max') {
+                font-size: 8px;
+              }
+
+              @include screen('xs', 'max') {
+                font-size: 6px;
+                bottom: -4%;
+              }
         
               &:before {
                 transform: scale(1.1);
