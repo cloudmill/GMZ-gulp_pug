@@ -53,6 +53,10 @@
           left: 50px;
           transform-origin: left;
           bottom: 40%;
+
+          @include screen('md', 'max') {
+            display: none;
+          }
         }
 
         &-content {
@@ -184,7 +188,11 @@
             @include screen('custom-860', 'max') {
               background: #ffffff;
               padding: 40px 20px;
-              margin-bottom: 20px;
+              margin-bottom: 30px;
+
+              &:first-child {
+                margin-bottom: 10px;
+              }
             }
 
             @include screen('xs', 'max') {
