@@ -60,7 +60,10 @@
       background-repeat: no-repeat;
       width: 100%;
       z-index: 1;
-      padding-top: 100px;
+
+      @include screen('custom-860', 'max') {
+        padding-top: 20%;
+      }
 
       @include screen('custom-860', 'max') {
         &::after {
@@ -97,46 +100,26 @@
         height: auto;
         position: relative;
 
-        @include screen('md', 'max') {
-          width: 90%;
-          transform-origin: top;
-        }
-
         @include screen('custom-860', 'max') {
-          
-        }
-
-        @include screen('sm', 'max') {
-          transform-origin: center;
-          width: 80%;
-          margin: 0 auto;
-          left: -20px;
+          padding-top: 50px;
+          padding-bottom: 80px;
         }
     
         .image {
-          max-width: 600px;
+          transform: translateX(0%);
+          width: 75%;
           margin: 0 auto;
-          transform: rotate(12deg) translateX(0%);
+
+          @include screen('custom-860', 'max') {
+            width: 65%;
+          }
         }
 
         img {
-          width: 80%;
-
-          &:first-child {
-            left: 21%;
-            position: absolute;
-            top: 26%;
-
-            @include screen('md', 'max') {
-              left: 27%;
-            }
-          } 
-
-          @include screen('md', 'max') {
-            width:100%;
-            object-fit:cover;
-          }
+          width: 100%;
+          position: relative;
         }
+
         &.pageLoaded{
           .addons{
             .cloud-1, .cloud-2, .cloud-3, .rhombus-1, .rhombus-2, .print{
@@ -156,8 +139,8 @@
           }
 
           .cloud-1 {
-            left: 3%;
-            top: 20%;
+            left: 8%;
+            top: 16%;
             transform: translateX(-200px);
             transition: 0.8s ease-out;
 
@@ -168,7 +151,7 @@
 
           .cloud-2 {
             font-size: 6px;
-            bottom: 14%;
+            bottom: 23%;
             right: 8%;
             transform: translateX(-550px);
             transition: 1.1s ease-out;
@@ -179,8 +162,8 @@
           }
 
           .cloud-3 {
-            bottom: 33%;
-            right: 14%;
+            bottom: 45%;
+            right: 10%;
             transform: translateX(-680px);
             transition: 1s ease-out;
             z-index: -1;
@@ -192,8 +175,8 @@
 
           .rhombus-1 {
             font-size: 8px;
-            left: 3%;
-            bottom: 40%;
+            left: 6%;
+            bottom: 50%;
             transform: translateX(-150px);
             transition: 0.9s ease-out;
 
@@ -209,9 +192,9 @@
           }
 
           .rhombus-2 {
-            font-size: 4px;
-            left: 15%;
-            bottom: 32%;
+            font-size: 5px;
+            left: 17%;
+            bottom: 45%;
             transform: translateX(-300px);
             transition: 0.8s ease-out;
 
@@ -221,8 +204,8 @@
           }
 
           .print {
-            bottom: -33%;
-            right: -1%;
+            bottom: -4%;
+            right: 8%;
             @include screen('lg', 'max') {
               font-size: 8px;
             }

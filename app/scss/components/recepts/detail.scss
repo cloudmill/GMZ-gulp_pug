@@ -43,6 +43,7 @@
         
         .group-product {
           height: 100%;
+          width: 100%;
 
           &:hover {
             span {
@@ -75,11 +76,7 @@
           @include screen('md', 'max') {
             width: 100%;
             height: 100%;
-            background-size: 70%;
-          }
-
-          @include screen('xs', 'max') {
-            background-size: 90%;
+            background-size: contain;
           }
         }
       }
@@ -87,16 +84,17 @@
       &-image {
         z-index: 10;
         position: relative;
-        width: 67%;
+        width: 70%;
+        margin: 0 auto;
 
         img {
           position: relative;
           width: 100%;
           height: auto;
-          left: 33%;
-
+          left: 9%;
+          
           @include screen('md', 'max') {
-            width: 60%;
+            width: 80%;
           }
         }
       }
@@ -110,6 +108,7 @@
         position: relative;
         width: 60%;
         margin-top: 10%!important;
+        margin: 0 auto;
 
         @include screen('lg', 'max') {
           width: 100%;

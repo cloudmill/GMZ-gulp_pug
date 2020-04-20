@@ -112,13 +112,9 @@ section.next {
     .image {
       position: relative;
       object-fit: cover;
-      margin-bottom: -10%;
+      margin-bottom: -15%;
       height: auto;
-      width: 28%;
-
-      @include screen('custom-860', 'max') {
-        width: 80%;
-      }
+      flex-basis: 50%;
   
       img {
         width: 100%;
@@ -126,11 +122,6 @@ section.next {
         @include screen('custom-860', 'max') {
           width: 100%;
           height: auto;
-        }
-
-        &:first-child {
-          left: -38%;
-          position: absolute;
         }
       }
     }
