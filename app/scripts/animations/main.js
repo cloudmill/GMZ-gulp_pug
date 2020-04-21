@@ -1,6 +1,7 @@
 import $ from "jquery";
 import Wave from "./wave.js";
-import Fixed from "./fixed.js";
+import FixedInBlock from "./fixedInBlock.js";
+import AbsoluteFixation from "./absoluteFixation.js";
 import MouseParalax from "./mouseParalax.js";
 import ScrollRotate from "./scrollRotate.js";
 import DashedLine from "./dashedLine/main.js";
@@ -11,6 +12,7 @@ let animations = {
   init: function() {
     this.waveAnimation();
     this.fixedInBlock();
+    this.absoluteFixation();
     this.mouseParalax();
     this.scrollRotate();
     this.dashedLine();
@@ -41,9 +43,15 @@ let animations = {
   fixedInBlock: function() {
     var fixeds = [];
     $(".fixed-base").each((key, item) => {
-      fixeds.push(new Fixed(item));
+      fixeds.push(new FixedInBlock(item));
     });
   },
+  absoluteFixation: function(){
+    let absoluteFixItems = [];
+    $('.fixed-window').each(function(ket,item){
+      absoluteFixItems.push(new AbsoluteFixation(item));
+    })
+  },  
   mouseParalax: function(){
     let mouseParalaxItems = []
     $('.mouseParalax').each(function(key,item){
