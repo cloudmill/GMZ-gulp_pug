@@ -1,3 +1,8 @@
+.fixed-wrapper-main-products {
+  background: $background-additional;
+  height: 100vh;
+}
+
 .main-products {
   background: #fff;
 
@@ -5,11 +10,6 @@
     background: url('../images/catalog-bottom.png') no-repeat $background-additional;
     background-position: bottom;
     padding-bottom: 20px;
-
-    //Временно
-    @include screen('sm', 'max') {
-      padding-bottom: 80px;
-    }
 
     &-fixed {
       display: none;
@@ -22,7 +22,7 @@
       height: 240px;
       width: calc(100% - 40px);
       left: 50%;
-      top: 17%;
+      bottom: 3%;
       z-index: 1;
       background: #fff;
       transform: translateX(-50%);
