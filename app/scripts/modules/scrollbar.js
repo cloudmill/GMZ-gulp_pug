@@ -57,6 +57,9 @@ export default class customScrollbar {
     });
     this.updateHandlers();
   }
+  getSize(){
+    return this.scrollbar.getSize()
+  }
 
   get scrollTop() {
     return this.scrollbar.scrollTop;
