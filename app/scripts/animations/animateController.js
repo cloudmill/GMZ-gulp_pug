@@ -1,14 +1,48 @@
 import $ from "jquery";
 const opts = {
   stepScroll: 20,
+  maxFPS: 60,
+};
+class Updater {
+  constructor() {
+    this.list = [];
+  }
+  add(listener) {
+    this.list.push(listener);
+  }
+  remove(listener) {
+    this.list.forEach((item, key) => {
+      if (item === listener) {
+        this.list.splice(key, 1);
+      }
+    });
+  }
+  update() {
+    this.list.forEach((listener, key) => {
+      listener();
+    });
+  }
 }
-export default class AnimateController{
-  constructor(){
-    this.forUpdating = [];
-    
+export default class AnimateController {
+  constructor() {
+    this.warden = new Updater();
+    this.renderer = new Updater();
+    this.ready = true;
+    this.frame = 0;
+    this.init();
+  }
+  init() {
     window.isObservable = this.isObservable;
-    window.addUpdateState = this.addUpdateState.bind(this);
-    this.updateState();
+    window.addObservableCheck = this.addObservableCheck.bind(this);
+    window.removeObservableCheck = this.removeObservableCheck.bind(this);
+    this.observableCheck();
+
+    window.addUpdate = this.addUpdate.bind(this);
+    this.update();
+    let FPSCheker = setInterval(() => {
+      console.log(this.frame)
+      this.frame = 0;
+    }, 1000);
   }
   //Проверка на позицию блока в видимой области
   isObservable($item) {
@@ -26,31 +60,58 @@ export default class AnimateController{
     }
     return true;
   }
-
-  addUpdateState (handler){
-    this.forUpdating.push(handler);
+  /* ---- */
+  //Перепроверка видимости при событиях
+  addObservableCheck(handler) {
+    this.warden.add(handler);
   }
-  removeUpdateState(handler){
-    this.forUpdating.forEach((item, key) => {
-      if (item === handler) {
-        this.forUpdating.splice(key, 1);
+  removeObservableCheck(handler) {
+    this.warden.remove(handler);
+  }
+  observableCheck() {
+    let top = window.scrollbar.scrollTop;
+    window.scrollbar.on((state) => {
+      if (Math.abs(state.offset.y - top) >= opts.stepScroll) {
+        top = state.offset.y;
+        this.warden.update();
       }
     });
+    window.addEventListener("resize", () => {
+      this.warden.update();
+    });
   }
-  updateState(){
-    let currentState = window.scrollbar.scrollTop;
-    window.scrollbar.on((state) => {
-      if(Math.abs(state.offset.y - currentState) >= opts.stepScroll){
-        currentState = state.offset.y;
-        this.forUpdating.forEach((item, key) => {
-          item();
+  /* ---- */
+
+  addUpdate(handler) {
+    this.renderer.add(handler);
+  }
+  removeUpdate(handler) {
+    this.renderer.remove(handler);
+  }
+
+  update() {
+    let step = 0;
+    let promise;
+    if (this.ready) {
+      promise = new Promise((resolve, reject) => {
+        let checkForUpdate = () => {
+          step++;
+          step == 2 ? resolve() : 1;
+        };
+        this.ready = false;
+        setTimeout(() => {
+          checkForUpdate();
+        }, 1000 / opts.maxFPS);
+        requestAnimationFrame(() => {
+          checkForUpdate();
         });
-      }
-    })
-    window.addEventListener('resize',()=>{
-      this.forUpdating.forEach((item, key) => {
-        item();
       });
-    })
+      promise.then(() => {
+        this.frame++;
+        this.renderer.update();
+        this.ready = true;
+        this.update();
+      });
+    }
   }
 }

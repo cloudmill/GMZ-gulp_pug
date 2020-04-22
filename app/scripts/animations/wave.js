@@ -46,26 +46,16 @@ export default class Wave {
 
     this.element.append(this.canvas);
     this.isObservable = window.isObservable(this.element);
-    this.worked = false;
-    this.update();
     this.events();
   }
   updateState() {
     this.isObservable = window.isObservable(this.element);
-    if (this.isObservable && !this.worked) this.update();
-    else {
-      this.worked = false;
-    }
   }
   update() {
-    this.worked = true;
     if (this.isObservable) {
       this.ctx.clearRect(0, 0, this.w, this.h);
       this.draw();
       this.move();
-      requestAnimationFrame(() => {
-        this.update();
-      });
     }
   }
   move() {
@@ -92,12 +82,14 @@ export default class Wave {
         this.offset *= Math.sqrt((this.normalOffset * 3) / this.offset);
       }
     });
-
-    window.addUpdateState(() => {
+    window.addObservableCheck(() => {
       this.updateState();
     });
     window.addEventListener("resize", () => {
       this.resize();
+    });
+    window.addUpdate(() => {
+      this.update();
     });
   }
   draw() {

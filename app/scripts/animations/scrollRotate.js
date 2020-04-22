@@ -15,18 +15,18 @@ export default class ScrollRotate {
     this.isObservable = window.isObservable(this.el);
   }
   events() {
-    window.scrollbar.on(() => {
-      if (this.isObservable) requestAnimationFrame(()=>{
-        this.update(window.scrollbar.scrollTop);
-      })
-    });
-    window.addUpdateState(() => {
+    window.addObservableCheck(() => {
       this.updateState();
     });
+    window.addUpdate(() => {
+      this.update();
+    }, "scroll");
   }
-  update(scroll) {
-    this.angle = scroll / $(window).height() + this.k;
-    this.el.css("transform-origin", "center center");
-    this.el.css("transform", "rotate(" + this.angle + "rad");
+  update() {
+    if (this.isObservable) {
+      this.angle = window.scrollbar.scrollTop / $(window).height() + this.k;
+      this.el.css("transform-origin", "center center");
+      this.el.css("transform", "rotate(" + this.angle + "rad");
+    }
   }
 }
