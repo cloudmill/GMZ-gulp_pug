@@ -163,7 +163,9 @@ class VisualAnimation {
           "visual-animation-showing" + this.additionalToClass
         )
       ) {
-        const topPosition = item.getClientRects()[0].top;
+        const rect = item.getClientRects();
+        const topPosition = rect && rect[0] ? rect[0].top : 0;
+
         if (topPosition - 0.2 * height < height && topPosition > 0) {
           setTimeout(() => {
             item.classList.add(
@@ -196,7 +198,9 @@ class VisualAnimation {
           "visual-animation-showing-block" + this.additionalToClass
         )
       ) {
-        const topPosition = item.getClientRects()[0].top;
+        const rect = item.getClientRects();
+        const topPosition = rect && rect[0] ? rect[0].top : 0;
+
         if (topPosition - 0.2 * height < height && topPosition > 0) {
           setTimeout(() => {
             item.classList.add(
