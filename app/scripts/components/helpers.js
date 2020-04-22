@@ -1,7 +1,7 @@
 import $ from "jquery";
 
 let helpers = {
-  init: function() {
+  init: function () {
     this.resizeImg();
     this.events();
     this.spoilerCheckbox();
@@ -9,19 +9,16 @@ let helpers = {
     this.marqueeRepeatBlock();
     this.spoilerSocilaLinks();
     this.controlModal();
-
-    //Проверка на позицию блока в видимой области
-    window.isObservable = this.isObservable;
   },
 
-  events: function() {
+  events: function () {
     $(window).on("resize", () => {
       this.resizeImg();
     });
   },
 
   /* Ресайз изображений */
-  resizeImg: function() {
+  resizeImg: function () {
     let imgs = $(".fullImg");
     if (imgs.length > 0) {
       for (let img of imgs) {
@@ -41,77 +38,68 @@ let helpers = {
   },
 
   /* Работа спойлера чекбоксов на странице рецептов*/
-  spoilerCheckbox: function() {
-    if($(window).width() <= 859) {
-      $('.list-group').click(function() {
-        $(this).find('.list-group-selection').toggleClass('display-mobile');
+  spoilerCheckbox: function () {
+    if ($(window).width() <= 859) {
+      $(".list-group").click(function () {
+        $(this).find(".list-group-selection").toggleClass("display-mobile");
       });
     }
 
-    $('.clear').click(function(event) {
+    $(".clear").click(function (event) {
       event.preventDefault();
-      $("input[type=checkbox]").prop('checked', false);
+      $("input[type=checkbox]").prop("checked", false);
     });
 
-    if($(window).width() >= 859) {
-      $('.list-group-selection.product-select > .main-checkbox:nth-child(n+5)').each(function() {
+    if ($(window).width() >= 859) {
+      $(
+        ".list-group-selection.product-select > .main-checkbox:nth-child(n+5)"
+      ).each(function () {
         $(this).addClass("hide-main-checkbox");
       });
 
-      $('.display-full').click(function(event) {
-        $(this).toggleClass('on')
+      $(".display-full").click(function (event) {
+        $(this).toggleClass("on");
         event.preventDefault();
-        $('.list-group-selection.product-select > .main-checkbox:nth-child(n+5)').each(function() {
-            if($('.display-full').hasClass('on')) {
-              $('.display-full').text('Скрыть элементы');
-              $(this).removeClass("hide-main-checkbox");
-            } else {
-              $('.display-full').text('Показать все');
-              $(this).addClass("hide-main-checkbox");
-            }
+        $(
+          ".list-group-selection.product-select > .main-checkbox:nth-child(n+5)"
+        ).each(function () {
+          if ($(".display-full").hasClass("on")) {
+            $(".display-full").text("Скрыть элементы");
+            $(this).removeClass("hide-main-checkbox");
+          } else {
+            $(".display-full").text("Показать все");
+            $(this).addClass("hide-main-checkbox");
+          }
         });
       });
     } else {
-      $('.display-full').remove();
+      $(".display-full").remove();
     }
-    
   },
-
-  isObservable: function($item){
-    let find = true;
-    if($item.offset().top + $item.height() < 0 || $item.offset().left + $item.width() < 0){
-      find = false;
-    }
-    if($item.offset().top > $(window).height() || $item.offset().left > $(window).width()){
-      find = false;
-    }
-    return find;
-  },
-
-  animateOnLoadPage: function(){
-    $(window).on('load',function(){
-      $('.onLoad').each((key,item)=>{
-        $(item).addClass('pageLoaded')
-      })
-    })
-  },
-
-  marqueeRepeatBlock: function() {
-    $('.shopsbg-marquee').append($('.shopsbg-marquee').html());
-  },
-
-  spoilerSocilaLinks: function() {
-    var parent = $('.recept-footer .left');
-
-    parent.find('.main-link').click(function(){
-      parent.find('.recept-social-links').toggleClass('active');
+  animateOnLoadPage: function () {
+    $(window).on("load", function () {
+      $(".onLoad").each((key, item) => {
+        $(item).addClass("pageLoaded");
+      });
     });
   },
 
-  controlModal: function() {
-    $('a#controlModal').click(function(){
-      $('.modal').toggleClass('active');
+  marqueeRepeatBlock: function () {
+    $(".shopsbg-marquee").append($(".shopsbg-marquee").html());
+  },
+
+  spoilerSocilaLinks: function () {
+    var parent = $(".recept-footer .left");
+
+    parent.find(".main-link").click(function () {
+      parent.find(".recept-social-links").toggleClass("active");
     });
-  }
+  },
+
+  controlModal: function () {
+    $("a#controlModal").click(function () {
+      $(".modal").toggleClass("active");
+    });
+  },
 };
 export default helpers;

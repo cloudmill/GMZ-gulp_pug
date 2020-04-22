@@ -1,27 +1,39 @@
 import $ from "jquery";
 
 export default class MouseParalax {
-  constructor(selector){
+  constructor(selector) {
     this.el = $(selector);
-    this.maxOffset = 20 + (Math.random()-0.5)*20;
+    this.maxOffset = 20 + (Math.random() - 0.5) * 20;
     this.offsetX = 0;
     this.offsetY = 0;
-    this.init()
+    this.isObservable = window.isObservable(this.el);
+    this.init();
   }
-  init(){
-    this.events()
+  init() {
+    this.events();
   }
-  events(){
-    $(document).on('mousemove',(e)=>{
-      if(window.isObservable(this.el))
-        this.update(e.pageX,e.pageY);
-    })
+  updateState() {
+    this.isObservable = window.isObservable(this.el);
   }
-  update(x,y){
-    let wd2 = $(window).width()/2
-    let hd2 = $(window).width()/2
-    this.offsetX = -(x - wd2)/wd2 * this.maxOffset
-    this.offsetY = -(y - hd2)/hd2 * this.maxOffset
-    this.el.css('transform','translate('+this.offsetX+'px,'+this.offsetY+'px)');
+  events() {
+    $(document).on("mousemove", (e) => {
+      if (this.isObservable)
+        requestAnimationFrame(() => {
+          this.update(e.pageX, e.pageY);
+        });
+    });
+    window.addUpdateState(() => {
+      this.updateState();
+    });
+  }
+  update(x, y) {
+    let wd2 = $(window).width() / 2;
+    let hd2 = $(window).width() / 2;
+    this.offsetX = (-(x - wd2) / wd2) * this.maxOffset;
+    this.offsetY = (-(y - hd2) / hd2) * this.maxOffset;
+    this.el.css(
+      "transform",
+      "translate(" + this.offsetX + "px," + this.offsetY + "px)"
+    );
   }
 }

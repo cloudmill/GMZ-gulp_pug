@@ -28,6 +28,7 @@ export default class customScrollbar {
     this.scrollbar.removeListener(handler);
   }
 
+
   // обновление слушателей при переинициализации
   updateHandlers() {
     this.handlers.forEach((handler, key) => {
@@ -57,6 +58,8 @@ export default class customScrollbar {
     });
     this.updateHandlers();
   }
+
+
   getSize(){
     return this.scrollbar.getSize()
   }
