@@ -27,6 +27,7 @@ export default class AbsoluteFixation {
     this.pos = window.scrollbar.scrollTop;
     let maxScroll = window.scrollbar.getSize().content.height
     if (this.pos > maxScroll) this.pos = maxScroll;
+    console.log(maxScroll)
     if (this.wrapper.hasClass("fixed-window")) {
       this.render();
     } else {

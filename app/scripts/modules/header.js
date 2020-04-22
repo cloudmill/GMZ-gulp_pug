@@ -31,12 +31,12 @@ class Burger {
         this.element = element;
         this.button = button;
         this.overlayElement = overlayElement;
-        this.overlay = new ShapeOverlays(this.overlayElement, () => {
-            // this.overlayElement.classList.add('hide');
+        this.overlay = new ShapeOverlays(this.overlayElement, /* () => {
+            this.overlayElement.classList.add('hide');
             setTimeout(() => {
-                // this.overlayElement.style.display = 'none';
+                this.overlayElement.style.display = 'none';
             }, 500);
-        });
+        } */);
 
         this.init();
     }
@@ -53,14 +53,13 @@ class Burger {
 
     toggleOverlay() {
         // this.overlayElement.style.display = 'block';
-        const scrolledTop = Math.abs(parseInt(document.querySelector('.scroll-content').style.transform.split(
-            ',')[1])) || 0;
-        this.overlayElement.style.top = scrolledTop+'px';
+        this.overlayElement.style.top = window.scrollbar.scrollTop+'px';
         this.overlayElement.classList.remove('hide');
         if (this.overlay.isAnimating) {
             return false;
         }
         this.overlay.toggle();
+        
         if (this.overlay.isOpened === true) {
             this.button[0].classList.add('is-opened-navi');
         } else {
