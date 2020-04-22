@@ -84,13 +84,16 @@ body[data-scrollbar="true"]{
     }
   }
 }
-
-.fixed-window{
-  position: fixed;
-  left: 0;
-  margin-left: 20px;
-  background-color: inherit;
-  margin-top: 20px;
-  width: calc(100vw - 40px);
-  height: calc(100vh - 20px);
+html body{
+  .fixed-window{
+    position: absolute;
+    left: 0;
+    top: -220px;
+    background-color: inherit;
+    animation: none !important;
+    opacity: 1 !important;
+    width: calc(100vw - 40px);
+    height: calc(100vh - 20px);
+  }
 }
+

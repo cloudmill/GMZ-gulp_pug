@@ -60,6 +60,9 @@ export default class customScrollbar {
   getSize(){
     return this.scrollbar.getSize()
   }
+  getHeight(){
+    return $(this.scrollbar.contentEl).height();
+  }
 
   get scrollTop() {
     return this.scrollbar.scrollTop;

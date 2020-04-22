@@ -8,6 +8,7 @@ export default class AbsoluteFixation {
     this.init();
   }
   init() {
+    this.topConst = this.wrapper.offset().top + window.scrollbar.scrollTop;
     window.scrollbar.on(() => {
       if (this.inited) this.update();
     });
@@ -15,6 +16,7 @@ export default class AbsoluteFixation {
       this.resize();
     });
     this.inited = true;
+    this.update()
   }
   resize(newW, newH) {
     this.w = newW || window.width;
@@ -25,9 +27,6 @@ export default class AbsoluteFixation {
   }
   update() {
     this.pos = window.scrollbar.scrollTop;
-    let maxScroll = window.scrollbar.getSize().content.height
-    if (this.pos > maxScroll) this.pos = maxScroll;
-    console.log(maxScroll)
     if (this.wrapper.hasClass("fixed-window")) {
       this.render();
     } else {
@@ -35,7 +34,8 @@ export default class AbsoluteFixation {
     }
   }
   render() {
-    this.wrapper.css("top", this.pos + "px");
+    this.wrapper.css("transform", "translateY(" + this.pos + "px)");
+    this.wrapper.css("top", -this.topConst + "px");
   }
   clear() {
     this.wrapper.attr("style", "");
