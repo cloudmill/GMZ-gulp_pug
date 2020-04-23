@@ -19,22 +19,18 @@ export default class Wave {
     }
 
     this.offset = 20;
-    if($(window).width()<= 500){
+    if ($(window).width() <= 500) {
       this.offset = 10;
     }
     this.normalOffset = this.offset;
 
     this.fazeOffset = Math.random() * 0.1;
     this.fazeOffset = this.fazeOffset < 0.01 ? 0.01 : this.fazeOffset;
-    
+
     this.countPoints = 50;
-    if($(window).width()<= 500){
+    if ($(window).width() <= 500) {
       this.countPoints = 30;
     }
-    
-
-    
-
     this.id = "wave-" + parseInt(Math.random() * 10000);
     this.h = this.element.outerHeight();
     this.w = this.element.outerWidth();
@@ -49,18 +45,18 @@ export default class Wave {
     this.faze = Math.random() * Math.PI;
 
     this.element.append(this.canvas);
-    this.update();
+    this.isObservable = window.isObservable(this.element);
     this.events();
   }
+  updateState() {
+    this.isObservable = window.isObservable(this.element);
+  }
   update() {
-    if(window.isObservable(this.element)){
+    if (this.isObservable) {
       this.ctx.clearRect(0, 0, this.w, this.h);
       this.draw();
+      this.move();
     }
-    this.move();
-    requestAnimationFrame(() => {
-      this.update();
-    });
   }
   move() {
     this.faze += this.fazeOffset;
@@ -71,30 +67,34 @@ export default class Wave {
       this.offset -= 1 - this.normalOffset / this.offset;
     }
   }
-  resize(){
+  resize() {
     this.h = this.element.outerHeight();
     this.w = this.element.outerWidth();
     this.canvas.width = this.w;
     this.canvas.height = this.h;
-
-    if(this.normalOffset > 15 && $(window).width()<= 500){
-      this.normalOffset * 0.5
+    if (this.normalOffset > 15 && $(window).width() <= 500) {
+      this.normalOffset * 0.5;
     }
-    
   }
   events() {
-    window.scrollbar.on((status) => {
+    window.scrollbar.on(() => {
       if (this.offset < this.normalOffset * 3) {
         this.offset *= Math.sqrt((this.normalOffset * 3) / this.offset);
       }
-    })
-    window.addEventListener('resize',()=>{
-      this.resize()
-    })
+    });
+    window.addObservableCheck(() => {
+      this.updateState();
+    });
+    window.addEventListener("resize", () => {
+      this.resize();
+    });
+    window.addUpdate(() => {
+      this.update();
+    });
   }
   draw() {
     this.ctx.beginPath();
-    let getY = x => {
+    let getY = (x) => {
       return Math.sin(x / 10 + this.faze) * this.offset;
     };
 

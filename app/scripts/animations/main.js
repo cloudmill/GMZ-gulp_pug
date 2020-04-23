@@ -7,9 +7,11 @@ import ScrollRotate from "./scrollRotate.js";
 import DashedLine from "./dashedLine/main.js";
 import ImageMoveMouse from "./imageMoveMouse.js";
 import VisualAnimation, { initMain } from './visualAnimation.js';
+import AnimateController from './animateController.js';
 
 let animations = {
   init: function() {
+    this.controller = new AnimateController();
     this.waveAnimation();
     this.fixedInBlock();
     this.absoluteFixation();
