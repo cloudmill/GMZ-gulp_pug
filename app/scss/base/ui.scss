@@ -475,6 +475,10 @@
     position: relative;
     transition: 0.3s;
 
+    @include screen('xs', 'max') {
+      transform: scale(0.6);
+    }
+
     &::after {
       position: absolute;
       content: "";
@@ -489,6 +493,10 @@
 
     &.left {
       transform: rotate(-180deg);
+
+      @include screen('xs', 'max') {
+        transform: scale(0.6) rotate(-180deg);
+      }
     }
 
     &:last-child {
@@ -530,8 +538,16 @@
       background: #312930;
       transform: scale(1.1);
 
+      @include screen('xs', 'max') {
+        transform: scale(0.7)
+      }
+
       &.left {
         transform: rotate(-180deg) scale(1.1);
+
+        @include screen('xs', 'max') {
+          transform: scale(0.7) rotate(-180deg);
+        }
       }
 
       &::after {

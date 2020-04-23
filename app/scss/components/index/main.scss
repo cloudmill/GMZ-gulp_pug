@@ -28,6 +28,11 @@
       position: absolute;
       bottom: 19%;
       font-size: 9px;
+
+      @include screen('xs', 'max') {
+        bottom: 25%;
+        right: 14%;
+      }
     }
 
     .cloud-left-3 {
@@ -84,6 +89,7 @@
           @include screen('xs', 'max') {
             transform: scale(.6);
             margin-bottom: -50px;
+            margin-top: 50px;
           }
 
           img {
@@ -142,7 +148,7 @@
           top: 40px;
           @include screen('sm', 'max') {
             width: 100%;
-            padding-bottom: 140px;
+            padding-bottom: 100px;
             top: 0px;
           }
           color: $color-text-main;
