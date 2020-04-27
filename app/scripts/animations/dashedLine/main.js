@@ -6,7 +6,7 @@ const _opts = {
     lineWidth: 1.2,
     color: 'rgba(255,218,168,1)',
     speed: 1,
-    msBySteps: 10,
+    msBySteps: 5,
     resize: true,
 }
 
