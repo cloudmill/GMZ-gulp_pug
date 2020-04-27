@@ -28,7 +28,7 @@ function showImageOnMove(el, x, y) {
                 element.classList.add('animationImageBefore');
             }
         });
-        imageContainer.style.display = 'block';
+         imageContainer.style.display = 'block';
         imageContainer.classList.add('image-background-showed');
         link.classList.add('image-background-index');
         imageContainer.classList.remove('image-background-hidden');
@@ -108,8 +108,8 @@ function hideImage(el) {
         });
         imageContainer.classList.add('image-background-hidden');
         setTimeout(() => {
-            imageContainer.style.display = 'none';
-        }, 1);
+             imageContainer.style.display = 'none';
+        }, 200);
         el.parentElement.classList.remove('image-background-parent-index');
         link.classList.remove('image-background-index');
     }
