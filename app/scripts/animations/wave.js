@@ -76,10 +76,30 @@ export default class Wave {
       this.normalOffset * 0.5;
     }
   }
+  changeOffsetTo(newOffset){
+    console.log('new',newOffset,'offset', this.offset)
+    this.endChanging = newOffset;
+    if (this.intervalChanging === null || this.intervalChanging === undefined){
+      this.intervalChanging = setInterval(()=>{
+        console.log('now',this.offset);
+
+        if (!this.stepChanging){
+          this.stepChanging = 0;
+        }
+        this.offset += this.stepChanging;
+        if (this.stepChanging >= this.endChanging){
+          clearInterval(this.intervalChanging);
+          this.intervalChanging = null;
+          this.stepChanging = 0;
+        }
+        this.stepChanging++;
+      },10)
+    }
+  }
   events() {
     window.scrollbar.on(() => {
       if (this.offset < this.normalOffset * 3) {
-        this.offset *= Math.sqrt((this.normalOffset * 3) / this.offset);
+        this.changeOffsetTo(Math.sqrt((this.normalOffset * 2) / this.offset));
       }
     });
     window.addObservableCheck(() => {
