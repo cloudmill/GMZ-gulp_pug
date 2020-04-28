@@ -2,6 +2,7 @@ node_modules
 dist
 *.log
 .idea
+app/**/dist
 app/.idea
 package-lock.json
 .publish
