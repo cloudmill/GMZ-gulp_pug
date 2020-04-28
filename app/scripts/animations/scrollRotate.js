@@ -22,7 +22,7 @@ export default class ScrollRotate {
     }
   }
   render() {
-    if (this.isObservable || true) {
+    if (this.isObservable) {
       this.el.css("transform-origin", "center center");
       this.el.css("transform", "rotate(" + this.angle + "rad");
     }
