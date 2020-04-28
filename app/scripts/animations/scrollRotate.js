@@ -5,26 +5,24 @@ export default class ScrollRotate {
     this.el = $(selector);
     this.k = (Math.random() - 0.5) * 0.1;
     this.angle = 0;
-    this.isObservable = window.isObservable(this.el);
+    this.isObservable = false;
     this.init();
   }
   init() {
-    this.events();
+    window.warden.add(this.el, this.updateState.bind(this));
+    window.renderer.add(this.render.bind(this), "scroll");
+    window.scene.add(this.update.bind(this), "scroll");
   }
-  updateState() {
-    this.isObservable = window.isObservable(this.el);
-  }
-  events() {
-    window.addObservableCheck(() => {
-      this.updateState();
-    });
-    window.addUpdate(() => {
-      this.update();
-    }, "scroll");
+  updateState(newState) {
+    this.isObservable = newState;
   }
   update() {
     if (this.isObservable) {
       this.angle = window.scrollbar.scrollTop / $(window).height() + this.k;
+    }
+  }
+  render() {
+    if (this.isObservable || true) {
       this.el.css("transform-origin", "center center");
       this.el.css("transform", "rotate(" + this.angle + "rad");
     }

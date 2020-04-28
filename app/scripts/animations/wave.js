@@ -45,18 +45,18 @@ export default class Wave {
     this.faze = Math.random() * Math.PI;
 
     this.element.append(this.canvas);
-    this.isObservable = window.isObservable(this.element);
+    this.isObservable = false;
+    this.init();
+  }
+  init() {
+    window.warden.add(this.element, this.updateState.bind(this));
+    window.renderer.add(this.render.bind(this));
+    window.scene.add(this.update.bind(this));
+
     this.events();
   }
-  updateState() {
-    this.isObservable = window.isObservable(this.element);
-  }
-  update() {
-    if (this.isObservable) {
-      this.ctx.clearRect(0, 0, this.w, this.h);
-      this.draw();
-      this.move();
-    }
+  updateState(newState) {
+    this.isObservable = newState;
   }
   move() {
     this.faze += this.fazeOffset;
@@ -76,24 +76,21 @@ export default class Wave {
       this.normalOffset * 0.5;
     }
   }
-  changeOffsetTo(newOffset){
-    console.log('new',newOffset,'offset', this.offset)
+  changeOffsetTo(newOffset) {
     this.endChanging = newOffset;
-    if (this.intervalChanging === null || this.intervalChanging === undefined){
-      this.intervalChanging = setInterval(()=>{
-        console.log('now',this.offset);
-
-        if (!this.stepChanging){
+    if (this.intervalChanging === null || this.intervalChanging === undefined) {
+      this.intervalChanging = setInterval(() => {
+        if (!this.stepChanging) {
           this.stepChanging = 0;
         }
         this.offset += this.stepChanging;
-        if (this.stepChanging >= this.endChanging){
+        if (this.stepChanging >= this.endChanging) {
           clearInterval(this.intervalChanging);
           this.intervalChanging = null;
           this.stepChanging = 0;
         }
         this.stepChanging++;
-      },10)
+      }, 10);
     }
   }
   events() {
@@ -102,14 +99,8 @@ export default class Wave {
         this.changeOffsetTo(Math.sqrt((this.normalOffset * 2) / this.offset));
       }
     });
-    window.addObservableCheck(() => {
-      this.updateState();
-    });
     window.addEventListener("resize", () => {
       this.resize();
-    });
-    window.addUpdate(() => {
-      this.update();
     });
   }
   draw() {
@@ -152,5 +143,17 @@ export default class Wave {
 
     this.ctx.strokeStyle = this.fill;
     this.ctx.stroke();
+  }
+
+  update() {
+    if (this.isObservable) {
+      this.move();
+    }
+  }
+  render() {
+    if (this.isObservable) {
+      this.ctx.clearRect(0, 0, this.w, this.h);
+      this.draw();
+    }
   }
 }
