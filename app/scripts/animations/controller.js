@@ -7,8 +7,6 @@ export default class Controller {
     this.scene = new Scene();
     this.renderer = new Renderer();
     this.warden = new Warden();
-    this.ready = true;
-    this.frame = 0;
     this.init();
   }
   init() {
