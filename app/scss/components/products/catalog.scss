@@ -87,6 +87,9 @@
       &-img {
         opacity: 0;
         position: absolute;
+        > i {
+          animation: rotating 8s linear infinite;
+        }
 
         &.first-card {
           > i {

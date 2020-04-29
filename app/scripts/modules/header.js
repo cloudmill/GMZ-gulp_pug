@@ -3,6 +3,8 @@ import ShapeOverlays from "../components/HamburgerOverlay";
 
 import { initSpecial } from '../animations/visualAnimation.js';
 
+const circlePerMS = 2000;
+
 let header = {
     init: function () {
         const height = window.innerHeight
@@ -30,6 +32,7 @@ class Burger {
     constructor(element, button, overlayElement) {
         this.element = element;
         this.button = button;
+        this.rotateElementLink = 'i.svg-icon.svg-navigation';
         this.overlayElement = overlayElement;
         this.overlay = new ShapeOverlays(this.overlayElement, /* () => {
             this.overlayElement.classList.add('hide');
@@ -41,7 +44,26 @@ class Burger {
         this.init();
     }
 
+    rotater(){
+        if (this.rotateElementLink){
+            this.angleNow = 0;
+            const anglePerMS = 360 / circlePerMS;
+            this.rotateInterval = setInterval(()=>{
+                this.angleNow+=anglePerMS;
+                if (this.angleNow>=360){
+                    this.angleNow-=360;
+                }
+                const element = document.querySelector(this.rotateElementLink);
+                if (element) {
+                    element.style.transform = 'rotate(' + this.angleNow + 'deg)';
+                }
+
+            }, 1);
+        }
+    }
+
     init() {
+        this.rotater();
         this.button.click(() => {
             if (this.element.hasClass("active")) {
                 this.hide();
