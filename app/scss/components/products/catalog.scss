@@ -375,7 +375,26 @@
           }
         }
       }
-
+      &-mask{
+        position: absolute;
+        opacity: 1;
+        left: 380px;
+        top: 308px;
+        transform-origin: center center;
+        height: 370px;
+        opacity: 0.5;
+        width: 530px;
+        transform:  translate(-50%,-50%) rotate(15deg) scale(1.25) !important;
+        background-color: red;
+        transition: transform .6s cubic-bezier(.34,1.56,.64,1);
+        &.animationImageBefore{
+          transform:  translate(-50%,-50%) rotate(15deg) scale(1) !important;
+          &.animationImage{
+            transform:  translate(-50%,-50%) rotate(15deg) scale(1.25) !important;
+          }
+        }
+       
+      }
       &:hover {
         color: #EE7754;
 
