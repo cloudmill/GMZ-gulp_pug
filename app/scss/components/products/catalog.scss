@@ -379,28 +379,43 @@
         }
       }
       &-mask{
+        will-change: transform;
         position: absolute;
         opacity: 1;
-        left: 380px;
-        top: 308px;
         transform-origin: center center;
-        height: 370px;
-        opacity: 0.5;
-        width: 530px;
-        transform:  translate(-50%,-50%) rotate(15deg) scale(1.25) !important;
-        background-color: red;
+        opacity: 1;
+        transform:  translate(-50%,-50%) rotate(15deg) !important;
         transition: transform .6s cubic-bezier(.34,1.56,.64,1);
+        overflow: hidden;
         &.animationImageBefore{
-          transform:  translate(-50%,-50%) rotate(15deg) scale(1) !important;
-          &.animationImage{
-            transform:  translate(-50%,-50%) rotate(15deg) scale(1.25) !important;
+          transform:  translate(-50%,-50%) rotate(15deg) scale(0.8) !important;
+          .catalog-el-text{
+            opacity: 1;
+            transform: translate(-50%,-50%) rotate(-15deg) scale(1.25);
           }
+          &.animationImage{
+            transform:  translate(-50%,-50%) rotate(15deg) !important;
+            .catalog-el-text{
+              transform: translate(-50%,-50%) rotate(-15deg);
+            }
+          }
+        }
+        .catalog-el-text{
+          will-change: margin;
+          position: absolute !important;
+          transform-origin: center center;
+          top: 50%;
+          left: 50%;
+          opacity: 0;
+          color: white;
+          transition: transform .6s cubic-bezier(.34,1.56,.64,1);
+          transform: translate(-50%,-50%) rotate(-15deg);
+          white-space: nowrap;
         }
        
       }
       &:hover {
         color: #EE7754;
-
         @include screen('lg', 'min') {
           .catalog-el-img {
             opacity: 0;
