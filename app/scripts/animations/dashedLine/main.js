@@ -5,8 +5,8 @@ const _opts = {
     spaceDash: 5,
     lineWidth: 1.2,
     color: 'rgba(255,218,168,1)',
-    speed: 1,
-    msBySteps: 5,
+    speed: 5,
+    msBySteps: 1,
     resize: true,
 }
 
