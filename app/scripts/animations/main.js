@@ -8,6 +8,7 @@ import DashedLine from "./dashedLine/main.js";
 import ImageMoveMouse from "./imageMoveMouse.js";
 import VisualAnimation, { initMain } from './visualAnimation.js';
 import Controller from './controller.js';
+import CloudMove from "./controllerElems/cloudMove";
 
 let animations = {
   init: function() {
@@ -20,6 +21,7 @@ let animations = {
     this.dashedLine();
     this.imageMoveMouse();
     this.visualAnimation();
+    this.cloudMove();
 
     console.log(this.controller)
   },
@@ -77,6 +79,10 @@ let animations = {
   visualAnimation: function(){
     initMain().show();
     VisualAnimation();
+  },
+  cloudMove(){
+    const target = document.querySelector('.main-index-animeel');
+    new CloudMove(target);
   }
 };
 

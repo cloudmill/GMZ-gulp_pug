@@ -158,7 +158,7 @@ function hideImage(el) {
     imageContainer.classList.add("image-background-hidden");
     setTimeout(() => {
       imageContainer.style.display = "none";
-    }, 200);
+    }, 250);
     el.parentElement.classList.remove("image-background-parent-index");
     link.classList.remove("image-background-index");
   }
