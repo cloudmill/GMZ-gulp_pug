@@ -4,16 +4,18 @@ export default class Fixed {
   constructor(base) {
     this.base = $(base);
     this.target = this.base.find(".fixed-item > *");
+    this.heightCorrect = parseInt(this.base.attr("data-full-height"));
     this.h = this.base.outerHeight();
 
     this.top = 250; //Я хз, почему-то сломался отступ от верха, не уверен что это оно
-    this.targetH = this.target.outerHeight() + parseInt(this.target.css('margin-bottom'));
+    this.targetH =
+      this.target.outerHeight() + parseInt(this.target.css("margin-bottom"));
 
     this.init();
   }
   init() {
     this.topConst = this.target.offset().top + window.scrollbar.scrollTop;
-    
+
     window.scrollbar.on(() => {
       if (this.inited) this.update();
     });
@@ -30,10 +32,13 @@ export default class Fixed {
     this.inited = true;
   }
   update() {
-    this.h = this.base.outerHeight();
-    this.targetH = this.target.outerHeight() + parseInt(this.target.css('margin-bottom'));
-
     let header = $(".header");
+    if(this.heightCorrect == 1){
+      this.target.height($(window).height() - 90 - (header.hasClass("sticky") ? header.outerHeight() : 0))
+    }
+    this.h = this.base.outerHeight();
+    this.targetH =
+      this.target.outerHeight() + parseInt(this.target.css("margin-bottom"));
 
     this.scrollTop = window.scrollbar.scrollTop;
     this.addOffset = header.hasClass("sticky") ? header.outerHeight() : 0;
@@ -62,17 +67,18 @@ export default class Fixed {
     let pos = this.scrollTop - this.topConst + this.top;
     this.target.css("transform", "translateY(" + pos + "px)");
     this.target.css("margin-top", this.addOffset + "px");
-    this.target.css("transition", "margin-top 0.3s ease");
+    this.target.css("transition", "margin-top 0.4s ease-in-out, height 0.4s ease-in-out");
   }
   stopBottom() {
     let pos = this.limitBottom - this.scrollTop;
     this.target.css("top", pos + "px");
-    
   }
   clear() {
-    this.target.css("top", "0");
-    this.target.css("margin-top", "0");
-    this.target.css("transform", "none");
-    this.target.css("transition", "none");
+    this.target.attr('style','');
+    // this.target.css("top", "");
+    // this.target.css("margin-top", "");
+    // this.target.css("transform", "");
+    // this.target.css("transition", "");
+    // this.target.css("height", "");
   }
 }

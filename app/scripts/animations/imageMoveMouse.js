@@ -22,48 +22,57 @@ function getClipRect(obj) {
 
 function showImageOnMove(el, x, y) {
   const { imageContainer, link } = getImageContainer(el);
-
-  if (!imageContainer.classList.contains("image-background-showed")) {
-    imageContainer.childNodes.forEach((element) => {
-      if (element.classList) {
-        element.classList.add("animationImageBefore");
-      }
-    });
-    imageContainer.style.display = "block";
-    imageContainer.classList.add("image-background-showed");
-    link.classList.add("image-background-index");
-    imageContainer.classList.remove("image-background-hidden");
-    el.parentElement.classList.add("image-background-parent-index");
-    setTimeout(() => {
+  if (imageContainer) {
+    if (!imageContainer.classList.contains("image-background-showed")) {
       imageContainer.childNodes.forEach((element) => {
         if (element.classList) {
-          element.classList.add("animationImage");
+          element.classList.add("animationImageBefore");
         }
       });
-    }, 100);
+      imageContainer.style.display = "block";
+      imageContainer.classList.add("image-background-showed");
+      link.classList.add("image-background-index");
+      imageContainer.classList.remove("image-background-hidden");
+      el.parentElement.classList.add("image-background-parent-index");
+      setTimeout(() => {
+        imageContainer.childNodes.forEach((element) => {
+          if (element.classList) {
+            element.classList.add("animationImage");
+          }
+        });
+      }, 100);
+    }
+    if(imageContainer.getClientRects()[0]){
+      const position = getClipRect(imageContainer);
+      const left = parseInt(imageContainer.style.left) || 0;
+      const top = parseInt(imageContainer.style.top) || 0;
+  
+      const leftPosition =
+        x - imageContainer.getClientRects()[0].width / 2 - (position.left - left);
+      const topPosition =
+        y - imageContainer.getClientRects()[0].height / 2 - (position.top - top);
+  
+      imageContainer.style.left = leftPosition + "px";
+      imageContainer.style.top = topPosition + "px";
+  
+      const w = imageContainer.getClientRects()[0].width;
+      const h = imageContainer.getClientRects()[0].height;
+  
+      const _left =
+        x -
+        ($(window).width() - $(".main-catalog-box").width()) / 2 -
+        ($(".main-catalog-box").width() - $(el).width()) -
+        $(el).width() / 2;
+      $(".catalog-el-mask .catalog-el-text").width($(el).width());
+      $(".catalog-el-mask .catalog-el-text").height($(el).height());
+      const _top =
+        topPosition +
+        imageContainer.getClientRects()[0].height / 2 -
+        $(el).height() / 2;
+      setTextMask(_left, _top, w, h);
+    }
+    
   }
-
-  const position = getClipRect(imageContainer);
-  const left = parseInt(imageContainer.style.left) || 0;
-  const top = parseInt(imageContainer.style.top) || 0;
-
-  const leftPosition =
-    x - imageContainer.getClientRects()[0].width / 2 - (position.left - left);
-  const topPosition =
-    y - imageContainer.getClientRects()[0].height / 2 - (position.top - top);
-
-  imageContainer.style.left = leftPosition + "px";
-  imageContainer.style.top = topPosition + "px";
-
-  const w = imageContainer.getClientRects()[0].width;
-  const h = imageContainer.getClientRects()[0].height;
-
-  const _left = x -  ($(window).width() - $('.main-catalog-box').width()) / 2 - ($('.main-catalog-box').width() - $(el).width()) - $(el).width()/2;
-  $(".catalog-el-mask .catalog-el-text").width($(el).width());
-  $(".catalog-el-mask .catalog-el-text").height($(el).height());
-  const _top = (topPosition+imageContainer.getClientRects()[0].height / 2) - $(el).height()/2;
-  console.log(_top)
-  setTextMask(_left, _top, w, h);
 }
 function setTextMask(x, y, w, h) {
   let mask = $(".catalog-el-mask");
@@ -88,8 +97,8 @@ function setTextMask(x, y, w, h) {
   const offsetX_OX = x * Math.cos(angle);
   const offsetY_OX = -x * Math.cos(-angleBig);
 
-  const offsetX_OY = y * Math.cos(angleBig)  
-  const offsetY_OY = y * Math.cos(angle)
+  const offsetX_OY = y * Math.cos(angleBig);
+  const offsetY_OY = y * Math.cos(angle);
 
   const left = -(offsetX_OX + offsetX_OY);
   const top = -(offsetY_OX + offsetY_OY);
@@ -129,7 +138,10 @@ function getImageContainer(el) {
 function hideImage(el) {
   const { imageContainer, link } = getImageContainer(el);
 
-  if (imageContainer.classList.contains("image-background-showed")) {
+  if (
+    imageContainer &&
+    imageContainer.classList.contains("image-background-showed")
+  ) {
     imageContainer.childNodes.forEach((element) => {
       if (element.classList) {
         element.classList.remove("animationImageBefore");

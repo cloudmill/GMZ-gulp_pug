@@ -21,11 +21,7 @@ mixin products-list(json)
 
 block content
     +header()
-    section.main-products
-      .fixed-wrapper-main-products.fixed-window
-        .main-products-fixed.waveSection-bottom-clip(data-color="#ffffff")
-          .text-bottom Вытяжные
-          canvas.main-catalog-dashed(width="100%", height="100%")
+    section.main-products#maxBottomForFixedBox.bg-additional
       .content.main-products-box
         .main-products-category.visual-animation-base-block
           a.main-products-category-el(href="#")
@@ -35,12 +31,12 @@ block content
             .category-el-title Адыгейские сыры
           a.main-products-category-el.active(href="#")
             .category-el-icon
-              +icon('img-catalog-product-2', 'png').icon-background
+              +icon('img-catalog-product-2', 'png').icon-background.png
               .icon-active-bg
             .category-el-title Вытяжные сыры
           a.main-products-category-el(href="#")
             .category-el-icon
-              +icon('catalog-product-3', 'png').icon-background
+              +icon('catalog-product-3', 'png').icon-background.png
               .icon-active-bg
             .category-el-title Масло и спред
           a.main-products-category-el(href="#")
@@ -48,8 +44,11 @@ block content
               +icon('img-catalog-product-4', 'svg').icon-background
               .icon-active-bg
             .category-el-title Сыворотка
-            
         .main-products-items
           +products-list(getData('pages/products/products'))
+      .fixed-window(data-max-bottom="#maxBottomForFixedBox")
+        .main-catalog-fixed.waveSection-bottom(data-color="#f6f5f3")
+          .text-bottom Вытяжные
+          canvas.main-catalog-dashed.outerSize(width="100%", height="100%")
     +subscriptionForm().bg-white
     +footer().bg-white

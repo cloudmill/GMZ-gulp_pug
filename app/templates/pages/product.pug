@@ -13,7 +13,7 @@ block content
     +header()
     section.main-product
       .main-product-box
-        .product-item.fixed-base.visual-animation-base-block
+        .product-item.fixed-base.visual-animation-base-block(data-full-height=1)
           .fixed-item
             .product-item-img.onLoad
               .image
@@ -87,15 +87,15 @@ block content
               .title вес упаковки:
               .desc 5 кг
           +wherebuy().left-product-mg.visual-animation-base-block
-    section.next.visual-animation-base-block
-      a.next-product(href="./product.html")
+    section.next
+      a.next-product.visual-animation-base-block(href="./product.html")
         .wrapper
           .text
               .next следующий продукт
               .title.visual-animation-base Сыр «Чечил» копченый
           .image
               img(src="./images/img-productsprev-3-min.png")
-      .wave.waveSection-top(data-color="#ffffff")
+      .wave.waveSection-bottom(data-color="#d7f9df")
     +recepts(1).recepts-box.productpage-padding
     +subscriptionForm().bg-white
     +footer().bg-white

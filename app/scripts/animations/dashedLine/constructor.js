@@ -146,7 +146,6 @@ class DashBackground {
 
         this._options.canvasWidth = newWidth;
         this._options.canvasHeight = newHeight;
-
         return (
             {
                 newHeight,

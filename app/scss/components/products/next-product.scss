@@ -1,11 +1,10 @@
 section.next {
   position: relative;
-  background-image: url('../images/bg-product.svg');
-  background-size: 50%;
-  background-repeat: no-repeat;
+  //background-image: url('../images/bg-product.svg');
+  // background-size: 50%;
+  // background-repeat: no-repeat;
   padding-bottom: 180px;
   padding-top: 0px;
-
   @include screen('custom-860', 'max') {
     background-image: unset;
   }
@@ -13,14 +12,14 @@ section.next {
   > .wave {
     display: block;
     left: 0;
-    bottom: 0;
+    bottom: 0px;
     content: "";
     z-index: 2;
-    width: 100%;
-    height: 69px;
+    width: calc(50% - 12px);
+    height: 100%;
+    z-index: -1;
     position: absolute;
     background-color: #fff;
-
     @include screen('custom-860', 'max') {
       display: none;
     }

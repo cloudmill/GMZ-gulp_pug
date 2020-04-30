@@ -1,5 +1,5 @@
 .product-item-img {
-  margin-top: 0px!important; //Чтобы не переписывать класс с фиксированными штуками
+  //margin-top: 0px!important; //Чтобы не переписывать класс с фиксированными штуками
 }
 
 .left-product-mg {
@@ -97,9 +97,10 @@
 
       &-img {
         width: 100%;
-        height: auto;
+        height: calc(100vh - 230px);
         position: relative;
-
+        transition: height 0.3s ease;
+        display: flex;
         @include screen('custom-860', 'max') {
           padding-top: 50px;
           padding-bottom: 80px;
@@ -108,7 +109,7 @@
         .image {
           transform: translateX(0%);
           width: 75%;
-          margin: 0 auto;
+          margin: auto;
 
           @include screen('custom-860', 'max') {
             width: 65%;

@@ -5,6 +5,7 @@
 
 .main-products {
   background: #fff;
+  position: relative;
 
   @include screen('md', 'max') {
     background: url('../images/catalog-bottom.png') no-repeat $background-additional;
@@ -66,7 +67,7 @@
       height: 850px;
       top: 0px;
       left: 0px;
-      z-index: 0;
+      z-index: -1;
     }
   }
 
@@ -140,7 +141,7 @@
         width: 90px;
         height: 90px;
         overflow: hidden;
-
+        position: relative;
         @include screen('sm', 'max') {
           padding: 4px;
           width: 72px;
@@ -156,7 +157,15 @@
         .icon-background {
           z-index: 10;
           font-size: 10px;
-
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+          &.png{
+            transform-origin: center center;
+            transform:  translate(-50%,-50%) scale(0.5);
+            
+          }
           @include screen('sm', 'max') {
             font-size: 8px;
           }

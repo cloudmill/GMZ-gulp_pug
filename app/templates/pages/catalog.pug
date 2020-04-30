@@ -9,7 +9,7 @@ block variables
 
 block content
     +header()
-    section.main-catalog.visual-animation-base-block  
+    section.main-catalog.visual-animation-base-block#maxBottomForFixedBox
       .content.main-catalog-box
         a.catalog-el(href="./catalog-products.html")
           .catalog-el-img.first-card
@@ -47,7 +47,7 @@ block content
             .catalog-el-mask
               .catalog-el-text Cыворотка
           .catalog-el-text Cыворотка
-      .fixed-window
+      .fixed-window(data-max-bottom="#maxBottomForFixedBox")
         .main-catalog-fixed.waveSection-bottom(data-color="#f6f5f3")
           .text-bottom Продукция
           canvas.main-catalog-dashed(width="100%", height="100%")
