@@ -1,4 +1,4 @@
-const timerSpeed = 100;
+const timerSpeed = 50;
 
 class CloudMove {
     constructor(container) {
@@ -33,7 +33,7 @@ class CloudMove {
                 if (left >= width) {
                     this.elements[index].left = -parseInt(position.width, 10);
                 }
-                element.style.left = (left + 0.2) + 'px';
+                element.style.left = (left + 1) + 'px';
                 this.elements[index].left++;
             });
         }, timerSpeed)
