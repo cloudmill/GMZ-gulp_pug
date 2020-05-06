@@ -14,11 +14,15 @@
 
   .main-about-header {
     display: flex;
-
     @include screen('md', 'max') {
       flex-direction: column;
     }
-
+    .about-dashed{
+      @include screen('md', 'max') {
+        width: calc(100% + 40px);
+        margin-left: -20px;
+      }
+    }
     .image {
       position: relative;
       margin-left: -5%;
@@ -27,9 +31,8 @@
       @include screen('md', 'max') {
         margin-left: 0;
         max-width: 100%;
-
         img {
-          width: 80%;
+          width: 300px
         }
       }
 
@@ -39,7 +42,7 @@
         left: 20%;
 
         @include screen('md', 'max') {
-          left: 65%;
+          left: 230px;
           top: 15%;
           font-size: 9px;
         }
@@ -177,7 +180,7 @@
             content: "";
             display: block;
             width: 115px;
-            height: 34px;
+            height: 19px;
             position: absolute;
             background-size: cover;
             background: url('../images/main-link-lines.svg');
@@ -470,24 +473,21 @@
     @include screen('sm', 'min') {
       overflow: hidden;   
     }
-    
+    @include screen('sm', 'max') {
+      width: 280px;
+      margin-left: 0;
+    }
     .swiper-wrapper {
       display: flex;
       justify-content: space-between;
       overflow: visible!important;
-
+      
       .slider-awards-el {
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-
-        @include screen('sm', 'max') {
-          max-width: 233px;
-          margin-right: 20px;
-        }
-
         .award-data {
           position: relative;
           display: flex;
@@ -534,6 +534,7 @@
           .main-link {
             .bottomLines {
               &::before {
+                background-size: 100% 100%;
                 background: url('../images/main-link-lines-products.svg');
                 width: 100%;
                 animation: unset;

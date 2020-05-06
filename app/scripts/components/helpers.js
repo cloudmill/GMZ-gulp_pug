@@ -3,14 +3,12 @@ import $ from "jquery";
 let helpers = {
   init: function () {
     this.resizeImg();
-    this.events();
     this.spoilerCheckbox();
     this.animateOnLoadPage();
     this.marqueeRepeatBlock();
     this.spoilerSocilaLinks();
     this.controlModal();
   },
-
   events: function () {
     $(window).on("resize", () => {
       this.resizeImg();
@@ -98,7 +96,14 @@ let helpers = {
 
   controlModal: function () {
     $("a#controlModal").click(function () {
+      $(".modal").css("top", window.scrollbar.scrollTop + "px");
+
       $(".modal").toggleClass("active");
+      if ($(".modal").hasClass("active")) {
+        window.scrollbar.stopScroll();
+      } else {
+        window.scrollbar.startScroll();
+      }
     });
   },
 };

@@ -74,6 +74,11 @@ function showImageOnMove(el, x, y) {
     
   }
 }
+function clearImage(el){
+  const { imageContainer, link } = getImageContainer(el);
+
+  $(imageContainer).attr('style','');
+}
 function setTextMask(x, y, w, h) {
   let mask = $(".catalog-el-mask");
   let text = $(".catalog-el-mask .catalog-el-text");
@@ -178,10 +183,12 @@ function addEventListeners(selectors) {
                 .style.transform.split(",")[1]
             )
           ) || 0;
-        showImageOnMove(element, e.clientX, e.clientY + scrolledTop);
-        window.runTest = () => {
+        
+        if($(window).width() > 850){
           showImageOnMove(element, e.clientX, e.clientY + scrolledTop);
-        };
+        }else{
+          clearImage(element);
+        }
       });
       element.addEventListener("mouseout", () => {
         hideImage(element);

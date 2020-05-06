@@ -2,7 +2,7 @@ const loader = document.querySelector('.loader');
 
 const container = document.querySelector('.loader .img-front-container');
 const front = document.querySelector('.loader .img-front');
-const maxHeight = 250;
+const maxHeight = 150;
 let nowHeight = 0;
 
 const baseOptions = {

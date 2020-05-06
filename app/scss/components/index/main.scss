@@ -243,7 +243,9 @@
       @include screen('custom-860', 'max') {
         flex-direction: column;
       }
-
+      @media(max-width: 768px){
+        padding-top: 0;
+      }
       &-arrows.main-slider-buttons {
         z-index: 10;
         @include screen('custom-860', 'max') {

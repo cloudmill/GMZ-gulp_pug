@@ -52,4 +52,6 @@ $(document).ready(function () {
             animations.init();
         }
     });
+
+    helpers.events();
 });

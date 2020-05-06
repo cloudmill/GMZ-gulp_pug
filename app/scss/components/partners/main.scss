@@ -24,7 +24,9 @@ section {
   align-items: flex-start;
   padding-top: 216px;
   padding-bottom: 120px;
-
+  @include screen('lg', 'max') {
+    padding-bottom: 70px;
+  }
   @include screen('custom-800', 'max') {
     padding-top: 166px;
   }
@@ -89,7 +91,9 @@ section {
     position: relative;
     width: 90%;
     z-index: 1;
-
+    @include screen('lg', 'max') {
+      margin-bottom: 30px;
+     }
     &::before {
       content: "";
       width: 1289px;

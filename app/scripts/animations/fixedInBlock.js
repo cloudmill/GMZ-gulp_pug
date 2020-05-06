@@ -30,6 +30,13 @@ export default class Fixed {
       }
     });
     this.inited = true;
+    if ($(window).width() <= 950) {
+      this.inited = false;
+      this.clear();
+    } else {
+      this.inited = true;
+      this.update();
+    }
   }
   update() {
     let header = $(".header");

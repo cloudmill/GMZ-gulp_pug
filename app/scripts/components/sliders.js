@@ -151,11 +151,12 @@ let sliders = {
   },
   awardsSlider: function() {
     return new Swiper(".main-about-awards-content", {
+      spaceBetween: 30,
       speed: 600,
       slidesPerView: 1,
       loop: true,
       loopedSlides: 3,
-      freeMode: true,
+      //freeMode: true,
 
       autoplay: {
         delay: 6000,

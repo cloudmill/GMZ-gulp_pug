@@ -10,6 +10,17 @@ html(lang="ru")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title=pageTitle
         link(href='css/style.min.css' rel='stylesheet')
+        link(rel="shortcut icon" href="/images/favicon.png" type="image/png")
+        link(rel="apple-touch-icon" href="/images/appletouch.png")
+        meta(property="og:type" content="website")
+        meta(property="og:site_name" content="Название сайта")
+        meta(property="og:title" content="Заголовок")
+        meta(property="og:description" content="Описание страницы")
+        meta(property="og:url" content="/")
+        meta(property="og:locale" content="ru_RU")
+        meta(property="og:image" content="/images/opengraph.jpg")
+        meta(property="og:image:width" content="1200")
+        meta(property="og:image:height" content="630")
     body
         svg.shape-overlays.hide(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", viewBox="0 0 100 100", preserveAspectRatio="none")
             path.shape-overlays__path(d="M 0 100 C 50 100 50 100 100 100 V 100 H 0")
@@ -22,7 +33,7 @@ html(lang="ru")
         .container.visual-animation-base-block-m
             block content
             include ../modules/footer
-        .modal.fixed-window
+        .modal
             .modal-content
                 a#controlModal
                     span

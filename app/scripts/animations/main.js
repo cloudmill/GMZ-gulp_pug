@@ -25,7 +25,7 @@ let animations = {
 
     console.log(this.controller)
   },
-
+  
   waveAnimation: function() {
     /* Анимация волны между секциями */
     var waves = [];

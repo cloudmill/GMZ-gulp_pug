@@ -164,7 +164,9 @@
           &.png{
             transform-origin: center center;
             transform:  translate(-50%,-50%) scale(0.5);
-            
+            @include screen('xs', 'max') {
+              transform:  translate(-50%,-50%) scale(0.4);
+            }
           }
           @include screen('sm', 'max') {
             font-size: 8px;
