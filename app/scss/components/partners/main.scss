@@ -153,6 +153,7 @@ section {
   @include screen('custom-860', 'max') {
     grid-template-rows: auto 1fr 1fr auto;
     grid-column-gap: unset;
+    grid-row-gap: 20px;
   }
 
   &-header {
@@ -187,10 +188,9 @@ section {
       color: $color-text-complementary-two;
       font-size: 110px;
       margin-bottom: 59px;
-  
       @include screen('md', 'max') {
         font-size: 100px;
-        margin-bottom: 39px;
+        margin-bottom: 20px;
       }
   
       & > sup {
@@ -236,7 +236,7 @@ section {
     align-items: center;
     position: relative;
     text-align: center;
-
+    justify-content: center;
     @include screen('sm', 'max') {
       grid-column: 1 / 4;
       text-align: center;
@@ -281,7 +281,7 @@ section {
         height: 21px;
         display: block;
         position: absolute;
-        left: 16%;
+        left: 0;
         top: 100%;
 
         &:before {
