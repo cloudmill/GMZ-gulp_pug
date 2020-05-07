@@ -21,7 +21,8 @@ block variables
         input.placeMark(type="hidden"
           data-cords= point.pos
           data-name= point.name
-          data-id=point.id)
+          data-id=point.id
+          data-id_shop=point.id_shop)
   mixin whereBuy-shops-list(json)
     .shops-list.visual-animation-base-block
       each shop in json
@@ -35,13 +36,50 @@ block content
     .content
       .whereBuy-head
         h1.page-title.visual-animation-base Где купить
-        .whereBuy-search
-          +selectField('city','Ваш город',['Москва','Воронеж','Новгород'])
-        button.whereBuy-geo#setGeoInMap
-          +icon('srt-paper-plane','svg')
+        //- .whereBuy-search
+        //-   +selectField('city','Ваш город',['Москва','Воронеж','Новгород'])
+        //- button.whereBuy-geo#setGeoInMap
+        //-   +icon('srt-paper-plane','svg')
+        .whereBuy-shops
+          .whereBuy-shops-item(data-id="0")
+            img(src="./images/whereBuy/image-shops-1.png", alt="")
+            .item-str
+              +icon('str_down_orange','svg')
+          .whereBuy-shops-item(data-id="1")
+            img(src="./images/whereBuy/image-shops-3.png", alt="")
+            .item-str
+              +icon('str_down_orange','svg')
+          .whereBuy-shops-item(data-id="2")
+            img(src="./images/whereBuy/image-shops-5.png", alt="")
+            .item-str
+              +icon('str_down_orange','svg')
+          .whereBuy-shops-item(data-id="3")
+            img(src="./images/whereBuy/image-shops-10.png", alt="")
+            .item-str
+              +icon('str_down_orange','svg')
+          .whereBuy-shops-item(data-id="4")
+            img(src="./images/whereBuy/image-shops-2.png", alt="")
+            .item-str
+              +icon('str_down_orange','svg')
+          .whereBuy-shops-item(data-id="5")
+            img(src="./images/whereBuy/image-shops-6.png", alt="")
+            .item-str
+              +icon('str_down_orange','svg')
+          .whereBuy-shops-item(data-id="6")
+            img(src="./images/whereBuy/image-shops-7.png", alt="")
+            .item-str
+              +icon('str_down_orange','svg')
+          .whereBuy-shops-item(data-id="7")
+            img(src="./images/whereBuy/image-shops-11.png", alt="")
+            .item-str
+              +icon('str_down_orange','svg')
+          .whereBuy-shops-item(data-id="8")
+            img(src="./images/whereBuy/image-shops-12.png", alt="")
+            .item-str
+              +icon('str_down_orange','svg')
       .whereBuy-map.map-container
-        .whereBuy-map-content
-          +whereBuy-map-marks-list(getData('/pages/whereBuy/placeMarks'))
+        //- .whereBuy-map-content
+        //-   +whereBuy-map-marks-list(getData('/pages/whereBuy/placeMarks'))
         #map
           +whereBuy-map-marks-data(getData('/pages/whereBuy/placeMarks'))
   section.shops-section
