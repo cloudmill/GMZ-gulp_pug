@@ -153,25 +153,45 @@ class DashBackground {
             }
         )
     }
+    detectMob() {
+        const toMatch = [
+            /Android/i,
+            /webOS/i,
+            /iPhone/i,
+            /iPad/i,
+            /iPod/i,
+            /BlackBerry/i,
+            /Windows Phone/i,
+        ];
+
+        const width =
+            window.innerWidth ||
+            document.documentElement.clientWidth ||
+            document.body.clientWidth;
+
+        return toMatch.some((toMatchItem) => {
+            return navigator.userAgent.match(toMatchItem);
+        }) || (width < 1024);
+    }
 
     recalculateCanvas(element) {
         const { newWidth, newHeight } = this.getCanvasSize(element);
         element.setAttribute(
             'width',
             (
-                100 + this._options.additionalWidthPercentage
+                100 + this._options.additionalWidthPercentage + (this.detectMob() && this._options.maxHeight ? this._options.additionalWidthOnMaxHeight || 0 : 0)
             ) / 100 * newWidth
         );
         element.setAttribute(
             'height',
-            (
+            this.detectMob() ? this._options.maxHeight : (
                 100 + this._options.additionalHeightPercentage
             ) / 100 * newHeight
         );
         this._options.newWidth = parseInt(newWidth, 10) * (
-            100 - this._options.offsetRightPercentage
+            100 - this._options.offsetRightPercentage + (this.detectMob() && this._options.maxHeight ? this._options.additionalWidthOnMaxHeight || 0 : 0)
         ) / 100;
-        this._options.newHeight = parseInt(newHeight, 10);
+        this._options.newHeight = this.detectMob() ? this._options.maxHeight : parseInt(newHeight, 10);
 
         if (this._options.isRestoreAfterStop) {
             setTimeout(() => {

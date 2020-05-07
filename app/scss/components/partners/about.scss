@@ -19,7 +19,7 @@
     }
     .about-dashed{
       @include screen('md', 'max') {
-        width: calc(100% + 40px);
+        // width: calc(100% + 40px);
         margin-left: -20px;
       }
     }
@@ -236,7 +236,7 @@
     position: absolute;
     content: "";
     display: block;
-    background: url('../images/promo-box-bottom-dashed.svg');
+    // background: url('../images/promo-box-bottom-dashed.svg');
     bottom: 15%;
     left: -4%;
     width: 1749px;

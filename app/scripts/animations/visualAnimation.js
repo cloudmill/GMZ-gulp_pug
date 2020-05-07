@@ -28,7 +28,7 @@ class VisualAnimation {
             .split(" ")
             .map((word) => {
               return (
-                '<span class="visual-animation-word' +
+                '<span class="visual-animation-word-element' +
                 this.additionalToClass +
                 '">' +
                 word

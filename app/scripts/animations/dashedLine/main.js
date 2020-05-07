@@ -174,6 +174,8 @@ function init() {
                 width: 1132,
                 height: 352,
                 minWidthStartRendering: 0,
+                maxHeight: 300,
+                additionalWidthOnMaxHeight: 50
             }
         )
     }
@@ -190,6 +192,23 @@ function init() {
                 height: 259,
                 additionalWidthPercentage: 30,
                 minWidthStartRendering: 767,
+            }
+        )
+    }
+    const aboutPersons = document.querySelector('canvas.about-persons');
+    if (aboutPersons) {
+        new DashedBackground(
+            aboutPersons,
+            'M-88 153.033C-88 153.033 -35.8905 10.5977 41 3.0332C119.576 -4.69711 118.905 123.495 197.5 131.033C281.736 139.112 383 19.0332 383 19.0332C383 19.0332 438.533 100.629 493.5 108.533C561.019 118.242 576.421 31.4246 643.5 19.0332C736.584 1.83796 778.848 96.6829 873.5 95.5332C964.824 94.4239 1003.55 10.6547 1094.5 19.0332C1151.03 24.2412 1231 69.0332 1231 69.0332L1333.5 2.0332L1379.5 69.0332L1460 140.033C1460 140.033 1497.02 42.2618 1550.5 36.0332C1616.39 28.3592 1661 165.033 1661 165.033',
+            {
+                ..._opts,
+                startFrom: 0,
+                stopAt: 100,
+                width: 1600,
+                height: 166,
+                additionalWidthPercentage: 30,
+                minWidthStartRendering: 767,
+                cropHeightPercentage: 50
             }
         )
     }

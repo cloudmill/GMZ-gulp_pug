@@ -25,7 +25,7 @@
   -webkit-transform-style: flat;
   transform-style: flat;
 
-  > * > .animate {
+  > *  {
     -webkit-animation: notransform 1100ms cubic-bezier(0, 0, 0, 1);
     animation: notransform 1100ms cubic-bezier(0, 0, 0, 1);
     opacity: 1.0;
@@ -92,7 +92,7 @@
   }
 }
 
-.product-title > .visual-animation-showing > * > .animate{
+.product-title > .visual-animation-showing > * {
   animation-delay: 1000ms;
 }
 
@@ -102,14 +102,20 @@
   -webkit-transform-style: flat;
   transform-style: flat;
 
-  > * > * {
+  > * {
     // transform: matrix3d(1, 0, 0.00, 0, 0.00, 0, 1.00, 0, 0, -1, 0, 0, 0, 50, 0, 1);
     // -webkit-transform: matrix3d(1, 0, 0.00, 0, 0.00, 0, 1.00, 0, 0, -1, 0, 0, 0, 50, 0, 1);
-    transform:matrix(1.00,0.00,-0.20,0.30,4,50);
+    /*transform:matrix(1.00,0.00,-0.20,0.30,4,50);
     -ms-transform:matrix(1.00,0.00,-0.20,0.30,4,50);
     -webkit-transform:matrix(1.00,0.00,-0.20,0.30,4,50);
     transform-origin: bottom center 0px;
+    -webkit-transform-origin: bottom center 0px;*/
+    transform-origin: bottom center 0px;
     -webkit-transform-origin: bottom center 0px;
+    opacity: 0.0 !important;
+    -webkit-transform: translate(0px, 100px);
+    -ms-transform: translate(0px, 100px);
+    transform: translate(0px, 100px);
 
     &span {
       display: inline-block;
@@ -261,6 +267,12 @@ canvas.main-catalog-products-dashed {
   z-index: 1;
   top: 315px;
   left: auto;
+  width: auto;
+  @include screen('sm', 'max'){
+    width:auto;
+    top: 500px;
+    left: -50px;
+  }
 }
 
 .about-partners-dashed {
@@ -268,6 +280,13 @@ canvas.main-catalog-products-dashed {
   top: 5%;
   left: -1%;
   transform: scale(0.9)
+}
+
+canvas.about-persons {
+  position: absolute;
+  top: 50%;
+  left: -25px;
+  // transform: scale(0.9)
 }
 
 canvas.how-do-dashed-bg1, canvas.how-do-dashed-bg2, canvas.how-do-dashed-bg3, canvas.how-do-dashed-bg4, canvas.how-do-dashed-bg5 {
