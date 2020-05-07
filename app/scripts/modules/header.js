@@ -22,6 +22,7 @@ let header = {
 
         /* Функционал для бургер меню */
         this.burgerAnimation = new Burger(this.elementBurger, this.butBurger, this.overlayElement);
+        window.burger = this.burgerAnimation;
         this.burgerAnimation.onClose = () => {
             this.scrollAnimation.stable();
         };
@@ -43,7 +44,9 @@ class Burger {
 
         this.init();
     }
-
+    get isShow (){
+        return this.element.hasClass('active')
+    }
     rotater(){
         if (this.rotateElementLink){
             this.angleNow = 0;

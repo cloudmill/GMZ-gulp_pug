@@ -13,9 +13,20 @@ import maps from "./components/maps.js";
 import sliders from "./components/sliders.js";
 import forms from "./components/forms.js";
 import helpers from "./components/helpers.js";
-import Loading from './components/loader';
+import Loading from "./components/loader";
 
 $(document).ready(function () {
+  if ($("body").hasClass("print")) {
+    Loading({
+        beforeStart: () => {
+        },
+        beforeEnd: () => {
+        },
+        onEnd: () => {
+            animations.init('no-scroll');
+        },
+      });
+  } else {
     /* ScrollBar */
     window.scrollbar = new customScrollbar();
 
@@ -33,25 +44,29 @@ $(document).ready(function () {
     forms.init();
 
     /* Тултипы */
-    var tooltips = Array.from(document.querySelectorAll('.tooltip'));
-    var init = (
-        () => tooltips.forEach(t => new Tooltip(t))
-    )();
-
+    var tooltips = Array.from(document.querySelectorAll(".tooltip"));
+    var init = (() => tooltips.forEach((t) => new Tooltip(t)))();
     window.scrollbar.stopScroll();
-    Loading({
-        beforeStart: () => {
-            document.querySelector('.scrollbar-track-y').classList.add('hide-display-for-loader');
-        },
-        beforeEnd: () => {
-            window.scrollbar.startScroll();
-            document.querySelector('.scrollbar-track-y').classList.remove('hide-display-for-loader');
-        },
-        onEnd: () => {
-            /*Анимации*/ 
-            animations.init();
-        }
-    });
 
+    Loading({
+      beforeStart: () => {
+        document
+          .querySelector(".scrollbar-track-y")
+          .classList.add("hide-display-for-loader");
+      },
+      beforeEnd: () => {
+        window.scrollbar.startScroll();
+        document
+          .querySelector(".scrollbar-track-y")
+          .classList.remove("hide-display-for-loader");
+      },
+      onEnd: () => {
+        /*Анимации*/
+        animations.init();
+      },
+    });
     helpers.events();
+  }
+
+  
 });

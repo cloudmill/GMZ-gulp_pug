@@ -2,7 +2,18 @@
   min-height: 850px;
   position: relative;
   overflow: hidden;
-
+  @media (max-width: 1280px) and (min-width: 1024px) and (max-height: 768px){
+    min-height: 650px;
+    .main-index-box-slider-el-left img{
+      max-height: 350px;
+    }
+    .main-index-box-slider-el-right>h2{
+      font-size: 55px;
+    }
+    .main-index-box-slider-el-right{
+      width: 55%;
+    }
+  }
   &-backgound {
     left: 0;
     position: absolute;

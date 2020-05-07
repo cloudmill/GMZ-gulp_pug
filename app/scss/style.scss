@@ -107,3 +107,26 @@ section {
     }
   }
 }
+
+
+
+.print{
+  .main-recept-box{
+    padding-top: 50px;
+  }
+  .pagination{
+    display: none !important;
+  }
+  .main-recept-box .product-wrapper-content{
+    display: none !important;
+  }
+  .recept-wrapper-content{
+    width: 100%;
+  }
+  .recept-footer,.recepts,.wherebuy,.subscription,.footer,.header,.thumbs{
+    display:  none;
+  }
+  .main-slider-buttons.slider-buttons{
+    display: none;
+  }
+}

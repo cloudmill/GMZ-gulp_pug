@@ -51,6 +51,9 @@ section {
     background-image: url("../images/marquee-background.svg");
     background-repeat: repeat-x;
     animation: subscription-text-move 3s linear infinite;
+    @media(max-width: 600px){
+      animation: subscription-text-move 5s linear infinite;
+    }
     @keyframes subscription-text-move {
       0% {
         background-position-x: 427px;
