@@ -34,10 +34,10 @@ let maps = {
         if (btnGeo.length > 0) btnGeo.click();
       });
       $(".whereBuy-shops-item").click(function () {
-        let id = $(this).attr("data-id");
+        let search = $(this).attr("data-search");
         $(".whereBuy-shops-item").removeClass("active");
         $(this).addClass("active");
-        map.setPlacemarksForShop(id);
+        map.search(search);
       });
     },
     init: function () {
@@ -75,17 +75,23 @@ class Map {
     );
 
     /* Заполнение карты метками */
-    this.setPlacemarks();
-
-    this.map.geoObjects.add(this.clusterer);
-    this.map.geoObjects.options.set({ hasBalloon: false });
-
-    this.map.events.add("click", () => {
-      this.map.balloon.close();
-    });
+    if (this.type == "whereBuy") {
+      this.searchControl = new this.Ymaps.control.SearchControl({
+        options: {
+          provider: "yandex#search",
+        },
+      });
+      this.map.controls.add(this.searchControl);
+    } else {
+      this.setPlacemarks();
+      this.map.geoObjects.options.set({ hasBalloon: false });
+      this.map.events.add("click", () => {
+        this.map.balloon.close();
+      });
+      if (this.clusterer._objectsCounter > 1)
+        this.map.setBounds(this.map.geoObjects.getBounds());
+    }
     this.map.behaviors.disable("scrollZoom");
-    if (this.clusterer._objectsCounter > 1)
-      this.map.setBounds(this.map.geoObjects.getBounds());
   }
   setPlacemarks() {
     this.clusterer = new this.Ymaps.Clusterer({
@@ -110,45 +116,21 @@ class Map {
         this.clusterer.add(this.createPlaceMark(coords, name, id));
       });
     }
-  }
-  setPlacemarksForShop(idShop) {
-    this.map.geoObjects.removeAll();
-    this.clusterer = new this.Ymaps.Clusterer({
-      preset: "islands#invertedVioletClusterIcons",
-      clusterIcons: [
-        {
-          href: "images/placeMarkMap.png",
-          size: [90, 87],
-          offset: [-45, -44],
-        },
-      ],
-      groupByCoordinates: false,
-      clusterIconColor: "black",
-      clusterHideIconOnBalloonOpen: false,
-      geoObjectHideIconOnBalloonOpen: false,
-    });
-    if ($(".map_data .placeMark").length > 0) {
-      $(".map_data .placeMark").each((key, item) => {
-        let coords = $(item).attr("data-cords").split(","),
-          name = $(item).attr("data-name"),
-          id = $(item).attr("data-id"),
-          id_shop = $(item).attr("data-id_shop");
-        if (idShop == id_shop)
-          this.clusterer.add(this.createPlaceMark(coords, name, id));
-      });
-    }
-
     this.map.geoObjects.add(this.clusterer);
-    this.map.geoObjects.options.set({ hasBalloon: false });
-
-    this.map.events.add("click", () => {
-      this.map.balloon.close();
-    });
-    this.map.behaviors.disable("scrollZoom");
-    if (this.clusterer._objectsCounter > 1)
-      this.map.setBounds(this.map.geoObjects.getBounds());
   }
-  createPlaceMark(coords, name, id, id_shop) {
+  search(str) {
+    // var result =
+    this.searchControl.search(str);
+    // result.then(
+    //   function (res) {
+    //     console.log("Результат " + res);
+    //   },
+    //   function (err) {
+    //     console.log("Ошибка");
+    //   }
+    // );
+  }
+  createPlaceMark(coords, name, id) {
     let placeMark = new this.Ymaps.Placemark(
       coords,
       {

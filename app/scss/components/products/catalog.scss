@@ -28,7 +28,9 @@
       transform: translateX(-50%);
       width: 100%;
       text-align: center;
-
+      @media(max-width:1500px){
+        font-size: 230px;
+      }
       @include screen('lg', 'max') {
         display: none;
       }

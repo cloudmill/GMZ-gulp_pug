@@ -105,7 +105,7 @@
 .image-howdo {
   position: relative;
   flex-basis: 50%;
-
+  z-index: 2;
   img {
     width: 100%;
     position: relative;
@@ -323,7 +323,7 @@
 
 .main-howdo-cool-box {
   align-items: center;
-
+  padding-bottom: 5px;
   @include screen('md', 'max') {
     flex-direction: column-reverse;
   }
@@ -342,7 +342,7 @@
     margin-left: -40px;
 
     @include screen('md', 'max') {
-      margin-bottom: 60px;
+      margin-bottom: 50px;
     }
 
     @include screen('xs', 'max') {
@@ -364,9 +364,12 @@
   }
 }
 
+.main-howdo-delivery{
+  margin-top: -1px;
+}
 .main-howdo-delivery-box {
   align-items: center;
-
+  
   &::before {
     position: absolute;
     background-repeat: no-repeat;

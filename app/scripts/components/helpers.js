@@ -105,6 +105,14 @@ let helpers = {
         window.scrollbar.startScroll();
       }
     });
+    $(".modal-bg").click(function () {
+      $(".modal").removeClass("active");
+      if(window.burger.isShow){
+        window.burger.hide()
+      }else{
+        window.scrollbar.startScroll();
+      }
+    });
   },
 };
 export default helpers;
