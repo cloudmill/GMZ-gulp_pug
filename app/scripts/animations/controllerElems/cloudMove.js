@@ -3,22 +3,24 @@ const timerSpeed = 50;
 class CloudMove {
     constructor(container) {
         this.elements = [];
-        const items = container.children;
+        if (container && container.children) {
+            const items = container.children;
 
-        for (let i = 0; i < items.length; i++) {
-            const element = items[i];
+            for (let i = 0; i < items.length; i++) {
+                const element = items[i];
 
-            if (element.getClientRects && element.getClientRects()[0]) {
-                const position = element.getClientRects()[0];
-                element.style.left = parseInt(position.left, 10) + 'px';
-                this.elements.push({
-                    element,
-                    left: position.left
-                });
+                if (element.getClientRects && element.getClientRects()[0]) {
+                    const position = element.getClientRects()[0];
+                    element.style.left = parseInt(position.left, 10) + 'px';
+                    this.elements.push({
+                        element,
+                        left: position.left
+                    });
+                }
             }
-        }
-        if (this.elements.length) {
-            this.animate();
+            if (this.elements.length) {
+                this.animate();
+            }
         }
     }
 
