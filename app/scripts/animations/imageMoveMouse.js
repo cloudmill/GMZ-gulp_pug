@@ -30,9 +30,9 @@ function showImageOnMove(el, x, y) {
         }
       });
       imageContainer.style.display = "block";
-      imageContainer.classList.add("image-background-showed");
       link.classList.add("image-background-index");
       imageContainer.classList.remove("image-background-hidden");
+      imageContainer.classList.add("image-background-showed");
       el.parentElement.classList.add("image-background-parent-index");
       setTimeout(() => {
         imageContainer.childNodes.forEach((element) => {
@@ -162,7 +162,8 @@ function hideImage(el) {
     });
     imageContainer.classList.add("image-background-hidden");
     setTimeout(() => {
-      imageContainer.style.display = "none";
+      imageContainer.style.left=$(window).width()+'px';
+      //imageContainer.style.display = "none";
     }, 250);
     el.parentElement.classList.remove("image-background-parent-index");
     link.classList.remove("image-background-index");

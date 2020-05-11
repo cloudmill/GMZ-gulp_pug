@@ -186,20 +186,25 @@
 }
 
 //// image background
-.image-background-showed {
-  opacity: 1.0 !important;
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
+a.catalog-el > div.catalog-el-img {
+  opacity: 0.0;
   transition: opacity 1000ms ease 0s;
-  z-index: 6 !important;
-  pointer-events: none;
+
+  &.image-background-showed {
+    transition: opacity 1000ms ease 0ms;
+    opacity: 1.0;
+    //display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 6 !important;
+    pointer-events: none;
+  }
 }
 
-.image-background-hidden {
-  opacity: 0.0 !important;
-  transition: opacity 1000ms ease 0s;
+a.catalog-el > div.catalog-el-img.image-background-hidden {
+  //opacity: 0.0;
+  //transition: opacity 1000ms ease 0s;
   z-index: -1;
 }
 
