@@ -31,16 +31,7 @@ class VisualAnimation {
                 '<span class="visual-animation-word-element' +
                 this.additionalToClass +
                 '">' +
-                word
-                  .split("")
-                  .map((char) => {
-                    return (
-                      "<span>" +
-                      (char.trim() === "" ? "&nbsp;" : char) +
-                      "</span>"
-                    );
-                  })
-                  .join("") +
+                word +
                 "</span>"
               );
             })
