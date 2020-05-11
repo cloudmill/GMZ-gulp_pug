@@ -1,4 +1,8 @@
 import $ from "jquery";
+
+const elements = {};
+let index = 0;
+
 function getClipRect(obj) {
   let currentLeft = 0;
   let currentTop = 0;
@@ -23,13 +27,22 @@ function getClipRect(obj) {
 function showImageOnMove(el, x, y) {
   const { imageContainer, link } = getImageContainer(el);
   if (imageContainer) {
+    let indexElement = imageContainer.getAttribute('data-index');
+    if (!indexElement){
+      index++;
+      imageContainer.setAttribute('data-index',"e"+index);
+      indexElement = "e"+index;
+    }
+    if (elements[indexElement]){
+      clearInterval(elements[indexElement]);
+    }
     if (!imageContainer.classList.contains("image-background-showed")) {
       imageContainer.childNodes.forEach((element) => {
         if (element.classList) {
           element.classList.add("animationImageBefore");
         }
       });
-      imageContainer.style.display = "block";
+      //  imageContainer.style.display = "block";
       link.classList.add("image-background-index");
       imageContainer.classList.remove("image-background-hidden");
       imageContainer.classList.add("image-background-showed");
@@ -147,6 +160,8 @@ function hideImage(el) {
     imageContainer &&
     imageContainer.classList.contains("image-background-showed")
   ) {
+    const indexElement = imageContainer.getAttribute('data-index');
+
     imageContainer.childNodes.forEach((element) => {
       if (element.classList) {
         element.classList.remove("animationImageBefore");
@@ -161,11 +176,18 @@ function hideImage(el) {
       }
     });
     imageContainer.classList.add("image-background-hidden");
+    elements[indexElement] = setTimeout(() => {
+      imageContainer.style.left=(parseInt($(window).width(),10)+1000)+'px';
+      // imageContainer.style.display = "none";
+      //el.parentElement.classList.remove('z-index-fix');
+    }, 1000);
     setTimeout(() => {
-      imageContainer.style.left=$(window).width()+'px';
-      //imageContainer.style.display = "none";
-    }, 250);
+      //imageContainer.style.left=$(window).width()+'px';
+      // imageContainer.style.display = "none";
+      el.parentElement.classList.remove('z-index-fix');
+    }, 500);
     el.parentElement.classList.remove("image-background-parent-index");
+    el.parentElement.classList.add('z-index-fix');
     link.classList.remove("image-background-index");
   }
 }

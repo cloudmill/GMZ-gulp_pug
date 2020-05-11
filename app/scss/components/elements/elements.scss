@@ -186,6 +186,10 @@
 }
 
 //// image background
+.z-index-fix{
+  z-index:0 !important;
+}
+
 a.catalog-el > div.catalog-el-img {
   opacity: 0.0;
   transition: opacity 1000ms ease 0s;

@@ -426,8 +426,11 @@
         }
        
       }
-      &:hover {
+      .catalog-el-text:hover{
         color: #EE7754;
+      }
+      &:hover {
+
         @include screen('lg', 'min') {
           .catalog-el-img {
             // opacity: 0;
