@@ -9,12 +9,19 @@ class DashBackground {
                 this.recalculateCanvas(element);
             } else {
                 this.getCanvasSize(element);
-                this._options.newWidth = this._options.width * (
-                    100 - this._options.offsetRightPercentage
-                ) / 100;
-                this._options.newHeight = this._options.height;
+                this._options.newWidth = parseInt(element.getAttribute('width'), 10);
+                this._options.newHeight = parseInt(element.getAttribute('height'), 10);
+                this._options.canvasWidth = parseInt(element.getAttribute('width'), 10);
+                this._options.canvasHeight = parseInt(element.getAttribute('height'), 10);
+
+                if (this._options.isDebug) {
+                    console.log('got canvas size', this._options.newWidth, this._options.newHeight);
+                }
             }
             this.addEventListener(element);
+        }
+        if (this._options.isDebug) {
+            console.log('start Animation');
         }
         this.start();
     }
@@ -44,6 +51,7 @@ class DashBackground {
                 isRestoreAfterStop: true,
                 additionalHeightPercentage: 0,
                 additionalWidthPercentage: 0,
+                minWidthStartRendering: 0,
                 onEnd: () => {
                 }
             }
@@ -98,10 +106,10 @@ class DashBackground {
             position += this._options.speed;
             const objPosition = pathObject.getPointAtLength(position);
             const newX = this._options.newWidth * objPosition.x / this._options.width + (
-                this._options.canvasWidth * this._options.offsetLeftPercentage / 100
+                (this._options.useNonCanvasSize ? this._options.newWidth : this._options.canvasWidth) * this._options.offsetLeftPercentage / 100
             );
             const newY = this._options.newHeight * objPosition.y / this._options.height + (
-                this._options.canvasHeight * this._options.offsetTopPercentage / 100
+                (this._options.useNonCanvasSize ? this._options.newHeight : this._options.canvasHeight) * this._options.offsetTopPercentage / 100
             );
             if (this._options.isDebug) {
                 console.log(
@@ -128,10 +136,12 @@ class DashBackground {
     }
 
     addEventListener(element) {
-        window.addEventListener('resize', () => {
-            this._options.isStop = true;
-            this.recalculateCanvas(element);
-        });
+        if (!this._options.noReset) {
+            window.addEventListener('resize', () => {
+                this._options.isStop = true;
+                this.recalculateCanvas(element);
+            });
+        }
     }
 
     getCanvasSize(element) {
@@ -153,6 +163,7 @@ class DashBackground {
             }
         )
     }
+
     detectMob() {
         const toMatch = [
             /Android/i,
@@ -171,7 +182,9 @@ class DashBackground {
 
         return toMatch.some((toMatchItem) => {
             return navigator.userAgent.match(toMatchItem);
-        }) || (width < 1024);
+        }) || (
+            width < 1024
+        );
     }
 
     recalculateCanvas(element) {
@@ -179,19 +192,31 @@ class DashBackground {
         element.setAttribute(
             'width',
             (
-                100 + this._options.additionalWidthPercentage + (this.detectMob() && this._options.maxHeight ? this._options.additionalWidthOnMaxHeight || 0 : 0)
+                100 + this._options.additionalWidthPercentage + (
+                    this.detectMob() && this._options.maxHeight
+                        ? this._options.additionalWidthOnMaxHeight || 0
+                        : 0
+                )
             ) / 100 * newWidth
         );
         element.setAttribute(
             'height',
-            this.detectMob() ? this._options.maxHeight : (
+            this.detectMob()
+                ? this._options.maxHeight
+                : (
                 100 + this._options.additionalHeightPercentage
             ) / 100 * newHeight
         );
         this._options.newWidth = parseInt(newWidth, 10) * (
-            100 - this._options.offsetRightPercentage + (this.detectMob() && this._options.maxHeight ? this._options.additionalWidthOnMaxHeight || 0 : 0)
+            100 - this._options.offsetRightPercentage + (
+                this.detectMob() && this._options.maxHeight
+                    ? this._options.additionalWidthOnMaxHeight || 0
+                    : 0
+            )
         ) / 100;
-        this._options.newHeight = this.detectMob() ? this._options.maxHeight : parseInt(newHeight, 10);
+        this._options.newHeight = this.detectMob()
+            ? this._options.maxHeight
+            : parseInt(newHeight, 10);
 
         if (this._options.isRestoreAfterStop) {
             setTimeout(() => {
@@ -201,18 +226,33 @@ class DashBackground {
     }
 
     start() {
-        if(document.documentElement.clientWidth >= this._options.minWidthStartRendering) {
+        if (document.documentElement.clientWidth >= this._options.minWidthStartRendering) {
+            if (this._options.isDebug) {
+                console.log('Animation can be started');
+            }
             this.isStarted = true;
             this.startDo();
         } else {
             this.isStarted = false;
+            if (this._options.isDebug) {
+                console.log('Animation can not be started');
+            }
         }
     }
 
     startDo() {
         if (this.isStarted) {
+            if (this._options.isDebug) {
+                console.log('Reset...');
+            }
             this.resetImage();
+            if (this._options.isDebug) {
+                console.log('prepare');
+            }
             this.prepareContext();
+            if (this._options.isDebug) {
+                console.log('Animate');
+            }
             this.startAnimation();
         }
     }

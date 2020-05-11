@@ -212,6 +212,56 @@ function init() {
             }
         )
     }
+    const receptDetailsDashed = document.querySelector('canvas.recept-details-dashed');
+    if (receptDetailsDashed) {
+        new DashedBackground(
+            receptDetailsDashed,
+            'M-88 153.033C-88 153.033 -35.8905 10.5977 41 3.0332C119.576 -4.69711 118.905 123.495 197.5 131.033C281.736 139.112 383 19.0332 383 19.0332C383 19.0332 438.533 100.629 493.5 108.533C561.019 118.242 576.421 31.4246 643.5 19.0332C736.584 1.83796 778.848 96.6829 873.5 95.5332C964.824 94.4239 1003.55 10.6547 1094.5 19.0332C1151.03 24.2412 1231 69.0332 1231 69.0332L1333.5 2.0332L1379.5 69.0332L1460 140.033C1460 140.033 1497.02 42.2618 1550.5 36.0332C1616.39 28.3592 1661 165.033 1661 165.033',
+            {
+                ..._opts,
+                startFrom: 0,
+                stopAt: 100,
+                width: 1600,
+                height: 166,
+                cropHeightPercentage: 90,
+                additionalWidthPercentage: 30,
+            }
+        )
+    }
+    const productSliderDashed = document.querySelector('canvas.product-slider-dashed');
+    if (productSliderDashed) {
+        new DashedBackground(
+            productSliderDashed,
+            'M1 155C1 155 53.1095 12.5644 130 5C208.576 -2.73031 207.905 125.462 286.5 133C370.736 141.079 472 21 472 21C472 21 527.533 102.596 582.5 110.5C650.019 120.209 665.421 33.3914 732.5 21C825.584 3.80475 867.848 98.6497 962.5 97.5C1053.82 96.3907 1092.55 12.6215 1183.5 21C1240.03 26.208 1320 71 1320 71L1422.5 4L1468.5 71L1549 142C1549 142 1586.02 44.2286 1639.5 38C1705.39 30.326 1750 167 1750 167',
+            {
+                ..._opts,
+                startFrom: 0,
+                stopAt: 100,
+                width: 776,
+                height: 168,
+                cropHeightPercentage: 75,
+                additionalWidthPercentage: 100,
+                useNonCanvasSize: true,
+                isDebug: true,
+
+                onEnd: ()=>{
+                    new DashedBackground(
+                        productSliderDashed,
+                        'M366 153C366 153 418.11 10.5644 495 3C573.576 -4.73031 572.905 123.462 651.5 131C735.736 139.079 837 19 837 19C837 19 892.533 100.596 947.5 108.5C1015.02 118.209 1030.42 31.3914 1097.5 19C1190.58 1.80475 1232.85 96.6497 1327.5 95.5C1418.82 94.3907 1457.55 10.6215 1548.5 19C1605.03 24.208 1685 69 1685 69L1787.5 2L1833.5 69L1914 140C1914 140 1951.02 42.2286 2004.5 36C2070.39 28.326 2115 165 2115 165',
+                        {
+                            ..._opts,
+                            startFrom: 0,
+                            stopAt: 100,
+                            width: 1376,
+                            height: 168,
+                            noReset:true,
+                            offsetLeftPercentage: -40,
+                        }
+                    )
+                }
+            }
+        )
+    }
     const bgPromo = document.querySelector('canvas.promo-dashed');
     if (bgPromo) {
         new DashedBackground(
