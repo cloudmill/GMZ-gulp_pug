@@ -4,7 +4,7 @@ mixin selectField(name,placeholder,options)
       each option in options
         option(value=option)= option
 mixin inputField(type_param, id_param, label, binding = true)
-  .main-field.visual-animation-base-block
+  .main-field
     if(binding == true)
       input(type=type_param name=id_param id=id_param placeholder=label required)&attributes(attributes)
     else
