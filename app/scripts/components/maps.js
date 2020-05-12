@@ -82,6 +82,20 @@ class Map {
         },
       });
       this.map.controls.add(this.searchControl);
+      this.geo = this.Ymaps.geolocation;
+      this.geo
+        .get({
+          provider: "yandex",
+          mapStateAutoApply: true,
+        })
+        .then((result) => {
+          // Красным цветом пометим положение, вычисленное через ip.
+          result.geoObjects.options.set("preset",'islands#geolocationIcon');
+          result.geoObjects.get(0).properties.set({
+            balloonContentBody: "Мое местоположение",
+          });
+          this.map.geoObjects.add(result.geoObjects);
+        });
     } else {
       this.setPlacemarks();
       this.map.geoObjects.options.set({ hasBalloon: false });
@@ -119,16 +133,7 @@ class Map {
     this.map.geoObjects.add(this.clusterer);
   }
   search(str) {
-    // var result =
     this.searchControl.search(str);
-    // result.then(
-    //   function (res) {
-    //     console.log("Результат " + res);
-    //   },
-    //   function (err) {
-    //     console.log("Ошибка");
-    //   }
-    // );
   }
   createPlaceMark(coords, name, id) {
     let placeMark = new this.Ymaps.Placemark(

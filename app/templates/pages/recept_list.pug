@@ -24,35 +24,35 @@ block content
         h2.visual-animation-base Рецепты
       .recepts-wrapper
         .text-left Рецепты
-        .recepts-wrapper-content
+        .recepts-wrapper-content#insertTargetFilter
           +recept-slider(getData('sliders/recepts'))
-        form.recepts-wrapper-list.visual-animation-base-block
+        form.recepts-wrapper-list.visual-animation-base-block#filterForm
           .list-group
             .list-group-title Категория:
             .list-group-selection
-              +checkbox('all', 'all', 'Все')
-              +checkbox('snacks', 'snacks', 'Закуски')
-              +checkbox('salads', 'salads', 'Салаты')
-              +checkbox('backing', 'backing', 'Выпечка')
-              +checkbox('hot', 'hot', 'Горячие блюда')
+              +checkbox('all', 'category', 'Все')
+              +checkbox('snacks', 'category', 'Закуски')
+              +checkbox('salads', 'category', 'Салаты')
+              +checkbox('backing', 'category', 'Выпечка')
+              +checkbox('hot', 'category', 'Горячие блюда')
           .list-group
             .list-group-title Продукт:
             .list-group-selection.product-select
-              +checkbox('1', '1', 'Сыр «Косичка» «Гиагинский» копченый')
-              +checkbox('2', '2', 'Сыр «Косичка» «Гиагинский»')
-              +checkbox('3', '3', 'Сыр «Охотничий» «Гиагинский» копченый')
-              +checkbox('4', '4', 'Сыр «Спагетти» «Гиагинский» копченый')
-              +checkbox('5', '5', 'Сыр «Спагетти» «Гиагинский»')
+              +checkbox('1', 'product', 'Сыр «Косичка» «Гиагинский» копченый')
+              +checkbox('2', 'product', 'Сыр «Косичка» «Гиагинский»')
+              +checkbox('3', 'product', 'Сыр «Охотничий» «Гиагинский» копченый')
+              +checkbox('4', 'product', 'Сыр «Спагетти» «Гиагинский» копченый')
+              +checkbox('5', 'product', 'Сыр «Спагетти» «Гиагинский»')
 
-              +checkbox('6', '6', 'Сыр «Адыгейский»')
-              +checkbox('7', '7', 'Сыр «Адыгейский» копченый')
-              +checkbox('8', '8', 'Сыр «Адыгейский Домашний»')
-              +checkbox('9', '9', 'Сыр «Сулугуни»')
-              +checkbox('10', '10', 'Сыр «Чечил»')
-              +checkbox('11', '11', 'Сыр «Чечил» копченый')
-              +checkbox('12', '12', 'Сыр «Охотничий» копченый')
-              +checkbox('13', '13', 'Сыр «Косичка» копченый Дарфреш')
+              +checkbox('6', 'product', 'Сыр «Адыгейский»')
+              +checkbox('7', 'product', 'Сыр «Адыгейский» копченый')
+              +checkbox('8', 'product', 'Сыр «Адыгейский Домашний»')
+              +checkbox('9', 'product', 'Сыр «Сулугуни»')
+              +checkbox('10', 'product', 'Сыр «Чечил»')
+              +checkbox('11', 'product', 'Сыр «Чечил» копченый')
+              +checkbox('12', 'product', 'Сыр «Охотничий» копченый')
+              +checkbox('13', 'product', 'Сыр «Косичка» копченый Дарфреш')
               button.display-full Показать все 
-          button.clear Сбросить фильтр
+          button.clear#clearFilter Сбросить фильтр
   +subscriptionForm().bg-additional
   +footer().bg-additional
