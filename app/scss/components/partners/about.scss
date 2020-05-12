@@ -313,16 +313,9 @@
 
           .date-btn.swiper-slide {
             border-bottom: 2px solid #ffffff;
-            width: auto!important;
-            margin-right: 60px;
-
-            @include screen('xs', 'max') {
-              margin-right: 25px;
-            }
-
-            &:last-child {
-              margin-right: 0px;
-            }
+            //width: auto!important;
+           // margin-right: 60px;
+            white-space: nowrap;
           }
 
           .date-btn.swiper-slide.swiper-slide-thumb-active {

@@ -15,9 +15,9 @@ mixin main-slider(json)
         img(src=data.icon)
         .shadow
         .addons
-          +icon('rhombus', 'svg').rhombus-1
-          +icon('rhombus', 'svg').rhombus-2
-          +icon('cheese', 'svg').cheese
+          img(src='./images/rhombus.png').rhombus-1
+          img(src='./images/rhombus_2.png').rhombus-2
+          img(src='./images/cheese.png').cheese
       .main-index-box-slider-el-right
         h2.visual-animation-base-m #{data.title}
         p #{data.text}
@@ -45,7 +45,7 @@ block content
   section.promo.bg-additional.waveSection(data-color="#f6f5f3")
     .content.promo-box
       .promo-box-top
-        canvas.promo-dashed(width="737", height="648")
+        canvas.promo-dashed(width="737" height="648")
         .top-left
           img.mouseParalax(src="./images/promo-box-top.svg" alt="Персонажи")
           +icon('promo-box-top-text', 'svg')
@@ -58,13 +58,13 @@ block content
               span.originrecep оригинальной рецептуры 
               | и точного следования технологии производства.
             .tooltip.tooltip--cora(data-type="cora")
-              .tooltip__trigger(role="tooltip", aria-describedby="info-cora")
-                  +link('Что такое НМПТ', '#', 'false')
+              .tooltip__trigger(role="tooltip" aria-describedby="info-cora")
+                +link('Что такое НМПТ', '#', 'false')
               .tooltip__base
-                  svg.tooltip__shape(width="375", height="275", viewBox="0 0 375 275")
-                      path(opacity="0.97", fill-rule="evenodd", fill="#312930", d="M375 0L0 40.5669L24.7333 266.5H173.92L186 275L198.08 266.5H342.067L375 0Z")
-                  .tooltip__content#info-cora
-                    span НМПТ – это обозначение, представляющее или содержащее наименование географического объекта, ставшее известным в результате его использования в отношении товара, особые свойства которого исключительно (или главным образом) определяются природными условиями и (или) людскими факторами, ­характерными для этого географического объекта.
+                svg.tooltip__shape(width="375" height="275" viewBox="0 0 375 275")
+                  path(opacity="0.97" fill-rule="evenodd" fill="#312930" d="M375 0L0 40.5669L24.7333 266.5H173.92L186 275L198.08 266.5H342.067L375 0Z")
+                .tooltip__content#info-cora
+                  span НМПТ – это обозначение, представляющее или содержащее наименование географического объекта, ставшее известным в результате его использования в отношении товара, особые свойства которого исключительно (или главным образом) определяются природными условиями и (или) людскими факторами, ­характерными для этого географического объекта.
       .promo-box-bottom
         .bottom-img
           +icon('print-main', 'svg').scrollRotate

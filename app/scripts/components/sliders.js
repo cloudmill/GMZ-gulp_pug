@@ -2,7 +2,7 @@ import $ from "jquery";
 import Swiper from "swiper";
 
 let sliders = {
-  init: function() {
+  init: function () {
     this.mainSlider();
     this.receptSlider();
     this.productSlider();
@@ -11,7 +11,7 @@ let sliders = {
     this.awardsSlider();
     this.newsAndStockSlider();
   },
-  mainSlider: function() {
+  mainSlider: function () {
     let delayChangeSlide = 5000;
     return new Swiper(".main-index-box-slider", {
       speed: 1500,
@@ -21,12 +21,12 @@ let sliders = {
 
       navigation: {
         nextEl: "#slider-main-right",
-        prevEl: "#slider-main-left"
+        prevEl: "#slider-main-left",
       },
 
       autoplay: {
         delay: delayChangeSlide,
-        disableOnInteraction: false
+        disableOnInteraction: false,
       },
 
       pagination: {
@@ -34,21 +34,21 @@ let sliders = {
         el: ".main-index-box-control-items",
         bulletClass: "main-index-box-control-items-el",
         bulletActiveClass: "active",
-        renderBullet: function(index, className) {
+        renderBullet: function (index, className) {
           let svg = `<svg class="elipce_slider first" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <circle cx="11.5" cy="11.5" r="10.5" stroke="#312930" stroke-width="2"/>
-                    </svg>`
-          return '<button class="' + className + '">'+svg+'</button>';
-        }
+                    </svg>`;
+          return '<button class="' + className + '">' + svg + "</button>";
+        },
       },
-      on:{
-        slideChange: function(){
-          $(document).find('.elipce_slider.first').removeClass('first');
-        }
-      }
+      on: {
+        slideChange: function () {
+          $(document).find(".elipce_slider.first").removeClass("first");
+        },
+      },
     });
   },
-  receptSlider: function() {
+  receptSlider: function () {
     return new Swiper(".recepts-box-slider", {
       spaceBetween: 30,
       slidesPerView: 1,
@@ -56,17 +56,17 @@ let sliders = {
 
       breakpoints: {
         660: {
-          slidesPerView: 2
-        }
+          slidesPerView: 2,
+        },
       },
 
       navigation: {
         nextEl: "#slider-recepts-right",
-        prevEl: "#slider-recepts-left"
-      }
+        prevEl: "#slider-recepts-left",
+      },
     });
   },
-  productSlider: function() {
+  productSlider: function () {
     return new Swiper(".slider-owerflow", {
       speed: 600,
       slidesPerView: 1,
@@ -74,82 +74,106 @@ let sliders = {
 
       navigation: {
         nextEl: "#slider-main-right",
-        prevEl: "#slider-main-left"
+        prevEl: "#slider-main-left",
       },
 
       thumbs: {
         swiper: {
-          el: '.product-bullets',
+          el: ".product-bullets",
           slidesPerView: 5,
           spaceBetween: 20,
-          slideThumbActiveClass: '.active',
-        }
+          slideThumbActiveClass: ".active",
+        },
       },
     });
   },
-  receptSliderOne: function() {
-    return new Swiper(".slider-recept", {
-      speed: 600,
-      slidesPerView: 1,
-      updateOnWindowResize: true,
-      spaceBetween: 0,
-      loop: true,
+  receptSliderOne: function () {
+    if ($(".slider-recept .slider-el.swiper-slide").length > 1){
+      return new Swiper(".slider-recept", {
+        speed: 600,
+        slidesPerView: 1,
+        updateOnWindowResize: true,
+        spaceBetween: 0,
+        loop: true,
 
-      autoplay: {
-        delay: 2600,
-        disableOnInteraction: false
-      },
+        autoplay: {
+          delay: 2600,
+          disableOnInteraction: false,
+        },
 
-      navigation: {
-        nextEl: "#slider-recept-right",
-        prevEl: "#slider-recept-left"
-      },
+        navigation: {
+          nextEl: "#slider-recept-right",
+          prevEl: "#slider-recept-left",
+        },
 
-      thumbs: {
-        swiper: {
-          el: '.thumbs.thumbs-recept-slider',
-          slidesPerView: 'auto',
-          spaceBetween: 10,
-          slideThumbActiveClass: '.active',
-        }
-      },
-    });
+        thumbs: {
+          swiper: {
+            el: ".thumbs.thumbs-recept-slider",
+            slidesPerView: "auto",
+            spaceBetween: 10,
+            slideThumbActiveClass: ".active",
+          },
+        },
+      });
+    }else {
+      $(".slider-recept .main-slider-buttons").remove()
+    }
+      
   },
-  aboutSlider: function() {
+  aboutSlider: function () {
     return new Swiper(".slider-about-box", {
       speed: 600,
       spaceBetween: 500,
       loop: true,
       autoHeight: true,
-      calculateHeight:true,
+      calculateHeight: true,
 
       autoplay: {
         delay: 6000,
-        disableOnInteraction: false
+        disableOnInteraction: false,
       },
 
       breakpoints: {
         767: {
           autoHeight: false,
-          calculateHeight:false,
+          calculateHeight: false,
         },
       },
 
       navigation: {
         nextEl: "#slider-about-right",
-        prevEl: "#slider-about-left"
+        prevEl: "#slider-about-left",
       },
 
       thumbs: {
         swiper: {
           el: ".dates",
-          slidesPerView: 8,
-          slideThumbActiveClass: '.active',
+          slidesPerView: 3,
+          spaceBetween: 25,
+          slideThumbActiveClass: ".active",
+          breakpoints: {
+            1024: {
+              spaceBetween: 60,
+              slidesPerView: 7,
+            },
+            950: {
+              spaceBetween: 55,
+              slidesPerView: 6,
+            },
+            768: {
+              spaceBetween: 45,
+              slidesPerView: 5,
+            },
+            480: {
+              spaceBetween: 35,
+              slidesPerView: 4,
+            },
+          },
         },
       },
     });
   },
-  awardsSlider: function() {
+  awardsSlider: function () {
     return new Swiper(".main-about-awards-content", {
       spaceBetween: 30,
       speed: 600,
@@ -160,7 +184,7 @@ let sliders = {
 
       autoplay: {
         delay: 6000,
-        disableOnInteraction: false
+        disableOnInteraction: false,
       },
 
       breakpoints: {
@@ -168,19 +192,19 @@ let sliders = {
           slidesPerView: 3,
           spaceBetween: 10,
           loopedSlides: 3,
-        }
+        },
       },
 
       navigation: {
         nextEl: "#slider-awards-left",
-        prevEl: "#slider-awards-right"
-      }
+        prevEl: "#slider-awards-right",
+      },
     });
   },
-  newsAndStockSlider: function() {
+  newsAndStockSlider: function () {
     return new Swiper(".news-row", {
       speed: 5200,
-      slidesPerView: 'auto',
+      slidesPerView: "auto",
       spaceBetween: 30,
       freeMode: false,
 
@@ -188,10 +212,10 @@ let sliders = {
         1023: {
           spaceBetween: 120,
           slidesPerView: 3,
-        }
-      }
-    });    
-  }
+        },
+      },
+    });
+  },
 };
 
 export default sliders;

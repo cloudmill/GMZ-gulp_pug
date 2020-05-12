@@ -130,17 +130,17 @@
             top: 0;
             left: 0;
             .rhombus-1 {
+              top: auto;
               position: absolute;
               bottom: 0;
-              font-size: 8px;
               transition: transform 2s ease-out;
             }
 
             .rhombus-2 {
+              top: auto;
               position: absolute;
               bottom: -41px;
               left: 86px;
-              font-size: 5px;
               transition: transform 2s ease;
             }
 
