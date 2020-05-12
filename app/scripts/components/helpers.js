@@ -37,11 +37,9 @@ let helpers = {
 
   /* Работа спойлера чекбоксов на странице рецептов*/
   spoilerCheckbox: function () {
-    if ($(window).width() <= 859) {
-      $(".list-group").click(function () {
-        $(this).find(".list-group-selection").toggleClass("display-mobile");
-      });
-    }
+    $(".list-group").click(function () {
+      if ($(window).width() <= 859) $(this).toggleClass("active");
+    });
 
     $(".clear").click(function (event) {
       event.preventDefault();
@@ -107,9 +105,9 @@ let helpers = {
     });
     $(".modal-bg").click(function () {
       $(".modal").removeClass("active");
-      if(window.burger.isShow){
-        window.burger.hide()
-      }else{
+      if (window.burger.isShow) {
+        window.burger.hide();
+      } else {
         window.scrollbar.startScroll();
       }
     });

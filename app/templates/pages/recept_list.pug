@@ -35,6 +35,9 @@ block content
               +checkbox('salads', 'category', 'Салаты')
               +checkbox('backing', 'category', 'Выпечка')
               +checkbox('hot', 'category', 'Горячие блюда')
+            .mob_row
+              +link('Применить', '#')#accept
+              button.clear#clearFilter Сбросить фильтр
           .list-group
             .list-group-title Продукт:
             .list-group-selection.product-select
@@ -52,7 +55,10 @@ block content
               +checkbox('11', 'product', 'Сыр «Чечил» копченый')
               +checkbox('12', 'product', 'Сыр «Охотничий» копченый')
               +checkbox('13', 'product', 'Сыр «Косичка» копченый Дарфреш')
-              button.display-full Показать все 
+              button.display-full Показать Все
+            .mob_row
+              +link('Применить', '#')#accept
+              button.clear#clearFilter Сбросить фильтр
           button.clear#clearFilter Сбросить фильтр
   +subscriptionForm().bg-additional
   +footer().bg-additional

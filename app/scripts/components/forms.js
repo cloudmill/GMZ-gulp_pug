@@ -144,7 +144,7 @@ let forms = {
       });
     });
     $(document).on("change", "#filterForm input", function () {
-      $("#filterForm").submit();
+      if ($(window).width() > 859) $("#filterForm").submit();
     });
     $(document).on("click", "#clearFilter", function (e) {
       e.preventDefault();
@@ -153,6 +153,10 @@ let forms = {
         .each(function () {
           if (this.checked) this.checked = false;
         });
+      $("#filterForm").submit();
+    });
+    $(document).on("click", "#accept", function (e) {
+      e.preventDefault();
       $("#filterForm").submit();
     });
   },

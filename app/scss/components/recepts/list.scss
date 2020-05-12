@@ -170,7 +170,7 @@
               display: none;
             }
           }
-
+          
           .clear {
             text-decoration-line: underline;
             color: #312930;
@@ -189,7 +189,7 @@
               background: #ffffff;
               padding: 40px 20px;
               margin-bottom: 30px;
-
+              cursor: pointer;
               &:first-child {
                 margin-bottom: 10px;
               }
@@ -228,12 +228,30 @@
                 font-size: 11px;
               }
             }
-
-            &-selection {
-              &.display-mobile {
+            .mob_row{
+              display: none;
+            }
+            &.active{
+              .mob_row{
+                display: flex;
+                margin-top: 40px;
+                justify-content: space-between;
+                *{
+                  user-select: none;
+                }
+                .clear{
+                  display: inline-block;
+                }
+                @include screen('custom-860', 'min') {
+                  display: none;
+                }
+              }
+              .list-group-selection{
                 display: block;
                 margin-top: 30px;
               }
+            }
+            &-selection {
 
               @include screen('custom-860', 'max') {
                 display: none;
