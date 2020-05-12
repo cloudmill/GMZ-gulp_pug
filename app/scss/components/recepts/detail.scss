@@ -90,9 +90,8 @@
       &-image {
         z-index: 10;
         position: relative;
-        width: 70%;
+        width: 80%;
         margin: 0 auto;
-
         @include screen('xs', 'max') {
           width: 80%;
         }

@@ -143,7 +143,7 @@ class FixedScrollAnimate {
         this.scrollFree = 20;
 
         //растояние до верхнего края страницы в начальном положении
-        this.offsetOnBeginPos = 50;
+        this.offsetOnBeginPos = 250 + ($('#bx-panel').length>0 ? $('#bx-panel').height() : 0);
         if ($(window).width() <= 480) {
             this.offsetOnBeginPos = 20;
         }

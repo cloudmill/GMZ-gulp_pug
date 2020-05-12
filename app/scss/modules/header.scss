@@ -3,7 +3,7 @@
 */
 .header.sticky {
   background: #fff;
-  position: fixed;
+  position: absolute;
   height: 90px;
   transition: top 0.4s ease-in-out;//, background 0.4s ease-in-out;
 
@@ -47,7 +47,7 @@
 .header {
   width: calc(100% - 40px);
   z-index: 9999;
-  position: fixed;
+  position: absolute;
   transform: translateY(30px);
   padding-right: $min-main-padding;
   padding-left: $min-main-padding;

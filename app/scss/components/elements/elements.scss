@@ -15,6 +15,9 @@
 
 .visual-animation-word, .visual-animation-word-s, .visual-animation-word-m {
   white-space: nowrap;
+  &-element{
+    word-wrap: inherit;
+  }
 }
 
 .visual-animation-showing, .visual-animation-showing-s, .visual-animation-showing-m {
