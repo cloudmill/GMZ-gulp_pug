@@ -312,7 +312,13 @@
           }
 
           .date-btn.swiper-slide {
-            border-bottom: 2px solid #ffffff;
+            
+            span{
+              padding: 0 5px;
+              display: inline-block;
+              padding-bottom: 2px;
+              border-bottom: 2px solid #ffffff;
+            }
             //width: auto!important;
            // margin-right: 60px;
             white-space: nowrap;
@@ -320,8 +326,9 @@
 
           .date-btn.swiper-slide.swiper-slide-thumb-active {
             color: #ee7754;
-            border-bottom: 2px solid #ee7754;
-            padding-bottom: 2px;
+            span{
+              border-bottom: 2px solid #ee7754;
+            }
           }
         }
       }

@@ -22,69 +22,98 @@ let forms = {
   },
 
   askQuestionForm: function () {
-    var formData = {
-      username: $("form.contact-box-form input[name=name]"),
-      telephone: $("form.contact-box-form input[name=phone]"),
-      email: $("form.contact-box-form input[name=email]"),
-      question: $("form.contact-box-form textarea[name=question]"),
-    };
+    let _ = this;
+    var forms = $("form.contact-box-form");
+    if (forms.length > 0)
+      forms.each(function () {
+        var form = $(this);
+        var formData = {
+          username: form.find("input[name=name]"),
+          telephone: form.find("input[name=phone]"),
+          email: form.find("input[name=email]"),
+          question: form.find("textarea[name=question]"),
+        };
 
-    formData["telephone"].mask("+9 (999) 999-9999", {
-      placeholder: "+7 (___) ___ - __ - __",
-    });
-
-    //Логика работы сообщения об успешном ответе
-    $(".contact-box-success button.main-link").click(function (event) {
-      event.preventDefault();
-      $(".contact-box-success").css({
-        opacity: 0,
-        "pointer-events": "none",
-      });
-
-      $("form.contact-box-form")
-        .find("input")
-        .val("")
-        .removeAttr("selected")
-        .prop("checked", false);
-      $("form.contact-box-form").find("textarea").val("");
-    });
-
-    //Логика работы формы
-    $("form.contact-box-form button.main-link").click(function (event) {
-      event.preventDefault();
-      $(".main-field").removeClass("error");
-      $(".main-checkbox-name").find("p").css({ color: "#312930" });
-
-      var agreeData = $("form.contact-box-form input[name=agree]:checked");
-
-      for (var value in formData) {
-        if (formData[value].val() == "" || formData[value].val() == undefined) {
-          var getParent = formData[value].parent();
-
-          if (!getParent.children(".main-field-addon").length) {
-            getParent.addClass("error");
-          }
-        }
-      }
-
-      if (agreeData.length == 0) {
-        $(".main-checkbox-name").find("p").css({ color: "#bb9753" });
-      }
-
-      //Все хорошо, показываем сообщение что отправили данные с формы
-      if (
-        $("form.contact-box-form .main-field.error").length == 0 &&
-        agreeData.length == 1
-      ) {
-        $(".contact-box-success").css({
-          opacity: 1,
-          "pointer-events": "all",
+        formData["telephone"].mask("+9 (999) 999-9999", {
+          placeholder: "+7 (___) ___ - __ - __",
         });
-      }
-    });
+
+        //Логика работы сообщения об успешном ответе
+        form
+          .find("+.contact-box-success button.main-link")
+          .click(function (event) {
+            event.preventDefault();
+            form.find("+.contact-box-success").css({
+              opacity: 0,
+              "pointer-events": "none",
+            });
+
+            form
+              .find("input")
+              .val("")
+              .removeAttr("selected")
+              .prop("checked", false);
+            form.find("textarea").val("");
+          });
+
+        //Логика работы формы
+        form.submit(function (event) {
+          event.preventDefault();
+          $(".main-field").removeClass("error");
+          $(".main-checkbox-name").find("p").css({ color: "#312930" });
+
+          var agreeData = form.find("input[name=agree]:checked");
+          let error = 0;
+          for (var value in formData) {
+            if (
+              formData[value].val() == "" ||
+              formData[value].val() == undefined
+            ) {
+              var getParent = formData[value].parent();
+              if (!getParent.children(".main-field-addon").length) {
+                getParent.addClass("error");
+                error++;
+              }
+            }
+          }
+          if (!_.validMail(formData["email"].val())) {
+            formData["email"].parent().addClass("error");
+            error++;
+          }
+          if (agreeData.length == 0) {
+            form
+              .find(".main-checkbox-name")
+              .find("p")
+              .css({ color: "#bb9753" });
+            error++;
+          }
+
+          //Все хорошо, показываем сообщение что отправили данные с формы
+          if (error == 0) {
+            $.ajax({
+              url: form.attr("action"),
+              method: "post",
+              dataType: "json",
+              data: {
+                name: formData["username"].val(),
+                phone: formData["telephone"].val(),
+                mail: formData["email"].val(),
+                text: formData["question"].val(),
+              },
+              success: function (data) {
+                form.find("+.contact-box-success").css({
+                  opacity: 1,
+                  "pointer-events": "all",
+                });
+              },
+            });
+          }
+        });
+      });
   },
 
   subscriptionForm: function () {
+    var _ = this;
     var defBlock = $("form.subscription-box-form");
     var subBlock = $(".subscription-box-success");
     var email = defBlock.find("input[name=email-sub]");
@@ -102,14 +131,27 @@ let forms = {
       subBlockDisplay(0);
     });
 
-    defBlock.find("button").click(function (event) {
+    defBlock.submit(function (event) {
+      let error = 0;
       event.preventDefault();
       $(".main-field").removeClass("error");
 
-      if (email.val() != "" && email.val() != undefined) {
-        subBlockDisplay(1);
-      } else {
-        $(this).parent().parent().addClass("error");
+      if (email.val() == "" || _.validMail(email.val())) {
+        error++;
+        email.parent().addClass("error");
+      }
+      if (error == 0) {
+        $.ajax({
+          url: defBlock.attr("action"),
+          method: "post",
+          dataType: "json",
+          data: {
+            mail: email.val(),
+          },
+          success: function (data) {
+            subBlockDisplay(1);
+          },
+        });
       }
     });
   },
@@ -159,6 +201,11 @@ let forms = {
       e.preventDefault();
       $("#filterForm").submit();
     });
+  },
+  validMail: function (mail) {
+    var re = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i;
+    var valid = re.test(mail);
+    return valid;
   },
 };
 

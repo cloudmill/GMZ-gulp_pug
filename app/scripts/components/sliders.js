@@ -152,12 +152,16 @@ let sliders = {
           spaceBetween: 25,
           slideThumbActiveClass: ".active",
           breakpoints: {
-            1024: {
+            1100: {
               spaceBetween: 60,
               slidesPerView: 7,
             },
-            950: {
+            1024: {
               spaceBetween: 55,
+              slidesPerView: 7,
+            },
+            950: {
+              spaceBetween: 50,
               slidesPerView: 6,
             },
             768: {
