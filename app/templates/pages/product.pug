@@ -7,96 +7,113 @@ include ../modules/wherebuy.pug
 include ../modules/forms.pug
 
 block variables
- -var pageTitle='Сыр Косичка «Гиагинский» копченый'
+  -var pageTitle='Сыр Косичка «Гиагинский» копченый'
 
 block content
-    +header()
-    section.main-product
-      .main-product-box
-        .product-item.fixed-base.visual-animation-base-block(data-full-height=1)
-          .fixed-item
-            .product-item-img.onLoad
-              .image
-                img(src="./images/img-products-3-min.png")
-              .addons
-                +icon('cloud-1', 'svg').cloud-1
-                +icon('cloud-2', 'svg').cloud-2
-                +icon('cloud-2', 'svg').cloud-3
-                +icon('rhombus', 'svg').rhombus-1
-                +icon('rhombus', 'svg').rhombus-2
-                +icon('print-product', 'svg').print.scrollRotate
-        .content-section.visual-animation-base-block
-          .pagination
-            a.pagination-back Продукция
-          .product-title.visual-animation-base-block
-            span Сыр Косичка «Гиагинский» копченый
-            +icon('cloud-2', 'svg')
-          .product-composition.left-product-mg.visual-animation-base-block
-            .product-composition-title Состав:
-            .product-composition-desc Молоко нормализированное пастеризованное, молокосвертывающий ферментный препарат микробного происхождения, закваска термофильных молочнокислых микроорганизмов, соль пищевая
-          .product-desc.left-product-mg Это настоящая находка для больших поклонников сыра, которая порадует и оригинальным вкусом, и необычным оформлением. Легкий аромат копчения, приятная слоистая текстура, умеренно упругая корочка соблазнительного золотисто-коричневого цвета и мягкие волокна с нежным сливочным вкусом — копченый сыр «Косичка» сочетает в себе, казалось бы, совершенно несовместимые гастрономические качества.
-          .product-row.visual-animation-base-block
-            .product-row-el
-              img(src='./images/prod_detail/type-1.png')
-              .title Идеален как закуска к пиву
-            .product-row-el
-              img(src='./images/prod_detail/type-2.png')
-              .title Отличная добавка к салатам
-            .product-row-el
-              img(src='./images/prod_detail/type-3.png')
-              .title Ингредиент сложных соусов для спагетти
-            .product-row-el
-              img(src='./images/prod_detail/type-4.png')
-              .title Для приготовления блюд национальной кухни
-            .product-row-el
-              img(src='./images/prod_detail/type-5.png')
-              .title Добавка к пасте
-          .visual-animation-base-block
-            .product-slider
-              .slider-owerflow
-                .buttons.main-slider-buttons
-                  +btn-slider('left').bg-white#slider-main-left
-                  +btn-slider('right').bg-white#slider-main-right
+  +header()
+  section.main-product
+    .main-product-box
+      .product-item.fixed-base.visual-animation-base-block(data-full-height=1)
+        .fixed-item
+          .product-item-img.onLoad
+            .image
+              img(src="./images/img-products-3-min.png")
+            .addons
+              +icon('cloud-1', 'svg').cloud-1
+              +icon('cloud-2', 'svg').cloud-2
+              +icon('cloud-2', 'svg').cloud-3
+              +icon('rhombus', 'svg').rhombus-1
+              +icon('rhombus', 'svg').rhombus-2
+              +icon('print-product', 'svg').print.scrollRotate
+      .content-section.visual-animation-base-block
+        .pagination
+          a.pagination-back Продукция
+        .product-title.visual-animation-base-block
+          span Сыр Косичка «Гиагинский» копченый
+          +icon('cloud-2', 'svg')
+        .product-composition.left-product-mg.visual-animation-base-block
+          .product-composition-title Состав:
+          .product-composition-desc Молоко нормализированное пастеризованное, молокосвертывающий ферментный препарат микробного происхождения, закваска термофильных молочнокислых микроорганизмов, соль пищевая
+        .product-desc.left-product-mg Это настоящая находка для больших поклонников сыра, которая порадует и оригинальным вкусом, и необычным оформлением. Легкий аромат копчения, приятная слоистая текстура, умеренно упругая корочка соблазнительного золотисто-коричневого цвета и мягкие волокна с нежным сливочным вкусом — копченый сыр «Косичка» сочетает в себе, казалось бы, совершенно несовместимые гастрономические качества.
+        .product-row.visual-animation-base-block
+          .product-row-el
+            img(src='./images/prod_detail/type-1.png')
+            .title Идеален как закуска к пиву
+          .product-row-el
+            img(src='./images/prod_detail/type-2.png')
+            .title Отличная добавка к салатам
+          .product-row-el
+            img(src='./images/prod_detail/type-3.png')
+            .title Ингредиент сложных соусов для спагетти
+          .product-row-el
+            img(src='./images/prod_detail/type-4.png')
+            .title Для приготовления блюд национальной кухни
+          .product-row-el
+            img(src='./images/prod_detail/type-5.png')
+            .title Добавка к пасте
+        .visual-animation-base-block
+          .product-slider
+            .slider-owerflow
+              .buttons.main-slider-buttons
+                +btn-slider('left').bg-white#slider-main-left
+                +btn-slider('right').bg-white#slider-main-right
+              .swiper-wrapper
+                .product-img.swiper-slide
+                  img(src="./images/product-slider-1.jpg")
+                .product-img.swiper-slide
+                  img(src="./images/product-slider-1.jpg")
+              .product-bullets
                 .swiper-wrapper
-                  .product-img.swiper-slide
-                    img(src="./images/product-slider-1.jpg")
-                  .product-img.swiper-slide
-                    img(src="./images/product-slider-1.jpg")
-                .product-bullets
-                  .swiper-wrapper
-                    .product-bullets-thumb.swiper-slide
-                      .thumb-wrapper
-                        img(src="./images/product-slider-1.jpg")
-                    .product-bullets-thumb.swiper-slide
-                      .thumb-wrapper
-                        img(src="./images/product-slider-1.jpg")
-              canvas.product-slider-dashed
-          .product-desc-row.left-product-mg.visual-animation-base-block
-            .product-desc-row-el
-              .title формовка:
-              .desc Весовой
-            .product-desc-row-el
-              .title можно хранить:
-              .desc 60 суток
-            .product-desc-row-el
-              .title при температуре:
-              .desc 0-6 °C
-            .product-desc-row-el
-              .title в упаковке:
-              .desc 4 шт.
-            .product-desc-row-el
-              .title вес упаковки:
-              .desc 5 кг
-          +wherebuy().left-product-mg.visual-animation-base-block
-    section.next
-      a.next-product.visual-animation-base-block(href="./product.html")
-        .wrapper
-          .text
-              .next следующий продукт
-              .title.visual-animation-base Сыр «Чечил» копченый
-          .image
-              img(src="./images/img-productsprev-3-min.png")
-      .wave.waveSection-bottom(data-color="#d7f9df")
-    +recepts(1).recepts-box.productpage-padding
-    +subscriptionForm().bg-white
-    +footer().bg-white
+                  .product-bullets-thumb.swiper-slide
+                    .thumb-wrapper
+                      img(src="./images/product-slider-1.jpg")
+                  .product-bullets-thumb.swiper-slide
+                    .thumb-wrapper
+                      img(src="./images/product-slider-1.jpg")
+            canvas.product-slider-dashed
+        table.product-desc-table
+          thead
+            tr
+              td Формовка
+              td Можно хранить
+              td При температуре
+              td В упаковке
+              td Вес упаковки
+          tbody
+            tr
+              td(data-title="Формовка") Весовой
+              td(data-title="Можно хранить") 60 суток
+              td(data-title="При температуре") 0-6 °C
+              td(data-title="В упаковке") 4 шт
+              td(data-title="Вес упаковки") 5 кг
+            tr
+              td(data-title="Формовка") Весовой
+              td(data-title="Можно хранить") 60 суток
+              td(data-title="При температуре") 0-6 °C
+              td(data-title="В упаковке") 4 шт
+              td(data-title="Вес упаковки") 5 кг
+            tr
+              td(data-title="Формовка") 300 г
+              td(data-title="Можно хранить") 60 суток
+              td(data-title="При температуре") 0-6 °C
+              td(data-title="В упаковке") 16 шт
+              td(data-title="Вес упаковки") 1,8 кг
+            tr
+              td(data-title="Формовка") 300 г
+              td(data-title="Можно хранить") 45 суток
+              td(data-title="При температуре") 0-6 °C
+              td(data-title="В упаковке") 8 шт
+              td(data-title="Вес упаковки") 2,4 кг
+        +wherebuy().left-product-mg.visual-animation-base-block
+  section.next
+    a.next-product.visual-animation-base-block(href="./product.html")
+      .wrapper
+        .text
+          .next следующий продукт
+          .title.visual-animation-base Сыр «Чечил» копченый
+        .image
+          img(src="./images/img-productsprev-3-min.png")
+    .wave.waveSection-bottom(data-color="#d7f9df")
+  +recepts(1).recepts-box.productpage-padding
+  +subscriptionForm().bg-white
+  +footer().bg-white
