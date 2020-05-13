@@ -106,6 +106,9 @@ let forms = {
                   "pointer-events": "all",
                 });
               },
+              error: function (e) {
+                console.error("Ошибка отправки формы", e);
+              },
             });
           }
         });
@@ -151,6 +154,9 @@ let forms = {
           success: function (data) {
             subBlockDisplay(1);
           },
+          error: function (e) {
+            console.error("Ошибка отправки формы", e);
+          },
         });
       }
     });
@@ -182,6 +188,9 @@ let forms = {
         },
         success: function (data) {
           $("#insertTargetFilter").html(data);
+        },
+        error: function (e) {
+          console.error("Ошибка отправки формы", e);
         },
       });
     });
