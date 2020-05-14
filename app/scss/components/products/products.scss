@@ -374,7 +374,7 @@
           top: -40px;
           opacity: 0 !important;
           &.hide {
-            transition-delay: 0.4s;
+            transition-delay: 0.3s;
             top: 0;
             opacity: 1 !important;
           }
@@ -431,7 +431,7 @@
       img {
         transition: opacity 1s, top 1s;
         transition-timing-function: cubic-bezier(.19,1,.22,1);
-        transition-delay: 0.4s;
+        transition-delay: 0.3s;
         position: relative;
         top: 0;
         width: auto;
