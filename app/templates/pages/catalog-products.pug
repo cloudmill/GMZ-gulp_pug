@@ -9,9 +9,10 @@ block variables
 
 mixin products-list(json)
   each data in json
-    a.products-container(href=data.link)
-      .products-img.visual-animation-base-block
+    a.products-container(href=data.link).visual-animation-base-block
+      .products-img
         img(src=data.img)
+        img(src=data.img).hide
       .products-title.visual-animation-base #{data.title}
       .products-hover
         +icon('rhombus', 'svg').rhombus-1
