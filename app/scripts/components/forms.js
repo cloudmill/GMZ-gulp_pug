@@ -92,8 +92,8 @@ let forms = {
           if (error == 0) {
             $.ajax({
               url: form.attr("action"),
-              method: "post",
-              dataType: "json",
+              method: "get",
+              dataType: "html",
               data: {
                 name: formData["username"].val(),
                 phone: formData["telephone"].val(),
@@ -146,8 +146,8 @@ let forms = {
       if (error == 0) {
         $.ajax({
           url: defBlock.attr("action"),
-          method: "post",
-          dataType: "json",
+          method: "get",
+          dataType: "html",
           data: {
             mail: email.val(),
           },
@@ -180,8 +180,8 @@ let forms = {
       console.log(cats, prods);
       $.ajax({
         url: SITE_TEMPLATE_PATH + "/include/ajax/filter.php",
-        method: "post",
-        dataType: "json",
+        method: "get",
+        dataType: "html",
         data: {
           cats: cats,
           prods: prods,
