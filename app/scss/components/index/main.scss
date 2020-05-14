@@ -287,7 +287,11 @@
           position: relative;
           transition: transform 0.2s;
           cursor: pointer;
-
+          @media(max-width:600px){
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+          }
           &:hover {
             transform: scale(1.2);
           }
@@ -318,6 +322,16 @@
             border: 2px solid #d3d3d3;
             top: 50%;
             transform: translate(-50%,-50%);
+            @media(max-width:600px){
+              width: 20px;
+              height: 20px;
+            }
+          }
+          .elipce_slider{
+            @media(max-width:600px){
+              width: 20px;
+              height: 20px;
+            }
           }
 
           &.active {
@@ -330,6 +344,9 @@
               background: $color-text-main;
               top: -15%;
               left: 48%;
+              @media(max-width:600px){
+                top: -10%;
+              }
             }
           }
         }

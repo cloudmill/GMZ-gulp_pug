@@ -19,10 +19,18 @@
 @import "modules/tooltip";
 
 @import 'components/main';
-
-.scrollbar-track-y {
-  display: none !important;
+body{
+  .scrollbar-track-y {
+    width: 6px;
+    background: transparent;
+    .scrollbar-thumb{
+      border-radius: 0;
+      width: 6px;
+      background: #A3F2B6;
+    }
+  }
 }
+
 
 .bg-white {
   background-color: #fff;

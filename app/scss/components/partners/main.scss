@@ -296,8 +296,7 @@ section {
           top: 0;
 
           @include screen('xs', 'max') {
-            left: 80%;
-            transform: translateX(-100%);
+           
           }
         }
       }

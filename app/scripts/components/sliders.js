@@ -71,7 +71,7 @@ let sliders = {
       speed: 600,
       slidesPerView: 1,
       updateOnWindowResize: true,
-
+      loop: true,
       navigation: {
         nextEl: "#slider-main-right",
         prevEl: "#slider-main-left",
@@ -129,7 +129,7 @@ let sliders = {
       calculateHeight: true,
 
       autoplay: {
-        delay: 6000,
+        delay: 8000,
         disableOnInteraction: false,
       },
 
@@ -148,29 +148,31 @@ let sliders = {
       thumbs: {
         swiper: {
           el: ".dates",
-          slidesPerView: 3,
+          //slidesPerView: 3,
+          slidesPerView: 'auto',
           spaceBetween: 25,
+          centerMode: true,
           slideThumbActiveClass: ".active",
           breakpoints: {
             1100: {
               spaceBetween: 60,
-              slidesPerView: 7,
+             // slidesPerView: 7,
             },
             1024: {
               spaceBetween: 55,
-              slidesPerView: 7,
+             // slidesPerView: 7,
             },
             950: {
               spaceBetween: 50,
-              slidesPerView: 6,
+             // slidesPerView: 6,
             },
             768: {
-              spaceBetween: 45,
-              slidesPerView: 5,
+             spaceBetween: 45,
+             // slidesPerView: 5,
             },
             480: {
               spaceBetween: 35,
-              slidesPerView: 4,
+              //slidesPerView: 4,
             },
           },
         },
