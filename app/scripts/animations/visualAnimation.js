@@ -1,13 +1,15 @@
 const CaptionDelayMS = 30;
 
 class VisualAnimation {
-    constructor(additionalToClass) {
+    constructor(additionalToClass, doResearch=true) {
         this.additionalToClass = additionalToClass || "";
         this.elements = [];
         this.elementsBlock = [];
-        setInterval(() => {
-            this.checkAndDetect();
-        }, 500);
+        if (doResearch) {
+            setInterval(() => {
+                this.checkAndDetect();
+            }, 500);
+        }
     }
 
     checkAndDetect() {
@@ -159,7 +161,7 @@ class VisualAnimation {
 
         let delayNumber = 0;
 
-        this.elements.forEach((item) => {
+        this.elements = this.elements.filter((item) => {
 
             if (!item) {
                 return false;
@@ -179,11 +181,10 @@ class VisualAnimation {
                         item.classList.add(
                             "visual-animation-showing" + this.additionalToClass
                         );
-                        setTimeout(()=>{
-                            console.log('worked')
+                        setTimeout(() => {
                             item.classList.remove("visual-animation-base" + this.additionalToClass);
                             item.classList.remove("visual-animation-showing" + this.additionalToClass);
-                        },1500);
+                        }, 1500);
                         /*const characters = item.querySelectorAll(
                             ".visual-animation-word" + this.additionalToClass + " > span"
                         );
@@ -199,15 +200,19 @@ class VisualAnimation {
                             )(char, index);
                         });*/
                     }, delayNumber * 1000);
+                    return false;
                     // delayNumber++;
                     //item.classList.add('visual-animation-showing');
                 } else {
                     // item.classList.remove('visual-animation-showing');
                 }
+            } else {
+                return false;
             }
+            return true;
         });
         delayNumber = 1;
-        this.elementsBlock.forEach((item) => {
+        this.elementsBlock = this.elementsBlock.filter((item, index) => {
 
             if (!item) {
                 return false;
@@ -227,23 +232,26 @@ class VisualAnimation {
                         item.classList.add(
                             "visual-animation-showing-block" + this.additionalToClass
                         );
-                        setTimeout(()=>{
-
+                        setTimeout(() => {
                             item.classList.remove("visual-animation-base-block" + this.additionalToClass);
                             item.classList.remove("visual-animation-showing-block" + this.additionalToClass);
-                        },1500)
+                        }, 1500)
                     }, delayNumber * 500);
+                    return false;
                     // delayNumber++;
                     //item.classList.add('visual-animation-showing-block');
                 } else {
                     // item.classList.remove('visual-animation-showing');
                 }
             }
+            return true;
         });
     }
 
     changeClassOnShow() {
-        if (this.elements.length > 0) this.onScreen(this.elements);
+        if (this.elements.length > 0 || this.elementsBlock.length > 0) {
+            this.onScreen(this.elements);
+        }
     }
 
     removeClasses() {
@@ -307,7 +315,7 @@ function init() {
 }
 
 function initSpecial() {
-    const block = new VisualAnimation("-s");
+    const block = new VisualAnimation("-s", false);
     block.findAndAddCaption();
     block.findAndAddBlock();
     block.changeClassOnShow();
@@ -323,7 +331,7 @@ function initSpecial() {
 }
 
 function initMain() {
-    const block = new VisualAnimation("-m");
+    const block = new VisualAnimation("-m", false);
     block.findAndAddCaption();
     block.findAndAddBlock();
     block.changeClassOnShow();
