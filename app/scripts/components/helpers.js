@@ -3,6 +3,7 @@ import $ from "jquery";
 let helpers = {
   init: function () {
     this.resizeImg();
+    window.resizeImg = this.resizeImg;
     this.spoilerCheckbox();
     this.animateOnLoadPage();
     this.marqueeRepeatBlock();
@@ -12,7 +13,6 @@ let helpers = {
   events: function () {
     $(window).on("resize", () => {
       this.resizeImg();
-      window.resizeImg = this.resizeImg;
     });
   },
 
