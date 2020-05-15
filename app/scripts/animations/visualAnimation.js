@@ -94,7 +94,7 @@ class VisualAnimation {
 
     showAll() {
         this.elements.forEach((item) => {
-            if (!item){
+            if (!item) {
                 return false;
             }
             if (
@@ -161,7 +161,7 @@ class VisualAnimation {
 
         this.elements.forEach((item) => {
 
-            if (!item){
+            if (!item) {
                 return false;
             }
             if (
@@ -179,6 +179,10 @@ class VisualAnimation {
                         item.classList.add(
                             "visual-animation-showing" + this.additionalToClass
                         );
+                        setTimeout(()=>{
+                            item.classList.remove("visual-animation-base" + this.additionalToClass);
+                            item.classList.remove("visual-animation-showing" + this.additionalToClass);
+                        },1500);
                         /*const characters = item.querySelectorAll(
                             ".visual-animation-word" + this.additionalToClass + " > span"
                         );
@@ -204,7 +208,7 @@ class VisualAnimation {
         delayNumber = 1;
         this.elementsBlock.forEach((item) => {
 
-            if (!item){
+            if (!item) {
                 return false;
             }
             if (
@@ -222,6 +226,11 @@ class VisualAnimation {
                         item.classList.add(
                             "visual-animation-showing-block" + this.additionalToClass
                         );
+                        setTimeout(()=>{
+
+                            item.classList.remove("visual-animation-base-block" + this.additionalToClass);
+                            item.classList.remove("visual-animation-showing-block" + this.additionalToClass);
+                        },1500)
                     }, delayNumber * 500);
                     // delayNumber++;
                     //item.classList.add('visual-animation-showing-block');
