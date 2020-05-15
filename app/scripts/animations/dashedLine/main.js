@@ -242,7 +242,7 @@ function init() {
                 cropHeightPercentage: 75,
                 additionalWidthPercentage: 100,
                 useNonCanvasSize: true,
-                isDebug: true,
+                isDebug: false,
 
                 onEnd: ()=>{
                     new DashedBackground(

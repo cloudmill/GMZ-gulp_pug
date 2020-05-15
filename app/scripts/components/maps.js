@@ -8,12 +8,7 @@ const linkYmaps =
 let Ymaps;
 let maps = {
   init: function () {
-    ymaps.load(linkYmaps).then((maps) => {
-      if ($("#map").length > 0) {
-        Ymaps = window.Ymaps = maps;
-        this.setup();
-      }
-    });
+    this.setup();
   },
   setup: function () {
     if ($(".whereBuy-map").length > 0) {
@@ -57,7 +52,7 @@ class Map {
         this.init();
         callback();
       }
-    });
+    }).catch(error => console.log('Failed to load Yandex Maps', error));
   }
   init() {
     /* Создание карты */

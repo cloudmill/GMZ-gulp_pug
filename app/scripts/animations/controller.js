@@ -1,3 +1,4 @@
+import $ from "jquery";
 import Scene from "./controllerElems/scene.js";
 import Renderer from "./controllerElems/renderer.js";
 import Warden from "./controllerElems/warden.js";
