@@ -52,7 +52,7 @@
           transform: rotate(-90deg) translateX(-50%);
           left: 50px;
           transform-origin: left;
-          bottom: 40%;
+          top: 70%;
 
           @include screen('md', 'max') {
             display: none;
