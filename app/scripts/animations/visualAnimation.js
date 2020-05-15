@@ -180,6 +180,7 @@ class VisualAnimation {
                             "visual-animation-showing" + this.additionalToClass
                         );
                         setTimeout(()=>{
+                            console.log('worked')
                             item.classList.remove("visual-animation-base" + this.additionalToClass);
                             item.classList.remove("visual-animation-showing" + this.additionalToClass);
                         },1500);

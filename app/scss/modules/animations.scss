@@ -8,6 +8,14 @@
     top: 0;
   }
 }
+.scrollRotate{
+  will-change: transform;
+}
+.fixed-item{
+  &>*{
+    will-change: transform;
+  }
+}
 .waveSection {
   @include def_settings_animation_canvas;
   &-top {

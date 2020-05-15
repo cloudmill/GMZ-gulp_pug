@@ -82,6 +82,7 @@ let animations = {
   visualAnimation: function () {
     initMain().show();
     VisualAnimation();
+   //$('.visual-animation-base-block').removeClass('visual-animation-base-block')
   },
   cloudMove() {
     const target = document.querySelector(".main-index-animeel");

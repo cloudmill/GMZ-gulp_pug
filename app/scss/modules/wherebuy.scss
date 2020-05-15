@@ -10,6 +10,7 @@
   }
 
   &-list {
+    will-change: transform;
     position: absolute;
     display: flex;
     align-items: center;
