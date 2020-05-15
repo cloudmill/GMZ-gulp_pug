@@ -187,8 +187,11 @@ let forms = {
           prods: prods,
         },
         success: function (data) {
-          $("#insertTargetFilter").html(data);
-          window.resizeImg();
+          $("#insertTargetFilter").find('>*').addClass('hideInFilter');
+          setTimeout(function(){
+            $("#insertTargetFilter").html(data);
+            window.resizeImg();
+          },300)
         },
         error: function (e) {
           console.error("Ошибка отправки формы", e);

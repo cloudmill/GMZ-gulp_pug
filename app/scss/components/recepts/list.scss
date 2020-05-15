@@ -35,7 +35,6 @@
       &-wrapper {
         display: flex;
         justify-content: space-between;
-
         @include screen('custom-860', 'max') {
           flex-direction: column;
           flex-wrap: wrap-reverse;
@@ -49,11 +48,10 @@
           font-size: 260px;
           line-height: 78px;
           color: #fff;
-          transform: rotate(-90deg) translateX(-50%);
+          transform: rotate(-90deg) translateX(-100%);
           left: 50px;
+          top: 440px;
           transform-origin: left;
-          top: 70%;
-
           @include screen('md', 'max') {
             display: none;
           }
@@ -82,7 +80,11 @@
             margin-bottom: 30px;
             width: 45%;
             height: 428px;
-
+            &.hideInFilter{
+              transition: 0.3s;
+              transform: translateY(-40px);
+              opacity: 0;
+            }
             @include screen('md', 'max') {
               width: 100%;
               margin-right: 0px;
