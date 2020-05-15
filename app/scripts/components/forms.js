@@ -188,6 +188,7 @@ let forms = {
         },
         success: function (data) {
           $("#insertTargetFilter").html(data);
+          window.resizeImg();
         },
         error: function (e) {
           console.error("Ошибка отправки формы", e);

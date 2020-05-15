@@ -12,6 +12,7 @@ let helpers = {
   events: function () {
     $(window).on("resize", () => {
       this.resizeImg();
+      window.resizeImg = this.resizeImg;
     });
   },
 
