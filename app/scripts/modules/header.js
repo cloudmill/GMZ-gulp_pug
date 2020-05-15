@@ -98,9 +98,10 @@ class Burger {
     }
     setTimeout(() => {
       if (this.overlay.isOpened) {
-        document
-          .querySelector(".header-static")
-          .classList.add("visual-animation-base-block-s");
+        const headerStatic = document
+        .querySelector(".header-static");
+        headerStatic.classList.add("visual-animation-base-block-s");
+        headerStatic.removeAttribute('data-x-detected');
         this._show();
         const b = initSpecial();
         setTimeout(() => {
