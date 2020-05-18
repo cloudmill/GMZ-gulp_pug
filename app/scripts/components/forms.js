@@ -144,7 +144,7 @@ let forms = {
       event.preventDefault();
       $(".main-field").removeClass("error");
 
-      if (email.val() == "" || _.validMail(email.val())) {
+      if (email.val() == "" || !_.validMail(email.val())) {
         error++;
         email.parent().addClass("error");
       }
