@@ -157,7 +157,7 @@
             transition: 0.8s ease-out;
 
             @include screen("950", "max") {
-              font-size: 8px;
+              font-size: 9px;
             }
           }
 
@@ -181,7 +181,7 @@
             z-index: -1;
 
             @include screen("950", "max") {
-              font-size: 8px;
+              font-size: 9px;
             }
           }
 

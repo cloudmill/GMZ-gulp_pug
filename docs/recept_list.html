@@ -56,7 +56,7 @@
             <div class="header-buttom-nav"><a href="#">Как мы это делаем</a><a href="./news_list.html">Новости и акции</a><a href="./partners.html">Партнерам</a><a href="#">Рецепты</a><a href="./contacts.html">Контакты</a></div>
             <div class="header-buttom-help">
               <div class="left">
-                <div class="left-desc">Служба поддержки потребителей</div><a class="left-number" href="tel:88002509393">8 800 250-93-93</a><a class="main-link" href="#" id="controlModal">Задать вопрос<span class="bottomLines"></span></a>
+                <div class="left-desc">Служба поддержки потребителей</div><a class="left-number" href="tel:88002509393">8 800 250-93-93</a><a class="main-link" href="#" id="controlModal" data-target="quest">Задать вопрос<span class="bottomLines"></span></a>
               </div>
               <div class="right">
                 <div class="right-desc">Мы в социальных сетях</div>
@@ -292,7 +292,7 @@
             <div class="footer-box-nav-tel">
               <div class="footer-box-nav-tel-group">
                 <div class="footer-box-nav-tel-group-desc">Служба поддержки потребителей</div><a class="footer-box-nav-tel-group-number" href="tel:88002509393">8 800 250-93-93</a>
-              </div><a class="main-link" href="#" id="controlModal">Задать вопрос<span class="bottomLines"></span></a>
+              </div><a class="main-link" href="#" id="controlModal" data-target="quest">Задать вопрос<span class="bottomLines"></span></a>
             </div>
             <div class="footer-box-nav-adderlinks"><a href="#">Политика конфиденциальности</a><a href="#">Положение о персональных данных</a><a href="#">СОУТ</a></div>
             <div class="footer-box-nav-social">
@@ -308,7 +308,7 @@
     </div>
     <div class="modal">
       <div class="modal-bg"></div>
-      <div class="modal-content"><a id="controlModal"><span></span></a>
+      <div class="modal-content" id="quest"><a id="controlModal"><span></span></a>
         <div class="contact-box-header">
           <h2>Задать вопрос</h2>
         </div>
@@ -335,13 +335,18 @@
               </div>
               <div class="main-checkbox">
                 <input type="checkbox" id="agreemodal" name="agree"/>
-                <label class="main-checkbox-name" for="agree"><i class="svg-icon svg-checkbox state-default"></i><i class="svg-icon svg-checkbox-hover state-hover"></i><i class="svg-icon svg-checkbox-checked state-checked"></i>
+                <label class="main-checkbox-name" for="agreemodal"><i class="svg-icon svg-checkbox state-default"></i><i class="svg-icon svg-checkbox-hover state-hover"></i><i class="svg-icon svg-checkbox-checked state-checked"></i>
                   <p>Согласие на обработку персональных данных в соответствии с  <a href="./politics.html"> политикой конфиденциальности</a></p>
                 </label>
               </div>
               <button class="main-link" type="submit">Задать вопрос<span class="bottomLines"></span><span class="morphPlus"></span></button>
             </div>
           </form>
+        </div>
+      </div>
+      <div class="modal-content" id="success"><a id="controlModal"><span></span></a>
+        <div class="contact-box-header">
+          <h2>Мы вам перезвоним</h2>
         </div>
       </div>
     </div>

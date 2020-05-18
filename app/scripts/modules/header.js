@@ -98,10 +98,9 @@ class Burger {
     }
     setTimeout(() => {
       if (this.overlay.isOpened) {
-        const headerStatic = document
-        .querySelector(".header-static");
+        const headerStatic = document.querySelector(".header-static");
         headerStatic.classList.add("visual-animation-base-block-s");
-        headerStatic.removeAttribute('data-x-detected');
+        headerStatic.removeAttribute("data-x-detected");
         this._show();
         const b = initSpecial();
         setTimeout(() => {
@@ -176,7 +175,6 @@ class FixedScrollAnimate {
     } else {
       this.moveDelta = 0;
     }
-
     this.element.css("transform", "translateY(" + this.pos + "px)");
 
     this.currentState();
@@ -195,7 +193,15 @@ class FixedScrollAnimate {
       this.startPos();
     } else {
       if (this.moveDelta > this.scrollFree) {
-        this.show();
+        if (this.pos > this.offsetOnBeginPos + this.element.height()) {
+          this.show();
+        } else {
+          if (this.element.hasClass("sticky")) {
+            this.show();
+          } else {
+            this.startPos();
+          }
+        }
       } else if (this.pos > this.offsetOnBeginPos + this.element.height()) {
         this.hide();
       } else {

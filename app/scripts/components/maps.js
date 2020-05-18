@@ -1,6 +1,7 @@
 import $ from "jquery";
 import ymaps from "ymaps";
 import Scrollbar from "smooth-scrollbar";
+const SITE_TEMPLATE_PATH = "/local/templates/s1/";
 
 const linkYmaps =
   "https://api-maps.yandex.ru/2.1/?apikey=587b64ae-7249-4473-827f-ce90ff9529de&lang=ru_RU";
@@ -107,7 +108,7 @@ class Map {
       preset: "islands#invertedVioletClusterIcons",
       clusterIcons: [
         {
-          href: "images/placeMarkMap.png",
+          href: SITE_TEMPLATE_PATH+"images/placeMarkMap.png",
           size: [90, 87],
           offset: [-45, -44],
         },

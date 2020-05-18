@@ -89,6 +89,7 @@ let forms = {
           }
 
           //Все хорошо, показываем сообщение что отправили данные с формы
+          console.log('mess')
           if (error == 0) {
             $.ajax({
               url: form.attr("action"),
@@ -105,6 +106,10 @@ let forms = {
                   opacity: 1,
                   "pointer-events": "all",
                 });
+                if($(".modal").hasClass('active')){
+                  $(".modal").find('.modal-content').removeClass('active');
+                  $(".modal").find('#success').addClass('active');
+                }
               },
               error: function (e) {
                 console.error("Ошибка отправки формы", e);
@@ -139,7 +144,7 @@ let forms = {
       event.preventDefault();
       $(".main-field").removeClass("error");
 
-      if (email.val() == "" || _.validMail(email.val())) {
+      if (email.val() == "" || !_.validMail(email.val())) {
         error++;
         email.parent().addClass("error");
       }
