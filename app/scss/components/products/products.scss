@@ -370,16 +370,16 @@
 
       @media (min-width: 600px){
         .products-img {
-          img {
-            transition-delay: 0s;
-            transform: translateY(-40px);
-            opacity: 0 !important;
-            &.hide {
-              transition-delay: 0.3s;
-              transform: translateY(0);
-              opacity: 1 !important;
-            }
-          }
+          // img {
+          //   transition-delay: 0s;
+          //   transform: translateY(-40px);
+          //   opacity: 0 !important;
+          //   &.hide {
+          //     transition-delay: 0.3s;
+          //     transform: translateY(0);
+          //     opacity: 1 !important;
+          //   }
+          // }
         }
       }
     }
