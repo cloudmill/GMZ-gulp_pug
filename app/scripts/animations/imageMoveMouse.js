@@ -146,7 +146,9 @@ function getImageContainer(el) {
     if (imgFound) {
       result.imageContainer = item;
     } else {
-      result.link = item;
+      if(item.tagName) {
+        result.link = item;
+      }
     }
   }
 
