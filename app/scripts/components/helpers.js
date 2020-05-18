@@ -95,12 +95,17 @@ let helpers = {
 
   controlModal: function () {
     $("a#controlModal").click(function () {
+      let id = $(this).attr('data-target');
+      
       $(".modal").css("top", window.scrollbar.scrollTop + "px");
 
       $(".modal").toggleClass("active");
       if ($(".modal").hasClass("active")) {
+        $(".modal").find('.modal-content').removeClass('active');
+        $(".modal").find('#'+id).addClass('active');
         window.scrollbar.stopScroll();
       } else {
+        $(".modal").find('.modal-content').removeClass('active');
         window.scrollbar.startScroll();
       }
     });

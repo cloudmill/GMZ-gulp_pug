@@ -163,7 +163,6 @@ class FixedScrollAnimate {
   init() {
     this.lastPos = window.scrollbar.scrollTop;
     this.update();
-    this.direction = 1;
     window.scrollbar.on(() => {
       this.update();
     });
@@ -176,12 +175,6 @@ class FixedScrollAnimate {
     } else {
       this.moveDelta = 0;
     }
-    if (this.lastPos - this.pos > 0) {
-      this.direction = -1;
-    } else {
-      this.direction = 1;
-    }
-    console.log(this.direction);
     this.element.css("transform", "translateY(" + this.pos + "px)");
 
     this.currentState();
