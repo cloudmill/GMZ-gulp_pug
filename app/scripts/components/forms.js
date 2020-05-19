@@ -110,6 +110,12 @@ let forms = {
                   $(".modal").find('.modal-content').removeClass('active');
                   $(".modal").find('#success').addClass('active');
                 }
+                form
+                .find("input")
+                .val("")
+                .removeAttr("selected")
+                .prop("checked", false);
+              form.find("textarea").val("");
               },
               error: function (e) {
                 console.error("Ошибка отправки формы", e);
@@ -158,6 +164,9 @@ let forms = {
           },
           success: function (data) {
             subBlockDisplay(1);
+            defBlock
+                .find("input")
+                .val("")
           },
           error: function (e) {
             console.error("Ошибка отправки формы", e);

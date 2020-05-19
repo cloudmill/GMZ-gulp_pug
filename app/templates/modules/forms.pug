@@ -60,7 +60,7 @@ mixin contactUsForm
       .contact-box-content
         form.contact-box-form.visual-animation-base-block
           .contact-box-form-el
-            +inputField('text', 'name', 'Ваше имя')
+            +inputField('text', 'name', 'Ваше имя', false)
             +inputField('text', 'phone', 'Ваш телефон', null)
             +inputField('text', 'email', 'Ваша почта для ответа', false)
           .contact-box-form-el
@@ -86,9 +86,9 @@ mixin askQuestionFormModal
   .contact-box-content
     form.contact-box-form 
       .contact-box-form-el
-        +inputField('text', 'name', 'Ваше имя')
+        +inputField('text', 'name', 'Ваше имя',false)
         +inputField('text', 'phone', 'Ваш телефон', null)
-        +inputField('text', 'email', 'Ваша почта для ответа', false)
+        +inputField('text', 'email', 'Ваша почта для отвeта', false)
         +textarea('question', '29', '3', 'Ваш вопрос', 'необязательно')
         .main-checkbox
           input(type="checkbox" id='agreemodal' name='agree')
