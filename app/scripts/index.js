@@ -29,6 +29,7 @@ $(document).ready(function () {
   } else {
     /* ScrollBar */
     window.scrollbar = new customScrollbar();
+    
 
     /* Доп функционал */
     helpers.init();

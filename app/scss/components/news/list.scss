@@ -8,10 +8,10 @@
     font-size: 260px;
     line-height: 78px;
     color: #fff;
-    transform: rotate(-90deg) translateX(-50%);
+    transform: rotate(-90deg) translateX(-100%);
     left: 50px;
     transform-origin: left;
-    bottom: 30%;
+    top: 250px;
 
     @include screen('lg', 'max') {
       display: none;

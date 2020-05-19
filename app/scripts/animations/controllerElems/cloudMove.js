@@ -26,8 +26,11 @@ class CloudMove {
   }
 
   animate() {
+    
+   
     this.interval = setInterval(() => {
       if ($(window).width() >= 600) {
+        
         const width = parseInt(
           window.innerWidth ||
             document.documentElement.clientWidth ||
@@ -44,6 +47,7 @@ class CloudMove {
           this.elements[index].left++;
         });
       }
+      
     }, timerSpeed);
   }
 }

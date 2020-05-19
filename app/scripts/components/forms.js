@@ -162,7 +162,7 @@ let forms = {
       }
       if (error == 0) {
         $.ajax({
-          url: defBlock.attr("action"),
+          url: SITE_TEMPLATE_PATH+"/include/ajax/subscribe.php",
           method: "get",
           dataType: "html",
           data: {

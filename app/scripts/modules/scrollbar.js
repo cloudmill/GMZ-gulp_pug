@@ -10,6 +10,10 @@ export default class customScrollbar {
 
     //Основной скрол на сайте
     this.startScroll();
+
+   this.on(() => {
+      $('#scroll-box-events').css('transform','translateY('+this.scrollTop+'px)');
+    });
   }
 
   // добавление слушателя
@@ -36,7 +40,7 @@ export default class customScrollbar {
     });
   }
 
-  // остановка основного скролла
+ // остановка основного скролла
   stopScroll() {
     this.scrollbar.destroy();
     this.scrollbar = Scrollbar.init(document.body, {
@@ -45,7 +49,7 @@ export default class customScrollbar {
     });
   }
 
-  // возобновление основного скролла
+  //возобновление основного скролла
   startScroll() {
     this.scrollbar
       ? this.scrollbar.destroy
@@ -59,6 +63,22 @@ export default class customScrollbar {
     this.updateHandlers();
   }
 
+  //test
+  // stopScroll(){
+  //   $('#scroll-box-events').addClass('stop')
+  // }
+  // startScroll (){
+  //   if(!this.scrollbar){
+  //     this.scrollbar = Scrollbar.init(document.body, {
+  //       damping: 0.2,
+  //       alwaysShowTracks: true,
+  //       delegateTo : document.getElementById("scroll-box-events")
+  //     });
+  //     this.updateHandlers();
+  //   }else{
+  //     $('#scroll-box-events').removeClass('stop')
+  //   }
+  // }
 
   getSize(){
     return this.scrollbar.getSize()

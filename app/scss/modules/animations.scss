@@ -52,10 +52,15 @@ body[data-scrollbar="true"]{
 
 #scroll-box-events{
   position: absolute;
-  pointer-events: none;
   z-index: 10000;
   left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
   top: 0;
+  &.stop{
+    pointer-events: none;
+  }
 }
 
 
