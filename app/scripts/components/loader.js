@@ -1,3 +1,5 @@
+function easyIn(power){return function(t){return Math.pow(t, power)}};
+const calc = easyIn(2);
 const loader = document.querySelector('.loader');
 
 const container = document.querySelector('.loader .img-front-container');
@@ -29,6 +31,7 @@ function startLoading(options) {
             clearInterval(interval);
             loader.classList.add('closed');
             setTimeout(() => {
+                loader.style.display = 'none';
                 if (_options.onEnd) {
                     _options.onEnd();
                 }
@@ -42,7 +45,7 @@ function startLoading(options) {
         ) + 'px';
         container.style.height = nowHeight + 'px';
 
-        nowHeight+=1;
+        nowHeight+=calc(2);
     }, 1);
 }
 
