@@ -24,12 +24,14 @@ export default class Warden {
     window.scrollbar.on((state) => {
       if (Math.abs(state.offset.y - this.top) >= this.stepScroll) {
         this.top = state.offset.y;
-        this.updater.update();
+        if($(window).width()>=conf.maxWidthForAnimate)
+          this.updater.update();
       }
       
     });
     window.addEventListener("resize", () => {
-      this.updater.update();
+      if($(window).width()>=conf.maxWidthForAnimate)
+        this.updater.update();
     });
   }
   visible($item) {

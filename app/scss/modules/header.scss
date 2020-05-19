@@ -392,7 +392,15 @@
         position: relative;
 
         i.svg-icon.svg-navigation {
-           // animation: rotating 8s linear infinite;
+            animation: rotating 8s linear infinite;
+            @keyframes rotating {
+              0%{
+                transform: rotate(0deg);
+              }
+              100%{
+                transform: rotate(360deg);
+              }
+            }
         }
       }
   

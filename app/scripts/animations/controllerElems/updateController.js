@@ -1,5 +1,6 @@
 import $ from "jquery";
 import Updater from "./updater.js";
+import conf from "./conf.js";
 
 export default class updateController {
   constructor() {
@@ -31,11 +32,17 @@ export default class updateController {
   }
   init() {
     this.events();
-    this.update();
+    this.setup();
   }
   events() {
     $(document).on("mousemove", (e) => {
       this.mousemove = true;
+    });
+    window.scrollbar.on((state) => {
+      this.scroll = true;
+    });
+    $(window).resize(() => {
+      if ($(window).width() >= conf.maxWidthForAnimate) this.update();
     });
     window.scrollbar.on((state) => {
       this.scroll = true;
@@ -47,21 +54,26 @@ export default class updateController {
   recall(resolve) {
     //Указать в child
   }
+  setup() {
+    this.update();
+  }
   update() {
     this.showFramePS();
     new Promise((resolve, reject) => {
       this.recall(resolve);
     }).then(() => {
-      if (this.mousemove) {
-        this.mouseMoveUpdater.update();
-        this.mousemove = false;
+      if ($(window).width() >= conf.maxWidthForAnimate) {
+        if (this.mousemove) {
+          this.mouseMoveUpdater.update();
+          this.mousemove = false;
+        }
+        if (this.scroll) {
+          this.scrollUpdater.update();
+          this.scroll = false;
+        }
+        this.updater.update();
+        this.update();
       }
-      if (this.scroll) {
-        this.scrollUpdater.update();
-        this.scroll = false;
-      }
-      this.updater.update();
-      this.update();
     });
   }
 }

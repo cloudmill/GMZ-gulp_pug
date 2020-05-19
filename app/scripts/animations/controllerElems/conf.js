@@ -4,5 +4,6 @@ const conf = {
   maxTPS: 100,
   FPS_show: false,
   TPS_show: false,
+  maxWidthForAnimate: 600,
 };
 export default conf;

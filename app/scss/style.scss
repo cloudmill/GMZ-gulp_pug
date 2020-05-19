@@ -21,12 +21,18 @@
 @import 'components/main';
 body{
   .scrollbar-track-y {
-    width: 6px;
-    background: transparent;
-    .scrollbar-thumb{
-      border-radius: 0;
+    display: none !important;
+  }
+  @media(min-width: 600px){
+    .scrollbar-track-y {
+      display: block !important;
       width: 6px;
-      background: #A3F2B6;
+      background: transparent;
+      .scrollbar-thumb{
+        border-radius: 0;
+        width: 6px;
+        background: #A3F2B6;
+      }
     }
   }
 }

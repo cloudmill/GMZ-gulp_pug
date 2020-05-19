@@ -54,25 +54,8 @@ class Burger {
   get isShow() {
     return this.element.hasClass("active");
   }
-  rotater() {
-    if (this.rotateElementLink) {
-      this.angleNow = 0;
-      const anglePerMS = 360 / circlePerMS;
-      this.rotateInterval = setInterval(() => {
-        this.angleNow += anglePerMS;
-        if (this.angleNow >= 360) {
-          this.angleNow -= 360;
-        }
-        const element = document.querySelector(this.rotateElementLink);
-        if (element) {
-          element.style.transform = "rotate(" + this.angleNow + "deg)";
-        }
-      }, 1);
-    }
-  }
 
   init() {
-    this.rotater();
     this.button.click(() => {
       if (this.element.hasClass("active")) {
         this.hide();

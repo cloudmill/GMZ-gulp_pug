@@ -52,7 +52,9 @@ export default class Wave {
     window.warden.add(this.element, this.updateState.bind(this));
     window.renderer.add(this.render.bind(this));
     window.scene.add(this.update.bind(this));
-
+    this.resize();
+    this.update()
+    this.render()
     this.events();
   }
   updateState(newState) {
@@ -96,11 +98,12 @@ export default class Wave {
   events() {
     window.scrollbar.on(() => {
       if (this.offset < this.normalOffset * 3) {
-        this.changeOffsetTo(Math.sqrt((this.normalOffset * 2) / this.offset));
+        if ($(window).width() >= 600)
+          this.changeOffsetTo(Math.sqrt((this.normalOffset * 2) / this.offset));
       }
     });
     window.addEventListener("resize", () => {
-      this.resize();
+      if ($(window).width() >= 600) this.resize();
     });
   }
   draw() {
