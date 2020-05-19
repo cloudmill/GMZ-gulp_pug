@@ -1,7 +1,7 @@
 const CaptionDelayMS = 30;
 
 class VisualAnimation {
-    constructor(additionalToClass, doResearch=true) {
+    constructor(additionalToClass, doResearch = true) {
         this.additionalToClass = additionalToClass || "";
         this.elements = [];
         this.elementsBlock = [];
@@ -88,9 +88,24 @@ class VisualAnimation {
             /BlackBerry/i,
             /Windows Phone/i,
         ];
-
+        return true;
         return toMatch.some((toMatchItem) => {
             return navigator.userAgent.match(toMatchItem);
+        });
+    }
+
+    removeAll() {
+        this.elements.forEach((item) => {
+            if (!item) {
+                return false;
+            }
+            item.classList.remove("visual-animation-base" + this.additionalToClass);
+        });
+        this.elementsBlock.forEach((item) => {
+            if (!item) {
+                return false;
+            }
+            item.classList.remove("visual-animation-base-block" + this.additionalToClass);
         });
     }
 
@@ -306,11 +321,12 @@ function init() {
     const block = new VisualAnimation();
     block.findAndAddCaption();
     block.findAndAddBlock();
-    block.applyEventListeners(document.body, block.changeClassOnShow.bind(block));
-    block.changeClassOnShow();
 
     if (block.detectMob()) {
-        block.showAll();
+        block.removeAll();
+    }else{
+        block.applyEventListeners(document.body, block.changeClassOnShow.bind(block));
+        block.changeClassOnShow();
     }
 }
 
@@ -318,30 +334,38 @@ function initSpecial() {
     const block = new VisualAnimation("-s", false);
     block.findAndAddCaption();
     block.findAndAddBlock();
-    block.changeClassOnShow();
 
     return {
         show: () => {
-            block.showAll();
-            setTimeout(() => {
-                block.removeClasses();
-            }, 2000);
+                block.showAll();
+                setTimeout(() => {
+                    block.removeClasses();
+                }, 2000);
         },
     };
 }
 
 function initMain() {
     const block = new VisualAnimation("-m", false);
+
     block.findAndAddCaption();
     block.findAndAddBlock();
-    block.changeClassOnShow();
+    if (block.detectMob()) {
+        block.removeAll();
+    }else {
+        block.changeClassOnShow();
+    }
 
     return {
         show: () => {
-            block.showAll();
-            setTimeout(() => {
-                block.removeClasses();
-            }, 2000);
+            if (block.detectMob()) {
+                block.removeAll();
+            }else {
+                block.showAll();
+                setTimeout(() => {
+                    block.removeClasses();
+                }, 2000);
+            }
         },
     };
 }
