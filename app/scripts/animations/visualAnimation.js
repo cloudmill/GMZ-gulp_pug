@@ -88,7 +88,7 @@ class VisualAnimation {
             /BlackBerry/i,
             /Windows Phone/i,
         ];
-        return true;
+
         return toMatch.some((toMatchItem) => {
             return navigator.userAgent.match(toMatchItem);
         });
