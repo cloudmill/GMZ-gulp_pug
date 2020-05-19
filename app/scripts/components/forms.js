@@ -57,6 +57,12 @@ let forms = {
           });
 
         //Логика работы формы
+        $('#askAgain').click(()=>{
+          if($(".modal").hasClass('active')){
+            $(".modal").find('.modal-content').removeClass('active');
+            $(".modal").find('#quest').addClass('active');
+          }
+        })
         form.submit(function (event) {
           event.preventDefault();
           $(".main-field").removeClass("error");

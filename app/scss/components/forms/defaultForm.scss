@@ -2,13 +2,19 @@
   &-header {
     width: 839px;
     margin-bottom: 80px;
-
+    max-width: 100%;
     @include screen("custom-660", "max") {
       width: auto;
     }
 
     h2 {
       @include UI-Font-PFRegalTextPro-bold;
+    }
+    h3{
+      @include UI-Font-PFRegalTextPro-bold;
+      font-size: 25px;
+      line-height: 130%;
+      margin-bottom: 40px;
     }
   }
 

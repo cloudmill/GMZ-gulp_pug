@@ -13,6 +13,10 @@
     display: none;
     &.active{
       display: block;
+      &.center{
+        display: flex;
+        align-items: center;
+      }
     }
   }
   &.active {
