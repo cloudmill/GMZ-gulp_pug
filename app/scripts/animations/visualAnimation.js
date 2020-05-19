@@ -5,7 +5,7 @@ class VisualAnimation {
         this.additionalToClass = additionalToClass || "";
         this.elements = [];
         this.elementsBlock = [];
-        if (doResearch) {
+        if (doResearch && !this.detectMob()) {
             setInterval(() => {
                 this.checkAndDetect();
             }, 500);
