@@ -32,7 +32,7 @@ function startLoading(options) {
                 if (_options.onEnd) {
                     _options.onEnd();
                 }
-            }, 1000);
+            }, 200);
         }
         front.style.top = (
             nowHeight - maxHeight
@@ -42,8 +42,8 @@ function startLoading(options) {
         ) + 'px';
         container.style.height = nowHeight + 'px';
 
-        nowHeight++;
-    }, 10);
+        nowHeight+=1;
+    }, 1);
 }
 
 export default startLoading;

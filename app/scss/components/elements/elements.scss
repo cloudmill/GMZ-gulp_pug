@@ -396,10 +396,11 @@ canvas.how-do-dashed-bg4 {
   position: fixed;
   background: #FFFFFF;
   z-index: 10000;
-  transition: left 1s ease-in-out 0s;
+  transition: opacity 500ms ease-in-out 0s;
 
   &.closed {
-    left: -100%;
+    opacity: 0.0;
+    //left: -100%;
 
     .img-back {
       opacity: 0.0;
@@ -407,7 +408,7 @@ canvas.how-do-dashed-bg4 {
   }
 
   .img-back {
-    transition: opacity 500ms ease-in 0s;
+    transition: opacity 200ms ease-in 0s;
     opacity: 1.0;
     position: absolute;
     width: 250px;
