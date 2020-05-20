@@ -39,7 +39,7 @@ let helpers = {
   /* Работа спойлера чекбоксов на странице рецептов*/
   spoilerCheckbox: function () {
     $(".list-group").click(function () {
-      if ($(window).width() <= 859) $(this).toggleClass("active");
+      if (window.innerWidth <= 859) $(this).toggleClass("active");
     });
 
     $(".clear").click(function (event) {
@@ -47,7 +47,7 @@ let helpers = {
       $("input[type=checkbox]").prop("checked", false);
     });
 
-    if ($(window).width() >= 859) {
+    if (window.innerWidth >= 859) {
       $(
         ".list-group-selection.product-select > .main-checkbox:nth-child(n+5)"
       ).each(function () {

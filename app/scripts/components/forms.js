@@ -219,7 +219,7 @@ let forms = {
       });
     });
     $(document).on("change", "#filterForm input", function () {
-      if ($(window).width() > 859) $("#filterForm").submit();
+      if (window.innerWidth > 859) $("#filterForm").submit();
     });
     $(document).on("click", "#clearFilter", function (e) {
       e.preventDefault();

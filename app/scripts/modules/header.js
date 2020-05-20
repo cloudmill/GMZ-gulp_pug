@@ -129,6 +129,7 @@ class FixedScrollAnimate {
     this.state = null;
 
     this.element = element;
+    this.elementNode = element[0];
 
     //минимальный сдвиг для действий
     this.scrollFree = 20;
@@ -136,11 +137,25 @@ class FixedScrollAnimate {
     //растояние до верхнего края страницы в начальном положении
     this.offsetOnBeginPos =
       50 + ($("#bx-panel").length > 0 ? $("#admin-panel").height() : 0);
-    if ($(window).width() <= 480) {
+    if (window.innerWidth <= 480) {
       this.offsetOnBeginPos = 20;
     }
 
     this.init();
+  }
+  get ELheight() {
+    if (!this._ELheight) {
+      this._ELheight = this.elementNode.clientHeight;
+    } else {
+      return this._ELheight;
+    }
+  }
+  get ELwidth() {
+    if (!this._ELwidth) {
+      this._ELwidth = this.elementNode.clientWidth;
+    } else {
+      return this._ELwidth;
+    }
   }
 
   init() {
@@ -148,6 +163,9 @@ class FixedScrollAnimate {
     this.update();
     window.scrollbar.on(() => {
       this.update();
+    });
+    $(window).resize(() => {
+      this._ELheight = this.elementNode.clientHeight;
     });
   }
 
@@ -158,7 +176,7 @@ class FixedScrollAnimate {
     } else {
       this.moveDelta = 0;
     }
-    this.element.css("transform", "translateY(" + this.pos + "px)");
+    this.elementNode.style.transform = "translateY(" + this.pos + "px)";
 
     this.currentState();
 
@@ -176,7 +194,7 @@ class FixedScrollAnimate {
       this.startPos();
     } else {
       if (this.moveDelta > this.scrollFree) {
-        if (this.pos > this.offsetOnBeginPos + this.element.height()) {
+        if (this.pos > this.offsetOnBeginPos + this.ELheight) {
           this.show();
         } else {
           if (this.element.hasClass("sticky")) {
@@ -185,7 +203,7 @@ class FixedScrollAnimate {
             this.startPos();
           }
         }
-      } else if (this.pos > this.offsetOnBeginPos + this.element.height()) {
+      } else if (this.pos > this.offsetOnBeginPos + this.ELheight) {
         this.hide();
       } else {
         this.startPos();
@@ -195,14 +213,14 @@ class FixedScrollAnimate {
 
   hide() {
     this.element.removeClass("sticky");
-    let top = -this.element.height() - this.offsetOnBeginPos;
-    this.element.css("top", top + "px");
+    let top = -this.ELheight - this.offsetOnBeginPos;
+    this.elementNode.style.top = top + "px";
     this.element.addClass("hide");
     this.state = "hide";
   }
 
   show() {
-    this.element.css("top", "0px");
+    this.elementNode.style.top = "0px";
     this.element.addClass("sticky");
     this.element.removeClass("hide");
     this.state = "show";
@@ -212,7 +230,7 @@ class FixedScrollAnimate {
     this.element.removeClass("sticky");
     this.element.removeClass("hide");
     let top = -this.pos + this.offsetOnBeginPos;
-    this.element.css("top", top + "px");
+    this.elementNode.style.top = top + "px";
     this.state = "start";
   }
 }

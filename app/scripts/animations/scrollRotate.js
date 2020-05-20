@@ -18,7 +18,7 @@ export default class ScrollRotate {
   }
   update() {
     if (this.isObservable) {
-      this.angle = window.scrollbar.scrollTop / $(window).height() + this.k;
+      this.angle = window.scrollbar.scrollTop / window.innerHeight + this.k;
     }
   }
   render() {

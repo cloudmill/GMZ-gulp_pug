@@ -29,11 +29,11 @@ export default class customScrollbar {
   }
 
   // обновление слушателей при переинициализации
-  updateHandlers() {
-    this.handlers.forEach((handler, key) => {
-      this.scrollbar.addListener(handler);
-    });
-  }
+  // updateHandlers() {
+  //   this.handlers.forEach((handler, key) => {
+  //     this.scrollbar.addListener(handler);
+  //   });
+  // }
 
   // остановка основного скролла
   // stopScroll() {
@@ -65,7 +65,7 @@ export default class customScrollbar {
         alwaysShowTracks: true,
         delegateTo: document.getElementById("scroll-content"),
       });
-      this.updateHandlers();
+     // this.updateHandlers();
     } else {
     }
   }

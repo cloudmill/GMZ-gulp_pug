@@ -40,7 +40,7 @@ export default class AbsoluteFixation {
   }
   bottomStop() {
     if (this.maxBottomBlock) {
-      const top = this.maxBottomBlock.outerHeight() + this.maxBottomBlock.offset().top - $(window).height();
+      const top = this.maxBottomBlock.outerHeight() + this.maxBottomBlock.offset().top - window.innerHeight;
       if(top<0){
         return top
       }

@@ -26,28 +26,39 @@ class CloudMove {
   }
 
   animate() {
-    
-   
     this.interval = setInterval(() => {
-      if ($(window).width() >= 600) {
-        
+      if (window.innerWidth >= 600) {
         const width = parseInt(
           window.innerWidth ||
             document.documentElement.clientWidth ||
             document.body.clientWidth,
           10
         );
-
         this.elements.forEach(({ element, left }, index) => {
-          const position = element.getClientRects()[0];
-          if (left >= width) {
-            this.elements[index].left = -parseInt(position.width, 10);
+          let visible = true;
+          const rect = element.getBoundingClientRect();
+          if (rect.bottom < 0) {
+            visible = false;
           }
-          element.style.left = left + 1 + "px";
-          this.elements[index].left++;
+          if (rect.top > window.innerHeight) {
+            visible = false;
+          }
+          if (rect.right < 0) {
+            visible = false;
+          }
+          if (rect.left > window.innerWidth) {
+            visible = false;
+          }
+          if (visible) {
+            const position = element.getClientRects()[0];
+            if (left >= width) {
+              this.elements[index].left = -parseInt(position.width, 10);
+            }
+            element.style.left = left + 1 + "px";
+            this.elements[index].left++;
+          }
         });
       }
-      
     }, timerSpeed);
   }
 }

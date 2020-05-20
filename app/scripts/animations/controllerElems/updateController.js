@@ -42,7 +42,7 @@ export default class updateController {
       this.scroll = true;
     });
     $(window).resize(() => {
-      if ($(window).width() >= conf.maxWidthForAnimate){} //this.update();
+      if (window.innerWidth >= conf.maxWidthForAnimate){} //this.update();
     });
     window.scrollbar.on((state) => {
       this.scroll = true;
@@ -63,7 +63,7 @@ export default class updateController {
     new Promise((resolve, reject) => {
       this.recall(resolve);
     }).then(() => {
-      if ($(window).width() >= conf.maxWidthForAnimate) {
+      if (window.innerWidth >= conf.maxWidthForAnimate) {
         if (this.mousemove) {
           this.mouseMoveUpdater.update();
           this.mousemove = false;

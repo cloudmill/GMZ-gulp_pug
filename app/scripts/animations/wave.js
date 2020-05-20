@@ -19,7 +19,7 @@ export default class Wave {
     }
 
     this.offset = 20;
-    if ($(window).width() <= 500) {
+    if (window.innerWidth <= 500) {
       this.offset = 10;
     }
     this.normalOffset = this.offset;
@@ -28,7 +28,7 @@ export default class Wave {
     this.fazeOffset = this.fazeOffset < 0.01 ? 0.01 : this.fazeOffset;
 
     this.countPoints = 50;
-    if ($(window).width() <= 500) {
+    if (window.innerWidth <= 500) {
       this.countPoints = 30;
     }
     this.id = "wave-" + parseInt(Math.random() * 10000);
@@ -53,8 +53,8 @@ export default class Wave {
     window.renderer.add(this.render.bind(this));
     window.scene.add(this.update.bind(this));
     this.resize();
-    this.update()
-    this.render()
+    this.update();
+    this.render();
     this.events();
   }
   updateState(newState) {
@@ -74,8 +74,8 @@ export default class Wave {
     this.w = this.element.outerWidth();
     this.canvas.width = this.w;
     this.canvas.height = this.h;
-    if (this.normalOffset > 15 && $(window).width() <= 500) {
-     // this.normalOffset * 0.5;
+    if (this.normalOffset > 15 && window.innerWidth <= 500) {
+      this.normalOffset * 0.5;
     }
   }
   changeOffsetTo(newOffset) {
@@ -97,13 +97,12 @@ export default class Wave {
   }
   events() {
     window.scrollbar.on(() => {
-      if (this.offset < this.normalOffset * 3) {
-        if ($(window).width() >= 600)
-          this.changeOffsetTo(Math.sqrt((this.normalOffset * 2) / this.offset));
+      if (window.innerWidth >= 600 && this.offset < this.normalOffset * 3) {
+        this.changeOffsetTo(Math.sqrt((this.normalOffset * 2) / this.offset));
       }
     });
     window.addEventListener("resize", () => {
-      if ($(window).width() >= 600) this.resize();
+      if (window.innerWidth >= 600) this.resize();
     });
   }
   draw() {

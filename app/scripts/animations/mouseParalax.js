@@ -28,8 +28,8 @@ export default class MouseParalax {
   }
   update() {
     if (this.isObservable) {
-      let wd2 = $(window).width() / 2;
-      let hd2 = $(window).width() / 2;
+      let wd2 = window.innerWidth / 2;
+      let hd2 = window.innerWidth / 2;
       this.offsetX = (-(this.x - wd2) / wd2) * this.maxOffset;
       this.offsetY = (-(this.y - hd2) / hd2) * this.maxOffset;
     }

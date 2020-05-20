@@ -73,7 +73,7 @@ function showImageOnMove(el, x, y) {
   
       const _left =
         x -
-        ($(window).width() - $(".main-catalog-box").width()) / 2 -
+        (window.innerWidth - $(".main-catalog-box").width()) / 2 -
         ($(".main-catalog-box").width() - $(el).width()) -
         $(el).width() / 2;
       $(".catalog-el-mask .catalog-el-text").width($(el).width());
@@ -179,12 +179,12 @@ function hideImage(el) {
     });
     imageContainer.classList.add("image-background-hidden");
     elements[indexElement] = setTimeout(() => {
-      imageContainer.style.left=(parseInt($(window).width(),10)+1000)+'px';
+      imageContainer.style.left=(parseInt(window.innerWidth,10)+1000)+'px';
       // imageContainer.style.display = "none";
       //el.parentElement.classList.remove('z-index-fix');
     }, 1000);
     setTimeout(() => {
-      //imageContainer.style.left=$(window).width()+'px';
+      //imageContainer.style.left=window.innerWidth+'px';
       // imageContainer.style.display = "none";
       el.parentElement.classList.remove('z-index-fix');
     }, 500);
@@ -209,7 +209,7 @@ function addEventListeners(selectors) {
             )
           ) || 0;
         
-        if($(window).width() > 850){
+        if(window.innerWidth > 850){
           showImageOnMove(element, e.clientX, e.clientY + scrolledTop);
         }else{
           clearImage(element);

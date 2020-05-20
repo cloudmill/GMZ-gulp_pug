@@ -1,4 +1,3 @@
-import $ from "jquery";
 import Updater from "./updater.js";
 import conf from "./conf.js";
 
@@ -24,27 +23,25 @@ export default class Warden {
     window.scrollbar.on((state) => {
       if (Math.abs(state.offset.y - this.top) >= this.stepScroll) {
         this.top = state.offset.y;
-        if($(window).width()>=conf.maxWidthForAnimate)
-          this.updater.update();
+        if (window.innerWidth >= conf.maxWidthForAnimate) this.updater.update();
       }
-      
     });
     window.addEventListener("resize", () => {
-      if($(window).width()>=conf.maxWidthForAnimate)
-        this.updater.update();
+      if (window.innerWidth >= conf.maxWidthForAnimate) this.updater.update();
     });
   }
   visible($item) {
-    if ($item.offset().top + $item.height() < 0) {
+    const rect = $item[0].getBoundingClientRect();
+    if (rect.bottom < 0) {
       return false;
     }
-    if ($item.offset().top > $(window).height()) {
+    if (rect.top > window.innerHeight) {
       return false;
     }
-    if ($item.offset().left + $item.width() < 0) {
+    if (rect.right < 0) {
       return false;
     }
-    if ($item.offset().left > $(window).width()) {
+    if (rect.left > window.innerWidth) {
       return false;
     }
     return true;

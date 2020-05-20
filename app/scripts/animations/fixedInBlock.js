@@ -21,7 +21,7 @@ export default class Fixed {
     });
 
     window.addEventListener("resize", () => {
-      if ($(window).width() <= 950) {
+      if (window.innerWidth <= 950) {
         this.inited = false;
         this.clear();
       } else {
@@ -30,7 +30,7 @@ export default class Fixed {
       }
     });
     this.inited = true;
-    if ($(window).width() <= 950) {
+    if (window.innerWidth <= 950) {
       this.inited = false;
       this.clear();
     } else {
@@ -41,7 +41,7 @@ export default class Fixed {
   update() {
     let header = $(".header");
     if(this.heightCorrect == 1){
-      this.target.height($(window).height() - 90 - (header.hasClass("sticky") ? header.outerHeight() : 0))
+      this.target.height(window.innerHeight - 90 - (header.hasClass("sticky") ? header.outerHeight() : 0))
     }
     this.h = this.base.outerHeight();
     this.targetH =

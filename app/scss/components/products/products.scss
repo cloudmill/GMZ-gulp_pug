@@ -429,7 +429,11 @@
           display: none;
         }
       }
-
+      @include screen("950", "max"){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       img {
         will-change: transform;
         transition: opacity 0.5s, transform 0.5s;
@@ -450,13 +454,13 @@
         }
         @include screen("950", "max") {
           position: relative;
-          width: 70%;
+          max-width: 70%;
           height: auto !important;
-          margin-left: 0%;
+          max-height: 100%;
         }
 
         @include screen("sm", "max") {
-          width: 100%;
+          max-width: 100%;
         }
       }
     }
