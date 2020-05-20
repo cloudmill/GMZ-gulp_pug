@@ -141,7 +141,7 @@ class Map {
       {
         hideIconOnBalloonOpen: false,
         iconLayout: "default#image",
-        iconImageHref: "images/placeMarkMap.png",
+        iconImageHref: SITE_TEMPLATE_PATH+"images/placeMarkMap.png",
         iconImageSize: [90, 87],
         iconImageOffset: [-45, -44],
       }

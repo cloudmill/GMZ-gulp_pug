@@ -64,6 +64,7 @@ $(document).ready(function () {
       onEnd: () => {
         /*Анимации*/
         animations.init();
+        helpers.resizeImg();
       },
     });
     helpers.events();
