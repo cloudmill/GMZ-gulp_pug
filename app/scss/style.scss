@@ -35,6 +35,9 @@ body{
       }
     }
   }
+  .scroll-content{
+    will-change: transform;
+  }
 }
 
 

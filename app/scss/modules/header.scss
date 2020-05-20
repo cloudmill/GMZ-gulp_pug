@@ -52,7 +52,7 @@
   padding-right: $min-main-padding;
   padding-left: $min-main-padding;
   box-sizing: border-box;
-
+  will-change: transform;
   &-buttom {
     display: none;
   }

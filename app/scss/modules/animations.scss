@@ -78,6 +78,9 @@ body[data-scrollbar="true"]{
   }
   
 }
+.mouseParalax,.scrollRotate,.fixed-window,.fixed-item > *{
+  will-change: transform;
+}
 .elipce_slider{
   position: absolute;
   z-index: 3;
