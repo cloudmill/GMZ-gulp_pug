@@ -75,7 +75,7 @@ export default class Wave {
     this.canvas.width = this.w;
     this.canvas.height = this.h;
     if (this.normalOffset > 15 && $(window).width() <= 500) {
-      this.normalOffset * 0.5;
+     // this.normalOffset * 0.5;
     }
   }
   changeOffsetTo(newOffset) {

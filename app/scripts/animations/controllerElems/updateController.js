@@ -42,7 +42,7 @@ export default class updateController {
       this.scroll = true;
     });
     $(window).resize(() => {
-      if ($(window).width() >= conf.maxWidthForAnimate) this.update();
+      if ($(window).width() >= conf.maxWidthForAnimate){} //this.update();
     });
     window.scrollbar.on((state) => {
       this.scroll = true;
@@ -58,6 +58,7 @@ export default class updateController {
     this.update();
   }
   update() {
+    
     this.showFramePS();
     new Promise((resolve, reject) => {
       this.recall(resolve);

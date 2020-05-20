@@ -20,8 +20,10 @@ html(lang="ru")
                 .img-front-container
                     .img-front
         .container.bg-additional.visual-animation-base-block-m
-            block content
-            include ../modules/footer
+            +header()
+            #scroll-content
+                block content
+                include ../modules/footer
         .modal
             .modal-content
                 +askQuestionFormModal()
