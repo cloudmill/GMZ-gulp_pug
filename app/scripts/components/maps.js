@@ -1,7 +1,7 @@
 import $ from "jquery";
 import ymaps from "ymaps";
 import Scrollbar from "smooth-scrollbar";
-const SITE_TEMPLATE_PATH = "/local/templates/s1/";
+const SITE_TEMPLATE_PATH = "/local/templates/s1/docs/";
 
 const linkYmaps =
   "https://api-maps.yandex.ru/2.1/?apikey=587b64ae-7249-4473-827f-ce90ff9529de&lang=ru_RU";
