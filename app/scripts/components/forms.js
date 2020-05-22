@@ -33,7 +33,7 @@ let forms = {
           email: form.find("input[name=email]"),
           question: form.find("textarea[name=question]"),
         };
-        var token = form.find("input[name=g-recaptcha-response]");
+        var token = $("input[id=g-recaptcha-response]").val();
         formData["telephone"].mask("+9 (999) 999-9999", {
           placeholder: "+7 (___) ___ - __ - __",
         });
@@ -138,7 +138,7 @@ let forms = {
     var defBlock = $("form.subscription-box-form");
     var subBlock = $(".subscription-box-success");
     var email = defBlock.find("input[name=email-sub]");
-    var token = defBlock.find("input[name=g-recaptcha-response]");
+    var token = $("input[id=g-recaptcha-response]").val();
 
     function subBlockDisplay(displayValue) {
       subBlock.css({
@@ -169,7 +169,7 @@ let forms = {
           dataType: "html",
           data: {
             mail: email.val(),
-            token: token.val(),
+            token: token,
           },
           success: function (data) {
             subBlockDisplay(1);
