@@ -6,7 +6,9 @@
     color: #312930;
     padding-top: 222px;
     padding-bottom: 367px;
-
+    @media(max-width: 1279px){
+      padding-bottom: 150px;
+    }
     &::before {
       position: absolute;
       content: '';
