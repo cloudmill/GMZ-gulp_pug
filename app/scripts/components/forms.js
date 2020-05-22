@@ -33,7 +33,7 @@ let forms = {
           email: form.find("input[name=email]"),
           question: form.find("textarea[name=question]"),
         };
-
+        var token = form.find("input[name=g-recaptcha-response]");
         formData["telephone"].mask("+9 (999) 999-9999", {
           placeholder: "+7 (___) ___ - __ - __",
         });
@@ -57,12 +57,12 @@ let forms = {
           });
 
         //Логика работы формы
-        $('#askAgain').click(()=>{
-          if($(".modal").hasClass('active')){
-            $(".modal").find('.modal-content').removeClass('active');
-            $(".modal").find('#quest').addClass('active');
+        $("#askAgain").click(() => {
+          if ($(".modal").hasClass("active")) {
+            $(".modal").find(".modal-content").removeClass("active");
+            $(".modal").find("#quest").addClass("active");
           }
-        })
+        });
         form.submit(function (event) {
           event.preventDefault();
           $(".main-field").removeClass("error");
@@ -95,7 +95,7 @@ let forms = {
           }
 
           //Все хорошо, показываем сообщение что отправили данные с формы
-          console.log('mess')
+          console.log("mess");
           if (error == 0) {
             $.ajax({
               url: form.attr("action"),
@@ -106,22 +106,23 @@ let forms = {
                 phone: formData["telephone"].val(),
                 mail: formData["email"].val(),
                 text: formData["question"].val(),
+                token: token,
               },
               success: function (data) {
                 form.find("+.contact-box-success").css({
                   opacity: 1,
                   "pointer-events": "all",
                 });
-                if($(".modal").hasClass('active')){
-                  $(".modal").find('.modal-content').removeClass('active');
-                  $(".modal").find('#success').addClass('active');
+                if ($(".modal").hasClass("active")) {
+                  $(".modal").find(".modal-content").removeClass("active");
+                  $(".modal").find("#success").addClass("active");
                 }
                 form
-                .find("input")
-                .val("")
-                .removeAttr("selected")
-                .prop("checked", false);
-              form.find("textarea").val("");
+                  .find("input")
+                  .val("")
+                  .removeAttr("selected")
+                  .prop("checked", false);
+                form.find("textarea").val("");
               },
               error: function (e) {
                 console.error("Ошибка отправки формы", e);
@@ -137,6 +138,7 @@ let forms = {
     var defBlock = $("form.subscription-box-form");
     var subBlock = $(".subscription-box-success");
     var email = defBlock.find("input[name=email-sub]");
+    var token = defBlock.find("input[name=g-recaptcha-response]");
 
     function subBlockDisplay(displayValue) {
       subBlock.css({
@@ -162,17 +164,16 @@ let forms = {
       }
       if (error == 0) {
         $.ajax({
-          url: SITE_TEMPLATE_PATH+"/include/ajax/subscribe.php",
+          url: SITE_TEMPLATE_PATH + "/include/ajax/subscribe.php",
           method: "get",
           dataType: "html",
           data: {
             mail: email.val(),
+            token: token.val(),
           },
           success: function (data) {
             subBlockDisplay(1);
-            defBlock
-                .find("input")
-                .val("")
+            defBlock.find("input").val("");
           },
           error: function (e) {
             console.error("Ошибка отправки формы", e);
@@ -207,11 +208,11 @@ let forms = {
           prods: prods,
         },
         success: function (data) {
-          $("#insertTargetFilter").find('>*').addClass('hideInFilter');
-          setTimeout(function(){
+          $("#insertTargetFilter").find(">*").addClass("hideInFilter");
+          setTimeout(function () {
             $("#insertTargetFilter").html(data);
             window.resizeImg();
-          },300)
+          }, 300);
         },
         error: function (e) {
           console.error("Ошибка отправки формы", e);
