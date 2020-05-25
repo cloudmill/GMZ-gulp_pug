@@ -132,7 +132,7 @@ class FixedScrollAnimate {
     this.elementNode = element[0];
 
     //минимальный сдвиг для действий
-    this.scrollFree = 20;
+    this.scrollFree = 10;
 
     //растояние до верхнего края страницы в начальном положении
     this.offsetOnBeginPos =
@@ -206,7 +206,11 @@ class FixedScrollAnimate {
       } else if (this.pos > this.offsetOnBeginPos + this.ELheight) {
         this.hide();
       } else {
-        this.startPos();
+        if (this.element.hasClass("sticky")) {
+          this.show();
+        } else {
+          this.startPos();
+        }
       }
     }
   }
