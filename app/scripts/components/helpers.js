@@ -1,4 +1,5 @@
 import $ from "jquery";
+import conf from "../animations/controllerElems/conf";
 
 let helpers = {
   init: function () {
@@ -96,8 +97,8 @@ let helpers = {
   controlModal: function () {
     $("a#controlModal").click(function () {
       let id = $(this).attr('data-target');
-      
-      $(".modal").css("top", window.scrollbar.scrollTop + "px");
+      if(window.innerWidth >= conf.maxWidthForAnimate)
+        $(".modal").css("top", window.scrollbar.scrollTop + "px");
 
       $(".modal").toggleClass("active");
       if ($(".modal").hasClass("active")) {
@@ -105,8 +106,8 @@ let helpers = {
         $(".modal").find('#'+id).addClass('active');
         window.scrollbar.stopScroll();
       } else {
-        $(".modal").find('.modal-content').removeClass('active');
         window.scrollbar.startScroll();
+        $(".modal").find('.modal-content').removeClass('active');
       }
     });
     $(".modal-bg").click(function () {

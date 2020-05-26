@@ -18,18 +18,15 @@ import Loading from "./components/loader";
 $(document).ready(function () {
   if ($("body").hasClass("print")) {
     Loading({
-        beforeStart: () => {
-        },
-        beforeEnd: () => {
-        },
-        onEnd: () => {
-            animations.init('no-scroll');
-        },
-      });
+      beforeStart: () => {},
+      beforeEnd: () => {},
+      onEnd: () => {
+        animations.init("no-scroll");
+      },
+    });
   } else {
     /* ScrollBar */
     window.scrollbar = new customScrollbar();
-    
 
     /* Доп функционал */
     helpers.init();
@@ -47,19 +44,15 @@ $(document).ready(function () {
     /* Тултипы */
     var tooltips = Array.from(document.querySelectorAll(".tooltip"));
     var init = (() => tooltips.forEach((t) => new Tooltip(t)))();
-    window.scrollbar.stopScroll();
 
     Loading({
       beforeStart: () => {
-        document
-          .querySelector(".scrollbar-track-y")
-          .classList.add("hide-display-for-loader");
+        let scrollbar = document.querySelector(".scrollbar-track-y");
+        if (scrollbar) scrollbar.classList.add("hide-display-for-loader");
       },
       beforeEnd: () => {
-        window.scrollbar.startScroll();
-        document
-          .querySelector(".scrollbar-track-y")
-          .classList.remove("hide-display-for-loader");
+        let scrollbar = document.querySelector(".scrollbar-track-y");
+        if (scrollbar) scrollbar.classList.remove("hide-display-for-loader");
       },
       onEnd: () => {
         /*Анимации*/
@@ -69,6 +62,4 @@ $(document).ready(function () {
     });
     helpers.events();
   }
-
-  
 });

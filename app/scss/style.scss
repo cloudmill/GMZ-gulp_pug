@@ -19,7 +19,15 @@
 @import "modules/tooltip";
 
 @import 'components/main';
+html{
+  &.overflow{
+    @media(max-width: 599px){
+      overflow: hidden;
+    }
+  }
+}
 body{
+  
   .scrollbar-track-y {
     display: none !important;
   }
@@ -39,7 +47,9 @@ body{
     will-change: transform;
   }
 }
-
+.grecaptcha-badge{
+  display: none !important;
+}
 
 .bg-white {
   background-color: #fff;

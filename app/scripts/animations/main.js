@@ -8,7 +8,7 @@ import DashedLine from "./dashedLine/main.js";
 import ImageMoveMouse from "./imageMoveMouse.js";
 import VisualAnimation, { initMain } from "./visualAnimation.js";
 import Controller from "./controller.js";
-import CloudMove from "./controllerElems/cloudMove";
+import CloudMove from "./cloudMove";
 
 let animations = {
   init: function (noScroll) {
