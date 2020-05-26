@@ -53,6 +53,9 @@
   padding-left: $min-main-padding;
   box-sizing: border-box;
   will-change: transform;
+  @media(max-width:599px){
+    position: fixed !important;
+  }
   &-buttom {
     display: none;
   }

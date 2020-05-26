@@ -2,6 +2,7 @@ import $ from "jquery";
 import ShapeOverlays from "../components/HamburgerOverlay";
 
 import { initSpecial } from "../animations/visualAnimation.js";
+import conf from "../animations/controllerElems/conf";
 
 const circlePerMS = 2000;
 
@@ -67,7 +68,9 @@ class Burger {
 
   toggleOverlay() {
     // this.overlayElement.style.display = 'block';
+
     this.overlayElement.style.top = window.scrollbar.scrollTop + "px";
+
     this.overlayElement.classList.remove("hide");
     if (this.overlay.isAnimating) {
       return false;
@@ -176,7 +179,9 @@ class FixedScrollAnimate {
     } else {
       this.moveDelta = 0;
     }
+    if (window.innerWidth >= conf.maxWidthForAnimate)
     this.elementNode.style.transform = "translateY(" + this.pos + "px)";
+    else this.elementNode.style.transform = "translateY(" + 0 + "px)";
 
     this.currentState();
 
