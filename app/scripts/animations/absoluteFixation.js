@@ -50,7 +50,7 @@ export default class AbsoluteFixation {
         this.maxBottomBlock.offset().top -
         window.innerHeight;
       if (window.innerWidth < conf.maxWidthForAnimate)
-        top -= $(document).scrollTop();
+        top -= window.pageYOffset;
       if (top < 0) {
         return top;
       }

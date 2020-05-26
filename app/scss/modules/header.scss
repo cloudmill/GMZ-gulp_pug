@@ -55,6 +55,7 @@
   will-change: transform;
   @media(max-width:599px){
     position: fixed !important;
+    will-change: top;
   }
   &-buttom {
     display: none;

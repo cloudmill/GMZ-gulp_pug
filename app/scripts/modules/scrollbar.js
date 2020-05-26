@@ -11,23 +11,33 @@ export default class customScrollbar {
 
     //Основной скрол на сайте
     this.startScroll();
+    this.eventsStart();
   }
-
+  eventsStart() {
+    if (window.innerWidth >= conf.maxWidthForAnimate) {
+      this.scrollbar.addListener((state) => {
+        if (this.handlers.length > 0)
+          this.handlers.forEach((handler) => {
+            handler(state);
+          });
+      });
+    } else {
+      window.addEventListener('scroll', (e)=>{
+        const state = {
+          offset: {
+            y: window.pageYOffset,
+          },
+        };
+        if (this.handlers.length > 0)
+          this.handlers.forEach((handler) => {
+            handler(state);
+          });
+      });
+    }
+  }
   // добавление слушателя
   on(handler) {
     this.handlers.push(handler);
-    if (window.innerWidth >= conf.maxWidthForAnimate) {
-      this.scrollbar.addListener(handler);
-    } else {
-      $(document).scroll(function () {
-        const state = {
-          offset:{
-            y: $(document).scrollTop()
-          }
-        }
-        handler(state);
-      });
-    }
   }
 
   // удаление слушателя
@@ -37,7 +47,6 @@ export default class customScrollbar {
         this.handlers.splice(key, 1);
       }
     });
-    this.scrollbar.removeListener(handler);
   }
   startScroll() {
     if (!this.scrollbar && window.innerWidth >= conf.maxWidthForAnimate) {
@@ -47,10 +56,10 @@ export default class customScrollbar {
         delegateTo: document.getElementById("scroll-content"),
       });
     }
-    $('html').removeClass('overflow')
+    $("html").removeClass("overflow");
   }
-  stopScroll(){
-    $('html').addClass('overflow')
+  stopScroll() {
+    $("html").addClass("overflow");
   }
   getSize() {
     return this.scrollbar.getSize();
@@ -60,11 +69,10 @@ export default class customScrollbar {
   }
 
   get scrollTop() {
-    if (window.innerWidth >= conf.maxWidthForAnimate){
+    if (window.innerWidth >= conf.maxWidthForAnimate) {
       return this.scrollbar.scrollTop;
-    }else{
-      return $(document).scrollTop();
+    } else {
+      return window.pageYOffset;
     }
-    
   }
 }
