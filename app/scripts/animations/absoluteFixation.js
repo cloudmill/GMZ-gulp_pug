@@ -1,4 +1,5 @@
 import $ from "jquery";
+import conf from "./controllerElems/conf";
 
 export default class AbsoluteFixation {
   constructor(wrapper) {
@@ -12,7 +13,11 @@ export default class AbsoluteFixation {
     this.init();
   }
   init() {
-    this.topConst = this.wrapper.parent().offset().top + window.scrollbar.scrollTop - 120;//хз но 120 корректирует все
+    if (window.innerWidth >= conf.maxWidthForAnimate)
+      this.topConst =
+        this.wrapper.parent().offset().top + window.scrollbar.scrollTop - 120;
+    //хз но 120 корректирует все
+    else this.topConst = this.wrapper.parent().offset().top - 120;
     window.scrollbar.on(() => {
       if (this.inited) this.update();
     });
@@ -40,9 +45,14 @@ export default class AbsoluteFixation {
   }
   bottomStop() {
     if (this.maxBottomBlock) {
-      const top = this.maxBottomBlock.outerHeight() + this.maxBottomBlock.offset().top - window.innerHeight;
-      if(top<0){
-        return top
+      let top =
+        this.maxBottomBlock.outerHeight() +
+        this.maxBottomBlock.offset().top -
+        window.innerHeight;
+      if (window.innerWidth < conf.maxWidthForAnimate)
+        top -= $(document).scrollTop();
+      if (top < 0) {
+        return top;
       }
     }
     return 0;

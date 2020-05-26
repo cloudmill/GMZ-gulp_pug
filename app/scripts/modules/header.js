@@ -180,8 +180,8 @@ class FixedScrollAnimate {
       this.moveDelta = 0;
     }
     if (window.innerWidth >= conf.maxWidthForAnimate)
-    this.elementNode.style.transform = "translateY(" + this.pos + "px)";
-    else this.elementNode.style.transform = "translateY(" + 0 + "px)";
+      this.elementNode.style.transform = "translateY(" + this.pos + "px)";
+    else this.elementNode.style.transform = "translateY(0px)";
 
     this.currentState();
 
