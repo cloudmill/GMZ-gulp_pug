@@ -44,9 +44,6 @@ export default class updateController {
     $(window).resize(() => {
       if (window.innerWidth >= conf.maxWidthForAnimate){} //this.update();
     });
-    window.scrollbar.on((state) => {
-      this.scroll = true;
-    });
   }
   showFramePS() {
     //Указать в child
