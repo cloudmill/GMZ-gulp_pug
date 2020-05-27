@@ -42,7 +42,7 @@ export default class updateController {
       this.scroll = true;
     });
     $(window).resize(() => {
-      if (window.innerWidth >= conf.maxWidthForAnimate){} //this.update();
+      this.update();
     });
   }
   showFramePS() {
@@ -55,23 +55,20 @@ export default class updateController {
     this.update();
   }
   update() {
-    
     this.showFramePS();
     new Promise((resolve, reject) => {
       this.recall(resolve);
     }).then(() => {
-      if (window.innerWidth >= conf.maxWidthForAnimate) {
-        if (this.mousemove) {
-          this.mouseMoveUpdater.update();
-          this.mousemove = false;
-        }
-        if (this.scroll) {
-          this.scrollUpdater.update();
-          this.scroll = false;
-        }
-        this.updater.update();
-        this.update();
+      if (this.mousemove) {
+        this.mouseMoveUpdater.update();
+        this.mousemove = false;
       }
+      if (this.scroll) {
+        this.scrollUpdater.update();
+        this.scroll = false;
+      }
+      this.updater.update();
+      this.update();
     });
   }
 }

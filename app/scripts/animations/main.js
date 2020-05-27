@@ -9,6 +9,7 @@ import ImageMoveMouse from "./imageMoveMouse.js";
 import VisualAnimation, { initMain } from "./visualAnimation.js";
 import Controller from "./controller.js";
 import CloudMove from "./cloudMove";
+import conf from "./controllerElems/conf.js";
 
 let animations = {
   init: function (noScroll) {
@@ -80,9 +81,13 @@ let animations = {
     ImageMoveMouse(".catalog-el-text");
   },
   visualAnimation: function () {
-    initMain().show();
-    VisualAnimation();
-   //$('.visual-animation-base-block').removeClass('visual-animation-base-block')
+    if (window.innerWidth >= conf.maxWidthForAnimate){
+      initMain().show();
+      VisualAnimation();  
+    }else{
+      $('.visual-animation-base-block').removeClass('visual-animation-base-block')
+      $('.visual-animation-base-block-m').removeClass('visual-animation-base-block-m')
+    }
   },
   cloudMove() {
     const target = document.querySelector(".main-index-animeel");

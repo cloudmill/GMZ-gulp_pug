@@ -58,6 +58,8 @@ class CloudMove {
             this.elements[index].left++;
           }
         });
+      }else{
+        clearInterval(this.interval)
       }
     }, timerSpeed);
   }

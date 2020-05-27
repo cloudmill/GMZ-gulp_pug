@@ -21,13 +21,12 @@ export default class Warden {
   init() {
     this.top = window.scrollbar.scrollTop;
     window.scrollbar.on((state) => {
-      if (Math.abs(state.offset.y - this.top) >= this.stepScroll) {
-        this.top = state.offset.y;
-        if (window.innerWidth >= conf.maxWidthForAnimate) this.updater.update();
-      }
+        if (Math.abs(state.offset.y - this.top) >= this.stepScroll) {
+          this.top = state.offset.y;
+          this.updater.update();
+        }
     });
-    window.addEventListener("resize", () => {
-      if (window.innerWidth >= conf.maxWidthForAnimate) this.updater.update();
+    window.addEventListener("resize", () => { this.updater.update();
     });
   }
   visible($item) {

@@ -6,21 +6,25 @@ const SITE_TEMPLATE_PATH = "/local/templates/s1/docs/";
 const linkYmaps =
   "https://api-maps.yandex.ru/2.1/?apikey=587b64ae-7249-4473-827f-ce90ff9529de&lang=ru_RU";
 
-let Ymaps;
 let maps = {
   init: function () {
     this.setup();
   },
   setup: function () {
-    if ($(".whereBuy-map").length > 0) {
-      this.whereBuyMap.init();
-    } else if ($(".contacts-map")) {
-      this.contactsMap.init();
-    }
+    ymaps
+      .load(linkYmaps)
+      .then((API) => {
+        if ($(".whereBuy-map").length > 0) {
+          this.whereBuyMap.init(API);
+        } else if ($(".contacts-map")) {
+          this.contactsMap.init(API);
+        }
+      })
+      .catch((error) => console.log("Failed to load Yandex Maps", error));
   },
   contactsMap: {
-    init: function () {
-      let map = new Map("contacts");
+    init: function (API) {
+      let map = new Map("contacts", API);
     },
   },
   whereBuyMap: {
@@ -36,8 +40,8 @@ let maps = {
         map.search(search);
       });
     },
-    init: function () {
-      let map = new Map("whereBuy", () => {
+    init: function (API) {
+      let map = new Map("whereBuy", API, () => {
         this.logic(map);
       });
     },
@@ -45,15 +49,13 @@ let maps = {
 };
 
 class Map {
-  constructor(type, callback) {
+  constructor(type, API, callback) {
     this.type = type;
-    ymaps.load(linkYmaps).then((maps) => {
-      if ($("#map").length > 0) {
-        this.Ymaps = maps;
-        this.init();
-        callback();
-      }
-    }).catch(error => console.log('Failed to load Yandex Maps', error));
+    if ($("#map").length > 0) {
+      this.Ymaps = API;
+      this.init();
+      callback();
+    }
   }
   init() {
     /* Создание карты */
@@ -86,7 +88,7 @@ class Map {
         })
         .then((result) => {
           // Красным цветом пометим положение, вычисленное через ip.
-          result.geoObjects.options.set("preset",'islands#geolocationIcon');
+          result.geoObjects.options.set("preset", "islands#geolocationIcon");
           result.geoObjects.get(0).properties.set({
             balloonContentBody: "Мое местоположение",
           });
@@ -108,7 +110,7 @@ class Map {
       preset: "islands#invertedVioletClusterIcons",
       clusterIcons: [
         {
-          href: SITE_TEMPLATE_PATH+"images/placeMarkMap.png",
+          href: SITE_TEMPLATE_PATH + "images/placeMarkMap.png",
           size: [90, 87],
           offset: [-45, -44],
         },
@@ -141,7 +143,7 @@ class Map {
       {
         hideIconOnBalloonOpen: false,
         iconLayout: "default#image",
-        iconImageHref: SITE_TEMPLATE_PATH+"images/placeMarkMap.png",
+        iconImageHref: SITE_TEMPLATE_PATH + "images/placeMarkMap.png",
         iconImageSize: [90, 87],
         iconImageOffset: [-45, -44],
       }
