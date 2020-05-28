@@ -34,11 +34,11 @@ body{
   @media(min-width: 600px){
     .scrollbar-track-y {
       display: block !important;
-      width: 6px;
+      width: 8px;
       background: transparent;
       .scrollbar-thumb{
         border-radius: 0;
-        width: 6px;
+        width: 8px;
         background: #A3F2B6;
       }
     }

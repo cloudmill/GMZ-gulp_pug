@@ -47,7 +47,7 @@ section {
     width: 100vw;
     left: 50%;
     transform: translateX(-50%);
-    height: 17px;
+    height: 21px;
     background-image: url("../images/marquee-background.svg");
     background-repeat: repeat-x;
     animation: subscription-text-move 3s linear infinite;
@@ -56,7 +56,7 @@ section {
     }
     @keyframes subscription-text-move {
       0% {
-        background-position-x: 427px;
+        background-position-x: 360px;
       }
       100% {
         background-position-x: 0px;

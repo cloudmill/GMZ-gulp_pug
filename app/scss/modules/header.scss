@@ -5,43 +5,44 @@
   background: #fff;
   position: absolute;
   height: 90px;
-  transition: top 0.4s ease-in-out;//, background 0.4s ease-in-out;
+  transition: top 0.4s ease-in-out; //, background 0.4s ease-in-out;
 
   .header-static > .header-box .header-box-nav-button {
     top: 4px;
 
-    @include screen('xs', 'max') {
+    @include screen("xs", "max") {
       top: 0px;
     }
   }
 
   a.header-box-logotype {
     .svg-icon.svg-logotype {
-      opacity: 0;
-      z-index: 1;
+      // opacity: 0;
+      // z-index: 1;
+      font-size: 7px;
     }
 
-    i.svg-icon.svg-logotype-short {
-      top: -15px;
-      opacity: 1;
-      z-index: 1;
-    }
+    // i.svg-icon.svg-logotype-short {
+    //   top: -15px;
+    //   opacity: 1;
+    //   z-index: 1;
+    // }
   }
 }
 
-.header.hide{
-  transition: top 0.4s ease-in-out;//, background 0.4s ease-in-out;
+.header.hide {
+  transition: top 0.4s ease-in-out; //, background 0.4s ease-in-out;
   background: #fff;
-  a.header-box-logotype {
-    .svg-icon.svg-logotype {
-      opacity: 0;
-    }
+  // a.header-box-logotype {
+  //   .svg-icon.svg-logotype {
+  //     opacity: 0;
+  //   }
 
-    i.svg-icon.svg-logotype-short {
-      top: -15px;
-      opacity: 1;
-    }
-  }
+  //   i.svg-icon.svg-logotype-short {
+  //     top: -15px;
+  //     opacity: 1;
+  //   }
+  // }
 }
 
 .header {
@@ -53,7 +54,7 @@
   padding-left: $min-main-padding;
   box-sizing: border-box;
   will-change: transform;
-  @media(max-width:599px){
+  @media (max-width: 599px) {
     position: fixed !important;
     will-change: top;
   }
@@ -61,13 +62,13 @@
     display: none;
   }
 
-  .svg-icon.svg-logotype {
-    transition: opacity 0.3s;
-  }
+  // .svg-icon.svg-logotype {
+  //   transition: opacity 0.3s;
+  // }
 
-  i.svg-icon.svg-logotype-short {
-    transition: opacity 0.3s;
-  }
+  // i.svg-icon.svg-logotype-short {
+  //   transition: opacity 0.3s;
+  // }
 
   .burger {
     position: absolute;
@@ -114,7 +115,8 @@
       }
 
       span {
-        &::before, &::after {
+        &::before,
+        &::after {
           background: #ffffff;
         }
       }
@@ -154,9 +156,9 @@
         z-index: 2;
       }
     }
-  } 
-  &-static{
-    .header-bg{
+  }
+  &-static {
+    .header-bg {
       display: none;
       width: 100%;
       height: 100vh;
@@ -169,6 +171,21 @@
       background-size: contain;
       background-image: url(../images/burger-bg.png);
     }
+    &.visual-animation-base-block-s {
+      .header-box-logotype {
+        .svg-icon {
+          animation: showlogo 2s cubic-bezier(0, 0, 0, 1) forwards;
+          @keyframes showlogo {
+            to {
+              opacity: 1;
+            }
+            0% {
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
   }
   &-static.active {
     position: fixed;
@@ -180,10 +197,9 @@
     padding-left: 20px;
     padding-right: 20px;
     border-top: 30px solid #fff;
-    @include screen('xs', 'max') {
+    @include screen("xs", "max") {
       border-top: unset;
     }
-    
 
     .burger {
       position: absolute;
@@ -192,7 +208,7 @@
       display: block;
       border-radius: 50px;
       transform: translateY(50%);
-  
+
       &::before {
         opacity: 0;
       }
@@ -200,12 +216,12 @@
       &::after {
         background: #312930;
       }
-  
-    span {
-      top: -3px;
-      left: 0px;
-      background: #312930;
-  
+
+      span {
+        top: -3px;
+        left: 0px;
+        background: #312930;
+
         &::before {
           transform: rotate(45deg) translate(0, -50%);
           bottom: auto;
@@ -213,13 +229,13 @@
           transform-origin: top;
           background: #fff;
         }
-  
+
         &::after {
           transform: rotate(-45deg) translate(0, -50%);
           background: #fff;
         }
       }
-    } 
+    }
 
     .header-box-nav {
       // transition: transform 0.3s;
@@ -227,22 +243,22 @@
       top: 200px;
       margin-left: -20px;
 
-      @include screen('custom-660', 'max') {
+      @include screen("custom-660", "max") {
         margin-left: 0px;
       }
     }
 
-    .header-box-nav-el {      
+    .header-box-nav-el {
       &:last-child {
         margin-bottom: 0px;
       }
     }
 
-    .header-bg{
+    .header-bg {
       display: block;
     }
     .header-buttom {
-      font-family: 'CeraPro';
+      font-family: "CeraPro";
       display: none;
       max-width: 1000px;
       margin: 0 auto;
@@ -263,22 +279,23 @@
           font-size: 20px;
         }
       }
-  
+
       &-help {
         display: flex;
         justify-content: space-around;
-  
-        .left, .right {
+
+        .left,
+        .right {
           text-align: center;
         }
-  
+
         .left {
           &-desc {
-            font-family: 'CeraPro';
+            font-family: "CeraPro";
             font-size: 16px;
             margin-bottom: 8px;
           }
-  
+
           &-number {
             display: block;
             font-weight: bold;
@@ -291,47 +308,47 @@
             }
           }
         }
-  
+
         .right {
           &-desc {
             font-size: 16px;
             margin-bottom: 20px;
           }
-  
+
           &-group-link {
             margin-right: 37px;
 
             filter: brightness(0%);
             opacity: 0.8;
-            transition: all .3s;
-        
+            transition: all 0.3s;
+
             &:hover {
               filter: brightness(100%);
               transform: translateX(3px);
               opacity: 1;
             }
-  
+
             &:last-child {
               margin-right: 0px;
             }
           }
         }
-      }  
-  
+      }
+
       &-footer {
         display: flex;
         justify-content: space-between;
         font-size: 14px;
-  
+
         .left {
-          color: #AEA08D;
+          color: #aea08d;
         }
-  
+
         .right {
           color: #312930;
-  
+
           a {
-            color: #EE7754;
+            color: #ee7754;
           }
         }
       }
@@ -351,22 +368,23 @@
       position: relative;
       z-index: 10;
 
-      @include screen('xs', 'max') {
+      @include screen("xs", "max") {
         transform: scale(0.6);
       }
 
-      .svg-icon.svg-logotype-short {
-        position: absolute;
-        opacity: 0;
-      }
-
+      // .svg-icon.svg-logotype-short {
+      //   position: absolute;
+      //   opacity: 0;
+      // }
       .svg-icon {
         position: absolute;
         opacity: 1;
-        top: -45px;
+        transform: translateY(-50%);
+        top: 0;
+        transition: 0.3s;
       }
     }
-  
+
     &-nav {
       width: 100%;
       position: absolute;
@@ -374,7 +392,7 @@
       // transition: transform .3s;
       transform: translateY(-50%);
 
-      @include screen('custom-660', 'max') {
+      @include screen("custom-660", "max") {
         &.lg {
           display: none;
         }
@@ -388,67 +406,66 @@
         max-width: 550px;
         margin: 0 auto;
 
-        @include screen('md', 'max') {
+        @include screen("md", "max") {
           max-width: 50%;
         }
-
       }
 
       &-button {
         position: relative;
 
         i.svg-icon.svg-navigation {
-            animation: rotating 8s linear infinite;
-            @keyframes rotating {
-              0%{
-                transform: rotate(0deg);
-              }
-              100%{
-                transform: rotate(360deg);
-              }
+          animation: rotating 8s linear infinite;
+          @keyframes rotating {
+            0% {
+              transform: rotate(0deg);
             }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
         }
       }
-  
+
       &-el {
         text-align: center;
         font-style: normal;
         font-weight: normal;
         color: $color-text-main;
-        font-family: 'CeraPro';
-  
+        font-family: "CeraPro";
+
         &-link {
           font-size: 26px;
           line-height: 33px;
           transition: 0.2s;
-  
-          @include screen('md', 'max') {
+
+          @include screen("md", "max") {
             font-size: 22px;
           }
-  
+
           &:hover {
             color: $color-text-complementary-two;
           }
         }
-  
+
         &-desc {
           font-size: 13px;
           line-height: 33px;
-  
-          @include screen('md', 'max') {
+
+          @include screen("md", "max") {
             font-size: 10px;
             line-height: 30px;
           }
-  
-          @include screen('custom-800', 'max') {
+
+          @include screen("custom-800", "max") {
             display: none;
           }
         }
       }
-  
+
       &-button {
-        @include screen('xs', 'max') {
-          transform: scale(.9);
+        @include screen("xs", "max") {
+          transform: scale(0.9);
         }
       }
     }
@@ -459,66 +476,66 @@
 @ Media queries
 */
 .header.sticky {
-  @include screen('xs', 'max') {
+  @include screen("xs", "max") {
     //transform: translateY(0);
     height: auto;
   }
 }
 
 .header {
-  @include screen('xs', 'max') {
+  @include screen("xs", "max") {
     width: 100%;
   }
 
   &-static.active {
-    @include screen('xs', 'max') {
+    @include screen("xs", "max") {
       background-image: none;
     }
 
-    @include screen('custom-660', 'max') {
+    @include screen("custom-660", "max") {
       overflow-y: auto;
       overflow-x: hidden;
     }
 
-    @include screen('xs', 'max') {
+    @include screen("xs", "max") {
       width: 100%;
       height: calc(100vh + 30px);
     }
 
     .header-box {
-      @include screen('custom-660', 'max') {
+      @include screen("custom-660", "max") {
         margin: 15px 0px;
         transform: translateY(25px);
       }
     }
 
     .header-box-nav-button {
-      @include screen('xs', 'max') {
+      @include screen("xs", "max") {
         position: fixed;
       }
 
-      @include screen('custom-660', 'max') {
+      @include screen("custom-660", "max") {
         position: fixed;
         right: 0;
       }
 
-      @include screen('xs', 'max') {
+      @include screen("xs", "max") {
         margin-right: 0px;
       }
     }
 
     .header-box-nav.wrapper {
-      @include screen('custom-860', 'max') {
+      @include screen("custom-860", "max") {
         max-width: 50%;
       }
 
-      @include screen('custom-660', 'max') {
+      @include screen("custom-660", "max") {
         max-width: 100%;
       }
     }
 
     .header-box-nav.lg {
-      @include screen('custom-660', 'max') {
+      @include screen("custom-660", "max") {
         display: flex;
         position: unset;
         justify-content: space-around;
@@ -526,7 +543,7 @@
       }
 
       .wrapper {
-        @include screen('custom-660', 'max') {
+        @include screen("custom-660", "max") {
           flex-direction: column;
           position: unset;
           left: 0%;
@@ -536,14 +553,13 @@
     }
 
     .header-box-nav-el {
-      @include screen('custom-660', 'max') {
+      @include screen("custom-660", "max") {
         margin-bottom: 30px;
       }
-      
     }
 
     .header-box-nav-el > .header-box-nav-el-desc {
-      @include screen('custom-800', 'max') {
+      @include screen("custom-800", "max") {
         display: block;
         font-size: 13px;
       }
@@ -551,14 +567,14 @@
 
     .header-buttom {
       &-nav {
-        @include screen('custom-660', 'max') {
+        @include screen("custom-660", "max") {
           flex-direction: column;
         }
 
         a {
-          @include screen('custom-660', 'max') {
+          @include screen("custom-660", "max") {
             padding-bottom: 20px;
-  
+
             &:last-child {
               padding: 0px;
             }
@@ -567,30 +583,30 @@
       }
 
       &-help {
-        @include screen('custom-660', 'max') {
+        @include screen("custom-660", "max") {
           flex-direction: column;
         }
 
         .left {
-          @include screen('custom-660', 'max') {
+          @include screen("custom-660", "max") {
             margin-bottom: 50px;
           }
         }
       }
 
       &-footer {
-        @include screen('custom-660', 'min') {
+        @include screen("custom-660", "min") {
           margin-bottom: 50px;
         }
 
-        @include screen('custom-660', 'max') {
+        @include screen("custom-660", "max") {
           flex-direction: column;
           align-items: center;
           text-align: center;
         }
 
         .left {
-          @include screen('custom-660', 'max') {
+          @include screen("custom-660", "max") {
             margin-bottom: 10px;
           }
         }
