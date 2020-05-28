@@ -1,6 +1,15 @@
 /*
 @ Basic styles
 */
+.header.hide{
+  a.header-box-logotype {
+    .svg-icon.svg-logotype {
+      // opacity: 0;
+      // z-index: 1;
+      font-size: 7px;
+    }
+  }
+}
 .header.sticky {
   background: #fff;
   position: absolute;
