@@ -242,5 +242,8 @@ let forms = {
     return valid;
   },
 };
+var reCapchaSuccess = function (token){
+  console.log(this);
+}
 
 export default forms;
