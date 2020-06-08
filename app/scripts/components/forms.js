@@ -33,7 +33,7 @@ let forms = {
           email: form.find("input[name=email]"),
           question: form.find("textarea[name=question]"),
         };
-        var token = $("input[id=recaptchaResponse]").val();
+        var session = form.find("input[id=session]").val();
         formData["telephone"].mask("+9 (999) 999-9999", {
           placeholder: "+7 (___) ___ - __ - __",
         });
@@ -107,9 +107,10 @@ let forms = {
                   phone: formData["telephone"].val(),
                   mail: formData["email"].val(),
                   text: formData["question"].val(),
-                  token: token,
+                  session: session,
                 },
                 success: function (data) {
+                  if(data)  console.log(data);
                   console.log("mess");
                   form.find("+.contact-box-success").css({
                     opacity: 1,
@@ -143,7 +144,7 @@ let forms = {
     var defBlock = $("form.subscription-box-form");
     var subBlock = $(".subscription-box-success");
     var email = defBlock.find("input[name=email-sub]");
-    var token = $("input[id=recaptchaResponse]").val();
+    var session = defBlock.find("input[id=session]").val();
 
     function subBlockDisplay(displayValue) {
       subBlock.css({
@@ -175,9 +176,10 @@ let forms = {
             dataType: "html",
             data: {
               mail: email.val(),
-              token: token,
+              session: session,
             },
             success: function (data) {
+              if(data)  console.log(data);
               subBlockDisplay(1);
               defBlock.find("input").val("");
               $(".main-field").removeClass("error");
