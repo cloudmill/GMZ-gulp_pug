@@ -95,39 +95,44 @@ let forms = {
           }
 
           //Все хорошо, показываем сообщение что отправили данные с формы
-          console.log("mess");
+          
           if (error == 0) {
-            $.ajax({
-              url: form.attr("action"),
-              method: "get",
-              dataType: "html",
-              data: {
-                name: formData["username"].val(),
-                phone: formData["telephone"].val(),
-                mail: formData["email"].val(),
-                text: formData["question"].val(),
-                token: token,
-              },
-              success: function (data) {
-                form.find("+.contact-box-success").css({
-                  opacity: 1,
-                  "pointer-events": "all",
-                });
-                if ($(".modal").hasClass("active")) {
-                  $(".modal").find(".modal-content").removeClass("active");
-                  $(".modal").find("#success").addClass("active");
-                }
-                form
-                  .find("input")
-                  .val("")
-                  .removeAttr("selected")
-                  .prop("checked", false);
-                form.find("textarea").val("");
-              },
-              error: function (e) {
-                console.error("Ошибка отправки формы", e);
-              },
-            });
+            window.formAjaxF = ()=>{
+              $.ajax({
+                url: form.attr("action"),
+                method: "get",
+                dataType: "html",
+                data: {
+                  name: formData["username"].val(),
+                  phone: formData["telephone"].val(),
+                  mail: formData["email"].val(),
+                  text: formData["question"].val(),
+                  token: token,
+                },
+                success: function (data) {
+                  console.log("mess");
+                  form.find("+.contact-box-success").css({
+                    opacity: 1,
+                    "pointer-events": "all",
+                  });
+                  if ($(".modal").hasClass("active")) {
+                    $(".modal").find(".modal-content").removeClass("active");
+                    $(".modal").find("#success").addClass("active");
+                  }
+                  form
+                    .find("input")
+                    .val("")
+                    .removeAttr("selected")
+                    .prop("checked", false);
+                  form.find("textarea").val("");
+                  $(".main-field").removeClass("error");
+                },
+                error: function (e) {
+                  console.error("Ошибка отправки формы", e);
+                },
+              });
+            }
+            grecaptcha.execute();
           }
         });
       });
@@ -163,22 +168,27 @@ let forms = {
         email.parent().addClass("error");
       }
       if (error == 0) {
-        $.ajax({
-          url: SITE_TEMPLATE_PATH + "/include/ajax/subscribe.php",
-          method: "get",
-          dataType: "html",
-          data: {
-            mail: email.val(),
-            token: token,
-          },
-          success: function (data) {
-            subBlockDisplay(1);
-            defBlock.find("input").val("");
-          },
-          error: function (e) {
-            console.error("Ошибка отправки формы", e);
-          },
-        });
+        window.formAjaxF = ()=>{
+          $.ajax({
+            url: SITE_TEMPLATE_PATH + "/include/ajax/subscribe.php",
+            method: "get",
+            dataType: "html",
+            data: {
+              mail: email.val(),
+              token: token,
+            },
+            success: function (data) {
+              subBlockDisplay(1);
+              defBlock.find("input").val("");
+              $(".main-field").removeClass("error");
+              console.log('mess')
+            },
+            error: function (e) {
+              console.error("Ошибка отправки формы", e);
+            },
+          });
+        }
+        grecaptcha.execute();
       }
     });
   },
@@ -243,7 +253,12 @@ let forms = {
   },
 };
 var reCapchaSuccess = function (token){
-  console.log(this);
+  console.log(token);
+  if(window.formAjaxF){
+    window.formAjaxF()
+  }
+  //$('form:not(#filterForm)').submit();
 }
+window.reCapchaSuccess = reCapchaSuccess;
 
 export default forms;
