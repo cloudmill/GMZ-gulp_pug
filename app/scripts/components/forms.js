@@ -95,14 +95,15 @@ let forms = {
           }
 
           //Все хорошо, показываем сообщение что отправили данные с формы
-          
+
           if (error == 0) {
-            window.formAjaxF = ()=>{
+            window.formAjaxF = (token) => {
               $.ajax({
                 url: form.attr("action"),
                 method: "get",
                 dataType: "html",
                 data: {
+                  token: token,
                   name: formData["username"].val(),
                   phone: formData["telephone"].val(),
                   mail: formData["email"].val(),
@@ -110,7 +111,7 @@ let forms = {
                   session: session,
                 },
                 success: function (data) {
-                  if(data)  console.log(data);
+                  if (data) console.log(data);
                   console.log("mess");
                   form.find("+.contact-box-success").css({
                     opacity: 1,
@@ -132,7 +133,7 @@ let forms = {
                   console.error("Ошибка отправки формы", e);
                 },
               });
-            }
+            };
             grecaptcha.execute();
           }
         });
@@ -169,27 +170,28 @@ let forms = {
         email.parent().addClass("error");
       }
       if (error == 0) {
-        window.formAjaxF = ()=>{
+        window.formAjaxF = (token) => {
           $.ajax({
             url: SITE_TEMPLATE_PATH + "/include/ajax/subscribe.php",
             method: "get",
             dataType: "html",
             data: {
+              token: token,
               mail: email.val(),
               session: session,
             },
             success: function (data) {
-              if(data)  console.log(data);
+              if (data) console.log(data);
               subBlockDisplay(1);
               defBlock.find("input").val("");
               $(".main-field").removeClass("error");
-              console.log('mess')
+              console.log("mess");
             },
             error: function (e) {
               console.error("Ошибка отправки формы", e);
             },
           });
-        }
+        };
         grecaptcha.execute();
       }
     });
@@ -254,13 +256,13 @@ let forms = {
     return valid;
   },
 };
-var reCapchaSuccess = function (token){
+var reCapchaSuccess = function (token) {
   console.log(token);
-  if(window.formAjaxF){
-    window.formAjaxF()
+  if (window.formAjaxF) {
+    window.formAjaxF(token);
   }
   //$('form:not(#filterForm)').submit();
-}
+};
 window.reCapchaSuccess = reCapchaSuccess;
 
 export default forms;
