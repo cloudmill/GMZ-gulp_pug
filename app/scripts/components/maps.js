@@ -41,8 +41,8 @@ let maps = {
       });
     },
     init: function (API) {
-      let map = new Map("whereBuy", API, () => {
-        this.logic(map);
+      let map = new Map("whereBuy", API, (that) => {
+        this.logic(that);
       });
     },
   },
@@ -54,7 +54,7 @@ class Map {
     if ($("#map").length > 0) {
       this.Ymaps = API;
       this.init();
-      callback();
+      callback(this);
     }
   }
   init() {

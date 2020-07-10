@@ -24,7 +24,7 @@ export default class Wave {
     }
     this.normalOffset = this.offset;
 
-    this.fazeOffset = Math.random() * 0.1;
+    this.fazeOffset = Math.random() * 0.05;
     this.fazeOffset = this.fazeOffset < 0.01 ? 0.01 : this.fazeOffset;
 
     this.countPoints = 50;
