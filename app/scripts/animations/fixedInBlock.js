@@ -40,7 +40,7 @@ export default class Fixed {
   }
   update() {
     let header = $(".header");
-    if(this.heightCorrect == 1){
+    if(this.heightCorrect == 1 && !this.target.hasClass('product-item-img')){
       this.target.height(window.innerHeight - 90 - (header.hasClass("sticky") ? header.outerHeight() : 0))
     }
     this.h = this.base.outerHeight();
