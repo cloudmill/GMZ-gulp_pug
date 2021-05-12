@@ -47,7 +47,7 @@
     "jquery.maskedinput": "^1.4.1",
     "select2": "^4.0.13",
     "smooth-scrollbar": "^8.5.2",
-    "swiper": "^5.3.6",
+    "swiper": "^6.5.1",
     "yarn": "^1.22.4",
     "ymaps": "^0.2.1"
   },
